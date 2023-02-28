@@ -1,0 +1,3 @@
+# finstat-projekt
+
+Finstat? Idem!
