@@ -1,6 +1,6 @@
 <template>
-  <div class=" bg-slate-700">
-
+  <div class=" bg-slate-700 w-screen fixed bottom-0">
+    <p> kokot </p>
   </div>
 </template>
 
