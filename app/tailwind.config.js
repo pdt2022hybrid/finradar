@@ -11,9 +11,10 @@ module.exports = {
     extend: {},
 	colors: {
 		'background': '#C8C8C8',
-		'textGrey': '#434040',
+		'dark': '#434040',
 		'green': '#38DA6F',
-		'backgroundLight': '#D9D9D9',
+		'light': '#D9D9D9',
+		'search': '#DEDEDE',
 	},
 
 	fontFamily: {

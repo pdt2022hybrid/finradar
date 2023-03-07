@@ -1,7 +1,7 @@
 <template>
   <Navbar/>
-  <Footer/>
   <router-view/>
+  <Footer/>
 </template>
 
 <script>
@@ -17,4 +17,13 @@ export default {
 </script>
 
 <style>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background
+  }
+}
 </style>
