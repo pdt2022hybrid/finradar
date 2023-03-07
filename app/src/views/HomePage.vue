@@ -52,7 +52,7 @@ export default {
 	}
 
 	.homepageHeader{
-		@apply  items-center text-center w-screen mt-44
+		@apply  items-center text-center w-full mt-44
 	}
 
 	.header-text{
