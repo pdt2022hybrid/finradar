@@ -1,5 +1,7 @@
 <template>
-
+  <nav>
+    <router-link to="/databazy">Databazy</router-link>
+  </nav>
 </template>
 
 <script>
