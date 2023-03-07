@@ -1,6 +1,9 @@
 <template>
   <nav>
-    <router-link to="/databazy">Databazy</router-link>
+    <div>
+      <router-link to="/">logo space</router-link>
+      <router-link to="/databazy"></router-link>
+    </div>
   </nav>
 </template>
 
