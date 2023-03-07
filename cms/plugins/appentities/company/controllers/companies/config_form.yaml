@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Company
+
+# Model Form Field configuration
+form: $/appentities/company/models/company/fields.yaml
+
+# Model Class name
+modelClass: Appentities\Company\Models\Company
+
+# Default redirect location
+defaultRedirect: appentities/company/companies
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: appentities/company/companies/update/:id
+    redirectClose: appentities/company/companies
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: appentities/company/companies
+    redirectClose: appentities/company/companies
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

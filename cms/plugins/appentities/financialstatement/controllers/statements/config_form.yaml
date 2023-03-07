@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Statement
+
+# Model Form Field configuration
+form: $/appentities/financialstatement/models/statement/fields.yaml
+
+# Model Class name
+modelClass: Appentities\Financialstatement\Models\Statement
+
+# Default redirect location
+defaultRedirect: appentities/financialstatement/statements
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: appentities/financialstatement/statements/update/:id
+    redirectClose: appentities/financialstatement/statements
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: appentities/financialstatement/statements
+    redirectClose: appentities/financialstatement/statements
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title
