@@ -15,6 +15,7 @@ module.exports = {
 		'green': '#38DA6F',
 		'light': '#D9D9D9',
 		'search': '#DEDEDE',
+		'navtext': '#CFCFCF',
 	},
 
 	fontFamily: {
