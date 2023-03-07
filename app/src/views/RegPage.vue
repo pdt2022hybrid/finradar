@@ -1,10 +1,9 @@
 <template>
-
 </template>
 
 <script>
 export default {
-  name: "RegPage"
+  name: "RegPage",
 }
 </script>
 
