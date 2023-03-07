@@ -1,10 +1,14 @@
 <template>
-
+<Navbar/>
 </template>
 
 <script>
+import Navbar from "@/components/Navbar.vue";
 export default {
-  name: "RegPage"
+  name: "RegPage",
+  components: {
+    Navbar,
+  }
 }
 </script>
 
