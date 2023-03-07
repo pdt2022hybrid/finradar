@@ -2,7 +2,7 @@
 
 <div class="wrapper">
 	<header class="homepageHeader">
-		<span class="header-text">Vyhľadávanie v Databáze Firiem</span>
+		<h1 class="header-text">Vyhľadávanie v Databáze Firiem</h1>
 		<button class="header-btn">Vyhľadať firmu</button>
 	</header>
 
@@ -56,7 +56,7 @@ export default {
 	}
 
 	.header-text{
-		@apply block font-rubik font-bold text-dark text-4xl
+		@apply block font-rubik font-bold text-dark text-5xl
 
 	}
 
@@ -69,7 +69,7 @@ export default {
 	}
 
 	.mainContentText{
-		@apply flex w-96 flex-col text-xl text-dark font-medium
+		@apply flex w-96 flex-col text-xl text-dark font-normal
 	}
 
 	.mainContentText h2{
