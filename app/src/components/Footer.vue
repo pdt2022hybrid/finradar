@@ -1,6 +1,6 @@
 <template>
-  <div class=" bg-slate-700 w-screen bottom-0 p-4">
-    <p class="text-white place-content-center flex"> kokot </p>
+  <div class=" bg-dark w-screen bottom-0 py-4">
+    <p class="text-light place-content-center flex"> kokot </p>
   </div>
 </template>
 
