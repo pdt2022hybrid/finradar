@@ -7,16 +7,15 @@
     </div>
     <div class=" flex mr-32">
       <input type="text" class="search">
-      <div class="text-navtext">
+      <div class="text-navtext" @click="this.ShowMenu()">
 	      <img class="w-14 h-14 mb-1 rounded-full flex cursor-pointer"
              src="https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png"
              alt=""
-             @click="nav()"
         >
       </div>
     </div>
   </nav>
-  <MiniLogin :Visible="!LoggedIn"/>
+  <MiniLogin :Visible="!this.MiniLogIn"/>
 </template>
 
 <script>
@@ -24,17 +23,28 @@ import MiniLogin from "@/components/MiniLogin.vue";
 
 export default {
   name: "Navbar",
-  components: {MiniLogin},
-  props: {
-    LoggedIn: {
-      type: Boolean,
-      default: false,
+  components: {
+    MiniLogin,
+  },
+  // premenne vo vue
+  data() {
+    return {
+      // potom zmenime
+      LoggedIn: false,
+      MiniLogIn: false,
+      UserSettingsWindow: false,
     }
   },
   methods: {
+    // when clicking on user pfp
     // if not logged in show mini login
     // if logged in show the other window
-    nav() {
+    ShowMenu() {
+      if (this.LoggedIn === true) {
+        this.UserSettingsWindow = !this.UserSettingsWindow;
+      } else {
+        this.MiniLogIn = !this.MiniLogIn;
+      }
     }
   }
 }
