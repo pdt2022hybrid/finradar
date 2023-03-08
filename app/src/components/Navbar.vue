@@ -16,21 +16,24 @@
     </div>
   </nav>
   <MiniLogin :Visible="!this.MiniLogIn"/>
+  <UserMiniSettings :Visible="!this.UserSettingsWindow"/>
 </template>
 
 <script>
+import UserMiniSettings from "@/components/UserMiniSettings.vue";
 import MiniLogin from "@/components/MiniLogin.vue";
 
 export default {
   name: "Navbar",
   components: {
     MiniLogin,
+    UserMiniSettings,
   },
   // premenne vo vue
   data() {
     return {
       // potom zmenime
-      LoggedIn: false,
+      LoggedIn: true,
       MiniLogIn: false,
       UserSettingsWindow: false,
     }
@@ -40,7 +43,7 @@ export default {
     // if not logged in show mini login
     // if logged in show the other window
     ShowMenu() {
-      if (this.LoggedIn === true) {
+      if (this.LoggedIn) {
         this.UserSettingsWindow = !this.UserSettingsWindow;
       } else {
         this.MiniLogIn = !this.MiniLogIn;
