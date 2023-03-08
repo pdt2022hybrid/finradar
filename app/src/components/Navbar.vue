@@ -7,16 +7,36 @@
     </div>
     <div class=" flex mr-32">
       <input type="text" class="search">
-      <router-link to="/register" class="text-navtext">
-	  <img class="w-14 h-14 mb-1 rounded-full flex " src="https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png" alt="">
-	  </router-link>
+      <div class="text-navtext">
+	      <img class="w-14 h-14 mb-1 rounded-full flex "
+             src="https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png"
+             alt=""
+             @click="nav()"
+        >
+      </div>
     </div>
   </nav>
+  <MiniLogin :Visible="!LoggedIn"/>
 </template>
 
 <script>
+import MiniLogin from "@/components/MiniLogin.vue";
+
 export default {
-  name: "Navbar"
+  name: "Navbar",
+  components: {MiniLogin},
+  props: {
+    LoggedIn: {
+      type: Boolean,
+      default: false,
+    }
+  },
+  methods: {
+    // if not logged in show mini login
+    // if logged in show the other window
+    nav() {
+    }
+  }
 }
 </script>
 
