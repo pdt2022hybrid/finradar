@@ -25,5 +25,18 @@ export default {
   body {
     @apply bg-background
   }
+
+  h1{
+	@apply font-rubik font-bold
+  }
+
+  p{
+	@apply font-varela
+  }
+
+  h2 {
+	@apply font-rubik font-semibold
+  }
+
 }
 </style>
