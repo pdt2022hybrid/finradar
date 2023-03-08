@@ -3,7 +3,7 @@
 <div class="wrapper">
 	<header class="homepageHeader">
 		<h1 class="header-text">Vyhľadávanie v Databáze Firiem</h1>
-		<button class="header-btn">Vyhľadať firmu</button>
+		<button class="header-btn text-dark">Vyhľadať firmu</button>
 	</header>
 
 	<ul class="homepageMainContent">
