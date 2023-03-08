@@ -5,7 +5,7 @@
     <input type="text" class="inputs rounded" placeholder="pass">
     <div class="flex items-center">
       <input type="checkbox" class="inputs">
-      <p class="ml-4"> Remember me </p>
+      <p class="ml-2"> Remember me </p>
     </div>
     <button type="submit" form="Login" value="Submit"
     class="bg-green border p-1"
