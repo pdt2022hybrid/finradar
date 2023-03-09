@@ -3,11 +3,11 @@
         class="bg-light flex w-1/6 fixed right-32 border-2 rounded-xl p-5 mt-2 flex-col"
    >
      <header> Smigus Dyngus </header>
-     <router-link to="">
+     <router-link to="/dashboard">
        <img src="" alt="dashboard">
        Dashboard
      </router-link>
-     <router-link to="">
+     <router-link to="/">
        <img src="" alt="settings">
        Settings
      </router-link>
