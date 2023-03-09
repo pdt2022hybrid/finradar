@@ -1,4 +1,5 @@
 <template>
+  <!-- mi je zle z tohto tailwindu -->
   <div class=" text-center pt-12">
     <h1 class=" text-3xl font-bold">Registration</h1>
     <h2 class=" text-lg pt-14 font-semibold">Enter your information here to register an account</h2>

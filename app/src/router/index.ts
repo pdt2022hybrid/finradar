@@ -32,6 +32,7 @@ const router = createRouter({
       name: 'Register',
       component: () => import('@/views/RegPage.vue')
     }
+    // dalsie dame potom co urobime fazu 1
   ]
 })
 

@@ -1,4 +1,5 @@
 <template>
+  <!-- footer treba potom tiez -->
   <div class=" bg-dark w-full py-4">
     <p class="text-navtext place-content-center flex"> footer </p>
   </div>
