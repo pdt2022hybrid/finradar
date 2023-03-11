@@ -71,13 +71,11 @@ class Plugin extends PluginBase
      */
     public function registerNavigation()
     {
-        return []; // Remove this line to activate
-
         return [
             'financialreport' => [
-                'label' => 'financialreport',
-                'url' => Backend::url('appentities/financialreport/mycontroller'),
-                'icon' => 'icon-leaf',
+                'label' => 'Reports',
+                'url' => Backend::url('appentities/financialreport/reports'),
+                'icon' => 'icon-line-chart',
                 'permissions' => ['appentities.financialreport.*'],
                 'order' => 500,
             ],

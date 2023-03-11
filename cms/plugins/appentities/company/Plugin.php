@@ -71,13 +71,11 @@ class Plugin extends PluginBase
      */
     public function registerNavigation()
     {
-        return []; // Remove this line to activate
-
         return [
             'company' => [
-                'label' => 'company',
-                'url' => Backend::url('appentities/company/mycontroller'),
-                'icon' => 'icon-leaf',
+                'label' => 'Companies',
+                'url' => Backend::url('appentities/company/companies'),
+                'icon' => 'icon-subway',
                 'permissions' => ['appentities.company.*'],
                 'order' => 500,
             ],

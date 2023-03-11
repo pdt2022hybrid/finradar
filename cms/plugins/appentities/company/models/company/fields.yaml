@@ -6,3 +6,52 @@ fields:
     id:
         label: ID
         disabled: true
+    official_id:
+        label: Official system ID
+        readOnly: true
+        span: auto
+    name:
+        label: Name
+        type: text
+        readOnly: true
+        span: auto
+    ico:
+        label: ICO
+        type: text
+        readOnly: true
+        span: auto
+    dic:
+        label: DIC
+        type: text
+        readOnly: true
+        span: auto
+    legal_form:
+        label: Legal form
+        readOnly: true
+        span: auto
+    ownership_type:
+        label: Ownership type
+        readOnly: true
+        span: auto
+    street:
+        label: Street
+        type: text
+        readOnly: true
+        span: auto
+    city:
+        label: City
+        type: text
+        readOnly: true
+        span: auto
+    postal_zip:
+        label: ZIP
+        type: text
+        readOnly: true
+        span: auto
+    date_of_establishment:
+        label: Date of establishment
+        type: datepicker
+        mode: date
+        readOnly: true
+        span: auto
+

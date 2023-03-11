@@ -6,3 +6,40 @@ columns:
     id:
         label: ID
         searchable: true
+        invisible: true
+    official_id:
+        label: Official system ID
+        searchable: true
+    statement_id:
+        label: Statement ID
+        searchable: true
+        invisible: true
+    company:
+        label: Company
+        searchable: true
+        invisible: false
+    year:
+        label: Year
+        searchable: true
+        sortable: true
+        invisible: false
+    revenue:
+        label: Revenue
+        sortable: true
+        invisible: false
+    profits:
+        label: Profits
+        sortable: true
+        invisible: false
+    assets:
+        label: Assets
+        sortable: true
+        invisible: false
+    liabilities:
+        label: Liabilities
+        sortable: true
+        invisible: false
+    capital:
+        label: Capital
+        sortable: true
+        invisible: false

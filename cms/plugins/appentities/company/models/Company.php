@@ -23,12 +23,12 @@ class Company extends Model
 
     public $hasMany = [
         'statements' => [
-            'Appentities\FinancialStatement\Models\FinancialStatement',
+            'Appentities\Financialstatement\Models\Statement',
             'key' => 'ico',
-            'otherKey' => 'company_id',
+            'otherKey' => 'ico',
         ],
         'reports' => [
-            'Appentities\FinancialReport\Models\FinancialReport',
+            'Appentities\Financialreport\Models\Report',
             'key' => 'ico',
             'otherKey' => 'company_id',
         ],
@@ -63,7 +63,7 @@ class Company extends Model
         //refresh data
     }
 
-    public static function exists($id) {
-        return self::where('official_id', $id)->exists();
+    public static function exists($query) {
+        return self::where('official_id', $query)->orWhere('ico', $query)->exists();
     }
 }

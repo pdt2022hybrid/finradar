@@ -2,18 +2,24 @@
 
 use Appentities\Company\Models\Company;
 use Illuminate\Support\Facades\Http;
+use Dataimport\Finance\classes\ApiService as FinanceApiService;
 
+/**
+ * Class ApiService
+ *
+ */
 class ApiService
 {
-
     public static function hardRefresh()
     {
+        set_time_limit(0);
         self::refresh();
         return 'done';
     }
 
     public static function gracefulRefresh()
     {
+        set_time_limit(0);
         self::refresh(Company::orderBy('official_id', 'desc')->first()->official_id);
         return 'done';
     }
@@ -39,13 +45,15 @@ class ApiService
             }
 
         } while (
-            $response->ok()
-            && $response->json()['existujeDalsieId']
+            $response->ok() && $response->json()['existujeDalsieId']
         );
 
     }
 
-
+    /**
+     * @param $id * The id(in govt system) of the company to create
+     * @return void
+     */
     public static function createCompany($id): void
     {
         if (Company::exists($id)) {
@@ -65,6 +73,12 @@ class ApiService
             $company = new Company();
             $company->fillFromApi($response->json());
             $company->save();
+
+            if (isset($response->json()['idUctovnychZavierok'])) {
+                foreach ($response->json()['idUctovnychZavierok'] as $statement_id) {
+                    FinanceApiService::createStatement($statement_id);
+                }
+            }
         }
 
     }

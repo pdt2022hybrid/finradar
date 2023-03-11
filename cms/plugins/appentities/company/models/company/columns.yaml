@@ -6,3 +6,40 @@ columns:
     id:
         label: ID
         searchable: true
+        invisible: true
+    official_id:
+        label: Official system ID
+        searchable: true
+    name:
+        label: Name
+        searchable: true
+    ico:
+        label: ICO
+        searchable: true
+    dic:
+        label: DIC
+        searchable: true
+        invisible: true
+    legal_form:
+        label: Legal form
+        searchable: true
+        invisible: true
+    ownership_type:
+        label: Ownership type
+        searchable: true
+        invisible: true
+    street:
+        label: Street
+        searchable: true
+        invisible: true
+    city:
+        label: City
+        searchable: true
+        invisible: true
+    postal_zip:
+        label: ZIP
+        searchable: true
+        invisible: true
+    date_of_establishment:
+        label: Date of establishment
+        searchable: true
