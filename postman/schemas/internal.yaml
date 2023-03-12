@@ -7,69 +7,138 @@ info:
 paths:
   /companies:
     parameters:
-      - order: Sort order
-        description: The sort
-        in: path
-        required: true
+        -   name: order
+            in: query
+            description: Order by
+            required: false
+            schema:
+                type: string
+                enum: [name, revenue, profits, assets_total, liabilities_total, capital]
+        -   name: order_direction
+            in: query
+            description: Order direction
+            required: false
+            schema:
+                type: string
+                enum: [asc, desc]
+        -   name: per_page
+            in: query
+            description: Number of items per page
+            required: false
+            schema:
+                type: integer
+                minimum: 1
+                maximum: 100
+        -   name: page
+            in: query
+            description: Page number
+            required: false
+            schema:
+                type: integer
+                minimum: 1
+        -   name: search_query
+            in: query
+            description: Search query
+            required: false
+            schema:
+                type: string
+        -   name: revenue_min
+            in: query
+            description: Revenue min
+            required: false
+            schema:
+                type: integer
+        -   name: revenue_max
+            in: query
+            description: Revenue max
+            required: false
+            schema:
+                type: integer
+        -   name: profits_min
+            in: query
+            description: Profits min
+            required: false
+            schema:
+                type: integer
+        -   name: profits_max
+            in: query
+            description: Profits max
+            required: false
+            schema:
+                type: integer
     get:
       summary: Get list of companies
       responses:
         '200':
-          description: The spacecraft corresponding to the provided `spacecraftId`
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Spacecraft'
-        404:
-          description: No spacecraft found for the provided `spacecraftId`
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        500:
-          description: Unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+            description: List of companies
+            content:
+                application/json:
+                    schema:
+                        type: object
+                        properties:
+                            meta:
+                                $ref: '#/components/schemas/PaginationMeta'
+                            data:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/Company'
 components:
   schemas:
-    SpacecraftId:
-      description: The unique identifier of a spacecraft
+    Ico:
+      description: The unique identifier of a tax entity
       type: string
-    Spacecraft:
+    Company:
       type: object
-      required:
-        - id
-        - name
-        - type
       properties:
-        id:
-          $ref: '#/components/schemas/SpacecraftId'
         name:
           type: string
-        type:
+        official_id:
           type: string
-          enum:
-            - capsule
-            - probe
-            - satellite
-            - spaceplane
-            - station
-        description:
-          type: string
-    Error:
-      type: object
-      required:
-        - message
-      properties:
-        message:
-          description: A human readable error message
-          type: string
-  securitySchemes:
-    ApiKey:
-      type: apiKey
-      in: header
-      name: X-Api-Key
-security:
-  - ApiKey: []
+        ico:
+            $ref: '#/components/schemas/Ico'
+        dic:
+            type: string
+        address:
+            type: object
+            properties:
+              street:
+                type: string
+              city:
+                type: string
+              zip:
+                type: string
+              country:
+                type: string
+    PaginationMeta:
+        type: object
+        properties:
+            total:
+                type: integer
+            per_page:
+                type: integer
+            current_page:
+                type: integer
+            last_page:
+                type: integer
+            from:
+                type: integer
+            to:
+                type: integer
+            path:
+                type: string
+                description: Path to the endpoint
+    PaginationLinks:
+        type: object
+        properties:
+            first:
+                type: string
+                description: Link to the first page
+            last:
+                type: string
+                description: Link to the last page
+            prev:
+                type: string
+                description: Link to the previous page
+            next:
+                type: string
+                description: Link to the next page
