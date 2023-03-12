@@ -1,5 +1,6 @@
 <?php namespace AppEntities\Company\Http\Resources;
 
+use Appentities\Financialreport\Models\Report;
 use Illuminate\Http\Resources\Json\JsonResource;
 use AppEntities\Financialstatement\Http\Resources\StatementResource;
 use AppEntities\Financialreport\Http\Resources\ReportResource;
@@ -10,6 +11,7 @@ class CompanyResource extends JsonResource
     {
         return [
             'name' => $this->resource->name,
+            'official_id' => $this->resource->company_official_id ?? $this->resource->official_id,
             'ico' => $this->resource->ico,
             'dic' => $this->resource->dic,
             'address' => [
@@ -19,12 +21,13 @@ class CompanyResource extends JsonResource
             ],
             'date_of_establishment' => $this->resource->date_of_establishment,
             'latest_data' => [
-                'revenue' => $this->resource->latestRevenue,
-                'profits' => $this->resource->latestProfits,
-                'assets_total' => $this->resource->latestAssets,
-                'liabilities_total' => $this->resource->latestLiabilities,
-                'year' => $this->resource->latestYear,
-                'full_report' => ReportResource::make($this->resource->latestReport),
+                'revenue' => $this->resource->revenue,
+                'profits' => $this->resource->profits,
+                'assets_total' => $this->resource->assets_total,
+                'liabilities_total' => $this->resource->liabilities_total,
+                'capital' => $this->resource->capital,
+                'year' => $this->resource->year,
+                'full_report' => $this->when($this->resource->report_official_id, ReportResource::make(Report::where('official_id', $this->resource->report_official_id)->first())),
             ],
             'statements' => $this->when($this->resource->relationLoaded('statements'), StatementResource::collection($this->resource->statements)),
         ];

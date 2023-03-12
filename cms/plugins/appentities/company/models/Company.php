@@ -59,44 +59,10 @@ class Company extends Model
         return $this->reports->sortByDesc('year')->first();
     }
 
-    public function getLatestYearAttribute(): int
-    {
-        return $this->getLatestReport()->year ?? 0;
-    }
-
-    public function getLatestRevenueAttribute(): int
-    {
-        return $this->getLatestReport()->revenue ?? 0;
-    }
-
-    public function getLatestProfitsAttribute(): int
-    {
-        return $this->getLatestReport()->profits ?? 0;
-    }
-
-    public function getLatestAssetsAttribute(): int
-    {
-        return $this->getLatestReport()->assets_total ?? 0;
-    }
-
-    public function getLatestLiabilitiesAttribute(): int
-    {
-        return $this->getLatestReport()->profits_total ?? 0;
-    }
-
-    public function getLatestCapitalAttribute(): int
-    {
-        return $this->getLatestReport()->capital ?? 0;
-    }
-
-    public function getLatestReportAttribute()
-    {
-        return $this->getLatestReport();
-    }
-
-    public function afterSave()
-    {
-
+    public function scopeJoinLatestReport($query, $year) {
+        return $query->joinSub(Report::query()->where('year', $year)->isNotEmpty(), 'latest_reports', function ($join) {
+            $join->on('apidata_companies.ico', '=', 'latest_reports.ico');
+        })->select('latest_reports.*', 'apidata_companies.*', 'apidata_companies.official_id as company_official_id' ,'latest_reports.official_id as report_official_id');
     }
 
 }

@@ -20,7 +20,7 @@ class ReportResource extends JsonResource
             'profits' => $this->resource->profits,
             'assets_total' => $this->resource->assets_total,
             'liabilities_total' => $this->resource->liabilities_total,
-            'capital' => $this->resource->capital_total,
+            'capital' => $this->resource->capital,
             'assets' => [
                 'lt_intangible_assets_total' => $this->resource->lt_intangible_assets_total,
                 'lt_tangible_assets_total' => $this->resource->lt_tangible_assets_total,

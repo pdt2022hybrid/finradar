@@ -3,6 +3,7 @@
 use Illuminate\Routing\Controller;
 use Appentities\Company\Models\Company;
 use Appentities\Financialstatement\Models\Statement;
+use Appentities\Financialreport\Models\Report;
 use AppEntities\Company\Http\Resources\CompanyResource;
 use Carbon\Carbon;
 
@@ -11,6 +12,11 @@ class CompanyController extends Controller
 
     const PER_PAGE = 10;
 
+    public static function getYear(): int
+    {
+        return Carbon::now()->month < 4 ? Carbon::now()->year - 2 : Carbon::now()->year - 1;
+    }
+
     public function index() {
 
         $searchQuery = input('search_query');
@@ -18,43 +24,28 @@ class CompanyController extends Controller
         $revenueMax = input('revenue_max');
         $profitMin = input('profit_min');
         $profitMax = input('profit_max');
-
-        $year = Carbon::now()->month < 4 ? Carbon::now()->year : Carbon::now()->year - 1;
+        $order  = input('order') ?? 'revenue';
+        $orderDirection = input('order_direction') ?? 'desc';
 
         return CompanyResource::collection(
             Company::query()
-                ->orderBy(input('order') ?? 'ico', input('order_dir') ?? 'asc')
                 ->when($searchQuery, function ($query) use ($searchQuery) {
                     $query->where('name', 'LIKE', '%' . $searchQuery . '%')
-                        ->orWhere('ico', 'LIKE', '%' . $searchQuery . '%');
+                        ->orWhere('apidata_companies.ico', 'LIKE', '%' . $searchQuery . '%');
                 })
-                ->when($revenueMin, function ($query) use ($revenueMin, $year) {
-                    $query->whereHas('statements', function ($query) use ($revenueMin, $year) {
-                        $query->whereHas('reports', function ($query) use ($revenueMin, $year) {
-                            $query->where('year', $year)->where('revenue', '>=', $revenueMin);
-                        });
-                    });
+                ->joinLatestReport(self::getYear())
+                ->orderBy($order, $orderDirection)
+                ->when($revenueMin, function ($query) use ($revenueMin) {
+                    $query->where('revenue', '>=', $revenueMin);
                 })
-                ->when($revenueMax, function ($query) use ($revenueMax, $year) {
-                    $query->whereHas('statements', function ($query) use ($revenueMax, $year) {
-                        $query->whereHas('reports', function ($query) use ($revenueMax, $year) {
-                            $query->where('year', $year)->where('revenue', '<=', $revenueMax);
-                        });
-                    });
+                ->when($revenueMax, function ($query) use ($revenueMax) {
+                    $query->where('revenue', '<=', $revenueMax);
                 })
-                ->when($profitMin, function ($query) use ($profitMin, $year) {
-                    $query->whereHas('statements', function ($query) use ($profitMin, $year) {
-                        $query->whereHas('reports', function ($query) use ($profitMin, $year) {
-                            $query->where('year', $year)->where('profits', '>=', $profitMin);
-                        });
-                    });
+                ->when($profitMin, function ($query) use ($profitMin) {
+                    $query->where('profits', '>=', $profitMin);
                 })
-                ->when($profitMax, function ($query) use ($profitMax, $year) {
-                    $query->whereHas('statements', function ($query) use ($profitMax, $year) {
-                        $query->whereHas('reports', function ($query) use ($profitMax, $year) {
-                            $query->where('year', $year)->where('profits', '<=', $profitMax);
-                        });
-                    });
+                ->when($profitMax, function ($query) use ($profitMax) {
+                    $query->where('profits', '<=', $profitMax);
                 })
                 ->paginate(input('per_page') ?? self::PER_PAGE)
         );
@@ -62,11 +53,12 @@ class CompanyController extends Controller
 
     public function show($ico) {
         return CompanyResource::make(
-            Company::where('ico', $ico)
+            Company::where('apidata_companies.ico', $ico)
                 ->with('statements', function ($query) {
                     $query->orderBy('year', 'desc')
                     ->with('reports');
                 })
+                ->joinLatestReport(self::getYear())
                 ->firstOrFail()
         );
     }

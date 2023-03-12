@@ -23,13 +23,6 @@ return new class extends Migration
             $table->string('postal_zip')->nullable();
 
             $table->date('date_of_establishment')->nullable();
-
-            $table->bigInteger('latest_revenue')->default(0);
-            $table->bigInteger('latest_profits')->default(0);
-            $table->bigInteger('latest_assets_total')->default(0);
-            $table->bigInteger('latest_liabilities_total')->default(0);
-            $table->bigInteger('latest_capital')->default(0);
-
             $table->timestamps();
         });
 

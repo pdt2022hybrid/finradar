@@ -188,4 +188,8 @@ class Report extends Model
     public static function exists($id) {
         return self::where('official_id', $id)->exists();
     }
+
+    public function scopeIsNotEmpty($query) {
+        return $query; //TODO: do this
+    }
 }
