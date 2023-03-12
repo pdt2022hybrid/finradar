@@ -1,24 +1,16 @@
 <?php namespace Appentities\Company\Models;
 
 use Model;
+use Laravel\Scout\Searchable;
+use Appentities\Financialreport\Models\Report;
 
-/**
- * Company Model
- *
- * @link https://docs.octobercms.com/3.x/extend/system/models.html
- */
 class Company extends Model
 {
     use \October\Rain\Database\Traits\Validation;
+    use Searchable;
 
-    /**
-     * @var string table name
-     */
     public $table = 'apidata_companies';
 
-    /**
-     * @var array rules for validation
-     */
     public $rules = [];
 
     public $hasMany = [
@@ -30,7 +22,7 @@ class Company extends Model
         'reports' => [
             'Appentities\Financialreport\Models\Report',
             'key' => 'ico',
-            'otherKey' => 'company_id',
+            'otherKey' => 'ico',
         ],
     ];
 
@@ -58,12 +50,53 @@ class Company extends Model
 
     }
 
-    public function afterCreate()
-    {
-        //refresh data
-    }
-
     public static function exists($query) {
         return self::where('official_id', $query)->orWhere('ico', $query)->exists();
     }
+
+    public function getLatestReport()
+    {
+        return $this->reports->sortByDesc('year')->first();
+    }
+
+    public function getLatestYearAttribute(): int
+    {
+        return $this->getLatestReport()->year ?? 0;
+    }
+
+    public function getLatestRevenueAttribute(): int
+    {
+        return $this->getLatestReport()->revenue ?? 0;
+    }
+
+    public function getLatestProfitsAttribute(): int
+    {
+        return $this->getLatestReport()->profits ?? 0;
+    }
+
+    public function getLatestAssetsAttribute(): int
+    {
+        return $this->getLatestReport()->assets_total ?? 0;
+    }
+
+    public function getLatestLiabilitiesAttribute(): int
+    {
+        return $this->getLatestReport()->profits_total ?? 0;
+    }
+
+    public function getLatestCapitalAttribute(): int
+    {
+        return $this->getLatestReport()->capital ?? 0;
+    }
+
+    public function getLatestReportAttribute()
+    {
+        return $this->getLatestReport();
+    }
+
+    public function afterSave()
+    {
+
+    }
+
 }

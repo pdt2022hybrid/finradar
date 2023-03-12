@@ -24,6 +24,23 @@ class ApiService
         return 'done';
     }
 
+    public static function specificRefresh($ico)
+    {
+        set_time_limit(0);
+        $response = Http::get('https://www.registeruz.sk/cruz-public/api/uctovne-jednotky', [
+            'zmenene-od' => '2000-01-01',
+            'ico' => $ico,
+        ]);
+
+        if ($response->status() === 200) {
+            if (isset($response->json()['id'][0])) {
+                self::createCompany($response->json()['id'][0]);
+            }
+        };
+
+        return 'done';
+    }
+
     public static function refresh($last_id = 0): void
     {
 

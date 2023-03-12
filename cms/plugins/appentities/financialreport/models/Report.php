@@ -13,11 +13,12 @@ class Report extends Model
         'company' => [
             'Appentities\Company\Models\Company',
             'key' => 'ico',
-            'otherKey' => 'company_id',
+            'otherKey' => 'ico',
         ],
         'statement' => [
-            'Appentities\FinancialStatement\Models\FinancialStatement',
+            'Appentities\Financialstatement\Models\Statement',
             'key' => 'statement_id',
+            'otherKey' => 'official_id',
         ],
     ];
 
@@ -171,6 +172,7 @@ class Report extends Model
 
         foreach (['official_id', 'statement_id', 'ico', 'year'] as $column) {
             if (empty($this->$column)) {
+                echo "Column $column is empty";
                 return false;
             }
         }

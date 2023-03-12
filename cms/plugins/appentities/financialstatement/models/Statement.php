@@ -20,8 +20,9 @@ class Statement extends Model
 
     public $hasMany = [
         'reports' => [
-            'Appentities\FinancialReport\Models\FinancialReport',
+            'Appentities\Financialreport\Models\Report',
             'key' => 'statement_id',
+            'otherKey' => 'official_id',
         ],
     ];
 

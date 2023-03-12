@@ -8,7 +8,9 @@
         "php": "^8.0.2",
         "october/rain": "^3.2",
         "laravel/framework": "^9.0",
-        "october/all": "^3.1"
+        "october/all": "^3.1",
+        "laravel/scout": "^9.0",
+        "yab/laravel-scout-mysql-driver": "^5.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.5|^9.0"
