@@ -8,7 +8,7 @@
     <div class=" flex mr-32">
       <input type="text" class="search">
       <div class="text-navtext" @click="this.ShowMenu()">
-	      <img class="w-14 h-14 mb-1 rounded-full flex cursor-pointer"
+	      <img class="ml-10 w-14 h-14 mb-1 rounded-full flex cursor-pointer"
              src="https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png"
              alt=""
         >

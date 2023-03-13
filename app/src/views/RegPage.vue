@@ -2,15 +2,15 @@
   <!-- mi je zle z tohto tailwindu -->
   <div class=" text-center pt-12">
     <h1 class=" text-3xl font-bold">Registration</h1>
-    <h2 class=" text-lg pt-14 font-semibold">Enter your information here to register an account</h2>
-      <div class=" mr-96 ml-96 pt-8">
-        <div class=" bg-light ml-48 mr-48 p-3">
+    <h2 class=" mb-8 text-lg pt-14 font-semibold">Enter your information here to register an account</h2>
+      <div class=" mb-48 mr-96 ml-96">
+        <div class=" bg-light ml-48 mr-48 p-5">
           <p class="">E-mail</p>
-          <input type="text" class="text-center w-56">
+          <input type="text" class="text-center text-dark w-56">
           <p>Password (min. 8 characters)</p>
-          <input type="text" class="text-center w-56">
+          <input type="text" class="text-center text-dark w-56">
           <p>Confirm password</p>
-          <input type="text" class="text-center w-56">
+          <input type="text" class="text-center w-56 text-dark">
           <button class="bg-green rounded mt-4 w-24 text-dark scale-x-105">Submit</button>
         </div>
       </div>
