@@ -3,6 +3,23 @@
 # ===================================
 
 columns:
-    id:
-        label: ID
+    official_id:
+        label: Official ID
         searchable: true
+    company_ico:
+        label: ICO
+        searchable: true
+        invisible: false
+        relation: company
+        select: ico
+    company_name:
+        label: Company name
+        searchable: true
+        invisible: false
+        relation: company
+        select: name
+    year:
+        label: Year
+        searchable: true
+        invisible: false
+

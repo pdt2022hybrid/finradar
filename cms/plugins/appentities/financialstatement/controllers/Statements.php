@@ -13,21 +13,15 @@ class Statements extends Controller
     public $implement = [
         \Backend\Behaviors\FormController::class,
         \Backend\Behaviors\ListController::class,
+        \Backend\Behaviors\RelationController::class
     ];
 
-    /**
-     * @var string formConfig file
-     */
     public $formConfig = 'config_form.yaml';
 
-    /**
-     * @var string listConfig file
-     */
     public $listConfig = 'config_list.yaml';
 
-    /**
-     * @var array required permissions
-     */
+    public $relationConfig = 'config_relations.yaml';
+
     public $requiredPermissions = ['appentities.financialstatement.statements'];
 
     /**

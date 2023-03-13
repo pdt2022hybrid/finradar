@@ -77,7 +77,7 @@ class Plugin extends PluginBase
                 'url' => Backend::url('appentities/company/companies'),
                 'icon' => 'icon-subway',
                 'permissions' => ['appentities.company.*'],
-                'order' => 500,
+                'order' => 400,
             ],
         ];
     }

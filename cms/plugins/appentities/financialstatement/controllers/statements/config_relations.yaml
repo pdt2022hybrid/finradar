@@ -1,0 +1,8 @@
+reports:
+    label: Financial reports
+    view:
+        list: $/appentities/financialreport/models/report/columns.yaml
+    readOnly: true
+    manage:
+        form: $/appentities/financialreport/models/report/fields.yaml
+    emptyMessage: No reports

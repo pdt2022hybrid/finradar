@@ -2,56 +2,97 @@
 #  Form Field Definitions
 # ===================================
 
-fields:
-    id:
-        label: ID
-        disabled: true
-    official_id:
-        label: Official system ID
-        readOnly: true
-        span: auto
-    name:
-        label: Name
-        type: text
-        readOnly: true
-        span: auto
-    ico:
-        label: ICO
-        type: text
-        readOnly: true
-        span: auto
-    dic:
-        label: DIC
-        type: text
-        readOnly: true
-        span: auto
-    legal_form:
-        label: Legal form
-        readOnly: true
-        span: auto
-    ownership_type:
-        label: Ownership type
-        readOnly: true
-        span: auto
-    street:
-        label: Street
-        type: text
-        readOnly: true
-        span: auto
-    city:
-        label: City
-        type: text
-        readOnly: true
-        span: auto
-    postal_zip:
-        label: ZIP
-        type: text
-        readOnly: true
-        span: auto
-    date_of_establishment:
-        label: Date of establishment
-        type: datepicker
-        mode: date
-        readOnly: true
-        span: auto
-
+tabs:
+    stretch: true
+    defaultTab: Data
+    icons:
+        Data: icon-address-card-o
+        Finances: icon-money
+        Statements: icon-list-ol
+    fields:
+        id:
+            label: ID
+            disabled: true
+        official_id:
+            label: Official system ID
+            readOnly: true
+            span: auto
+        name:
+            label: Name
+            type: text
+            readOnly: true
+            span: auto
+        ico:
+            label: ICO
+            type: text
+            readOnly: true
+            span: auto
+        dic:
+            label: DIC
+            type: text
+            readOnly: true
+            span: auto
+        legal_form:
+            label: Legal form
+            readOnly: true
+            span: auto
+        ownership_type:
+            label: Ownership type
+            readOnly: true
+            span: auto
+        street:
+            label: Street
+            type: text
+            readOnly: true
+            span: auto
+        city:
+            label: City
+            type: text
+            readOnly: true
+            span: auto
+        postal_zip:
+            label: ZIP
+            type: text
+            readOnly: true
+            span: auto
+        date_of_establishment:
+            label: Date of establishment
+            type: datepicker
+            mode: date
+            readOnly: true
+            span: auto
+        revenue:
+            label: Revenue
+            type: number
+            readOnly: true
+            span: left
+            tab: Finances
+        profits:
+            label: Profits
+            type: number
+            readOnly: true
+            span: right
+            tab: Finances
+        assets_total:
+            label: Total assets
+            type: number
+            readOnly: true
+            span: left
+            tab: Finances
+        liabilities_total:
+            label: Total liabilities
+            type: number
+            readOnly: true
+            span: right
+            tab: Finances
+        capital:
+            label: Capital
+            type: number
+            readOnly: true
+            span: left
+            tab: Finances
+        statements:
+            label: Statements
+            type: partial
+            path: $/appentities/company/controllers/companies/_field_statements.htm
+            tab: Statements

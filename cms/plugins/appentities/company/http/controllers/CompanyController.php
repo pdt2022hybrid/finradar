@@ -12,11 +12,6 @@ class CompanyController extends Controller
 
     const PER_PAGE = 10;
 
-    public static function getYear(): int
-    {
-        return Carbon::now()->month < 4 ? Carbon::now()->year - 2 : Carbon::now()->year - 1;
-    }
-
     public function index() {
 
         $searchQuery = input('search_query');
@@ -33,7 +28,7 @@ class CompanyController extends Controller
                     $query->where('name', 'LIKE', '%' . $searchQuery . '%')
                         ->orWhere('apidata_companies.ico', 'LIKE', '%' . $searchQuery . '%');
                 })
-                ->joinLatestReport(self::getYear())
+                ->joinLatestReport()
                 ->orderBy($order, $orderDirection)
                 ->when($revenueMin, function ($query) use ($revenueMin) {
                     $query->where('revenue', '>=', $revenueMin);
@@ -58,7 +53,7 @@ class CompanyController extends Controller
                     $query->orderBy('year', 'desc')
                     ->with('reports');
                 })
-                ->joinLatestReport(self::getYear())
+                ->joinLatestReport()
                 ->firstOrFail()
         );
     }

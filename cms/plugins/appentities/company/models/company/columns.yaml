@@ -43,3 +43,8 @@ columns:
     date_of_establishment:
         label: Date of establishment
         searchable: true
+    revenue:
+        label: Revenue
+        sortable: true
+        invisible: true
+

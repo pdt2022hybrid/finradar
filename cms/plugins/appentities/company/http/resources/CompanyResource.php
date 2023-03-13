@@ -14,6 +14,7 @@ class CompanyResource extends JsonResource
             'official_id' => $this->resource->company_official_id ?? $this->resource->official_id,
             'ico' => $this->resource->ico,
             'dic' => $this->resource->dic,
+            'legal_form' => $this->resource->legal_form,
             'address' => [
                 'street' => $this->resource->street,
                 'city' => $this->resource->city,

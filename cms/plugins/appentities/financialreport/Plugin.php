@@ -77,7 +77,7 @@ class Plugin extends PluginBase
                 'url' => Backend::url('appentities/financialreport/reports'),
                 'icon' => 'icon-line-chart',
                 'permissions' => ['appentities.financialreport.*'],
-                'order' => 500,
+                'order' => 402,
             ],
         ];
     }

@@ -13,11 +13,19 @@ columns:
     statement_id:
         label: Statement ID
         searchable: true
-        invisible: true
-    company:
-        label: Company
+        invisible: false
+    company_ico:
+        label: Company ICO
         searchable: true
         invisible: false
+        relation: company
+        select: ico
+    company_name:
+        label: Company name
+        searchable: true
+        invisible: false
+        relation: company
+        select: name
     year:
         label: Year
         searchable: true

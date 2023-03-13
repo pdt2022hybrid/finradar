@@ -1,5 +1,6 @@
 <?php namespace Appentities\Company\Models;
 
+use Carbon\Carbon;
 use Model;
 use Laravel\Scout\Searchable;
 use Appentities\Financialreport\Models\Report;
@@ -54,13 +55,18 @@ class Company extends Model
         return self::where('official_id', $query)->orWhere('ico', $query)->exists();
     }
 
+    public static function getYear(): int
+    {
+        return Carbon::now()->month < 4 ? Carbon::now()->year - 2 : Carbon::now()->year - 1;
+    }
+
     public function getLatestReport()
     {
         return $this->reports->sortByDesc('year')->first();
     }
 
-    public function scopeJoinLatestReport($query, $year) {
-        return $query->joinSub(Report::query()->where('year', $year)->isNotEmpty(), 'latest_reports', function ($join) {
+    public function scopeJoinLatestReport($query) {
+        return $query->joinSub(Report::query()->where('year', self::getYear())->isNotEmpty(), 'latest_reports', function ($join) {
             $join->on('apidata_companies.ico', '=', 'latest_reports.ico');
         })->select('latest_reports.*', 'apidata_companies.*', 'apidata_companies.official_id as company_official_id' ,'latest_reports.official_id as report_official_id');
     }

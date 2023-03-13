@@ -1,0 +1,9 @@
+statements:
+    label: Financial statements
+    view:
+        list: $/appentities/financialstatement/models/statement/columns.yaml
+    readOnly: true
+    manage:
+        form: $/appentities/financialstatement/models/statement/fields.yaml
+    emptyMessage: No statements
+

@@ -13,22 +13,16 @@ class Companies extends Controller
     public $implement = [
         \Backend\Behaviors\FormController::class,
         \Backend\Behaviors\ListController::class,
+        \Backend\Behaviors\RelationController::class
     ];
 
-    /**
-     * @var string formConfig file
-     */
     public $formConfig = 'config_form.yaml';
 
-    /**
-     * @var string listConfig file
-     */
     public $listConfig = 'config_list.yaml';
 
-    /**
-     * @var array required permissions
-     */
     public $requiredPermissions = ['appentities.company.companies'];
+
+    public $relationConfig = '$/appentities/company/controllers/companies/config_relations.yaml';
 
     /**
      * __construct the controller
@@ -38,5 +32,15 @@ class Companies extends Controller
         parent::__construct();
 
         BackendMenu::setContext('Appentities.Company', 'company', 'companies');
+    }
+
+    public function listExtendQuery($query)
+    {
+        $query->joinLatestReport();
+    }
+
+    public function formExtendQuery($query)
+    {
+        $query->joinLatestReport();
     }
 }
