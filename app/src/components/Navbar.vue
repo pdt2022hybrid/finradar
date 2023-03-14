@@ -20,7 +20,7 @@
   <UserMiniSettings :Visible="!this.UserSettingsWindow"/>
 </template>
 
-<script >
+<script>
 import UserMiniSettings from "@/components/UserMiniSettings.vue";
 import MiniLogin from "@/components/MiniLogin.vue";
 
