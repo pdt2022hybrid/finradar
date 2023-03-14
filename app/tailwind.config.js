@@ -10,6 +10,7 @@ module.exports = {
   theme: {
     extend: {},
 	colors: {
+		'tables': '#EFEFEF',
 		'background': '#C8C8C8',
 		'dark': '#434040',
 		'green': '#38DA6F',

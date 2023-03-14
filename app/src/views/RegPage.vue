@@ -4,7 +4,7 @@
     <h1 class=" text-4xl font-bold">Registration</h1>
     <h2 class=" mb-16 text-xl pt-14 font-semibold">Enter your information here to register an account</h2>
       <div class=" mb-48 mr-96 ml-96">
-        <div class=" bg- ml-48 mr-48 p-5 scale-110">
+        <div class=" bg-tables light ml-48 mr-48 p-5 scale-110">
           <div class="pl-2 pr-2 m-1">
           <p class="text-left text-sm mb-1">Full name</p>
           <input type="text" class="bar">
