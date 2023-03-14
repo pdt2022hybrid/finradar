@@ -1,15 +1,30 @@
 <template>
-  <div class="flex justify-center">
-    <div>
-      <div>
+  <div class="flex items-center flex-col">
+    <div class="flex items-start flex-col">
+      <h1> Databazy </h1>
+      <h3> Filtrovanie v databaze x</h3>
+    </div>
+    <div class="w-4/5">
+      <div class="bg-tables flex flex-row p-6">
+        <div class="w-1/2 grid">
+          <input>
+          <span class="inline-grid grid-cols-2">
+            <input>
+            <input>
+            <input>
+            <input>
+          </span>
+        </div>
+        <div class="w-1/2">
 
+        </div>
       </div>
-      <table class="w-4/5 bg-light">
-        <thead class="border-2">
+      <table class="bg-tables">
+        <thead class="border bg-dark">
         <tr>
-          <th>Meno</th>
-          <th>Trzby</th>
-          <th>Zisk</th>
+          <th class="">Meno</th>
+          <th class="">Trzby</th>
+          <th class="">Zisk</th>
         </tr>
         </thead>
         <tbody>
@@ -43,7 +58,6 @@ export default {
           console.log(response);
           this.Data = response;
           })
-
         .catch((errors) => {
           console.log(errors); // Errors
         });
@@ -58,7 +72,13 @@ export default {
 
 @layer base {
   tr > th, tr > td  {
-    @apply border-2
+    @apply border
+  }
+  td, th {
+    @apply p-1.5
+  }
+  input {
+    @apply m-1.5 rounded
   }
 }
 </style>
