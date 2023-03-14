@@ -15,6 +15,7 @@
       </div>
     </div>
   </nav>
+  <!-- tunak passujeme opak premennych do Visible prop na komponentoch -->
   <MiniLogin :Visible="!this.MiniLogIn"/>
   <UserMiniSettings :Visible="!this.UserSettingsWindow"/>
 </template>

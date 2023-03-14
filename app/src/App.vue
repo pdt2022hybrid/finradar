@@ -22,6 +22,7 @@ export default {
 @tailwind utilities;
 
 @layer base {
+
   body {
     @apply bg-background
   }
