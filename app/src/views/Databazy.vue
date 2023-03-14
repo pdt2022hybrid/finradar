@@ -16,10 +16,10 @@
           </span>
         </div>
         <div class="w-1/2">
-
+          <button>Hladaj</button>
         </div>
       </div>
-      <table class="bg-tables">
+      <table class="bg-tables w-full">
         <thead class="border bg-dark">
         <tr>
           <th class="">Meno</th>
