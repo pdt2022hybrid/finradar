@@ -24,9 +24,9 @@ return new class extends Migration
 
             $table->date('date_of_establishment')->nullable();
             $table->timestamps();
-        });
 
-        shell_exec('php artisan scout:mysql-index Appentities\Company\Models\Company');
+            $table->fullText(['name', 'street', 'city', 'postal_zip']);
+        });
     }
 
     public function down()
