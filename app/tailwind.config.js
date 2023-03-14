@@ -22,7 +22,8 @@ module.exports = {
 
 	fontFamily: {
 		'rubik': ['"Rubik"', ...defaultTheme.fontFamily.sans],
-		'varela': ['"Varela"', ...defaultTheme.fontFamily.sans]
+		'varela': ['"Varela"', ...defaultTheme.fontFamily.sans],
+		'material-symbols-outlined': ['"Material Symbols Outlined"', ...defaultTheme.fontFamily.sans],
 	}
   },
   plugins: [],
