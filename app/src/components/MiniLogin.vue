@@ -1,19 +1,19 @@
 <template>
   <div :class="{invisible: this.Visible}">
-    <form id="Login" class="bg-light flex w-1/6 items-center fixed right-32 border-2 rounded-xl p-5 mt-2 flex-col">
+    <form id="Login" class="bg-light flex w-1/5 items-center fixed right-32 border-2 rounded-xl p-5 mt-2 flex-col">
       <h1 class="text-4xl">Log In</h1>
-      <input type="text" class="inputs mt-4 rounded" placeholder="mail">
-      <input type="text" class="inputs rounded" placeholder="pass">
-      <div class="flex items-center">
+      <input type="text" class=" w-52 inputs mt-4 mb-2 rounded" placeholder="e-mail">
+      <input type="text" class=" w-52 inputs rounded" placeholder="password">
+      <div class=" w-full pl-7 flex items-center justify-start">
         <input type="checkbox" class="inputs">
-        <p class="ml-2"> Remember me </p>
+        <p class="ml-2 font-rubik"> Remember me </p>
       </div>
       <button type="submit" form="Login" value="Submit"
-      class="bg-green border p-1"
+      class="bg-green border p-1 w-52 py-1 rounded-xl border-dark border-opacity-75 border-2 font-medium "
       >Submit</button>
-      <div class="flex justify-around">
-        <a href="/register">Sign up</a>
-        <a href="/"> Forgot your password?</a>
+      <div class=" pt-4 text-xs w-full text-underline underline underline-offset-1 flex justify-around">
+        <a href="/register" class="w-18">Sign up</a>
+        <a href="/" class="w-30"> Forgot your password?</a>
       </div>
     </form>
   </div>
