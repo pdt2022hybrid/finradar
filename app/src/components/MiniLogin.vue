@@ -6,12 +6,12 @@
       <input type="text" class=" w-52 inputs rounded" placeholder="password">
       <div class=" w-full pl-7 flex items-center justify-start">
         <input type="checkbox" class="inputs">
-        <p class="ml-2 font-rubik"> Remember me </p>
+        <p class="ml-2 font-varela"> Remember me </p>
       </div>
       <button type="submit" form="Login" value="Submit"
-      class="bg-green border p-1 w-52 py-1 rounded-xl border-dark border-opacity-75 border-2 font-medium "
+      class="bg-green border p-1 w-52 py-1 rounded-xl border-dark border-opacity-75 border-2 font-medium font-varela"
       >Submit</button>
-      <div class=" pt-4 text-xs w-full text-underline underline underline-offset-1 flex justify-around">
+      <div class=" pt-4 text-xs font-varela w-full text-underline underline underline-offset-1 flex justify-around">
         <a href="/register" class="w-18">Sign up</a>
         <a href="/" class="w-30"> Forgot your password?</a>
       </div>
