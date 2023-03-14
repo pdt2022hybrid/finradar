@@ -20,7 +20,7 @@
    </div>
 </template>
 
-<script>
+<script >
 export default {
   name: "UserMiniSettings",
   props: {

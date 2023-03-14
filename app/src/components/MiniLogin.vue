@@ -19,7 +19,7 @@
   </div>
 </template>
 
-<script>
+<script >
 export default {
   name: "MiniLogin",
   props: {

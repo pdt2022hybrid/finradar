@@ -43,7 +43,7 @@ export default {
           console.log(response);
           this.Data = response;
           })
-        // tunak ak je error tak ho to zachity a vypise
+
         .catch((errors) => {
           console.log(errors); // Errors
         });
