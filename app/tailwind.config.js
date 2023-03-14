@@ -16,6 +16,7 @@ module.exports = {
 		'light': '#D9D9D9',
 		'search': '#DEDEDE',
 		'navtext': '#CFCFCF',
+		'underline': '#0F89CE',
 	},
 
 	fontFamily: {
