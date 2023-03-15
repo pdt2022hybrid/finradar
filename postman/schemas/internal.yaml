@@ -4,6 +4,8 @@ info:
   title: 'Finstat Internal API'
   description: Get data about comapanies in Slovakia
 
+servers:
+    - url: finstat.hybridlab.dev/api
 paths:
   /companies:
     parameters:

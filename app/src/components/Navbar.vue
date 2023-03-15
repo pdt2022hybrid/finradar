@@ -1,14 +1,14 @@
 <template>
-  <nav class="navbar h-20">
+  <nav class="navbar h-20 min-w-fit">
     <div class=" ml-40 mt-2 text-lg ">
       <router-link class=" mr-24 text-navtext" to="/">Logo Space</router-link>
       <router-link to="/databazy" class="text-navtext mr-24">Databázy</router-link>
-      <router-link to="/" class="text-navtext">API</router-link>
+<!--      <router-link to="/" class="text-navtext">API</router-link>-->
     </div>
     <div class=" flex mr-32">
       <input type="text" class="search">
-      <div class="text-navtext" @click="this.ShowMenu()">
-	      <img class="ml-10 w-14 h-14 mb-1 rounded-full flex cursor-pointer"
+      <div class="text-navtext mb-2 flex" @click="this.ShowMenu()">
+	      <img class="ml-10 w-14 h-14 bottom-2 rounded-full flex cursor-pointer"
              src="https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png"
              alt=""
         >

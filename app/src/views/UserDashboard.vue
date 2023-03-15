@@ -1,6 +1,4 @@
 <template>
-  <!-- urbim ja html neskor
-    - Hidas -->
   <div>
 
   </div>
