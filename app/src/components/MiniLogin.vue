@@ -5,7 +5,7 @@
       <input type="text" class=" w-52 inputs mt-4 mb-2 rounded" placeholder="e-mail">
       <input type="text" class=" w-52 inputs rounded" placeholder="password">
       <div class=" w-full pl-7 flex items-center justify-start">
-        <input type="checkbox" class="inputs">
+        <input type="checkbox" class="inputs ml-9">
         <p class="ml-2 font-varela"> Remember me </p>
       </div>
       <button type="submit" form="Login" value="Submit"
