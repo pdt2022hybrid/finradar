@@ -2,6 +2,7 @@
   <!-- alex pls tailwind treba urobit
   ked Visible === true tak sa tomu da visibility: invisible -->
    <div :class="{invisible: this.Visible}"
+<<<<<<< Updated upstream
         class="bg-light flex w-1/6 fixed right-32 border-2 rounded-xl p-5 mt-2 flex-col indent-2"
 	>
      <header class="font-rubik font-medium text-lg border-b-2"> Smigus Dyngus </header>
@@ -20,6 +21,23 @@
 			class="w-5 h-5 m-0 ml-2">
        		<p>Log Out</p>
 	 </router-link>
+=======
+        class="bg-light flex w-1/6 fixed right-32  border-2 rounded-xl p-5 mt-2 flex-col"
+   >
+     <header> Smigus Dyngus </header>
+     <router-link to="/dashboard">
+       <img src="" alt="dashboard">
+       Dashboard
+     </router-link>
+     <router-link to="/">
+       <img src="" alt="settings">
+       Settings
+     </router-link>
+     <button>
+       <img src="" alt="logout">
+       Log out
+     </button>
+>>>>>>> Stashed changes
    </div>
 </template>
 
