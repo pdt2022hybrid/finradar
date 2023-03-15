@@ -43,7 +43,6 @@ export default {
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
 
 	.wrapper{
@@ -61,7 +60,7 @@ export default {
 	}
 
 	.header-btn{
-		@apply text-center items-center  mt-20 mb-36 w-64 h-10 rounded-lg bg-green
+		@apply text-center items-center  mt-20 mb-36 w-64 h-10 rounded-lg bg-blue
 	}
 
 	.homepageMainContent{
@@ -81,6 +80,4 @@ export default {
 	}
 
 }
-
-
 </style>

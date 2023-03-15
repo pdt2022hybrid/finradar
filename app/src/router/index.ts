@@ -31,6 +31,11 @@ const router = createRouter({
       path: '/register',
       name: 'Register',
       component: () => import('@/views/RegPage.vue')
+    },
+    {
+      path: '/Pages',
+      name: 'Mapa stranok',
+      component: () => import('@/views/IndexOfPages.vue')
     }
     // dalsie dame potom co urobime fazu 1
   ]

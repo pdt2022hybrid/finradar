@@ -6,7 +6,7 @@
     <h2 class=" mb-16 text-xl pt-14 font-semibold">Sem zadajte Vaše informácie na registráciu profilu</h2>
         <form class=" bg-tables p-6 flex-row">
           <label class="block">
-          <span class="after:ml-0.5 after:text-red-500 block text-sm text-left font-medium text-slate-700">
+            <span class="after:ml-0.5 after:text-red-500 block text-sm text-left font-medium text-slate-700">
             Meno a Priezvisko
             </span>
             <input
@@ -16,7 +16,7 @@
               placeholder="Vaše meno a priezvisko">
           </label>
           <label class="block">
-          <span class="after:ml-0.5 after:text-red-500 block text-sm text-left font-medium text-slate-700">
+            <span class="after:ml-0.5 after:text-red-500 block text-sm text-left font-medium text-slate-700">
             E-mail
             </span>
             <input
@@ -26,8 +26,8 @@
               placeholder="you@example.com" />
           </label>
           <label class="block">
-          <span class="after:ml-0.5 after:text-red-500 block text-sm text-left font-medium text-slate-700">
-            <span>Heslo (min. 8 znakov)</span>
+            <span class="after:ml-0.5 after:text-red-500 block text-sm text-left font-medium text-slate-700">
+              <span>Heslo (min. 8 znakov)</span>
             </span>
             <input
               type="password"
@@ -56,7 +56,7 @@
           <input type="text" class="bar">
           <button class="bg-green rounded mt-4 w-64 text-dark h-7">Submit</button>
           </div> -->
-          <button class="bg-green rounded mt-6 w-full text-dark h-9">Potvrdiť	</button>
+          <button class="bg-blue rounded mt-6 w-full text-dark h-9">Potvrdiť	</button>
         </form>
       </div>
   </div>

@@ -1,7 +1,12 @@
 <template>
   <!-- footer treba potom tiez -->
-  <div class=" bg-dark w-full py-4">
-    <p class="text-navtext place-content-center flex"> footer </p>
+  <div class=" bg-dark w-full py-5 justify-center flex">
+    <div class="grid-cols-4 grid w-4/5">
+      <p> footer </p>
+      <router-link to="/Pages">
+        <p> Mapa Stranok</p>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -12,5 +17,14 @@ export default {
 </script>
 
 <style scoped>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@layer base {
+
+  p {
+    @apply text-navtext
+  }
+}
 </style>

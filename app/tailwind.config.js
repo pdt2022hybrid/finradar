@@ -13,11 +13,11 @@ module.exports = {
 		'tables': '#EFEFEF',
 		'background': '#C8C8C8',
 		'dark': '#434040',
-		'green': '#38DA6F',
+		'blue': '#3399E9',
 		'light': '#D9D9D9',
 		'search': '#DEDEDE',
 		'navtext': '#CFCFCF',
-		'underline': '#0F89CE',
+		'underline': '#3399E9',
 	},
 
 	fontFamily: {
