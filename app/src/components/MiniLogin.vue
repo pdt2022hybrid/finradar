@@ -1,6 +1,6 @@
 <template>
   <div :class="{invisible: this.Visible}">
-    <form id="Login" class="bg-light flex w-1/5 items-center fixed right-32 border-2 rounded-xl p-5 mt-2 flex-col">
+    <form id="Login" class="bg-light flex w-1/5 items-center absolute right-32 border-2 rounded-xl p-5 mt-2 flex-col">
       <h1 class="text-4xl">Log In</h1>
       <input type="text" class=" w-52 inputs mt-4 mb-2 rounded" placeholder="e-mail">
       <input type="text" class=" w-52 inputs rounded" placeholder="password">
