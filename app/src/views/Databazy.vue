@@ -4,33 +4,33 @@
       <h1> Databazy </h1>
       <h3> Filtrovanie v databaze x</h3>
     </div>
-    <div class="w-4/5">
-      <div class="bg-tables flex flex-row p-6">
+    <div class="w-4/5 border">
+      <form class="bg-tables flex flex-row p-6">
         <div class="w-1/2 grid">
-          <input>
+          <input type="text" class="label" placeholder="Meno / ICO firmy">
           <span class="inline-grid grid-cols-2">
-            <input>
-            <input>
-            <input>
-            <input>
+            <input class="label" type="number" placeholder="trzby od">
+            <input class="label" type="number" placeholder="trzby do">
+            <input class="label" type="number" placeholder="zisk od">
+            <input class="label" type="number" placeholder="zisk do">
           </span>
         </div>
         <div class="w-1/2 flex justify-end items-end">
-          <button class="">Hladaj</button>
+          <button class="w-3/5 bg-blue p-1.5 rounded border border-">Hľadaj</button>
         </div>
-      </div>
+      </form>
       <table class="bg-tables w-full">
-        <thead class="border bg-dark">
+        <thead class="border-y bg-dark">
         <tr>
-          <th class="">Meno</th>
-          <th class="">Trzby</th>
+          <th class="border-r">Meno</th>
+          <th class="border-r">Trzby</th>
           <th class="">Zisk</th>
         </tr>
         </thead>
         <tbody>
         <tr v-for="item in this.Data">
-          <td></td>
-          <td></td>
+          <td class="border-r"> {{ item }}</td>
+          <td class="border-r"></td>
           <td></td>
         </tr>
         </tbody>
@@ -71,14 +71,15 @@ export default {
 @tailwind utilities;
 
 @layer base {
+
   tr > th, tr > td  {
-    @apply border
+    @apply border-y p-1.5
   }
   td, th {
     @apply p-1.5
   }
-  input {
-    @apply m-1.5 rounded
+  .label {
+    @apply m-1.5 p-1 bg-background rounded placeholder-dark placeholder-opacity-70
   }
 }
 </style>

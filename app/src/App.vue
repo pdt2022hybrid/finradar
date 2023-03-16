@@ -23,23 +23,5 @@ export default {
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-
-  body {
-    @apply bg-background
-  }
-
-  h1{
-	@apply font-rubik font-bold
-  }
-
-  p{
-	@apply font-varela
-  }
-
-  h2 {
-	@apply font-rubik font-semibold
-  }
-
-}
+@layer base {  }
 </style>

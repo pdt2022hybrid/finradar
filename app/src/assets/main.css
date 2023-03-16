@@ -5,3 +5,28 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+
+    input[type='number']::-webkit-outer-spin-button,
+    input[type='number']::-webkit-inner-spin-button,
+    input[type='number'] {
+        -webkit-appearance: none;
+        margin: 0;
+        -moz-appearance: textfield !important;
+    }
+    body {
+        @apply bg-background
+    }
+
+    h1{
+        @apply font-rubik font-bold
+    }
+
+    p{
+        @apply font-varela
+    }
+
+    h2 {
+        @apply font-rubik font-semibold
+    }
+}

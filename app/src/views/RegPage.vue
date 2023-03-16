@@ -23,7 +23,7 @@
               type="email"
               name="email"
               class="mt-1 px-3 py-2 bg-white shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
-              placeholder="you@example.com" />
+              placeholder="name@example.com" />
           </label>
           <label class="block">
             <span class="after:ml-0.5 after:text-red-500 block text-sm text-left font-medium text-slate-700">
@@ -73,9 +73,6 @@ export default {
 @tailwind utilities;
 
 @layer base {
-  .bar {
-    @apply pl-1 mb-1 w-64 text-dark rounded bg-navtext h-7
-  }
-}
 
+}
 </style>
