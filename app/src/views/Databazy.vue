@@ -4,7 +4,7 @@
       <h1> Databazy </h1>
       <h3> Filtrovanie v databaze x</h3>
     </div>
-    <div class="w-4/5 border">
+    <div class="w-4/5 border-x border-t">
       <form class="bg-tables flex flex-row p-6">
         <div class="w-1/2 grid">
           <input type="text" class="label" placeholder="Meno / ICO firmy">
@@ -28,7 +28,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in this.Data">
+        <tr v-for="item in this.Data.data">
           <td class="border-r"> {{ item }}</td>
           <td class="border-r"></td>
           <td></td>
