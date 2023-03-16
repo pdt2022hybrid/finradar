@@ -15,8 +15,8 @@
             <input>
           </span>
         </div>
-        <div class="w-1/2">
-          <button>Hladaj</button>
+        <div class="w-1/2 flex justify-end items-end">
+          <button class="">Hladaj</button>
         </div>
       </div>
       <table class="bg-tables w-full">
