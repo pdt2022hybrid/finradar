@@ -1,15 +1,16 @@
 <template>
 
-  <div class="flex flex-col items-center border-2 p-20 m-20">
-    <div class="flex flex-col items-start ">
+  <div class="flex flex-col justify-center p-20 border-2">
+    <div class="flex flex-col items-start underline border-r w-48 h-full">
+      <h3>Vznik</h3>
+      <h3>Sídlo</h3>
+      <h3>CEO</h3>
+      <h3>Počet Zamestnancov</h3>
+      <h3>ICO</h3>
+
     </div>
-    <div class="grid-cols-1 grid-flow-col ">
-      <h3>
-        Vznik
-      </h3>
-      <h3>
-        Sídlo
-      </h3>
+    <div class="flex flex-col items-center">
+      <h3>example</h3>
     </div>
   </div>
 
