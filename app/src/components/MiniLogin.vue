@@ -3,17 +3,17 @@
     <form id="Login" class="bg-light flex w-1/5 items-center absolute right-32 border-2 rounded-xl p-5 mt-2 flex-col">
       <h1 class="text-4xl">Log In</h1>
       <input type="text" class=" w-52 inputs mt-4 mb-2 rounded" placeholder="e-mail">
-      <input type="text" class=" w-52 inputs rounded" placeholder="password">
+      <input type="text" class=" w-52 inputs rounded" placeholder="heslo">
       <div class=" w-full pl-7 flex items-center justify-start">
         <input type="checkbox" class="inputs ml-9">
-        <p class="ml-2 font-varela"> Remember me </p>
+        <p class="ml-2 font-varela"> Zapamätať si ma </p>
       </div>
       <button type="submit" form="Login" value="Submit"
       class="bg-blue border p-1 w-52 py-1 rounded-xl border-dark border-opacity-75 border-2 font-medium font-varela"
-      >Submit</button>
+      >Prihlásiť sa</button>
       <div class=" pt-4 text-xs font-varela w-full text-underline underline underline-offset-1 flex justify-around">
-        <a href="/register" class="w-18">Sign up</a>
-        <a href="/" class="w-30"> Forgot your password?</a>
+        <a href="/register" class="w-18">Registrovať sa</a>
+        <a href="/" class="w-30"> Zabudli ste heslo?</a>
       </div>
     </form>
   </div>
