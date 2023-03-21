@@ -7,11 +7,8 @@
     </div>
     <div class=" flex mr-32">
       <input type="text" class="search">
-      <div class="text-navtext mb-2 flex" @click="this.ShowMenu()">
-	      <img class="ml-10 w-14 h-14 bottom-2 rounded-full flex cursor-pointer"
-             src="https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png"
-             alt=""
-        >
+      <div class="text-navtext flex items-center" @click="this.ShowMenu()">
+			 <i class="bi bi-person-circle ml-10 rounded-full flex cursor-pointer text-blue text-5xl"></i>
       </div>
     </div>
   </nav>
@@ -34,7 +31,7 @@ export default {
   data() {
     return {
       // potom zmenime
-      LoggedIn: true,
+      LoggedIn: false,
       MiniLogIn: false,
       UserSettingsWindow: false,
     }
