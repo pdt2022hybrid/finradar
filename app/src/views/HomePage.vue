@@ -47,11 +47,10 @@ export default {
 
 	.wrapper{
 		@apply bg-background min-h-screen
-
 	}
 
 	.homepageHeader{
-		@apply  items-center text-center w-full mt-44
+		@apply  items-center text-center w-full pt-44
 	}
 
 	.header-text{
@@ -64,7 +63,7 @@ export default {
 	}
 
 	.homepageMainContent{
-		@apply bg-light flex place-content-evenly h-fit py-20 mb-60
+		@apply flex place-content-evenly h-fit py-20 pb-60
 	}
 
 	.mainContentText{
