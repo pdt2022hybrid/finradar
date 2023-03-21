@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Statement
+
+# Model Form Field configuration
+form: $/appentities/statement/models/statement/fields.yaml
+
+# Model Class name
+modelClass: Appentities\Statement\Models\Statement
+
+# Default redirect location
+defaultRedirect: appentities/statement/statements
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: appentities/statement/statements/update/:id
+    redirectClose: appentities/statement/statements
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: appentities/statement/statements
+    redirectClose: appentities/statement/statements
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title
