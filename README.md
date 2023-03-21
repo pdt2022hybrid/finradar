@@ -1,4 +1,1 @@
-# finstat-projekt
-
-Finstat? Idem!
-frfr
+Finradar!
