@@ -1,1 +1,1 @@
-Finstat
+Finradar
