@@ -1,8 +1,7 @@
 <template>
-  <div class="flex items-center flex-col">
     <div class="flex items-start flex-col">
-      <h1> Databazy </h1>
-      <h3> Filtrovanie v databaze x</h3>
+      <h1 class="text-3xl font-bold"> Databázy </h1>
+      <h3 class="text-xl"> Filtrovanie v databaze x</h3>
     </div>
     <div class="w-4/5 border-x border-t">
       <form class="bg-tables flex flex-row p-6">
@@ -36,7 +35,6 @@
         </tbody>
       </table>
     </div>
-  </div>
 </template>
 
 <script>
