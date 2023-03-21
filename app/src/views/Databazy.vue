@@ -2,7 +2,7 @@
 	<div class="">
     <div class="flex-col ml-52 mt-16 flex items-start font-rubik">
       <h1 class="text-4xl mb-10 font-extrabold"> Databázy </h1>
-      <h3 class="text-xl font-bold mb-2"> Filtrovanie v databáze</h3>
+      <h3 class="text-xl font-bold mb-4 indent-8"> Filtrovanie v databáze</h3>
     </div>
 	<div class="flex flex-col items-center">
     <div class="flex-col border-x border-t flex w-3/4 mb-28">
@@ -30,9 +30,9 @@
         </thead>
         <tbody>
         <tr v-for="item in this.Data.data">
-          <td class="border-r"> {{ item }}</td>
-          <td class="border-r"></td>
-          <td></td>
+          <td class="border-r"> {{ item.name }}</td>
+          <td class="border-r text-center"> {{ item.latest_data.capital }} €</td>
+          <td class="text-center"> {{ item.latest_data.revenue }} €</td>
         </tr>
         </tbody>
       </table>
@@ -54,11 +54,11 @@ export default {
   mounted() {
     axios
         // z tohto ulr to bere data a da to do response ako promise
-        .get('/api/companies?per_page=15&order_direction=asc&search_query=PLUS')
+        .get('/api/companies')
         // tunak manipulujeme s responsom a dame ho do premennej Data
         .then((response) => {
           console.log(response);
-          this.Data = response;
+          this.Data = response.data;
           })
         .catch((errors) => {
           console.log(errors); // Errors
