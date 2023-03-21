@@ -1,0 +1,22 @@
+{
+    "name": "wezeo/cors",
+    "version": "1.0.0",
+    "description": "CORS plugin",
+    "authors": [
+        {
+            "name": "Psycho",
+            "email": "sekerka@wezeo.com"
+        },
+        {
+            "name": "Patrik Nemeček",
+            "email": "nemecek@wezeo.com"
+        }
+    ],
+    "support": {
+        "issues": "https://gitlab.com/wezeo/ocms-plugins-public/cors"
+    },
+    "require": {
+        "php": "^7.1"
+    }
+}
+
