@@ -34,7 +34,7 @@
           <tbody>
           <tr v-for="item in this.Data">
             <td class="border-r">
-              <h4 class="cursor-pointer" @click="$router.go(-1)"> {{ item.name }} </h4>
+              <h4 class="cursor-pointer w-fit" @click="$router.go(-1)"> {{ item.name }} </h4>
             </td>
             <td class="border-r text-center"> {{ item.latest_data.capital }} €</td>
             <td class="text-center"> {{ item.latest_data.revenue }} €</td>

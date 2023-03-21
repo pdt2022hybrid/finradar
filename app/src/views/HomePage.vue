@@ -5,7 +5,6 @@
 		<h1 class="header-text">Vyhľadávanie v Databáze Firiem</h1>
 		<button class="header-btn text-dark">Vyhľadať firmu</button>
 	</header>
-
 	<ul class="homepageMainContent">
 		<li class="mainContentText">
 			<h2>LOREM</h2>
@@ -63,7 +62,7 @@ export default {
 	}
 
 	.homepageMainContent{
-		@apply flex place-content-evenly h-fit py-20 pb-60
+		@apply flex place-content-evenly h-fit py-20 pb-20 mb-40 bg-light
 	}
 
 	.mainContentText{
