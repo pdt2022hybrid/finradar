@@ -1,28 +1,30 @@
 <template>
-    <div class="flex items-start flex-col">
-      <h1 class="text-3xl font-bold"> Databázy </h1>
-      <h3 class="text-xl"> Filtrovanie v databaze x</h3>
+	<div class="">
+    <div class="flex-col ml-52 mt-16 flex items-start font-rubik">
+      <h1 class="text-4xl mb-10 font-extrabold"> Databázy </h1>
+      <h3 class="text-xl font-bold mb-2"> Filtrovanie v databáze</h3>
     </div>
-    <div class="w-4/5 border-x border-t">
+	<div class="flex flex-col items-center">
+    <div class="flex-col border-x border-t flex w-3/4 mb-28">
       <form class="bg-tables flex flex-row p-6">
         <div class="w-1/2 grid">
-          <input type="text" class="label" placeholder="Meno / ICO firmy">
+          <input type="text" class="label placeholder-dark placeholder:font-rubik" placeholder="Meno / IČO firmy">
           <span class="inline-grid grid-cols-2">
-            <input class="label" type="number" placeholder="trzby od">
-            <input class="label" type="number" placeholder="trzby do">
-            <input class="label" type="number" placeholder="zisk od">
-            <input class="label" type="number" placeholder="zisk do">
+            <input class="label placeholder-dark placeholder:font-rubik" type="number" placeholder="Tržby od">
+            <input class="label placeholder-dark placeholder:font-rubik" type="number" placeholder="Tržby do">
+            <input class="label placeholder-dark placeholder:font-rubik" type="number" placeholder="Zisk od">
+            <input class="label placeholder-dark placeholder:font-rubik" type="number" placeholder="Zisk do">
           </span>
         </div>
         <div class="w-1/2 flex justify-end items-end">
-          <button class="w-3/5 bg-blue p-1.5 rounded border border-">Hľadaj</button>
+          <button class="w-3/5 bg-blue p-1.5 rounded border font-varela">Hľadaj</button>
         </div>
       </form>
-      <table class="bg-tables w-full">
-        <thead class="border-y bg-dark">
+      <table class="bg-tables w-full font-varela">
+        <thead class="border-y bg-dark text-background">
         <tr>
-          <th class="border-r">Meno</th>
-          <th class="border-r">Trzby</th>
+          <th class="border-r">Názov</th>
+          <th class="border-r">Tržby</th>
           <th class="">Zisk</th>
         </tr>
         </thead>
@@ -35,6 +37,8 @@
         </tbody>
       </table>
     </div>
+	</div>
+	</div>
 </template>
 
 <script>
