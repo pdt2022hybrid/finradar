@@ -35,7 +35,7 @@ class ApiReport
      */
     private function setTemplate(): void
     {
-        $this->template = new ApiTemplate($this->response['idSablony']);
+        $this->template = new ApiTemplate($this->response['idSablony']); // create new api template
     }
 
     private function canCreateReport(): bool
