@@ -12,7 +12,7 @@ const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
-axios.defaults.baseURL = 'http://192.168.1.225:8088';
+axios.defaults.baseURL = import.meta.env.VITE_APP_AXIOS_URL;
 app.config.globalProperties.$axios = axios;
 
 

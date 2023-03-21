@@ -54,7 +54,7 @@ export default {
   mounted() {
     axios
         // z tohto ulr to bere data a da to do response ako promise
-        .get('https://jsonplaceholder.typicode.com/todos/1')
+        .get('/api/companies?per_page=15&order_direction=asc&search_query=PLUS')
         // tunak manipulujeme s responsom a dame ho do premennej Data
         .then((response) => {
           console.log(response);
