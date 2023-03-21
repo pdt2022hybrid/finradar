@@ -5,7 +5,7 @@ id = 5743196f-f815-4462-9eab-6d2877f2d550
 
 [relations.collections]
 rootDirectory = postman/collections
-files[] = {"id":"22459400-e96d090b-34b6-4b7c-a710-b563187a36ba","path":"finstat internal.json","metaData":{}}
+files[] = {"id":"22459400-e96d090b-34b6-4b7c-a710-b563187a36ba","path":"internal.json","metaData":{}}
 
 [relations.collections.metaData]
 
