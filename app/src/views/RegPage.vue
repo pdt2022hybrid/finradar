@@ -16,7 +16,7 @@
             <input
               type="name"
               name="full name"
-              class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 placeholder:text-tables focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+              class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
               placeholder="Vaše meno a priezvisko">
           </label>
           <label class="block">
@@ -26,7 +26,7 @@
             <input
               type="email"
               name="email"
-              class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 placeholder:text-tables outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+              class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
               placeholder="name@example.com" />
           </label>
           <label class="block">
@@ -36,7 +36,7 @@
             <input
               type="password"
               name="passw"
-              class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 placeholder:text-tables focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+              class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
               placeholder="Vaše heslo" />
           </label>
           <label class="block">
@@ -46,7 +46,7 @@
             <input
               type="confirm pass"
               name="confpass"
-              class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 placeholder:text-tables focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+              class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
               placeholder="" />
           </label>
           <button class="bg-blue rounded mt-6 mb-2 w-full text-dark font-bold h-9">Potvrdiť	</button>
