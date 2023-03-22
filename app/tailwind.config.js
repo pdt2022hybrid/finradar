@@ -11,6 +11,7 @@ module.exports = {
     extend: {},
 	colors: {
 		'tables': '#EFEFEF',
+		'white': '#FFFFFF',
 		'background': '#C8C8C8',
 		'dark': '#434040',
 		'blue': '#3399E9',

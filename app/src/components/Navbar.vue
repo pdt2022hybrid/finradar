@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       // potom zmenime
-      LoggedIn: false,
+      LoggedIn: true,
       MiniLogIn: false,
       UserSettingsWindow: false,
     }
