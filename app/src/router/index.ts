@@ -14,27 +14,28 @@ const router = createRouter({
     },
     {
       path: '/databazy',
-      name: 'Databazy',
+      name: 'databazy',
       component: () => import('@/views/Databazy.vue')
     },
     {
       path: '/dashboard',
-      name: 'Dashboard',
+      name: 'dashboard',
       component: () => import('@/views/UserDashboard.vue')
     },
     {
-      path: '/company',
-      name: 'Company',
+      path: '/company/:ico',
+      name: 'company',
+      props: true,
       component: () => import('@/views/CompanyPage.vue')
     },
     {
       path: '/register',
-      name: 'Register',
+      name: 'register',
       component: () => import('@/views/RegPage.vue')
     },
     {
       path: '/Pages',
-      name: 'Mapa stranok',
+      name: 'mapa_stranok',
       component: () => import('@/views/IndexOfPages.vue')
     }
     // dalsie dame potom co urobime fazu 1

@@ -8,16 +8,18 @@
       <div class="flex-col border-x border-t flex w-3/4 mb-28">
         <form class="bg-tables flex flex-row p-6" >
           <div class="w-1/2 grid">
-            <input type="text" class="label placeholder-dark placeholder:font-rubik" placeholder="Meno / IČO firmy">
+            <input type="text" class="label placeholder-dark placeholder:font-rubik" placeholder="Meno / IČO firmy" v-model="firma">
             <span class="inline-grid grid-cols-2">
-              <input class="label placeholder-dark placeholder:font-rubik" type="number" placeholder="Tržby od">
-              <input class="label placeholder-dark placeholder:font-rubik" type="number" placeholder="Tržby do">
-              <input class="label placeholder-dark placeholder:font-rubik" type="number" placeholder="Zisk od">
-              <input class="label placeholder-dark placeholder:font-rubik" type="number" placeholder="Zisk do">
+              <input class="label" type="number" placeholder="Zisk od" v-model="profit.min">
+              <input class="label" type="number" placeholder="Zisk do" v-model="profit.max">
+              <input class="label" type="number" placeholder="Tržby od" v-model="revenue.min">
+              <input class="label" type="number" placeholder="Tržby do" v-model="revenue.max">
             </span>
           </div>
           <div class="w-1/2 flex justify-end items-end">
-            <button class="w-3/5 bg-blue p-1.5 rounded border font-varela">Hľadaj</button>
+            <button class="w-3/5 bg-blue p-1.5 rounded border font-varela" @click="SetLink">
+              Hľadaj
+            </button>
           </div>
         </form>
         <table class="bg-tables w-full font-varela">
@@ -34,14 +36,12 @@
           <tbody>
           <tr v-for="item in this.Data">
             <td class="border-r">
-              <h4 class="cursor-pointer w-fit" @click="$router.go(-1)"> {{ item.name }} </h4>
+              <h4 class="cursor-pointer w-fit" @click="$router.go('/company/' + item.ico)"> {{ item.name }} </h4>
             </td>
             <td class="border-r text-center"> {{ item.latest_data.capital }} €</td>
             <td class="text-center"> {{ item.latest_data.revenue }} €</td>
           </tr>
           </tbody>
-          <tfoot>
-          </tfoot>
         </table>
       </div>
     </div>
@@ -55,12 +55,27 @@ export default {
   data() {
     return {
       Data: [],
+      per_page: '',
+      axios_link: 'api/companies',
+      revenue: {
+        max: '',
+        min: '',
+      },
+      profit: {
+        max: '',
+        min: '',
+      },
+      firma: '',
+    }
+  },
+  methods: {
+    SetLink() {
     }
   },
   // funkcia, ktora sa spusti ked sa loadne page
   async mounted() {
     try {
-      await axios.get('/api/companies')
+      await axios.get(this.axios_link)
           .then((response) => {
             console.log(response);
             this.Data = response.data.data;
@@ -86,7 +101,7 @@ export default {
     @apply p-1.5
   }
   .label {
-    @apply m-1.5 p-1 bg-background rounded placeholder-dark placeholder-opacity-70
+    @apply m-1.5 p-1 bg-background rounded placeholder-dark placeholder-opacity-70 placeholder:font-rubik
   }
 }
 </style>
