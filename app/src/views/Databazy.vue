@@ -36,7 +36,9 @@
           <tbody>
           <tr v-for="item in this.Data">
             <td class="border-r">
-              <h4 class="cursor-pointer w-fit" @click="$router.go('/company/' + item.ico)"> {{ item.name }} </h4>
+              <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
+                <h4 class="cursor-pointer w-fit" @click="redirect"> {{ item.name }} </h4>
+              </router-link>
             </td>
             <td class="border-r text-center"> {{ item.latest_data.capital }} €</td>
             <td class="text-center"> {{ item.latest_data.revenue }} €</td>
@@ -70,6 +72,7 @@ export default {
   },
   methods: {
     SetLink() {
+      this.axios_link = this.axios_link + ''
     }
   },
   // funkcia, ktora sa spusti ked sa loadne page

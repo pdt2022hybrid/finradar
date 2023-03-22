@@ -25,7 +25,6 @@ const router = createRouter({
     {
       path: '/company/:ico',
       name: 'company',
-      props: true,
       component: () => import('@/views/CompanyPage.vue')
     },
     {
