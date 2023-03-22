@@ -62,6 +62,29 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "load a template",
+					"id": "96fee12f-eca9-4dcd-978f-2d9a0a6633e4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/import/template",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"import",
+								"template"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"id": "9fffe1e8-5376-49c1-82a3-c71d441da178"
@@ -211,7 +234,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "bae3f0aa-d93d-4e51-9e29-c8e00c7c8e21",
+				"id": "b905bbd4-083a-48a3-901d-a8340ac465e4",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -221,7 +244,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "dc184baa-6d44-4e0a-a39f-071bb31addc5",
+				"id": "0524ed13-017b-462f-94ce-4286ebf61b8b",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -231,9 +254,9 @@
 	],
 	"variable": [
 		{
-			"id": "9ca924c6-8e3e-4248-abde-6606e5d430c9",
+			"id": "4e76404e-62c3-47e0-9a4e-2c51475341e3",
 			"key": "base_url",
-			"value": "https://finradar.hybridlab.dev",
+			"value": "https://finradar.hybridlab.dev/cms",
 			"type": "string"
 		}
 	]
