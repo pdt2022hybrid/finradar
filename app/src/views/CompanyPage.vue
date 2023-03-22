@@ -34,7 +34,7 @@
         <h1>Zisky</h1>
         <line-chart :data="{'2017-05-13': 2, '2017-05-14': 5}"></line-chart>
         <h1>Pasíva</h1>
-        <pie-chart :data="[['Blueberry', 44], ['Strawberry', 23]]"></pie-chart>
+        <pie-chart :data="[['Blueberry', 44], ['Strawberry', ]]"></pie-chart>
       </div>
   </div>
   </div>
@@ -49,17 +49,20 @@ data() {
       Data: [],
     }
   },
-  mounted() {
-    axios
-      .get('https://jsonplaceholder.typicode.com/todos/1')
+  async mounted() {
+    try {
+      let ico = this.$route.params.ico
+      console.log(ico);
+      await axios.get('/api/companies/' + ico)
       .then((response)=> {
         console.log(response);
+        this.Data = response.data.data;
       }) 
-      .catch((errors)=> {
+      } catch(errors) {
         console.log(errors);
-      })
+      }
+    }
   }
-}
 </script>
 
 <style scoped>
