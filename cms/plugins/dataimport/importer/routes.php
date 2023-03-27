@@ -1,6 +1,7 @@
 <?php
 
 use Dataimport\Importer\classes\Import;
+use Dataimport\Report\classes\ApiTemplate;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'api/import'], function () {

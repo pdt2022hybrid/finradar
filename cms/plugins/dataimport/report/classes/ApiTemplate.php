@@ -32,19 +32,43 @@ class ApiTemplate
         $this->tables = collect($this->request->response['tabulky']);
     }
 
-    public function getColumn()
+    public function getColumn($column): array
     {
 
-        $filtered = $this->tables->filter(function ($table) {
-            $rows = collect($table['riadky']);
-            $rows->filter(function ($row) {
-                return $row['text']['sk'] === $this->columns['revenue'];
-            });
-            return $rows;
+        $column_text = $this->columns[$column];
+
+        $filtered = $this->tables->filter( function ($value) use ($column_text) {
+            return $this->filterFindRow($value['riadky'], $column_text);
         });
 
-        dd($filtered);
+        $table = $filtered->first();
+        $table_name = $filtered->first()['nazov']['sk'];
+        $table_columns = $table['pocetDatovychStlpcov'];
 
+        $row = $this->filterFindRow($table['riadky'], $column_text)->first();
+        $row_number = $row['cisloRiadku'];
+
+        return [
+            'table_name' => $table_name,
+            'row' => $row_number * $table_columns - 2,
+        ];
+
+
+    }
+
+    private function filterFindRow($rows, $column_text)
+    {
+        $rows = collect($rows);
+
+        $filtered = $rows->filter(function ($value) use ($column_text) {
+            if (str_contains($value['text']['sk'], $column_text)) {
+                return $value;
+            }
+        });
+
+        if ($filtered->count() > 0) {
+            return $filtered;
+        }
     }
 
 }
