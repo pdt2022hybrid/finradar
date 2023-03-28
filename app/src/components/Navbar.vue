@@ -13,6 +13,14 @@
       </div>
     </form>
   </nav>
+<!--  ma asi drbne dnes do rana -->
+<!--  <ul>-->
+<!--    <li v-for="item in this.Data">-->
+<!--      <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">-->
+<!--        <h4 class="cursor-pointer w-fit" @click="redirect"> {{ item.name }} </h4>-->
+<!--      </router-link>-->
+<!--    </li>-->
+<!--  </ul>-->
   <!-- tunak passujeme opak premennych do Visible prop na komponentoch (retardovana metoda) -->
   <MiniLogin :Visible="!this.MiniLogIn"/>
   <UserMiniSettings :Visible="!this.UserSettingsWindow"/>
@@ -37,6 +45,7 @@ export default {
       MiniLogIn: false,
       UserSettingsWindow: false,
       name: null,
+      Data: []
     }
   },
   methods: {
