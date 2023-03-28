@@ -91,7 +91,6 @@ class ApiReport
         } catch (Exception $e) {
             Log::error($e->getMessage() . ' ' . $e->getTraceAsString());
             Log::warning('Cannot create report, error happened when creating', ['data'=> $this->response]);
-            dd($this->report, $e->getMessage(), $e->getTraceAsString());
             throw new Exception('Cannot create report');
         }
 

@@ -9,10 +9,10 @@ class SearchController extends Controller
     public function search(): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
 
-        $searchResults = Company::search(request('query'))->get();
-        $queryResult =Company::where('ico', 'like', '%'.request('query').'%')->get();
+        $textResults = Company::search(input('query'))->get();
+        $icoResults = Company::where('ico', 'like', '%'.input('query').'%')->get();
 
-        $results = $searchResults->merge($queryResult);
+        $results = $textResults->merge($icoResults);
 
         return CompanyResource::collection($results);
 

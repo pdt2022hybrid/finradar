@@ -28,7 +28,11 @@ class CompanyResource extends JsonResource
                 'liabilities_total' => $this->resource->liabilities_total,
                 'capital' => $this->resource->capital,
                 'year' => $this->resource->year,
-                'full_report' => $this->when($this->resource->report_official_id, ReportResource::make(Report::where('official_id', $this->resource->report_official_id)->first())),
+            ],
+            'latest_report' => $this->when($this->resource->report_official_id, ReportResource::make(Report::where('official_id', $this->resource->report_official_id)->first())),
+            'graph_data' => [
+                'revenue' => $this->when($this->resource->relationLoaded('reports'), $this->resource->reports->pluck('revenue', 'year')),
+                'profits' => $this->when($this->resource->relationLoaded('reports'), $this->resource->reports->pluck('profits', 'year')),
             ],
             'statements' => $this->when($this->resource->relationLoaded('statements'), StatementResource::collection($this->resource->statements)),
         ];

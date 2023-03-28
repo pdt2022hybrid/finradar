@@ -21,6 +21,7 @@ class CompanyController extends Controller
         $profitMax = input('profit_max');
         $order  = input('order') ?? 'revenue';
         $orderDirection = input('order_direction') ?? 'desc';
+        $perPage = input('per_page') ?? self::PER_PAGE;
 
         return CompanyResource::collection(
             Company::query()
@@ -42,7 +43,7 @@ class CompanyController extends Controller
                 ->when($profitMax, function ($query) use ($profitMax) {
                     $query->where('profits', '<=', $profitMax);
                 })
-                ->paginate(input('per_page') ?? self::PER_PAGE)
+                ->paginate(input('per_page') ?? $perPage)
         );
     }
 
@@ -53,6 +54,7 @@ class CompanyController extends Controller
                     $query->orderBy('year', 'desc')
                     ->with('reports');
                 })
+                ->with('reports')
                 ->joinLatestReport()
                 ->firstOrFail()
         );

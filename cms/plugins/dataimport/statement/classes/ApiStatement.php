@@ -33,7 +33,7 @@ class ApiStatement
     {
         $this->statement = new Statement();
         $this->fillFromApi();
-        $this->statement->company_id = $this->company()->id;
+        $this->statement->company_id = $this->company()->official_id;
 
         if ($this->checkData()) {
             $this->statement->save();
