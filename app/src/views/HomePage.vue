@@ -1,7 +1,7 @@
 <template>
 
 <div class="wrapper">
-	<header class="homepageHeader">
+	<header class="homepageHeader bg-gradient-to-t">
 		<h1 class="header-text">Vyhľadávanie v Databáze Firiem</h1>
 		<button class="header-btn text-white font-varela">
 			<i class="bi bi-search"></i>
