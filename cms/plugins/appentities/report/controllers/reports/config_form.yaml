@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Report
+
+# Model Form Field configuration
+form: $/appentities/report/models/report/fields.yaml
+
+# Model Class name
+modelClass: Appentities\Report\Models\Report
+
+# Default redirect location
+defaultRedirect: appentities/report/reports
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: appentities/report/reports/update/:id
+    redirectClose: appentities/report/reports
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: appentities/report/reports
+    redirectClose: appentities/report/reports
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

@@ -1,0 +1,23 @@
+fields:
+    official_id:
+        label: Official ID
+        readOnly: true
+    year:
+        label: Year
+        type: number
+        span: auto
+        readOnly: true
+    statement:
+        label: Statement
+        type: recordfinder
+        readOnly: true
+        list: $/appentities/financialstatement/models/statement/columns.yaml
+        nameFrom: official_id
+        descriptionFrom: year
+    company:
+        label: Company
+        type: recordfinder
+        readOnly: true
+        list: $/appentities/financialstatement/models/company/columns.yaml
+        nameFrom: ico
+        descriptionFrom: name
