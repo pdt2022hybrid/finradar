@@ -6,9 +6,9 @@
     </div>
     <div class="flex flex-col items-center">
       <div class="flex-col border-x border-t flex w-3/4 mb-28">
-        <form class="bg-tables flex flex-row p-6" >
+        <form class="bg-tables flex flex-row p-6" onsubmit="return false">
           <div class="w-1/2 grid">
-            <input type="text" class="label placeholder-dark placeholder:font-rubik" placeholder="Meno / IČO firmy" v-model="firma">
+            <input type="text" class="label placeholder-dark placeholder:font-rubik" placeholder="Meno / IČO firmy" v-model="name">
             <span class="inline-grid grid-cols-2">
               <input class="label" type="number" placeholder="Zisk od" v-model="profit.min">
               <input class="label" type="number" placeholder="Zisk do" v-model="profit.max">
@@ -57,32 +57,51 @@ export default {
   data() {
     return {
       Data: [],
-      per_page: '',
-      axios_link: 'api/companies',
+      per_page: null,
       revenue: {
-        max: '',
-        min: '',
+        max: null,
+        min: null,
       },
       profit: {
-        max: '',
-        min: '',
+        max: null,
+        min: null,
       },
-      firma: '',
+      name: null,
     }
   },
   methods: {
-    SetLink() {
-      this.axios_link = this.axios_link + ''
+    async SetLink() {
+      try {
+        await axios({
+          url: 'api/companies',
+          method: "get",
+          params: {
+            revenue_max: this.revenue.max,
+            revenue_min: this.revenue.min,
+            profits_max: this.profit.max,
+            profits_min: this.profit.max,
+            search_query: this.name,
+            per_page: this.per_page,
+          }
+      }).then((response) => {
+          console.log(response)
+          this.Data = response.data.data
+        })
+      } catch (errors) {
+        console.log(errors)
+      }
     }
   },
   // funkcia, ktora sa spusti ked sa loadne page
   async mounted() {
     try {
-      await axios.get(this.axios_link)
-          .then((response) => {
-            console.log(response);
-            this.Data = response.data.data;
-          })
+      await axios({
+        url: 'api/companies',
+        method: "get",
+      }).then((response) => {
+        console.log(response)
+        this.Data = response.data.data
+      })
     } catch(errors) {
       console.log(errors);
     }
