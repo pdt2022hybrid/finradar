@@ -11,7 +11,26 @@ class ApiTemplate
     public $tables;
 
     private array $columns = [
+
         'revenue' => 'Výnosy z hospodárskej činnosti spolu súčet',
+        'profits' => 'Výsledok hospodárenia za účtovné obdobie pred zdanením',
+        'capital' => 'Vlastné imanie',
+
+        'assets_total' => 'SPOLU MAJETOK',
+        'lt_intangible_assets_total' => 'Dlhodobý nehmotný majetok',
+        'lt_tangible_assets_total' => 'Dlhodobý hmotný majetok súčet',
+        'lt_financial_assets_total' => 'Dlhodobý finančný majetok súčet',
+        'st_receivables_total' => 'Krátkodobé pohľadávky súčet',
+        'financial_accounts_total' => 'Finančný majetok',
+
+        'liabilities_total' => 'SPOLU VLASTNÉ IMANIE A ZÁVÄZKY',
+        'base_capital' => 'Základné imanie',
+        'result_last_year' => 'Nerozdelený zisk alebo neuhradená strata minulých rokov',
+        'profit_for_period_after_tax' => 'Výsledok hospodárenia za účtovné obdobie po zdanení',
+        'reserves' => 'Krátkodobé rezervy',
+        'st_liabilities' => 'Krátkodobé záväzky okrem rezerv, úverov a výpomoci súčet',
+        'bank_loans' => 'Bežné bankové úvery'
+
     ];
 
     /**

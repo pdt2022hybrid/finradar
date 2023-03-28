@@ -64,4 +64,9 @@ class ListCompaniesRequest
         return $this->response['id'];
     }
 
+    public function shouldContinue()
+    {
+        return $this->response['existujeDalsieId'];
+    }
+
 }

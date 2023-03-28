@@ -33,7 +33,7 @@ class ReportRequest
         if ($this->isResponseOk()) {
             $this->response = $this->request->json();
         } else {
-            throw new Exception('Request failed');
+            throw new Exception('Report Request failed');
         }
     }
 

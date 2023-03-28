@@ -49,8 +49,6 @@ class ApiReport
 
         $this->setTemplate();
 
-        $this->createReport();
-
     }
 
     /**
@@ -82,7 +80,7 @@ class ApiReport
     {
 
         if (!$this->canCreateReport()) {
-            throw new Exception('Cannot create report');
+            throw new Exception('Cannot create report, canCreateReport returned false');
         }
 
         try {
@@ -91,7 +89,9 @@ class ApiReport
             $this->report->statement_id = $this->statement()->id;
             $this->report->save();
         } catch (Exception $e) {
-            Log::warning('Cannot create report', ['data'=> $this->response]);
+            Log::error($e->getMessage() . ' ' . $e->getTraceAsString());
+            Log::warning('Cannot create report, error happened when creating', ['data'=> $this->response]);
+            dd($this->report, $e->getMessage(), $e->getTraceAsString());
             throw new Exception('Cannot create report');
         }
 
@@ -121,6 +121,8 @@ class ApiReport
 
         foreach ($this->columns as $column) {
             $data_location = $this->template->getColumn($column);
+            $row = array_get($data_location, 'row');
+
 
             $table = collect(array_get($this->response, 'obsah.tabulky'))->filter(function ($table) use ($data_location) {
                 if (array_get($table, 'nazov.sk') == array_get($data_location, 'table_name')) {
@@ -133,7 +135,7 @@ class ApiReport
                 throw new Exception('Cannot create report, missing table');
             }
 
-            $number = array_get($table, 'data')[$data_location['row']];
+            $number = array_get($table, "data.$row", 0);
 
             $this->report->{$column} = $number ? $number : 0;
 

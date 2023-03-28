@@ -18,7 +18,6 @@ class ApiService
         try {
             $report = new ApiReport($id); // makes request
             $report->createReport(); // creates report
-            dd($report);
         } catch (Exception $e) {
             return;
         }

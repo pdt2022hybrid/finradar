@@ -44,13 +44,11 @@ class Import
         $should_continue = true;
         do {
             try {
-                $response = new ListCompaniesRequest($last_id, $refreshed_since, $max_records, $ico);
-                foreach ($response->getIds() as $id) {
+                $request = new ListCompaniesRequest($last_id, $refreshed_since, $max_records, $ico);
+                foreach ($request->getIds() as $id) {
                     CompanyApiService::importCompany($id);
                 }
-                $tries = 0;
-                $should_continue = true;
-                //$should_continue = $response->shouldContinue();
+                $should_continue = $request->shouldContinue();
             } catch (Exception $e) {
                 Log::error($e);
                 $tries++;
