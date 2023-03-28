@@ -2,6 +2,10 @@
 <div class=" flex justify-center pt-10">
   <div class="border-2 bg-tables grid-cols-3 grid w-3/4">
     <div class="flex flex-col items-start p-6">
+      <table>
+        {{ this.Data.latest_data.full_report.assets.financial_accounts_total
+ }}
+      </table>
       <h3 class="border-b">Vznik</h3>
       <h3 class="border-b">Sídlo</h3>
       <h3 class="border-b">CEO</h3>
@@ -13,7 +17,7 @@
         <h1 class="">Tržby</h1>
         <line-chart :data="{'2017-05-13': 2, '2017-05-14': 5}"></line-chart>
         <h1>Aktíva</h1>
-        <pie-chart :data="[['Blueberry', 44], ['Strawberry', 23]]"></pie-chart>
+        <pie-chart :data="[['Blueberry', this.Data.latest_data.full_report.assets.financial_accounts_total], ['Strawberry', 23]]"></pie-chart>
        <!--- <div class="flex flex-col text-left pt-10">
         <h2 class="">
           Broker Service Group ma 25% ^ zisk
@@ -34,7 +38,7 @@
         <h1>Zisky</h1>
         <line-chart :data="{'2017-05-13': 2, '2017-05-14': 5}"></line-chart>
         <h1>Pasíva</h1>
-        <pie-chart :data="[['Blueberry', 44], ['Strawberry', ]]"></pie-chart>
+        <pie-chart :data="[['Blueberry', 4], ['Strawberry', 10 ]]"></pie-chart>
       </div>
   </div>
   </div>
@@ -43,12 +47,11 @@
 <script >
 import axios from 'axios';
 export default {
-  name: "CompanyPage",
-data() {
-    return {
-      Data: [],
-    }
+ data() 
+  {
+    return {Data:[]}
   },
+  name: "CompanyPage",
   async mounted() {
     try {
       let ico = this.$route.params.ico
@@ -57,6 +60,8 @@ data() {
       .then((response)=> {
         console.log(response);
         this.Data = response.data.data;
+        console.log(this.Data);
+        console.log(this.Data.latest_data.full_report);
       }) 
       } catch(errors) {
         console.log(errors);
