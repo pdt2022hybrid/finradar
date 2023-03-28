@@ -1,8 +1,8 @@
 <template>
   <nav class="navbar h-20 min-w-fit">
     <div class=" ml-40 mt-2 text-lg ">
-      <router-link class=" mr-24 text-navtext" to="/">Logo Space</router-link>
-      <router-link to="/databazy" class="text-navtext mr-24">Databázy</router-link>
+      <a class=" mr-24 text-navtext" href="/">Logo Space</a>
+      <a href="/databazy" class="text-navtext mr-24">Databázy</a>
 <!--      <router-link to="/" class="text-navtext">API</router-link>-->
     </div>
     <form class=" flex mr-32" onsubmit="return false">
