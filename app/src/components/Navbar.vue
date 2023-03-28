@@ -5,14 +5,15 @@
       <router-link to="/databazy" class="text-navtext mr-24">Databázy</router-link>
 <!--      <router-link to="/" class="text-navtext">API</router-link>-->
     </div>
-    <div class=" flex mr-32">
-      <input type="text" class="search">
+    <form class=" flex mr-32" onsubmit="return false">
+      <input type="text" class="search" v-model="name">
+      <button class="hidden" @click="Search"></button>
       <div class="text-navtext flex items-center" @click="this.ShowMenu()">
 			 <i class="bi bi-person-circle ml-10 rounded-full flex cursor-pointer text-blue text-5xl"></i>
       </div>
-    </div>
+    </form>
   </nav>
-  <!-- tunak passujeme opak premennych do Visible prop na komponentoch -->
+  <!-- tunak passujeme opak premennych do Visible prop na komponentoch (retardovana metoda) -->
   <MiniLogin :Visible="!this.MiniLogIn"/>
   <UserMiniSettings :Visible="!this.UserSettingsWindow"/>
 </template>
@@ -20,6 +21,7 @@
 <script>
 import UserMiniSettings from "@/components/UserMiniSettings.vue";
 import MiniLogin from "@/components/MiniLogin.vue";
+import axios from "axios";
 
 export default {
   name: "Navbar",
@@ -34,6 +36,7 @@ export default {
       LoggedIn: false,
       MiniLogIn: false,
       UserSettingsWindow: false,
+      name: null,
     }
   },
   methods: {
@@ -45,6 +48,23 @@ export default {
         this.UserSettingsWindow = !this.UserSettingsWindow;
       } else {
         this.MiniLogIn = !this.MiniLogIn;
+      }
+    },
+    async Search() {
+      try {
+        await axios({
+          url: 'api/companies',
+          method: "get",
+          params: {
+            search_query: this.name,
+            per_page: 5,
+          }
+        }).then((response) => {
+          console.log(response)
+          this.Data = response.data.data
+        })
+      } catch (errors) {
+        console.log(errors)
       }
     }
   }
