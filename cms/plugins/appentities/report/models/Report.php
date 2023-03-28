@@ -11,12 +11,12 @@ class Report extends Model
 
     public $belongsTo = [
         'company' => [
-            'Appentities\Company\Models\Company',
+            '\Appentities\Company\Models\Company',
             'key' => 'ico',
             'otherKey' => 'ico',
         ],
         'statement' => [
-            'Appentities\Statement\Models\Statement',
+            '\AppEntities\Statement\Models\Statement',
             'key' => 'statement_id',
             'otherKey' => 'official_id',
         ],

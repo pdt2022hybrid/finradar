@@ -1,9 +1,9 @@
 <?php namespace AppEntities\Company\Http\Resources;
 
-use Appentities\Financialreport\Models\Report;
+use Appentities\Report\Models\Report;
 use Illuminate\Http\Resources\Json\JsonResource;
-use AppEntities\Financialstatement\Http\Resources\StatementResource;
-use AppEntities\Financialreport\Http\Resources\ReportResource;
+use AppEntities\Statement\Http\Resources\StatementResource;
+use AppEntities\Report\Http\Resources\ReportResource;
 
 class CompanyResource extends JsonResource
 {

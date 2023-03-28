@@ -1,4 +1,4 @@
-<?php namespace AppEntities\Financialreport\Http\Resources;
+<?php namespace AppEntities\Report\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -9,7 +9,7 @@ class ReportResource extends JsonResource
         return [
             'id' => $this->resource->official_id,
             'statement' => [
-                'id' => $this->resource->statement->official_id,
+                'id' => $this->resource->statement,
             ],
             'company' => [
                 'id' => $this->resource->statement->company->id,

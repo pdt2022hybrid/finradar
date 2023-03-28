@@ -86,7 +86,7 @@ class ApiReport
         try {
             $this->report = new Report();
             $this->fillReportFromApi();
-            $this->report->statement_id = $this->statement()->id;
+            $this->report->statement_id = $this->statement()->official_id;
             $this->report->save();
         } catch (Exception $e) {
             Log::error($e->getMessage() . ' ' . $e->getTraceAsString());
