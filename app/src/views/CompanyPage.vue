@@ -1,23 +1,37 @@
 <template>
 <div class=" flex justify-center pt-10">
   <div class="border-2 bg-tables grid-cols-3 grid w-3/4">
-    <div class="flex flex-col items-start p-6">
-      <h3 class="border-b">Vznik</h3>
-      <h3 class="border-b">Sídlo</h3>
-      <h3 class="border-b">CEO</h3>
-      <h3 class="border-b">Počet Zamestnancov</h3>
-      <h3 class="border-b">ICO</h3>
+     <div class="flex flex-col items-start p-6">
+    <div>
+      <h3 class="">Vznik</h3>
+      <h2>{{ this.Data?.date_of_establishment }}</h2>
     </div>
+      <div>
+      <h3 class="">Sídlo</h3>
+      <h2>{{ this.Data?.address?.city }} {{ this.Data?.address?.street }}</h2>
+    </div>
+      <div>
+      <h3 class="">CEO</h3>
+    </div>
+      <div>
+      <h3 class="">Počet Zamestnancov</h3>
+    </div>
+      <div>
+      <h3 class="">ICO</h3>
+      <h2>{{ this.Data?.ico }}</h2>
+    </div>
+  </div>
     <div class=" items-center border-l-2 p-1">
       <div class="flex flex-col justify-around">
         <h1 class="">Tržby</h1>
-        <line-chart download="true" :data="{'2017-05-13': 2, '2017-05-14': 5, '2017-05-15': 1, '2017-05-16': 3}"></line-chart>
+        <line-chart download="true" suffix="€" thousands=" " :min="null" :max="null" :data="this.Data?.graph_data?.revenue"></line-chart>
         <h1>Aktíva</h1>
-        <pie-chart suffix="€" legend="bottom" thousands=" " :data="[['Financial accounts', this.Data?.latest_data?.full_report?.assets?.financial_accounts_total],
-          ['Financial assets', this.Data?.latest_data?.full_report?.assets?.lt_financial_assets_total],
-          ['Intangible assets', this.Data?.latest_data?.full_report?.assets?.lt_intangible_assets_total],
-          ['Tangible assets', this.Data?.latest_data?.full_report?.assets?.lt_tangible_assets_total],
-          ['Recievables total', this.Data?.latest_data?.full_report?.assets?.st_receivables_total]]"></pie-chart>
+        <pie-chart suffix="€" legend="bottom" thousands=" " :data="[
+          ['Financial accounts', this.Data?.latest_report?.assets?.financial_accounts_total],
+          ['Financial assets', this.Data?.latest_report?.assets?.lt_financial_assets_total],
+          ['Intangible assets', this.Data?.latest_report?.assets?.lt_intangible_assets_total],
+          ['Tangible assets', this.Data?.latest_report?.assets?.lt_tangible_assets_total],
+          ['Recievables total', this.Data?.latest_report?.assets?.st_receivables_total]]"></pie-chart>
        <!--- <div class="flex flex-col text-left pt-10">
         <h2 class="">
           Broker Service Group ma 25% ^ zisk
@@ -36,14 +50,15 @@
     </div>
       <div class="flex flex-col justify-around p-1">
         <h1>Zisky</h1>
-        <line-chart download="true" :data="{'2017-05-13': 1, '2017-05-14': 4, '2017-05-15': 3, '2017-05-16': 6}"></line-chart>
+        <line-chart download="true" suffix="€" thousands=" " :min="null" :max="null" :data="this.Data?.graph_data?.profits"></line-chart>
         <h1>Pasíva</h1>
-        <pie-chart suffix="€" legend="bottom" thousands=" " :data="[['Bank loans', this.Data?.latest_data?.full_report?.liabilities?.bank_loans],
-        ['Base capital', this.Data?.latest_data?.full_report?.liabilities?.base_capital],
-        ['Profit after tax', this.Data?.latest_data?.full_report?.liabilities?.profit_for_period_after_tax],
-        ['Reserves', this.Data?.latest_data?.full_report?.liabilities?.reserves],
-        ['LY result', this.Data?.latest_data?.full_report?.liabilities?.result_last_year],
-        ['Liabilities', this.Data?.latest_data?.full_report?.liabilities?.st_labilities],]"></pie-chart>
+        <pie-chart class="" suffix="€" legend="bottom" thousands=" " :data="[
+        ['Bank loans', this.Data?.latest_report?.liabilities?.bank_loans],
+        ['Base capital', this.Data?.latest_report?.liabilities?.base_capital],
+        ['Profit after tax', this.Data?.latest_report?.liabilities?.profit_for_period_after_tax],
+        ['Reserves', this.Data?.latest_report?.liabilities?.reserves],
+        ['LY result', this.Data?.latest_report?.liabilities?.result_last_year],
+        ['Liabilities', this.Data?.latest_report?.liabilities?.st_labilities],]"></pie-chart>
       </div>
   </div>
   </div>
@@ -65,8 +80,7 @@ export default {
       .then((response)=> {
         console.log(response);
         this.Data = response.data.data;
-        console.log(this.Data);
-        console.log(this.Data.latest_data.full_report);
+        console.log(this.Data); // toto odstranit potom
       }) 
       } catch(errors) {
         console.log(errors);
@@ -82,7 +96,10 @@ export default {
 
 @layer base {
 h1 {
-font-size: larger;
+  @apply text-lg
+}
+h2  {
+  @apply text-dark text-sm
 }
 }
 
