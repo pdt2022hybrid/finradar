@@ -1,0 +1,4 @@
+1.0.1:
+    - First version of user
+    - 2023_04_03_0834_create_users_table.php
+    - 2023_04_03_0843_update_rainlab_user_table.php

@@ -134,7 +134,10 @@ class ApiReport
                 throw new Exception('Cannot create report, missing table');
             }
 
-            $number = array_get($table, "data.$row", 0);
+            $number = array_get($table, "data.$row", function () use ($table, $row, $column) {
+                Log::warning('Defaulting to 0 on report data seed', ['id' => $this->report->official_id,'column' => $column,'data'=> $table, 'row' => $row]);
+                return 0;
+            });
 
             $this->report->{$column} = $number ? $number : 0;
 
@@ -160,6 +163,7 @@ class ApiReport
 
         }
         else {
+            Log::warning('Cannot get year, missing data', ['data'=> $this->response]);
             throw new Exception('Cannot get year');
         }
     }

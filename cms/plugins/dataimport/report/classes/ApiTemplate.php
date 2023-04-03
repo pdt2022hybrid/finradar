@@ -65,12 +65,13 @@ class ApiTemplate
         $table_name = $filtered->first()['nazov']['sk'];
         $table_columns = $table['pocetDatovychStlpcov'];
 
+        $first_row_number = array_get(collect($table['riadky'])->first(), 'cisloRiadku', 1);
         $row = $this->filterFindRow($table['riadky'], $column_text_options)->first();
         $row_number = $row['cisloRiadku'];
 
         return [
             'table_name' => $table_name,
-            'row' => $row_number * $table_columns - 2,
+            'row' => ($row_number - ($first_row_number - 1)) * $table_columns - 2,
         ];
 
 
