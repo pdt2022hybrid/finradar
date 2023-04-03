@@ -1,25 +1,26 @@
 <template>
 <div class=" flex justify-center pt-10">
   <div class="border-2 bg-tables grid-cols-3 grid w-3/4">
-     <div class="flex flex-col items-start p-6">
-    <div>
-      <h3 class="">Vznik</h3>
-      <h2>{{ this.Data?.date_of_establishment }}</h2>
+     <div class=" flex-col items-start p-6 font-rubik">
+    <div class="border-b-2 flex place-content-between pb-2">
+      <h3 class="name">Vznik</h3>
+      <h2 class="value ">{{ this.Data?.date_of_establishment }}</h2>
     </div>
-      <div>
-      <h3 class="">Sídlo</h3>
-      <h2>{{ this.Data?.address?.city }} {{ this.Data?.address?.street }}</h2>
+      <div class="border-b-2 flex place-content-between pt-2 pb-2">
+      <h3 class="name">Sídlo</h3>
+      <h2 class="value">{{ this.Data?.address?.city }} {{ this.Data?.address?.street }}</h2>
     </div>
-      <div>
-      <h3 class="">CEO</h3>
+      <div class="border-b-2 flex place-content-between pt-2 pb-2">
+      <h3 class="name">CEO</h3>
     </div>
-      <div>
-      <h3 class="">Počet Zamestnancov</h3>
+      <div class="border-b-2 flex place-content-between pt-2 pb-2">
+      <h3 class="name">Počet Zamestnancov</h3>
     </div>
-      <div>
-      <h3 class="">ICO</h3>
-      <h2>{{ this.Data?.ico }}</h2>
+      <div class="border-b-2 flex place-content-between pt-2 pb-2">
+      <h3 class="name">IČO</h3>
+      <h2 class="value">{{ this.Data?.ico }}</h2>
     </div>
+
   </div>
     <div class=" items-center border-l-2 p-1">
       <div class="flex flex-col justify-around">
@@ -99,8 +100,16 @@ h1 {
   @apply text-lg
 }
 h2  {
-  @apply text-dark text-sm
+  @apply text-dark text-lg
 }
+h3 {
+  @apply text-lg
+}
+
+  .value{
+    @apply text-dark opacity-70 items-end
+  }
+
 }
 
 </style>
