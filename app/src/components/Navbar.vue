@@ -16,7 +16,7 @@
 <!--  ma asi drbne dnes do rana -->
   <div class="flex w-10/12 pr-14 place-content-end">
   <ul>
-    <li class="flex flex-col px-2 mt-2 bg-light border-2 rounded-md" v-for="item in this.Data">
+    <li class="flex flex-col fixed px-2 mt-2 bg-light border-2 rounded-md" v-for="item in this.Data">
       <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
         <h4 class=" cursor-pointer w-fit py-1 font-medium" @click="redirect"> {{ item.name }} </h4>
       </router-link>

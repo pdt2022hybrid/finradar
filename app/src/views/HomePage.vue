@@ -4,7 +4,8 @@
 	<header class="homepageHeader">
 		<h1 class="header-text">Vyhľadávanie v Databáze Firiem</h1>
 		<form onsubmit="return false">
-      <input type="text" class="header-btn placeholder-white font-varela" v-model="name" placeholder="search" @keyup="Search">
+      <input type="text" class="header-btn placeholder-white font-varela" v-model="name" placeholder="Vyhľadať firmu" @keyup="Search">
+	  <i class="bi bi-search text-sm absolute right-1/2 mr-16 top-2/4 mt-24 pt-9 text-white"></i>
       <button class="hidden" @click="Search"></button>
     </form>
     <ul>
