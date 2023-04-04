@@ -12,8 +12,8 @@
       class="bg-blue border p-1 w-52 py-1 rounded-xl border-dark border-opacity-75 border-2 font-medium font-varela"
       >Prihlásiť sa</button>
       <div class=" pt-4 text-xs font-varela w-full text-underline underline underline-offset-1 flex justify-around">
-        <a href="/register" class="w-18">Registrovať sa</a>
-        <a href="/" class="w-30"> Zabudli ste heslo?</a>
+        <router-link to="/register" class="w-18">Registrovať sa</router-link>
+        <router-link to="/" class="w-30"> Zabudli ste heslo?</router-link>
       </div>
     </form>
   </div>

@@ -1,26 +1,26 @@
 <template>
   <nav class="navbar h-20 min-w-fit">
     <div class=" ml-40 mt-2 text-lg ">
-      <a class=" mr-24 text-navtext" href="/">Logo Space</a>
-      <a href="/databazy" class="text-navtext mr-24">Databázy</a>
+      <router-link class=" mr-24 text-navtext" to="/">Logo Space</router-link>
+      <router-link to="/databazy" class="text-navtext mr-24">Databázy</router-link>
 <!--      <router-link to="/" class="text-navtext">API</router-link>-->
     </div>
-    <form class=" flex mr-32" onsubmit="return false">
-      <input type="text" class="search" v-model="name">
+    <form class=" flex mr-32" onsubmit="return false" ref="search">
+      <input type="text" class="search" v-model="name" placeholder="search" @keyup="Search">
       <button class="hidden" @click="Search"></button>
-      <div class="text-navtext flex items-center" @click="this.ShowMenu()">
+      <div class="text-navtext flex items-center" @click="ShowMenu">
 			 <i class="bi bi-person-circle ml-10 rounded-full flex cursor-pointer text-blue text-5xl"></i>
       </div>
     </form>
   </nav>
 <!--  ma asi drbne dnes do rana -->
-<!--  <ul>-->
-<!--    <li v-for="item in this.Data">-->
-<!--      <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">-->
-<!--        <h4 class="cursor-pointer w-fit" @click="redirect"> {{ item.name }} </h4>-->
-<!--      </router-link>-->
-<!--    </li>-->
-<!--  </ul>-->
+  <ul>
+    <li v-for="item in this.Data">
+      <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
+        <h4 class="cursor-pointer w-fit" @click="redirect"> {{ item.name }} </h4>
+      </router-link>
+    </li>
+  </ul>
   <!-- tunak passujeme opak premennych do Visible prop na komponentoch (retardovana metoda) -->
   <MiniLogin :Visible="!this.MiniLogIn"/>
   <UserMiniSettings :Visible="!this.UserSettingsWindow"/>
@@ -60,21 +60,33 @@ export default {
       }
     },
     async Search() {
-      try {
-        await axios({
-          url: 'api/companies',
-          method: "get",
-          params: {
-            search_query: this.name,
-            per_page: 5,
-          }
-        }).then((response) => {
-          console.log(response)
-          this.Data = response.data.data
-        })
-      } catch (errors) {
-        console.log(errors)
+      if(this.name !== '') {
+        try {
+          await axios({
+            url: 'api/companies',
+            method: "get",
+            params: {
+              search_query: this.name,
+              per_page: 5,
+            }
+          }).then((response) => {
+            console.log(response)
+            this.Data = response.data.data
+          })
+        } catch (errors) {
+          console.log(errors)
+        }
+      } else {
+        this.Data = [];
       }
+    }
+  },
+  watch: {
+    $route() {
+      this.UserSettingsWindow = false
+      this.MiniLogIn = false
+      this.Data = []
+      this.name = ''
     }
   }
 }
