@@ -6,7 +6,7 @@
       <h3 class="">Vznik</h3>
       <h2 class="mt-2">{{ this.Data?.date_of_establishment }}</h2>
     </div>
-      <div class="name">
+      <div class="name flex-col">
       <h3 class="">Sídlo</h3>
       <h2 class="mt-2">{{ this.Data?.address?.city }} {{ this.Data?.address?.street }}</h2>
     </div>
@@ -20,14 +20,14 @@
       <h3 class="">ICO</h3>
       <h2 class="mt-2">{{ this.Data?.ico }}</h2>
     </div>
-
   </div>
+
     <div class=" items-center border-l-2 p-2">
       <div class="flex flex-col justify-around">
         <h1 class="">Tržby</h1>
         <line-chart download="true" suffix="€" thousands=" " :library="{
              curveType: 'function',
-        backgroundColor: '#f8f8f8',
+        backgroundColor: '#EFEFEF',
         hAxis: {
           title: 'Rok'
         },
@@ -37,13 +37,32 @@
         }" :min="null" :max="null" :data="this.Data?.graph_data?.revenue"></line-chart>
         <h1>Aktíva</h1>
         <pie-chart suffix="€" legend="bottom" thousands=" " :library="{
-          is3D: true, legend: 'none', backgroundColor: '#f8f8f8',
+          is3D: true, legend: 'none', backgroundColor: '#EFEFEF',
         }" :data="[
           ['Financial accounts', this.Data?.latest_report?.assets?.financial_accounts_total],
           ['Financial assets', this.Data?.latest_report?.assets?.lt_financial_assets_total],
           ['Intangible assets', this.Data?.latest_report?.assets?.lt_intangible_assets_total],
           ['Tangible assets', this.Data?.latest_report?.assets?.lt_tangible_assets_total],
           ['Recievables total', this.Data?.latest_report?.assets?.st_receivables_total]]"></pie-chart>
+          <div class="flex flex-col grid grid-cols-2 text-center">
+            <div>
+              <h4 class="leg">Financial accounts</h4>
+            </div>
+            <div>
+              <h4 class="leg">Financial assets</h4>
+            </div>
+            <div>
+              <h4 class="leg">Intangible assets</h4>
+            </div>
+            <div>
+              <h4 class="leg">Tangible assets</h4>
+            </div>
+            <div>
+              <h4 class="leg">Recievables total</h4>
+            </div>
+            
+            
+          </div>
        <!--- <div class="flex flex-col text-left pt-10">
         <h2 class="">
           Broker Service Group ma 25% ^ zisk
@@ -64,7 +83,7 @@
         <h1>Zisky</h1>
         <line-chart download="true" suffix="€" thousands=" " :library="{
         curveType: 'function',
-        backgroundColor: '#f8f8f8',
+        backgroundColor: '#EFEFEF',
         hAxis: {
           title: 'Rok'
         },
@@ -74,7 +93,7 @@
         }" :min="null" :max="null" :data="this.Data?.graph_data?.profits"></line-chart>
         <h1>Pasíva</h1>
         <pie-chart suffix="€" legend="bottom" thousands=" " :library="{
-          is3D: true, legend: 'none', backgroundColor: '#f8f8f8',
+          is3D: true, legend: 'none', backgroundColor: '#EFEFEF',
         }" :data="[
         ['Bank loans', this.Data?.latest_report?.liabilities?.bank_loans],
         ['Base capital', this.Data?.latest_report?.liabilities?.base_capital],
@@ -130,6 +149,9 @@ h3 {
 
   .value{
     @apply text-dark opacity-70 items-end
+  }
+  .leg{
+    @apply text-sm
   }
   .name{
     @apply border-b flex place-content-between pt-2 pb-2 border-b-navtext w-full
