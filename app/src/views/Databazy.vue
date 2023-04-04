@@ -96,7 +96,7 @@ export default {
   async mounted() {
     try {
       await axios({
-        url: 'api/companies',
+        url: '/companies',
         method: "get",
       }).then((response) => {
         console.log(response)
