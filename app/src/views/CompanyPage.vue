@@ -2,27 +2,27 @@
 <div class=" flex justify-center pt-10">
   <div class="border-2 bg-tables grid-cols-3 grid w-3/4">
      <div class="flex flex-col items-start p-6">
-    <div>
+    <div class="name">
       <h3 class="">Vznik</h3>
-      <h2 class="pb-2">{{ this.Data?.date_of_establishment }}</h2>
+      <h2 class="mt-2">{{ this.Data?.date_of_establishment }}</h2>
     </div>
-      <div>
+      <div class="name">
       <h3 class="">Sídlo</h3>
-      <h2 class="pb-2">{{ this.Data?.address?.city }} {{ this.Data?.address?.street }}</h2>
+      <h2 class="mt-2">{{ this.Data?.address?.city }} {{ this.Data?.address?.street }}</h2>
     </div>
-      <div class="border-b-2 flex place-content-between pt-2 pb-2">
-      <h3 class="name">CEO</h3>
+      <div class="name">
+      <h3 class="">CEO</h3>
     </div>
-      <div class="border-b-2 flex place-content-between pt-2 pb-2">
-      <h3 class="name">Počet Zamestnancov</h3>
+      <div class="name">
+      <h3 class="">Počet Zamestnancov</h3>
     </div>
-      <div>
+      <div class="name">
       <h3 class="">ICO</h3>
-      <h2 class="pb-2">{{ this.Data?.ico }}</h2>
+      <h2 class="mt-2">{{ this.Data?.ico }}</h2>
     </div>
 
   </div>
-    <div class=" items-center border-l-2 p-1">
+    <div class=" items-center border-l-2 p-2">
       <div class="flex flex-col justify-around">
         <h1 class="">Tržby</h1>
         <line-chart download="true" suffix="€" thousands=" " :library="{
@@ -122,7 +122,7 @@ h1 {
   @apply text-lg
 }
 h2  {
-  @apply text-dark text-lg
+  @apply text-dark text-sm
 }
 h3 {
   @apply text-lg
@@ -131,7 +131,9 @@ h3 {
   .value{
     @apply text-dark opacity-70 items-end
   }
-
+  .name{
+    @apply border-b flex place-content-between pt-2 pb-2 border-b-navtext w-full
+  }
 }
 
 </style>
