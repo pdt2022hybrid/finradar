@@ -3,16 +3,16 @@
 # ===================================
 
 # Model List Column configuration
-list: $/appuser/user/models/user/columns.yaml
+list: $/appuser/user/models/dashboard/columns.yaml
 
 # Model Class name
-modelClass: Appuser\User\Models\User
+modelClass: Appuser\User\Models\Dashboard
 
 # List Title
-title: Manage Users
+title: Manage Dashboards
 
 # Link URL for each record
-recordUrl: appuser/user/users/update/:id
+recordUrl: appuser/user/dashboards/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

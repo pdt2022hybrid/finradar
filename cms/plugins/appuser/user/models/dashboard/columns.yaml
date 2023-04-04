@@ -1,0 +1,9 @@
+columns:
+    id:
+        label: ID
+        searchable: true
+        sortable: true
+    user_id:
+        label: User ID
+        searchable: true
+        sortable: true

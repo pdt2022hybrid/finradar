@@ -1,0 +1,16 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+    user_id:
+        label: User ID
+        disabled: true
+    companies:
+        label: Companies
+        type: partial
+        path: $/appuser/user/controllers/dashboards/_field_companies.htm
+

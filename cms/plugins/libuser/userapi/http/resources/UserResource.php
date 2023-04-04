@@ -1,9 +1,9 @@
 <?php namespace LibUser\UserApi\Http\Resources;
 
 use Illuminate\Support\Facades\Event;
-use Illuminate\Http\Resources\Json\Resource;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserResource extends Resource
+class UserResource extends JsonResource
 {
     public function toArray($request)
     {

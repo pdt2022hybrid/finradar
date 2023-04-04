@@ -3,28 +3,28 @@
 # ===================================
 
 # Record name
-name: User
+name: Dashboard
 
 # Model Form Field configuration
-form: $/appuser/user/models/user/fields.yaml
+form: $/appuser/user/models/dashboard/fields.yaml
 
 # Model Class name
-modelClass: Appuser\User\Models\User
+modelClass: Appuser\User\Models\Dashboard
 
 # Default redirect location
-defaultRedirect: appuser/user/users
+defaultRedirect: appuser/user/dashboards
 
 # Create page
 create:
     title: backend::lang.form.create_title
-    redirect: appuser/user/users/update/:id
-    redirectClose: appuser/user/users
+    redirect: appuser/user/dashboards/update/:id
+    redirectClose: appuser/user/dashboards
 
 # Update page
 update:
     title: backend::lang.form.update_title
-    redirect: appuser/user/users
-    redirectClose: appuser/user/users
+    redirect: appuser/user/dashboards
+    redirectClose: appuser/user/dashboards
 
 # Preview page
 preview:

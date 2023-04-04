@@ -1,0 +1,7 @@
+companies:
+    label: Company
+    view:
+        list: $/appentities/company/models/company/columns.yaml
+        toolbarButtons: add|remove
+    manage:
+        form: $/appentities/company/models/company/fields.yaml

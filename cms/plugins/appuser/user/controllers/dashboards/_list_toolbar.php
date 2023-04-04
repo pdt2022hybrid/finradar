@@ -1,8 +1,8 @@
 <div data-control="toolbar">
     <a
-        href="<?= Backend::url('appuser/user/users/create') ?>"
+        href="<?= Backend::url('appuser/user/dashboards/create') ?>"
         class="btn btn-primary oc-icon-plus">
-        <?= e(trans('backend::lang.list.create_button', ['name'=>'User'])) ?>
+        <?= e(trans('backend::lang.list.create_button', ['name'=>'Dashboard'])) ?>
     </a>
 
     <button
