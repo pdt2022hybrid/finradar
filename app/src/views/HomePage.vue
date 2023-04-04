@@ -3,10 +3,17 @@
 <div class="wrapper">
 	<header class="homepageHeader">
 		<h1 class="header-text">Vyhľadávanie v Databáze Firiem</h1>
-		<button class="header-btn text-white font-varela">
-			<i class="bi bi-search"></i>
-			Vyhľadať firmu
-			</button>
+		<form onsubmit="return false">
+      <input type="text" class="header-btn placeholder-white font-varela" v-model="name" placeholder="search" @keyup="Search">
+      <button class="hidden" @click="Search"></button>
+    </form>
+    <ul>
+      <li v-for="item in this.Data">
+        <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
+          <h4 class="cursor-pointer w-fit" @click="redirect"> {{ item.name }} </h4>
+        </router-link>
+      </li>
+    </ul>
 	</header>
 	<ul class="homepageMainContent">
 		<li class="mainContentText">
@@ -35,8 +42,39 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "HomePage",
+  data() {
+    return {
+      name: null,
+      Data: [],
+    }
+  },
+  methods: {
+    async Search() {
+      if(this.name !== '') {
+        try {
+          await axios({
+            url: '/companies',
+            method: "get",
+            params: {
+              search_query: this.name,
+              per_page: 5,
+            }
+          }).then((response) => {
+            console.log(response)
+            this.Data = response.data.data
+          })
+        } catch (errors) {
+          console.log(errors)
+        }
+      } else {
+        this.Data = [];
+      }
+    }
+  }
 }
 </script>
 

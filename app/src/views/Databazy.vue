@@ -73,7 +73,7 @@ export default {
     async SetLink() {
       try {
         await axios({
-          url: 'api/companies',
+          url: '/companies',
           method: "get",
           params: {
             revenue_max: this.revenue.max,
