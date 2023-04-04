@@ -5,7 +5,7 @@
       <h3 class="text-xl font-bold mb-4 indent-8"> Filtrovanie v databáze</h3>
     </div>
     <div class="flex flex-col items-center">
-      <div class="flex-col border-x border-t flex w-3/4 mb-28">
+      <div class="flex-col border-x border-t flex w-3/4">
         <form class="bg-tables flex flex-row p-6" onsubmit="return false">
           <div class="w-1/2 grid">
             <input type="text" class="label placeholder-dark placeholder:font-rubik" placeholder="Meno / IČO firmy" v-model="name">
@@ -73,7 +73,7 @@ export default {
     async SetLink() {
       try {
         await axios({
-          url: 'api/companies',
+          url: '/companies',
           method: "get",
           params: {
             revenue_max: this.revenue.max,
@@ -96,7 +96,7 @@ export default {
   async mounted() {
     try {
       await axios({
-        url: 'api/companies',
+        url: '/companies',
         method: "get",
       }).then((response) => {
         console.log(response)
