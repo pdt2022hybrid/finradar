@@ -1,22 +1,22 @@
 <template>
-  <nav class="navbar h-20 min-w-fit">
-    <div class=" ml-40 mt-2 text-lg ">
-      <router-link class=" mr-24 text-navtext" to="/">Logo Space</router-link>
-      <router-link to="/databazy" class="text-navtext mr-24">Databázy</router-link>
+  <nav class="navbar lg:h-20 lg:min-w-fit">
+    <div class=" lg:ml-40 lg:mt-2 lg:text-lg ">
+      <router-link class=" lg:mr-24 text-navtext" to="/">Logo Space</router-link>
+      <router-link to="/databazy" class="text-navtext lg:mr-24">Databázy</router-link>
 <!--      <router-link to="/" class="text-navtext">API</router-link>-->
     </div>
-    <form class=" flex mr-32" onsubmit="return false">
+    <form class="lg:flex lg:mr-32" onsubmit="return false">
       <input type="text" class="search" v-model="name" placeholder="search" @keyup="Search">
       <button class="hidden" @click="Search"></button>
-      <div class="text-navtext flex items-center" @click="ShowMenu">
-			 <i class="bi bi-person-circle ml-10 rounded-full flex cursor-pointer text-blue text-5xl"></i>
+      <div class="text-navtext lg:flex lg:items-center" @click="ShowMenu">
+			 <i class="bi bi-person-circle lg:ml-10 lg:rounded-full lg:flex lg:cursor-pointer text-blue lg:text-5xl"></i>
       </div>
     </form>
   </nav>
 <!--  ma asi drbne dnes do rana -->
-  <div class="flex w-10/12 pr-14 place-content-end">
+  <div class="lg:flex lg:w-10/12 lg:pr-14 lg:place-content-end">
   <ul>
-    <li class="flex flex-col fixed px-2 mt-2 bg-light border-2 rounded-md" v-for="item in this.Data">
+    <li class="lg:flex lg:flex-col lg:fixed lg:px-2 lg:mt-2 bg-light lg:border-2 rounded-md" v-for="item in this.Data">
       <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
         <h4 class=" cursor-pointer w-fit py-1 font-medium" @click="redirect"> {{ item.name }} </h4>
       </router-link>
@@ -102,10 +102,10 @@ export default {
 @layer base {
 
   .navbar {
-    @apply flex place-content-between bg-dark p-4
+    @apply lg:flex place-content-between bg-dark lg:p-4
   }
   .search {
-    @apply mr-24 h-10 mt-1 bg-search text-dark text-center rounded
+    @apply lg:mr-24 lg:h-10 lg:mt-1 bg-search text-dark text-center rounded
   }
 }
 </style>
