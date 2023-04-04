@@ -41,7 +41,7 @@
           tento rok
         </h2>
         <h2>
-          Trzby su 8 600 000 € 
+          Trzby su 8 600 000 €
         </h2>
         <h2>
           Firma nema dlhy / Firma dlzi X €
@@ -68,7 +68,7 @@
 <script >
 import axios from 'axios';
 export default {
- data() 
+ data()
   {
     return {Data:[]}
   },
@@ -82,7 +82,7 @@ export default {
         console.log(response);
         this.Data = response.data.data;
         console.log(this.Data); // toto odstranit potom
-      }) 
+      })
       } catch(errors) {
         console.log(errors);
       }

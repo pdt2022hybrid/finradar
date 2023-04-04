@@ -1,7 +1,7 @@
 <template>
 
 <div class="wrapper">
-	<header class="homepageHeader bg-gradient-to-t">
+	<header class="homepageHeader">
 		<h1 class="header-text">Vyhľadávanie v Databáze Firiem</h1>
 		<button class="header-btn text-white font-varela">
 			<i class="bi bi-search"></i>
@@ -48,7 +48,7 @@ export default {
 @layer base {
 
 	.wrapper{
-		@apply bg-background min-h-screen
+		@apply min-h-screen bg-background
 	}
 
 	.homepageHeader{
@@ -61,11 +61,11 @@ export default {
 	}
 
 	.header-btn{
-		@apply text-center items-center  mt-20 mb-36 w-64 h-10 rounded-lg bg-blue
+		@apply text-center items-center mt-20 mb-36 w-64 h-10 rounded-lg bg-blue
 	}
 
 	.homepageMainContent{
-		@apply flex place-content-evenly h-fit py-20 pb-20 mb-40 bg-light
+		@apply flex place-content-evenly h-fit py-20 pb-20 pb-40 bg-light
 	}
 
 	.mainContentText{
