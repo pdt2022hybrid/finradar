@@ -5,7 +5,7 @@
       <router-link to="/databazy" class="text-navtext mr-24">Databázy</router-link>
 <!--      <router-link to="/" class="text-navtext">API</router-link>-->
     </div>
-    <form class=" flex mr-32" onsubmit="return false" ref="search">
+    <form class=" flex mr-32" onsubmit="return false">
       <input type="text" class="search" v-model="name" placeholder="search" @keyup="Search">
       <button class="hidden" @click="Search"></button>
       <div class="text-navtext flex items-center" @click="ShowMenu">
@@ -14,13 +14,15 @@
     </form>
   </nav>
 <!--  ma asi drbne dnes do rana -->
+  <div class="flex w-10/12 pr-14 place-content-end">
   <ul>
-    <li v-for="item in this.Data">
+    <li class="flex flex-col px-2 mt-2 bg-light border-2 rounded-md" v-for="item in this.Data">
       <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
-        <h4 class="cursor-pointer w-fit" @click="redirect"> {{ item.name }} </h4>
+        <h4 class=" cursor-pointer w-fit py-1 font-medium" @click="redirect"> {{ item.name }} </h4>
       </router-link>
     </li>
   </ul>
+  </div>
   <!-- tunak passujeme opak premennych do Visible prop na komponentoch (retardovana metoda) -->
   <MiniLogin :Visible="!this.MiniLogIn"/>
   <UserMiniSettings :Visible="!this.UserSettingsWindow"/>
@@ -63,7 +65,7 @@ export default {
       if(this.name !== '') {
         try {
           await axios({
-            url: 'api/companies',
+            url: '/companies',
             method: "get",
             params: {
               search_query: this.name,
