@@ -1,24 +1,28 @@
 <?php namespace Appuser\User\Classes\Extend;
 
-use RainLab\User\Models\User as RainLabUser;
-use Appuser\User\Models\User as AppUser;
+use LibUser\UserApi\Models\User;
 
 class UserExtend
 {
 
-    public static function addRelation(): void
+    public static function addRelations(): void
     {
 
-        RainLabUser::extend(function (RainLabUser $user) {
+        self::addDashboardRelation();
 
-            $user->belongsTo['app_user'] = [
-                AppUser::class,
+    }
+
+    private static function addDashboardRelation(): void
+    {
+        User::extend(function (User $user) {
+
+            $user->hasOne['dashboard'] = [
+                'Appuser\User\Models\Dashboard',
                 'key' => 'user_id',
                 'otherKey' => 'id',
             ];
 
         });
-
     }
 
 }

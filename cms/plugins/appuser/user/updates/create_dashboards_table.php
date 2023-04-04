@@ -8,14 +8,14 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('appuser_users', function(Blueprint $table) {
+        Schema::create('appuser_dashboards', function(Blueprint $table) {
             $table->id();
-
+            $table->integer('user_id')->unsigned()->index();
             $table->timestamps();
         });
     }
     public function down()
     {
-        Schema::dropIfExists('appuser_users');
+        Schema::dropIfExists('appuser_dashboards');
     }
 };

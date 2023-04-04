@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb4581dfa64e3fe53012507f669b5fe6",
+    "content-hash": "2d1159fa0473615207b2a91aaab1b967",
     "packages": [
         {
             "name": "brick/math",
@@ -2568,34 +2568,34 @@
         },
         {
             "name": "lcobucci/clock",
-            "version": "3.1.0",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lcobucci/clock.git",
-                "reference": "30a854ceb22bd87d83a7a4563b3f6312453945fc"
+                "reference": "c7aadcd6fd97ed9e199114269c0be3f335e38876"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lcobucci/clock/zipball/30a854ceb22bd87d83a7a4563b3f6312453945fc",
-                "reference": "30a854ceb22bd87d83a7a4563b3f6312453945fc",
+                "url": "https://api.github.com/repos/lcobucci/clock/zipball/c7aadcd6fd97ed9e199114269c0be3f335e38876",
+                "reference": "c7aadcd6fd97ed9e199114269c0be3f335e38876",
                 "shasum": ""
             },
             "require": {
-                "php": "~8.2.0",
-                "psr/clock": "^1.0"
+                "php": "~8.1.0 || ~8.2.0",
+                "stella-maris/clock": "^0.1.7"
             },
             "provide": {
                 "psr/clock-implementation": "1.0"
             },
             "require-dev": {
                 "infection/infection": "^0.26",
-                "lcobucci/coding-standard": "^10.0.0",
+                "lcobucci/coding-standard": "^9.0",
                 "phpstan/extension-installer": "^1.2",
-                "phpstan/phpstan": "^1.10.7",
-                "phpstan/phpstan-deprecation-rules": "^1.1.3",
-                "phpstan/phpstan-phpunit": "^1.3.10",
-                "phpstan/phpstan-strict-rules": "^1.5.0",
-                "phpunit/phpunit": "^10.0.17"
+                "phpstan/phpstan": "^1.9.4",
+                "phpstan/phpstan-deprecation-rules": "^1.1.1",
+                "phpstan/phpstan-phpunit": "^1.3.2",
+                "phpstan/phpstan-strict-rules": "^1.4.4",
+                "phpunit/phpunit": "^9.5.27"
             },
             "type": "library",
             "autoload": {
@@ -2616,7 +2616,7 @@
             "description": "Yet another clock abstraction",
             "support": {
                 "issues": "https://github.com/lcobucci/clock/issues",
-                "source": "https://github.com/lcobucci/clock/tree/3.1.0"
+                "source": "https://github.com/lcobucci/clock/tree/2.3.0"
             },
             "funding": [
                 {
@@ -2628,45 +2628,47 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-03-20T19:12:25+00:00"
+            "time": "2022-12-19T14:38:11+00:00"
         },
         {
             "name": "lcobucci/jwt",
-            "version": "4.3.0",
+            "version": "4.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lcobucci/jwt.git",
-                "reference": "4d7de2fe0d51a96418c0d04004986e410e87f6b4"
+                "reference": "55564265fddf810504110bd68ca311932324b0e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lcobucci/jwt/zipball/4d7de2fe0d51a96418c0d04004986e410e87f6b4",
-                "reference": "4d7de2fe0d51a96418c0d04004986e410e87f6b4",
+                "url": "https://api.github.com/repos/lcobucci/jwt/zipball/55564265fddf810504110bd68ca311932324b0e9",
+                "reference": "55564265fddf810504110bd68ca311932324b0e9",
                 "shasum": ""
             },
             "require": {
-                "ext-hash": "*",
-                "ext-json": "*",
                 "ext-mbstring": "*",
                 "ext-openssl": "*",
-                "ext-sodium": "*",
-                "lcobucci/clock": "^2.0 || ^3.0",
+                "lcobucci/clock": "^2.0",
                 "php": "^7.4 || ^8.0"
             },
             "require-dev": {
-                "infection/infection": "^0.21",
+                "infection/infection": "^0.20",
                 "lcobucci/coding-standard": "^6.0",
-                "mikey179/vfsstream": "^1.6.7",
-                "phpbench/phpbench": "^1.2",
+                "mikey179/vfsstream": "^1.6",
+                "phpbench/phpbench": "^0.17",
                 "phpstan/extension-installer": "^1.0",
-                "phpstan/phpstan": "^1.4",
-                "phpstan/phpstan-deprecation-rules": "^1.0",
-                "phpstan/phpstan-phpunit": "^1.0",
-                "phpstan/phpstan-strict-rules": "^1.0",
+                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan-deprecation-rules": "^0.12",
+                "phpstan/phpstan-phpunit": "^0.12",
+                "phpstan/phpstan-strict-rules": "^0.12",
                 "phpunit/php-invoker": "^3.1",
-                "phpunit/phpunit": "^9.5"
+                "phpunit/phpunit": "^9.4"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Lcobucci\\JWT\\": "src"
@@ -2690,7 +2692,7 @@
             ],
             "support": {
                 "issues": "https://github.com/lcobucci/jwt/issues",
-                "source": "https://github.com/lcobucci/jwt/tree/4.3.0"
+                "source": "https://github.com/lcobucci/jwt/tree/4.0.4"
             },
             "funding": [
                 {
@@ -2702,7 +2704,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-01-02T13:28:00+00:00"
+            "time": "2021-09-28T19:18:28+00:00"
         },
         {
             "name": "league/commonmark",
@@ -3683,54 +3685,6 @@
             "time": "2023-02-08T01:06:31+00:00"
         },
         {
-            "name": "october/all",
-            "version": "v3.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/octoberrain/all.git",
-                "reference": "2ca99be863f6d29801be2595134e4f7123b3acd8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/octoberrain/all/zipball/2ca99be863f6d29801be2595134e4f7123b3acd8",
-                "reference": "2ca99be863f6d29801be2595134e4f7123b3acd8",
-                "shasum": ""
-            },
-            "require": {
-                "october/backend": "3.3.*",
-                "october/cms": "3.3.*",
-                "october/editor": "3.3.*",
-                "october/media": "3.3.*",
-                "october/system": "3.3.*",
-                "october/tailor": "3.3.*"
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Alexey Bobkov",
-                    "email": "aleksey.bobkov@gmail.com"
-                },
-                {
-                    "name": "Samuel Georges",
-                    "email": "daftspunky@gmail.com"
-                }
-            ],
-            "description": "All common modules for October CMS",
-            "homepage": "https://octobercms.com",
-            "keywords": [
-                "all",
-                "core",
-                "october",
-                "october cms"
-            ],
-            "support": {
-                "issues": "https://github.com/octoberrain/all/issues",
-                "source": "https://github.com/octoberrain/all/tree/v3.3.0"
-            },
-            "time": "2023-03-24T00:01:57+00:00"
-        },
-        {
             "name": "october/backend",
             "version": "v3.3.5",
             "dist": {
@@ -3761,102 +3715,6 @@
                 "october cms"
             ],
             "time": "2023-04-01T03:46:09+00:00"
-        },
-        {
-            "name": "october/cms",
-            "version": "v3.3.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://gateway.octobercms.com/composer/dist/october/cms/october-cms-v3.3.5-b50217.zip",
-                "reference": "16183fc80e496a489853ee6372454d113dfddf2a",
-                "shasum": "c5466e8dcb1a8beed350af39336e05edd32200d3"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "october-module",
-            "authors": [
-                {
-                    "name": "Alexey Bobkov",
-                    "email": "aleksey.bobkov@gmail.com"
-                },
-                {
-                    "name": "Samuel Georges",
-                    "email": "daftspunky@gmail.com"
-                }
-            ],
-            "description": "CMS module for October CMS",
-            "homepage": "https://octobercms.com",
-            "keywords": [
-                "cms",
-                "october",
-                "october cms"
-            ],
-            "time": "2023-04-01T03:46:09+00:00"
-        },
-        {
-            "name": "october/editor",
-            "version": "v3.3.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://gateway.octobercms.com/composer/dist/october/editor/october-editor-v3.3.5-f39bd8.zip",
-                "reference": "33d9df5ea30f20b1c2626de6c6fdb709fa7e36bd",
-                "shasum": "3ccf2d7bc2eae4720c3da2f8b8f032a34b50f15b"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "october-module",
-            "authors": [
-                {
-                    "name": "Alexey Bobkov",
-                    "email": "aleksey.bobkov@gmail.com"
-                },
-                {
-                    "name": "Samuel Georges",
-                    "email": "daftspunky@gmail.com"
-                }
-            ],
-            "description": "Editor module for October CMS",
-            "homepage": "https://octobercms.com",
-            "keywords": [
-                "editor",
-                "october",
-                "october cms"
-            ],
-            "time": "2023-03-14T06:07:33+00:00"
-        },
-        {
-            "name": "october/media",
-            "version": "v3.3.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://gateway.octobercms.com/composer/dist/october/media/october-media-v3.3.5-f2967d.zip",
-                "reference": "3ba4f1c0eea87b5e3272382a8b4c563ecffe5073",
-                "shasum": "2a3650030f26c6fe72633feb92169490e525af2a"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "october-module",
-            "authors": [
-                {
-                    "name": "Alexey Bobkov",
-                    "email": "aleksey.bobkov@gmail.com"
-                },
-                {
-                    "name": "Samuel Georges",
-                    "email": "daftspunky@gmail.com"
-                }
-            ],
-            "description": "Editor module for October CMS",
-            "homepage": "https://octobercms.com",
-            "keywords": [
-                "media",
-                "october",
-                "october cms"
-            ],
-            "time": "2023-04-01T03:22:12+00:00"
         },
         {
             "name": "october/rain",
@@ -3973,38 +3831,6 @@
                 "system"
             ],
             "time": "2023-04-01T02:05:33+00:00"
-        },
-        {
-            "name": "october/tailor",
-            "version": "v3.3.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://gateway.octobercms.com/composer/dist/october/tailor/october-tailor-v3.3.5-d996cb.zip",
-                "reference": "13e3fa77b818f7afe6189b64bb9001ceb90b55a7",
-                "shasum": "fc3697d881d7211266b9930b33ffd8265fde1d36"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "october-module",
-            "authors": [
-                {
-                    "name": "Alexey Bobkov",
-                    "email": "aleksey.bobkov@gmail.com"
-                },
-                {
-                    "name": "Samuel Georges",
-                    "email": "daftspunky@gmail.com"
-                }
-            ],
-            "description": "Tailor module for October CMS",
-            "homepage": "https://octobercms.com",
-            "keywords": [
-                "october",
-                "october cms",
-                "tailor"
-            ],
-            "time": "2023-04-01T00:49:18+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -5123,6 +4949,53 @@
                 "source": "https://github.com/Seldaek/signal-handler/tree/2.0.1"
             },
             "time": "2022-07-20T18:31:45+00:00"
+        },
+        {
+            "name": "stella-maris/clock",
+            "version": "0.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stella-maris-solutions/clock.git",
+                "reference": "fa23ce16019289a18bb3446fdecd45befcdd94f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stella-maris-solutions/clock/zipball/fa23ce16019289a18bb3446fdecd45befcdd94f8",
+                "reference": "fa23ce16019289a18bb3446fdecd45befcdd94f8",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0|^8.0",
+                "psr/clock": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "StellaMaris\\Clock\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Heigl",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "A pre-release of the proposed PSR-20 Clock-Interface",
+            "homepage": "https://gitlab.com/stella-maris/clock",
+            "keywords": [
+                "clock",
+                "datetime",
+                "point in time",
+                "psr20"
+            ],
+            "support": {
+                "source": "https://github.com/stella-maris-solutions/clock/tree/0.1.7"
+            },
+            "time": "2022-11-25T16:15:06+00:00"
         },
         {
             "name": "symfony/console",
