@@ -99,7 +99,7 @@ export default {
     try {
       let ico = this.$route.params.ico
       console.log(ico);
-      await axios.get('/api/companies/' + ico)
+      await axios.get('/companies/' + ico)
       .then((response)=> {
         console.log(response);
         this.Data = response.data.data;
