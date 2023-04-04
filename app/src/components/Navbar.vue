@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar lg:h-20 lg:min-w-fit">
+  <nav class="navbar lg:h-20 lg:min-w-fit ">
     <div class=" lg:ml-40 lg:mt-2 lg:text-lg ">
       <router-link class=" lg:mr-24 text-navtext" to="/">Logo Space</router-link>
       <router-link to="/databazy" class="text-navtext lg:mr-24">Databázy</router-link>
@@ -13,7 +13,7 @@
       </div>
     </form>
   </nav>
-<!--  ma asi drbne dnes do rana -->
+<!--  ma asi drbnhe dnes do rana -->
   <div class="lg:flex lg:w-10/12 lg:pr-14 lg:place-content-end">
   <ul>
     <li class="lg:flex lg:flex-col lg:fixed lg:px-2 lg:mt-2 bg-light lg:border-2 rounded-md" v-for="item in this.Data">
@@ -47,7 +47,8 @@ export default {
       MiniLogIn: false,
       UserSettingsWindow: false,
       name: null,
-      Data: []
+      Data: [],
+      Visible: true
     }
   },
   methods: {
