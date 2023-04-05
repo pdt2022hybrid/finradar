@@ -3,9 +3,8 @@
 <div class="wrapper">
 	<header class="homepageHeader">
 		<h1 class="header-text">Vyhľadávanie v Databáze Firiem</h1>
-		<form onsubmit="return false lg:fixed">
-      <input type="text" class="header-btn placeholder-white font-varela" v-model="name" placeholder="Vyhľadať firmu" @keyup="Search">
-	  <i class="bi bi-search lg:text-sm absolute right-1/2 mr-16 top-2/4 mt-24 pt-9 text-white"></i>
+		<form onsubmit="return false">
+      <input type="text" class="header-input placeholder-white font-varela" v-model="name" placeholder= "Vyhľadať firmu" @keyup="Search">
       <button class="hidden" @click="Search"></button>
     </form>
     <ul>
@@ -18,7 +17,7 @@
 	</header>
 	<ul class="homepageMainContent">
 		<li class="mainContentText">
-			<h2>LOREM</h2>
+			<h2 class="pb-6">LOREM</h2>
 			<p>Lorem ipsum dolor sit amet,
         consectetur adipiscing elit. Proin non ultrices magna.
         Quisque euismod nunc vel enim auctor laoreet. Fusce
@@ -93,6 +92,7 @@ export default {
 
 	.homepageHeader{
 		@apply  lg:items-center text-center w-full pt-44
+
 	}
 
 	.header-text{
@@ -100,12 +100,12 @@ export default {
 
 	}
 
-	.header-btn{
+	.header-input{
 		@apply lg:text-center items-center mt-20 mb-36 w-64 h-10 rounded-lg bg-blue
 	}
 
 	.homepageMainContent{
-		@apply lg:flex place-content-evenly h-fit py-20 pb-20 pb-40 bg-light
+		@apply lg:flex place-content-evenly h-fit py-16 pb-20 pb-40 bg-light
 	}
 
 	.mainContentText{
