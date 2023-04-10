@@ -1,5 +1,6 @@
 <template>
-  <Navbar/>
+  <MobileNavbar/>
+  <NavbarPC/>
   <div class="lg:min-h-screen">
     <router-view/>
   </div>
@@ -8,12 +9,14 @@
 
 <script>
 import Footer from "@/components/Footer.vue";
-import Navbar from "@/components/Navbar.vue";
+import NavbarPC from "@/components/Navbar.vue";
+import MobileNavbar from "@/components/MobileNavbar.vue";
 
 export default {
   components: {
-    Navbar,
-    Footer
+    NavbarPC,
+    Footer,
+    MobileNavbar
   }
 }
 </script>

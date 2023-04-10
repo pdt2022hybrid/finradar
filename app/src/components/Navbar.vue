@@ -1,6 +1,6 @@
 <template>
-  <nav class="navbar lg:h-20 lg:min-w-fit ">
-    <div class=" lg:ml-40 lg:mt-2 lg:text-lg ">
+  <nav class="navbar lg:h-20 lg:min-w-fit">
+    <div class="lg:block lg:ml-40 lg:mt-2 lg:text-lg">
       <router-link class=" lg:mr-24 text-navtext" to="/">Logo Space</router-link>
       <router-link to="/databazy" class="text-navtext lg:mr-24">Databázy</router-link>
 <!--      <router-link to="/" class="text-navtext">API</router-link>-->
@@ -14,18 +14,18 @@
     </form>
   </nav>
 <!--  ma asi drbnhe dnes do rana -->
-  <div class="lg:flex lg:w-10/12 lg:pr-14 lg:place-content-end">
-  <ul>
-    <li class="lg:flex lg:flex-col lg:fixed lg:px-2 lg:mt-2 bg-light lg:border-2 rounded-md" v-for="item in this.Data">
-      <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
-        <h4 class=" cursor-pointer w-fit py-1 font-medium" @click="redirect"> {{ item.name }} </h4>
-      </router-link>
-    </li>
-  </ul>
+  <div class="lg:flex lg:w-10/12 lg:pr-14 lg:place-content-end ">
+    <ul>
+      <li class="lg:flex lg:flex-col lg:fixed lg:px-2 lg:mt-2 bg-light lg:border-2 rounded-md" v-for="item in this.Data">
+        <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
+          <h4 class=" cursor-pointer w-fit py-1 font-medium" @click="redirect"> {{ item.name }} </h4>
+        </router-link>
+      </li>
+    </ul>
   </div>
   <!-- tunak passujeme opak premennych do Visible prop na komponentoch (retardovana metoda) -->
-  <MiniLogin :Visible="!this.MiniLogIn"/>
-  <UserMiniSettings :Visible="!this.UserSettingsWindow"/>
+  <MiniLogin v-if="MiniLogIn"/>
+  <UserMiniSettings v-if="UserSettingsWindow"/>
 </template>
 
 <script>
@@ -34,7 +34,7 @@ import MiniLogin from "@/components/MiniLogin.vue";
 import axios from "axios";
 
 export default {
-  name: "Navbar",
+  name: "NavbarPC",
   components: {
     MiniLogin,
     UserMiniSettings,
@@ -103,7 +103,7 @@ export default {
 @layer base {
 
   .navbar {
-    @apply lg:flex place-content-between bg-dark lg:p-4
+    @apply lg:flex lg:place-content-between bg-dark lg:p-4 hidden
   }
   .search {
     @apply lg:mr-24 lg:h-10 lg:mt-1 bg-search text-dark text-center rounded
