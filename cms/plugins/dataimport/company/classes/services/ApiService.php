@@ -19,6 +19,13 @@ class ApiService
     public static function importCompany($id): void
     {
         if (Company::exists($id)) {
+            try {
+                $company = new ApiCompany($id);
+                $company->createStatements();
+            }
+            catch (Exception $e) {
+                return;
+            }
             return;
         }
 

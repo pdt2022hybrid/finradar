@@ -1,23 +1,131 @@
-fields:
-    official_id:
-        label: Official ID
-        readOnly: true
-    year:
-        label: Year
-        type: number
-        span: auto
-        readOnly: true
-    statement:
-        label: Statement
-        type: recordfinder
-        readOnly: true
-        list: $/appentities/financialstatement/models/statement/columns.yaml
-        nameFrom: official_id
-        descriptionFrom: year
-    company:
-        label: Company
-        type: recordfinder
-        readOnly: true
-        list: $/appentities/financialstatement/models/company/columns.yaml
-        nameFrom: ico
-        descriptionFrom: name
+tabs:
+    stretch: true
+    defaultTab: Data
+    icons:
+        Data: icon-address-card-o
+        Finances basic: icon-money
+        Finances assets: icon-money
+        Finances liabilities: icon-money
+    fields:
+        official_id:
+            label: Official ID
+            readOnly: true
+        year:
+            label: Year
+            type: number
+            span: auto
+            readOnly: true
+        statement:
+            label: Statement
+            type: recordfinder
+            readOnly: true
+            list: $/appentities/financialstatement/models/statement/columns.yaml
+            nameFrom: official_id
+            descriptionFrom: year
+        company:
+            label: Company
+            type: recordfinder
+            readOnly: true
+            list: $/appentities/financialstatement/models/company/columns.yaml
+            nameFrom: ico
+            descriptionFrom: name
+        updated_at:
+            label: Updated at
+            type: datepicker
+            readOnly: true
+        revenue:
+            label: Revenue
+            type: number
+            span: auto
+            readOnly: true
+            tab: Finances basic
+        profits:
+            label: Profits
+            type: number
+            span: auto
+            readOnly: true
+            tab: Finances basic
+        assets_total:
+            label: Assets total
+            type: number
+            span: auto
+            readOnly: true
+            tab: Finances basic
+        liabilities_total:
+            label: Liabilities total
+            type: number
+            span: auto
+            readOnly: true
+            tab: Finances basic
+        capital:
+            label: Capital
+            type: number
+            span: auto
+            readOnly: true
+            tab: Finances basic
+        lt_intangible_assets_total:
+            label: LT Intangible assets total
+            type: number
+            span: auto
+            readOnly: true
+            tab: Finances assets
+        lt_tangible_assets_total:
+            label: LT Tangible assets total
+            type: number
+            span: auto
+            readOnly: true
+            tab: Finances assets
+        lt_financial_assets_total:
+            label: LT Financial assets total
+            type: number
+            span: auto
+            readOnly: true
+            tab: Finances assets
+        st_receivables_total:
+            label: ST Receivables total
+            type: number
+            span: auto
+            readOnly: true
+            tab: Finances assets
+        financial_accounts_total:
+            label: Financial accounts total
+            type: number
+            span: auto
+            readOnly: true
+            tab: Finances assets
+        base_capital:
+            label: Base capital
+            type: number
+            span: auto
+            readOnly: true
+            tab: Finances liabilities
+        result_last_year:
+            label: Result last year
+            type: number
+            span: auto
+            readOnly: true
+            tab: Finances liabilities
+        profit_for_period_after_tax:
+            label: Profit for period after tax
+            type: number
+            span: auto
+            readOnly: true
+            tab: Finances liabilities
+        reserves:
+            label: Reserves
+            type: number
+            span: auto
+            readOnly: true
+            tab: Finances liabilities
+        st_liabilities:
+            label: ST Liabilities
+            type: number
+            span: auto
+            readOnly: true
+            tab: Finances liabilities
+        bank_loans:
+            label: Bank loans
+            type: number
+            span: auto
+            readOnly: true
+            tab: Finances liabilities

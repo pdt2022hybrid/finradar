@@ -35,12 +35,12 @@ columns:
         label: Profits
         sortable: true
         invisible: false
-    assets:
-        label: Assets
+    assets_total:
+        label: Assets total
         sortable: true
         invisible: false
-    liabilities:
-        label: Liabilities
+    liabilities_total:
+        label: Liabilities total
         sortable: true
         invisible: false
     capital:

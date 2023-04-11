@@ -9,6 +9,7 @@ tabs:
         Data: icon-address-card-o
         Finances: icon-money
         Statements: icon-list-ol
+        Reports: icon-line-chart
     fields:
         id:
             label: ID
@@ -96,3 +97,8 @@ tabs:
             type: partial
             path: $/appentities/company/controllers/companies/_field_statements.htm
             tab: Statements
+        reports:
+            label: Reports
+            type: partial
+            path: $/appentities/company/controllers/companies/_field_reports.htm
+            tab: Reports

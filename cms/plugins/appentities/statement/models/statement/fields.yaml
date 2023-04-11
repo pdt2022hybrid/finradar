@@ -15,7 +15,3 @@ fields:
         label: Year
         type: number
         span: auto
-    reports:
-        label: Financial reports
-        type: partial
-        path: $/appentities/statement/controllers/statements/_field_reports.htm

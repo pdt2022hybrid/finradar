@@ -13,6 +13,13 @@ class ApiService
     {
 
         if (Statement::exists($id)) {
+            try {
+                $statement = new ApiStatement($id); // makes request
+                $statement->createReports(); // creates reports
+            }
+            catch (Exception $e) {
+                return;
+            }
             return;
         }
 
