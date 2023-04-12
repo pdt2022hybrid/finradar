@@ -25,7 +25,7 @@
     <div class=" items-center border-l-2 p-2">
       <div class="flex flex-col justify-around">
         <h1 class="">Tržby</h1>
-        <line-chart download="true" suffix="€" thousands=" " :library="{
+        <line-chart download="true" suffix="€" thousands=" " :colors="['blue', 'red']" :library="{
              curveType: 'function',
         backgroundColor: '#EFEFEF',
         hAxis: {
@@ -45,19 +45,24 @@
           ['Tangible assets', this.Data?.latest_report?.assets?.lt_tangible_assets_total],
           ['Recievables total', this.Data?.latest_report?.assets?.st_receivables_total]]"></pie-chart>
           <div class="flex flex-col grid grid-cols-2 text-center">
-            <div>
+            <div class="flex">
+              <h4 class="leg mr-4 text-white bg-blue pr-1 pl-1 rounded">B</h4>
               <h4 class="leg">Financial accounts</h4>
             </div>
-            <div>
+            <div class="flex">
+              <h4 class="leg mr-4 text-white">B</h4>
               <h4 class="leg">Financial assets</h4>
             </div>
-            <div>
+            <div class="flex">
+              <h4 class="leg mr-4 text-white">B</h4>
               <h4 class="leg">Intangible assets</h4>
             </div>
-            <div>
+            <div class="flex">
+              <h4 class="leg mr-4 text-white">B</h4>
               <h4 class="leg">Tangible assets</h4>
             </div>
-            <div>
+            <div class="flex">
+              <h4 class="leg mr-4 text-white ">B</h4>
               <h4 class="leg">Recievables total</h4>
             </div>
             
@@ -81,7 +86,7 @@
     </div>
       <div class="flex flex-col justify-around p-1">
         <h1>Zisky</h1>
-        <line-chart download="true" suffix="€" thousands=" " :library="{
+        <line-chart download="true" suffix="€" thousands=" " :colors="['blue', 'red']" :library="{
         curveType: 'function',
         backgroundColor: '#EFEFEF',
         hAxis: {
