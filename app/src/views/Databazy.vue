@@ -1,23 +1,23 @@
 <template>
 	<div>
-    <div class="flex-col ml-52 mt-16 flex items-start font-rubik">
+    <div class="flex-col lg:ml-52 lg:mt-16 flex items-start font-rubik">
       <h1 class="text-4xl mb-10 font-extrabold"> Databázy </h1>
       <h3 class="text-xl font-bold mb-4 indent-8"> Filtrovanie v databáze</h3>
     </div>
     <div class="flex flex-col items-center">
       <div class="flex-col border-x border-t flex w-3/4">
-        <form class="bg-tables flex flex-row p-6" onsubmit="return false">
-          <div class="w-1/2 grid">
+        <form class="bg-tables flex lg:flex-row flex-col p-6 " onsubmit="return false">
+          <div class="lg:w-1/2 lg:grid flex flex-col w-full">
             <input type="text" class="label placeholder-dark placeholder:font-rubik" placeholder="Meno / IČO firmy" v-model="name">
-            <span class="inline-grid grid-cols-2">
+            <span class="inline-grid lg:grid-cols-2 grid-cols-1">
               <input class="label" type="number" placeholder="Zisk od" v-model="profit.min">
               <input class="label" type="number" placeholder="Zisk do" v-model="profit.max">
               <input class="label" type="number" placeholder="Tržby od" v-model="revenue.min">
               <input class="label" type="number" placeholder="Tržby do" v-model="revenue.max">
             </span>
           </div>
-          <div class="w-1/2 flex justify-end items-end">
-            <button class="w-3/5 bg-blue p-1.5 rounded border font-varela" @click="SetLink">
+          <div class="lg:w-1/2 w-full flex flex-wrap content-end lg:justify-end justify-center">
+            <button class="w-3/5 bg-blue p-1.5 rounded border font-varela lg:h-1/3" @click="SetLink">
               Hľadaj
             </button>
           </div>
@@ -40,8 +40,8 @@
                 <h4 class="cursor-pointer w-fit" @click="redirect"> {{ item.name }} </h4>
               </router-link>
             </td>
-            <td class="border-r text-center"> {{ item.latest_data.capital }} €</td>
-            <td class="text-center"> {{ item.latest_data.revenue }} €</td>
+            <td class="border-r text-center"> {{ item.latest_data.revenue }} €</td>
+            <td class="text-center"> {{ item.latest_data.profits }} €</td>
           </tr>
           </tbody>
         </table>
