@@ -7,13 +7,16 @@
       <input type="text" class="header-input placeholder-white font-varela" v-model="name" placeholder= "Vyhľadať firmu" @keyup="Search">
       <button class="hidden" @click="Search"></button>
     </form>
-    <ul class="border-2 w-64 justify-center top-96 bg-light rounded-md py-2 ml-20">
+
+
+    <ul class="border-2 w-64 justify-center top-96 bg-light rounded-md py-2 ml-20 lg:mx-auto">
       <li v-for="item in this.Data" class="">
         <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
           <h4 class="cursor-pointer border-background border-b-2 lg:w-fit" @click="redirect"> {{ item.name }} </h4>
         </router-link>
       </li>
     </ul>
+
 	</header>
 	<ul class="homepageMainContent">
 		<li class="mainContentText">
