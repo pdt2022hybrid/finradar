@@ -1,6 +1,6 @@
 <?php namespace Appuser\User\models;
 
-use Model;
+use October\Rain\Database\Model;
 
 class Dashboard extends Model
 {

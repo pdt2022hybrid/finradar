@@ -1,7 +1,7 @@
 <?php namespace RainLab\User\Models;
 
 use Form;
-use Model;
+use October\Rain\Database\Model;
 use System\Models\MailTemplate;
 use Exception;
 

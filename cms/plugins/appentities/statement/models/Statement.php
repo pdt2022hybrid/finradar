@@ -1,6 +1,6 @@
 <?php namespace Appentities\Statement\Models;
 
-use Model;
+use October\Rain\Database\Model;
 
 class Statement extends Model
 {

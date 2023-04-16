@@ -1,6 +1,9 @@
 <?php namespace Dataimport\Company\Classes;
 
+use Carbon\Carbon;
 use Dataimport\Company\Classes\Requests\CompanyRequest;
+use Dataimport\Company\Classes\Helpers\OrsrCompany;
+use Dataimport\Company\Classes\Helpers\DirectorHelper;
 use Appentities\Company\Models\Company;
 use Exception;
 use DataImport\Statement\Classes\Services\ApiService as StatementApiService;
@@ -23,6 +26,7 @@ class ApiCompany
 
     public CompanyRequest $request;
     public $response;
+    public OrsrCompany $orsrCompany;
     public Company $company;
 
     /**
@@ -32,6 +36,10 @@ class ApiCompany
     {
         $this->request = new CompanyRequest($id);
         $this->response = $this->request->response;
+
+        if (array_has($this->response, 'ico')) {
+            $this->orsrCompany = new OrsrCompany(array_get($this->response, 'ico'));
+        }
     }
 
     public function canCreateCompany(): bool
@@ -44,14 +52,16 @@ class ApiCompany
         $this->company = new Company();
         $this->fillCompanyFromApi();
         $this->company->save();
+
+        $this->fillDirectors();
     }
 
     public function fillCompanyFromApi(): void
     {
 
         foreach (self::$columnsInApi as $key => $value) {
-            if (isset($this->response[$value])) {
-                $this->company->$key = $this->response[$value];
+            if (array_has($this->response, $value)) {
+                $this->company->$key = array_get($this->response, $value);
             }
         }
 
@@ -67,6 +77,22 @@ class ApiCompany
                 StatementApiService::importStatement($statement);
             }
         }
+    }
+
+    public function fillDirectors(): void
+    {
+        $this->orsrCompany->directors()->map(function ($director) {
+            $this->attachDirector($director);
+        });
+    }
+
+    private function attachDirector($director): void
+    {
+        $this->company->directors()->attach(
+            DirectorHelper::handleDirector($director), [
+                'since' => Carbon::parse(array_get($director, 'since'))->format('Y-m-d'),
+            ]
+        );
     }
 
 }

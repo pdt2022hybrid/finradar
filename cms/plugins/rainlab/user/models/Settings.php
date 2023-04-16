@@ -1,6 +1,6 @@
 <?php namespace RainLab\User\Models;
 
-use Model;
+use October\Rain\Database\Model;
 
 class Settings extends Model
 {

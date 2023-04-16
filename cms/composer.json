@@ -12,7 +12,8 @@
         "october/system": "^3.2",
         "laravel/scout": "^9.0",
         "yab/laravel-scout-mysql-driver": "^5.1",
-        "tymon/jwt-auth": "2.0"
+        "tymon/jwt-auth": "2.0",
+        "lubosdz/parser-orsr": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.5|^9.0"

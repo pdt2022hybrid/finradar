@@ -1,9 +1,12 @@
 <?php namespace Appentities\Company\Models;
 
 use Carbon\Carbon;
-use Model;
+use October\Rain\Database\Model;
 use Laravel\Scout\Searchable;
 use Appentities\Report\Models\Report;
+use Appentities\Statement\Models\Statement;
+use Appentities\Director\Models\Director;
+use Appentities\Director\Models\CompanyDirector;
 
 class Company extends Model
 {
@@ -16,14 +19,22 @@ class Company extends Model
 
     public $hasMany = [
         'statements' => [
-            'Appentities\Statement\Models\Statement',
+            Statement::class,
             'key' => 'ico',
             'otherKey' => 'ico',
         ],
         'reports' => [
-            'Appentities\Report\Models\Report',
+            Report::class,
             'key' => 'ico',
             'otherKey' => 'ico',
+        ],
+    ];
+
+    public $belongsToMany = [
+        'directors' => [
+            Director::class,
+            'pivotModel' => CompanyDirector::class,
+            'table' => 'apidata_company_director_pivot'
         ],
     ];
 

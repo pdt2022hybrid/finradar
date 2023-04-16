@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Director
+
+# Model Form Field configuration
+form: $/appentities/director/models/director/fields.yaml
+
+# Model Class name
+modelClass: Appentities\Director\Models\Director
+
+# Default redirect location
+defaultRedirect: appentities/director/directors
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: appentities/director/directors/update/:id
+    redirectClose: appentities/director/directors
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: appentities/director/directors
+    redirectClose: appentities/director/directors
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

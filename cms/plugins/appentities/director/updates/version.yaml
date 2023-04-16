@@ -1,0 +1,4 @@
+1.0.1:
+    - First version of director
+    - 2023_04_16_1228_create_directors_table.php
+    - 2023_04_16_1229_create_company_directors_table.php

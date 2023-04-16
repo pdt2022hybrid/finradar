@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ed8f3e4769354ae9f521d6305fc81bd3",
+    "content-hash": "88a0954c0efbe49ffc2a0bcea7412b44",
     "packages": [
         {
             "name": "brick/math",
@@ -3186,6 +3186,51 @@
                 "source": "https://github.com/linkorb/jsmin-php/tree/1.0.0"
             },
             "time": "2013-03-15T13:16:35+00:00"
+        },
+        {
+            "name": "lubosdz/parser-orsr",
+            "version": "1.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lubosdz/parser-orsr.git",
+                "reference": "c76facbe42c3122d0116662936f768530ed670e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lubosdz/parser-orsr/zipball/c76facbe42c3122d0116662936f768530ed670e4",
+                "reference": "c76facbe42c3122d0116662936f768530ed670e4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "lubosdz\\parserOrsr\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "lubosdz"
+                }
+            ],
+            "description": "Parser Obchodneho registra SR - www.orsr.sk. (Parser for Business Directory of Slovak Republic)",
+            "keywords": [
+                "Obchodny register SR",
+                "orsr.sk",
+                "orsr.sk API parser",
+                "slovak business directory"
+            ],
+            "support": {
+                "issues": "https://github.com/lubosdz/parser-orsr/issues",
+                "source": "https://github.com/lubosdz/parser-orsr"
+            },
+            "time": "2022-02-15T10:31:37+00:00"
         },
         {
             "name": "monolog/monolog",

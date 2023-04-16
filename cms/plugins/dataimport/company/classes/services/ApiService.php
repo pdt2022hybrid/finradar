@@ -34,6 +34,7 @@ class ApiService
             $company->createCompany();
             $company->createStatements();
         } catch (Exception $e) {
+            dd($e);
             return;
         }
 

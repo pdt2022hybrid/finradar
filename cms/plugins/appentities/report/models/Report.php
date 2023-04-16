@@ -1,6 +1,6 @@
 <?php namespace Appentities\Report\Models;
 
-use Model;
+use October\Rain\Database\Model;
 
 class Report extends Model
 {
