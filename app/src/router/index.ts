@@ -36,6 +36,11 @@ const router = createRouter({
       path: '/Pages',
       name: 'mapa_stranok',
       component: () => import('@/views/IndexOfPages.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('@/views/LoginPage.vue')
     }
     // dalsie dame potom co urobime fazu 1
   ]
