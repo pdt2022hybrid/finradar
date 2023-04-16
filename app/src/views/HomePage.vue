@@ -10,9 +10,9 @@
 
 
     <ul class="border-2 w-64 justify-center top-96 bg-light rounded-md py-2 ml-20 lg:mx-auto">
-      <li v-for="item in this.Data" class="">
+      <li v-for="item in this.Data" class="border-background border-b-2">
         <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
-          <h4 class="cursor-pointer border-background border-b-2 lg:w-fit" @click="redirect"> {{ item.name }} </h4>
+          <h4 class="cursor-pointer lg:w-fit mx-auto" @click="redirect"> {{ item.name }} </h4>
         </router-link>
       </li>
     </ul>
