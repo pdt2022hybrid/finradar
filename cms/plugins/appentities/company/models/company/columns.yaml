@@ -47,4 +47,8 @@ columns:
         label: Revenue
         sortable: true
         invisible: true
-
+    directors:
+        label: Directors
+        relation: directors
+        select: name
+        invisible: false

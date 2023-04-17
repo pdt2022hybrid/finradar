@@ -92,13 +92,13 @@ tabs:
             readOnly: true
             span: left
             tab: Finances
-        statements:
-            label: Statements
-            type: partial
-            path: $/appentities/company/controllers/companies/_field_statements.htm
-            tab: Statements
-        reports:
-            label: Reports
-            type: partial
-            path: $/appentities/company/controllers/companies/_field_reports.htm
-            tab: Reports
+#        statements:
+#            label: Statements
+#            type: partial
+#            path: $/appentities/company/controllers/companies/_field_statements.htm
+#            tab: Statements
+#        reports:
+#            label: Reports
+#            type: partial
+#            path: $/appentities/company/controllers/companies/_field_reports.htm
+#            tab: Reports

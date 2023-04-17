@@ -4,6 +4,7 @@ use Appentities\Report\Models\Report;
 use Illuminate\Http\Resources\Json\JsonResource;
 use AppEntities\Statement\Http\Resources\StatementResource;
 use AppEntities\Report\Http\Resources\ReportResource;
+use Appentities\Director\Http\Resources\DirectorResource;
 
 class CompanyResource extends JsonResource
 {
@@ -15,6 +16,7 @@ class CompanyResource extends JsonResource
             'ico' => $this->resource->ico,
             'dic' => $this->resource->dic,
             'legal_form' => $this->resource->legal_form,
+            'directors' => $this->when($this->resource->relationLoaded('directors'), DirectorResource::collection($this->resource->directors)),
             'address' => [
                 'street' => $this->resource->street,
                 'city' => $this->resource->city,

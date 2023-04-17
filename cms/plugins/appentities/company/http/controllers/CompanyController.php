@@ -55,6 +55,7 @@ class CompanyController extends Controller
                     ->with('reports');
                 })
                 ->with('reports')
+                ->with('directors')
                 ->joinLatestReport()
                 ->firstOrFail()
         );

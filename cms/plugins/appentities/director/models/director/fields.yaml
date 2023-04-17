@@ -6,3 +6,29 @@ fields:
     id:
         label: ID
         disabled: true
+    name:
+        label: Name
+        span: auto
+        readOnly: true
+    street:
+        label: Street
+        span: auto
+        readOnly: true
+    number:
+        label: Number
+        span: auto
+        readOnly: true
+    city:
+        label: City
+        span: auto
+        readOnly: true
+    zip:
+        label: Zip
+        span: auto
+        readOnly: true
+#    companies:
+#        label: Companies
+#        type: partial
+#        path: $/appentities/director/controllers/directors/_field_companies.htm
+#        readOnly: true
+

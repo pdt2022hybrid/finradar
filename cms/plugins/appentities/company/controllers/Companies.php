@@ -3,11 +3,7 @@
 use BackendMenu;
 use Backend\Classes\Controller;
 
-/**
- * Companies Backend Controller
- *
- * @link https://docs.octobercms.com/3.x/extend/system/controllers.html
- */
+
 class Companies extends Controller
 {
     public $implement = [
@@ -42,5 +38,30 @@ class Companies extends Controller
     public function formExtendQuery($query)
     {
         $query->joinLatestReport();
+    }
+
+    public function formExtendFields($form)
+    {
+        $form->addTabFields(
+            [
+                'statements' => [
+                    'label' => 'Statements',
+                    'type' => 'partial',
+                    'path' => '$/appentities/company/controllers/companies/_field_statements.htm',
+                    'tab' => 'Statements'
+                ],
+                'reports' => [
+                    'label' => 'Reports',
+                    'type' => 'partial',
+                    'path' => '$/appentities/company/controllers/companies/_field_reports.htm',
+                    'tab' => 'Reports'
+                ],
+                'directors' => [
+                    'label' => 'Directors',
+                    'type' => 'partial',
+                    'path' => '$/appentities/company/controllers/companies/_field_directors.htm',
+                ]
+            ]
+        );
     }
 }

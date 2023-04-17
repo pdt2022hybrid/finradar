@@ -6,3 +6,13 @@ columns:
     id:
         label: ID
         searchable: true
+    name:
+        label: Name
+        searchable: true
+    address:
+       label: Address
+       select: "CONCAT_WS(', ', street, number, city, zip)"
+#    companies:
+#        label: Companies
+#        relation: companies
+#        select: name

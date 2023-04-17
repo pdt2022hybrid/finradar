@@ -25,17 +25,15 @@ class Plugin extends PluginBase
         //
     }
 
-    public function registerNavigation()
+    public function registerNavigation(): array
     {
-        return []; // Remove this line to activate
-
         return [
             'director' => [
-                'label' => 'director',
-                'url' => Backend::url('appentities/director/mycontroller'),
-                'icon' => 'icon-leaf',
+                'label' => 'Directors',
+                'url' => Backend::url('appentities/director/directors'),
+                'icon' => 'icon-group',
                 'permissions' => ['appentities.director.*'],
-                'order' => 500,
+                'order' => 700,
             ],
         ];
     }

@@ -14,4 +14,11 @@ reports:
     manage:
         form: $/appentities/report/models/report/fields.yaml
     emptyMessage: No reports
-
+directors:
+    label: Directors
+    view:
+        list: $/appentities/director/models/director/columns.yaml
+    readOnly: true
+    manage:
+        form: $/appentities/director/models/director/fields.yaml
+    emptyMessage: No directors

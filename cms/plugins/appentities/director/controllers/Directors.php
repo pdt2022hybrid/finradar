@@ -3,36 +3,46 @@
 use BackendMenu;
 use Backend\Classes\Controller;
 
-/**
- * Directors Backend Controller
- *
- * @link https://docs.octobercms.com/3.x/extend/system/controllers.html
- */
 class Directors extends Controller
 {
     public $implement = [
         \Backend\Behaviors\FormController::class,
         \Backend\Behaviors\ListController::class,
+        \Backend\Behaviors\RelationController::class,
     ];
 
-    /**
-     * @var string formConfig file
-     */
     public $formConfig = 'config_form.yaml';
 
-    /**
-     * @var string listConfig file
-     */
     public $listConfig = 'config_list.yaml';
 
-    /**
-     * @var array required permissions
-     */
+    public $relationConfig = 'config_relation.yaml';
+
     public $requiredPermissions = ['appentities.director.directors'];
 
-    /**
-     * __construct the controller
-     */
+    public function formExtendFields($form)
+    {
+        $form->addTabFields(
+            [
+                'companies' => [
+                    'label' => 'Companies',
+                    'type' => 'partial',
+                    'path' => '$/appentities/director/controllers/directors/_field_companies.htm',
+                ]
+            ]
+        );
+    }
+
+    public function listExtendColumns($list)
+    {
+        $list->addColumns([
+            'companies' => [
+                'label' => 'Companies',
+                'relation' => 'companies',
+                'select' => 'name',
+            ]
+        ]);
+    }
+
     public function __construct()
     {
         parent::__construct();
