@@ -14,15 +14,16 @@
     </form>
   </nav>
 <!--  ma asi drbnhe dnes do rana -->
-  <div class="lg:flex lg:place-content-end lg:mr-32">
-    <ul>
-      <li class="px-2 mt-2 bg-light border-2 rounded-md" v-for="item in this.Data">
+  <div class="flex place-content-end mr-32 mt-2">
+    <ul class="bg-light rounded-md">
+      <li class="flex flex-col items-center border-b-background border-b-2 px-4 w-64" v-for="item in this.Data">
         <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
-          <h4 class=" cursor-pointer w-fit py-1 font-medium" @click="redirect"> {{ item.name }} </h4>
+          <h4 class=" cursor-pointer py-1 font-varela font-medium" @click="redirect"> {{ item.name }} </h4>
         </router-link>
       </li>
     </ul>
   </div>
+
   <!-- tunak passujeme opak premennych do Visible prop na komponentoch (retardovana metoda) -->
   <MiniLogin v-if="MiniLogIn"/>
   <UserMiniSettings v-if="UserSettingsWindow"/>
