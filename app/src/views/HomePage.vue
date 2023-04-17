@@ -4,15 +4,15 @@
 	<header class="homepageHeader">
 		<h1 class="header-text">Vyhľadávanie v Databáze Firiem</h1>
 		<form onsubmit="return false">
-      <input type="text" class="header-input placeholder-white font-varela" v-model="name" placeholder= "Vyhľadať firmu" @keyup="Search">
+      <input type="text" class="header-input placeholder-white placeholder:mx-auto placeholder:font-varela font-varela" v-model="name" placeholder="Vyhľadať firmu" @keyup="Search">
       <button class="hidden" @click="Search"></button>
     </form>
 
 
-    <ul class="border-2 w-64 justify-center top-96 bg-light rounded-md py-2 ml-20 lg:mx-auto">
+    <ul class="w-64 top-96 bg-light rounded-md py-2 mb-20 mx-auto">
       <li v-for="item in this.Data" class="border-background border-b-2">
         <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
-          <h4 class="cursor-pointer lg:w-fit mx-auto" @click="redirect"> {{ item.name }} </h4>
+          <h4 class="cursor-pointer lg:w-fit mx-auto font-varela font-medium" @click="redirect"> {{ item.name }} </h4>
         </router-link>
       </li>
     </ul>
@@ -104,7 +104,7 @@ export default {
 	}
 
 	.header-input{
-		@apply lg:text-center items-center mt-20 mb-20 w-64 h-10 rounded-lg bg-blue
+		@apply lg:text-center items-center mt-20 w-64 h-10 rounded-lg bg-blue
 
 	}
 
