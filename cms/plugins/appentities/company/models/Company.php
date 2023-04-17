@@ -61,7 +61,6 @@ class Company extends Model
 
     public function scopeJoinLatestReport($query)
     {
-        dd('test');
         return $query->joinSub(Report::where('year', self::getYear())->isNotEmpty(), 'latest_reports', function ($join) {
             $join->on('apidata_companies.ico', '=', 'latest_reports.ico');
         })->select('latest_reports.*', 'apidata_companies.*', 'apidata_companies.official_id as company_official_id', 'latest_reports.official_id as report_official_id');

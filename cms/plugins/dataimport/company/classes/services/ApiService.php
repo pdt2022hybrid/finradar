@@ -4,6 +4,7 @@ use Appentities\Company\Models\Company;
 use Illuminate\Support\Facades\Http;
 use Dataimport\Company\Classes\ApiCompany;
 use Exception;
+use Log;
 
 /**
  * Class ApiService
@@ -34,7 +35,7 @@ class ApiService
             $company->createCompany();
             $company->createStatements();
         } catch (Exception $e) {
-            dd($e);
+            Log::error($e->getMessage() . ' ' . $e->getTraceAsString());
             return;
         }
 

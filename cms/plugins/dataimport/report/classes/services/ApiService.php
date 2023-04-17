@@ -4,6 +4,7 @@ use Appentities\Company\Models\Company;
 use Appentities\Report\Models\Report;
 use Dataimport\Report\classes\ApiReport;
 use Exception;
+use Log;
 
 class ApiService
 {
@@ -19,6 +20,7 @@ class ApiService
             $report = new ApiReport($id); // makes request
             $report->createReport(); // creates report
         } catch (Exception $e) {
+            Log::error($e->getMessage() . ' ' . $e->getTraceAsString());
             return;
         }
 
