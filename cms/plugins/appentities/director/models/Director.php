@@ -37,7 +37,13 @@ class Director extends Model
     public static function exists(Director|array $director, bool $returnId): bool|int
     {
         if (is_array($director)) {
-            $director = self::where('name', $director['name'])->where('street', $director['street'])->where('city', $director['city'])->where('number', $director['number'])->where('zip', $director['zip'])->first();
+            $director = self::query()
+                ->where('name', array_get($director, 'name'))
+                ->where('street', array_get($director, 'street'))
+                ->where('city', array_get($director, 'city'))
+                ->where('number', array_get($director, 'number'))
+                ->where('zip', array_get($director, 'zip'))
+                ->first();
         }
 
         if ($director instanceof Director) {
