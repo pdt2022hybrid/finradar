@@ -13,7 +13,6 @@
       </div>
     </form>
   </nav>
-<!--  ma asi drbnhe dnes do rana -->
   <div class="flex place-content-end mr-32 mt-2">
     <ul class="bg-light rounded-md">
       <li class="flex flex-col items-center border-b-background border-b-2 px-4 w-64" v-for="item in this.Data">
@@ -23,8 +22,6 @@
       </li>
     </ul>
   </div>
-
-  <!-- tunak passujeme opak premennych do Visible prop na komponentoch (retardovana metoda) -->
   <MiniLogin v-if="MiniLogIn"/>
   <UserMiniSettings v-if="UserSettingsWindow"/>
 </template>
@@ -54,8 +51,7 @@ export default {
   },
   methods: {
     // when clicking on user pfp
-    // if not logged in show mini login
-    // if logged in show the other window
+    // if not logged in show miniLogin else show userSettings
     ShowMenu() {
       if (this.LoggedIn) {
         this.UserSettingsWindow = !this.UserSettingsWindow;
