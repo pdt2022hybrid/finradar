@@ -14,9 +14,9 @@
     </form>
   </nav>
 <!--  ma asi drbnhe dnes do rana -->
-  <div class="lg:flex lg:w-10/12 lg:pr-14 lg:place-content-end ">
+  <div class="lg:flex lg:place-content-end lg:mr-32">
     <ul>
-      <li class="lg:flex lg:flex-col lg:fixed lg:px-2 lg:mt-2 bg-light lg:border-2 rounded-md" v-for="item in this.Data">
+      <li class="px-2 mt-2 bg-light border-2 rounded-md" v-for="item in this.Data">
         <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
           <h4 class=" cursor-pointer w-fit py-1 font-medium" @click="redirect"> {{ item.name }} </h4>
         </router-link>
