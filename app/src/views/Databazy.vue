@@ -10,7 +10,7 @@
             click to show filters
         </div>
         <transition>
-          <form v-if="!mobile" class="border bg-tables flex lg:flex-row flex-col p-6" onsubmit="return false">
+          <form v-if="mobile === false" class="border bg-tables flex lg:flex-row flex-col p-6" onsubmit="return false">
             <div class="lg:w-1/2 lg:grid flex flex-col w-full">
               <input type="text" class="label placeholder-dark placeholder:font-rubik" placeholder="Meno / IČO firmy" v-model="name">
               <span class="inline-grid lg:grid-cols-2 grid-cols-1">
