@@ -2,10 +2,7 @@
 
 use Illuminate\Routing\Controller;
 use Appentities\Company\Models\Company;
-use Appentities\Financialstatement\Models\Statement;
-use Appentities\Financialreport\Models\Report;
 use AppEntities\Company\Http\Resources\CompanyResource;
-use Carbon\Carbon;
 
 class CompanyController extends Controller
 {

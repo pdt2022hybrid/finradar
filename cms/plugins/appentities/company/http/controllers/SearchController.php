@@ -6,7 +6,7 @@ use AppEntities\Company\Http\Resources\CompanyResource;
 
 class SearchController extends Controller
 {
-    public function search(): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+    public function search()
     {
 
         $textResults = Company::search(input('query'))->get();

@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('number');
             $table->string('zip');
             $table->timestamps();
+
+            $table->fullText(['name']);
         });
     }
     public function down()
