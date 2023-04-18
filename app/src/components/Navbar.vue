@@ -6,22 +6,22 @@
 <!--      <router-link to="/" class="text-navtext">API</router-link>-->
     </div>
     <form class="lg:flex lg:mr-32" onsubmit="return false">
-      <input type="text" class="search" v-model="name" placeholder="search" @keyup="Search">
+      <input type="text" class="search ml-8" v-model="name" placeholder="search" @keyup="Search">
       <button class="hidden" @click="Search"></button>
       <div class="text-navtext lg:flex lg:items-center" @click="ShowMenu">
 			 <i class="bi bi-person-circle lg:ml-10 lg:rounded-full lg:flex lg:cursor-pointer text-blue lg:text-5xl"></i>
       </div>
+        <div class="absolute flex w-3/4 mt-9">
+            <ul class="absolute w-64 bg-light rounded-md mx-auto z-10">
+                <li class="border-background border-b-2" v-for="item in this.Data">
+                    <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
+                        <h4 class="cursor-pointer lg:w-fit mx-auto font-varela font-medium" @click="redirect"> {{ item.name }} </h4>
+                    </router-link>
+                </li>
+            </ul>
+        </div>
     </form>
   </nav>
-  <div class="flex place-content-end mr-32 mt-2">
-    <ul class="bg-light rounded-md">
-      <li class="flex flex-col items-center border-b-background border-b-2 px-4 w-64" v-for="item in this.Data">
-        <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
-          <h4 class=" cursor-pointer py-1 font-varela font-medium" @click="redirect"> {{ item.name }} </h4>
-        </router-link>
-      </li>
-    </ul>
-  </div>
   <MiniLogin v-if="MiniLogIn"/>
   <UserMiniSettings v-if="UserSettingsWindow"/>
 </template>
