@@ -22,6 +22,7 @@ class ApiService
         if (Company::exists($id)) {
             try {
                 $company = new ApiCompany($id);
+                $company->updateCompany();
                 $company->createStatements();
             }
             catch (Exception $e) {

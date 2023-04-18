@@ -17,8 +17,8 @@ class CompanyController extends Controller
         $searchQuery = input('search_query');
         $revenueMin = input('revenue_min');
         $revenueMax = input('revenue_max');
-        $profitMin = input('profit_min');
-        $profitMax = input('profit_max');
+        $profitsMin = input('profits_min');
+        $profitsMax = input('profits_max');
         $order  = input('order') ?? 'revenue';
         $orderDirection = input('order_direction') ?? 'desc';
         $perPage = input('per_page') ?? self::PER_PAGE;
@@ -37,11 +37,11 @@ class CompanyController extends Controller
                 ->when($revenueMax, function ($query) use ($revenueMax) {
                     $query->where('revenue', '<=', $revenueMax);
                 })
-                ->when($profitMin, function ($query) use ($profitMin) {
-                    $query->where('profits', '>=', $profitMin);
+                ->when($profitsMin, function ($query) use ($profitsMin) {
+                    $query->where('profits', '>=', $profitsMin);
                 })
-                ->when($profitMax, function ($query) use ($profitMax) {
-                    $query->where('profits', '<=', $profitMax);
+                ->when($profitsMax, function ($query) use ($profitsMax) {
+                    $query->where('profits', '<=', $profitsMax);
                 })
                 ->paginate(input('per_page') ?? $perPage)
         );

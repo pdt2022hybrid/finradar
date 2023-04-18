@@ -14,6 +14,13 @@ class OrsrCompany
     }
 
     public function directors(): Collection {
+
+        if (array_has($this->core->data, 'statutarny_organ.konateľ')) {
+            return collect(
+                array_get($this->core->data, 'statutarny_organ.konateľ')
+            );
+        }
+
         return collect(
             array_get($this->core->data, 'statutarny_organ.konatelia', [])
         );

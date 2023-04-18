@@ -56,6 +56,18 @@ class ApiCompany
         $this->fillDirectors();
     }
 
+    public function updateCompany(): void
+    {
+
+        $this->company = Company::where('ico', $this->response['ico'])->firstOrFail();
+
+        $this->fillCompanyFromApi();
+        $this->company->save();
+
+        $this->fillDirectors();
+
+    }
+
     public function fillCompanyFromApi(): void
     {
 

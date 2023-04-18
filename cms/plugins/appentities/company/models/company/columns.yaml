@@ -50,5 +50,5 @@ columns:
     directors:
         label: Directors
         relation: directors
-        select: name
+        valueFrom: name
         invisible: false

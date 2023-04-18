@@ -49,7 +49,7 @@ class ApiTemplate
     {
         $this->request = new TemplateRequest($id);
         $this->response = $this->request->response;
-        $this->tables = collect($this->request->response['tabulky']);
+        $this->tables = collect(array_get($this->request->response, 'tabulky'));
     }
 
     public function getColumn($column): array
