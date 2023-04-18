@@ -5,12 +5,12 @@
       <h3 class="text-xl font-bold mb-4 indent-8"> Filtrovanie v databáze</h3>
     </div>
     <div class="flex flex-col items-center">
-      <div class="flex-col border-x border-t flex w-3/4">
-        <div class="lg:hidden bg-tables" @click="mobile = !mobile">
+      <div class="flex-col flex w-3/4">
+        <div class="lg:hidden bg-tables border" @click="mobile = !mobile">
             click to show filters
         </div>
         <transition>
-          <form v-if="!mobile" class="bg-tables flex lg:flex-row flex-col p-6" onsubmit="return false">
+          <form v-if="mobile === false" class="border-x border-t bg-tables flex lg:flex-row flex-col p-6" onsubmit="return false">
             <div class="lg:w-1/2 lg:grid flex flex-col w-full">
               <input type="text" class="label placeholder-dark placeholder:font-rubik" placeholder="Meno / IČO firmy" v-model="name">
               <span class="inline-grid lg:grid-cols-2 grid-cols-1">
@@ -27,7 +27,7 @@
             </div>
           </form>
         </transition>
-        <table class="bg-tables w-full font-varela">
+        <table class="bg-tables border-x w-full font-varela">
           <thead class="border-y bg-dark">
           <tr>
             <th class="border-r"> <h4 class="text-background">Názov</h4>
@@ -145,7 +145,7 @@ export default {
   }
   .v-enter-from,
   .v-leave-to {
-      @apply transform -translate-y-full
+      @apply transform translate-y-full
   }
 
 }
