@@ -1,6 +1,4 @@
 <template>
-<div class=" flex justify-center pt-10">
-  <div class="border-2 bg-tables grid-cols-3 grid w-3/4">
      <div class="flex flex-col items-start p-6">
     <div class="name">
       <h3 class="">Vznik</h3>
