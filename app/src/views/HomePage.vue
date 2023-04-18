@@ -1,21 +1,22 @@
 <template>
 
-<div class="wrapper">
-	<header class="homepageHeader">
+<div class="wrapper mb-24">
+	<header class="homepageHeader mb-48">
 		<h1 class="header-text">Vyhľadávanie v Databáze Firiem</h1>
 		<form onsubmit="return false">
-      <input type="text" class="header-input placeholder-white placeholder:mx-auto placeholder:font-varela font-varela" v-model="name" placeholder="Vyhľadať firmu" @keyup="Search">
+      <input type="text" class="header-input placeholder-white placeholder:mx-auto placeholder:font-varela font-varela"
+             v-model="name" placeholder="Vyhľadať firmu" @keyup="Search">
       <button class="hidden" @click="Search"></button>
     </form>
-
-
-    <ul class="w-64 top-96 bg-light rounded-md py-2 mb-20 mx-auto">
-      <li v-for="item in this.Data" class="border-background border-b-2">
-        <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
-          <h4 class="cursor-pointer lg:w-fit mx-auto font-varela font-medium" @click="redirect"> {{ item.name }} </h4>
-        </router-link>
-      </li>
-    </ul>
+    <div class="flex justify-center">
+      <ul class="absolute w-64 bg-light rounded-md mx-auto z-10 -mt-2.5">
+        <li v-for="item in this.Data" class="border-background border-b-2">
+          <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
+            <h4 class="cursor-pointer lg:w-fit mx-auto font-varela font-medium" @click="redirect"> {{ item.name }} </h4>
+          </router-link>
+        </li>
+      </ul>
+    </div>
 
 	</header>
 	<ul class="homepageMainContent">
@@ -29,7 +30,7 @@
       </p>
 		</li>
 		<li>
-		  <img class="mainContentImage" src="" alt="image">
+		  <img class="mainContentImage" src="@/assets/images/placeholder.png" alt="image">
 		</li>
 		<li class="mainContentText">
 			<h2>LOREM</h2>
@@ -64,7 +65,7 @@ export default {
             method: "get",
             params: {
               search_query: this.name,
-              per_page: 5,
+              per_page: 8,
             }
           }).then((response) => {
             console.log(response)
@@ -104,24 +105,24 @@ export default {
 	}
 
 	.header-input{
-		@apply lg:text-center items-center mt-20 w-64 h-10 rounded-lg bg-blue
+		@apply text-center items-center mt-20 w-64 lg:w-3/12 h-10 rounded-lg bg-blue lg:h-12
 
 	}
 
 	.homepageMainContent{
-		@apply lg:flex place-content-evenly h-fit py-16 pb-20 pb-40 bg-light
+		@apply flex items-center flex-col lg:flex-row lg:place-content-evenly h-fit py-16 bg-light
 	}
 
 	.mainContentText{
-		@apply lg:flex w-96 flex-col text-xl text-dark font-normal
+		@apply flex w-96 flex-col text-xl text-dark font-normal text-center lg:text-left my-10
 	}
 
 	.mainContentText h2{
 		@apply lg:mb-10 text-center text-3xl font-rubik text-dark font-semibold
 	}
 
-	.mainContentImage{
-		@apply lg:w-32 h-32 flex border-2 mt-40
+	.mainContentImage {
+		@apply lg:w-32 h-32 flex
 	}
 
 }
