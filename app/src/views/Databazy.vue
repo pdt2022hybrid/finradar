@@ -75,7 +75,7 @@ export default {
   name: "Databazy",
   data() {
     return {
-      mobile: null,
+      mobile: false,
       Data: null,
       Loading: [ [], [], [], [], [], [], [], [], [], [], [], [], [], [], [] ],
       per_page: null,
