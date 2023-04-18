@@ -10,7 +10,7 @@
             click to show filters
         </div>
         <transition>
-          <form v-if="mobile === false" class="border-x border-t bg-tables flex lg:flex-row flex-col p-6" onsubmit="return false">
+          <form v-if="mobile === false" class="border bg-tables flex lg:flex-row flex-col p-6" onsubmit="return false">
             <div class="lg:w-1/2 lg:grid flex flex-col w-full">
               <input type="text" class="label placeholder-dark placeholder:font-rubik" placeholder="Meno / IČO firmy" v-model="name">
               <span class="inline-grid lg:grid-cols-2 grid-cols-1">
@@ -27,29 +27,43 @@
             </div>
           </form>
         </transition>
-        <table class="bg-tables border-x w-full font-varela">
-          <thead class="border-y bg-dark">
+        <table class="bg-tables border-x w-full font-varela mb-20">
+          <thead class="border-b bg-dark">
           <tr>
-            <th class="border-r"> <h4 class="text-background">Názov</h4>
+            <th class="border-r">
+                <h4 class="text-background">Názov</h4>
             </th>
-            <th class="border-r"> <h4 class="text-background">Tržby</h4>
+            <th class="border-r">
+                <h4 class="text-background">Tržby</h4>
             </th>
-            <th> <h4 class="text-background">Zisk</h4>
+            <th>
+                <h4 class="text-background">Zisk</h4>
             </th>
           </tr>
           </thead>
-          <tbody>
-          <tr v-for="item in this.Data">
-            <td class="border-r">
-              <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
-                <h4 class="cursor-pointer w-fit" @click="redirect"> {{ item.name }} </h4>
-              </router-link>
-            </td>
-            <td class="border-r text-center"> {{ item.latest_data.revenue }} €</td>
-            <td class="text-center"> {{ item.latest_data.profits }} €</td>
-          </tr>
+          <tbody v-if="this.Data === null">
+<!--          urobit nech sa to hybe a nepulzuje-->
+            <tr v-for="item in this.Loading" class="animate-pulse">
+                <td class="border-r w-4/6"><div class="p-3 m-2 bg-background rounded"></div></td>
+                <td class="border-r w-1/6"><div class="p-3 m-2 bg-background rounded"></div></td>
+                <td class="w-1/6"><div class="p-3 m-2 bg-background rounded"></div></td>
+            </tr>
+          </tbody>
+          <tbody v-else>
+            <tr v-for="item in this.Data">
+              <td class="border-r w-4/6">
+                <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
+                  <h4 class="cursor-pointer w-fit" @click="redirect"> {{ item.name }} </h4>
+                </router-link>
+              </td>
+              <td class="border-r text-center w-1/6"> {{ item.latest_data.revenue }} €</td>
+              <td class="text-center w-1/6"> {{ item.latest_data.profits }} €</td>
+            </tr>
           </tbody>
         </table>
+        <div>
+<!--          <button class="p-10 bg-tables" @click=""></button>-->
+        </div>
       </div>
     </div>
 	</div>
@@ -61,8 +75,9 @@ export default {
   name: "Databazy",
   data() {
     return {
-      mobile: null,
-      Data: [],
+      mobile: false,
+      Data: null,
+      Loading: [ [], [], [], [], [], [], [], [], [], [], [], [], [], [], [] ],
       per_page: null,
       revenue:{
         max: null,
@@ -73,6 +88,7 @@ export default {
         min: null,
       },
       name: null,
+      page: 1,
     }
   },
   methods: {
@@ -110,6 +126,9 @@ export default {
       await axios({
         url: '/companies',
         method: "get",
+        params: {
+          per_page: 1
+        }
       }).then((response) => {
         console.log(response)
         this.Data = response.data.data
@@ -145,7 +164,7 @@ export default {
   }
   .v-enter-from,
   .v-leave-to {
-      @apply transform translate-y-full
+      @apply transform
   }
 
 }

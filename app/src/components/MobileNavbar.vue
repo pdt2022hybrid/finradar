@@ -13,10 +13,17 @@
       <transition>
         <div v-if="collapsed" class="px-4 bg-dark flex flex-col items-start fixed w-full top-14 ">
             <ul>
-                <li class="p-2"> <router-link to="/databazy"> Databazy </router-link> </li>
+                <li class="p-2"> <router-link to="/databazy " class="font-bold"> Databazy </router-link> </li>
+                <!--todo: urobit selective loading podla usera -->
+                <li>
+                    <i></i>
+                    <router-link to="/login">prihlasit sa</router-link>
+                </li>
+                <li>
+                    <i></i>
+                    <router-link to="/register">registrovat sa</router-link>
+                </li>
             </ul>
-            <button class="p-2" @click="this.$router.push('/login')">prihlasit sa</button>
-            <button class="p-2" @click="this.$router.push('/register')">registrovat sa</button>
         </div>
       </transition>
   </nav>
