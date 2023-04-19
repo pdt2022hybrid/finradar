@@ -173,7 +173,7 @@ h3 {
     @apply text-dark opacity-70 items-end
   }
   .leg{
-    @apply text-sm pr-2 pl-2 mb-1 mr-2
+    @apply text-sm pr-2 pl-2 mb-1 mr-2 h-4
   }
   .name{
     @apply border-b flex place-content-between pt-2 pb-2 border-b-navtext w-full
