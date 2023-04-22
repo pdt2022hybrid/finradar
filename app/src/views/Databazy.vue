@@ -42,7 +42,7 @@
           </tr>
           </thead>
           <tbody v-if="this.Data === null">
-<!--          urobit nech sa to hybe a nepulzuje-->
+<!--          todo:urobit nech sa to hybe a nepulzuje-->
             <tr v-for="item in this.Loading" class="animate-pulse">
                 <td class="border-r w-4/6"><div class="p-3 m-2 bg-background rounded"></div></td>
                 <td class="border-r w-1/6"><div class="p-3 m-2 bg-background rounded"></div></td>
@@ -56,8 +56,8 @@
                   <h4 class="cursor-pointer w-fit" @click="redirect"> {{ item.name }} </h4>
                 </router-link>
               </td>
-              <td class="border-r text-center w-1/6"> {{ item.latest_data.revenue }} €</td>
-              <td class="text-center w-1/6"> {{ item.latest_data.profits }} €</td>
+              <td class="border-r text-center w-1/6"> {{ addSpaces(item.latest_data.revenue) }} €</td>
+              <td class="text-center w-1/6"> {{ addSpaces(item.latest_data.profits) }} €</td>
             </tr>
           </tbody>
         </table>
@@ -88,10 +88,23 @@ export default {
         min: null,
       },
       name: null,
-      page: 1,
     }
   },
   methods: {
+    addSpaces(item) {
+      // convert na string
+      item = item.toString()
+      // reverse string
+      item = item.split('').reverse().join('')
+      const parts = null
+      // separovat string kazde 3 charactery
+      this.parts = item.match(/.{1,3}/g)
+      // dat string dokopy a pridat space kazde 3 charactery
+      item = this.parts.join(" ")
+      // reverse string
+      item = item.split('').reverse().join('')
+      return item
+    },
     async SetLink() {
       try {
         await axios({
@@ -126,9 +139,9 @@ export default {
       await axios({
         url: '/companies',
         method: "get",
-        params: {
-          per_page: 1
-        }
+        // params: {
+        //   per_page: 1
+        // }
       }).then((response) => {
         console.log(response)
         this.Data = response.data.data
@@ -136,6 +149,7 @@ export default {
     } catch(errors) {
       console.log(errors);
     }
+
   }
 }
 </script>
