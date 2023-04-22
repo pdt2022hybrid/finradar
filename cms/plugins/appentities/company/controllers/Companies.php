@@ -30,16 +30,6 @@ class Companies extends Controller
         BackendMenu::setContext('Appentities.Company', 'company', 'companies');
     }
 
-    public function listExtendQuery($query)
-    {
-        $query->joinLatestReport();
-    }
-
-    public function formExtendQuery($query)
-    {
-        $query->joinLatestReport();
-    }
-
     public function formExtendFields($form)
     {
         $form->addTabFields(

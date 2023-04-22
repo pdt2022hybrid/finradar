@@ -1,7 +1,39 @@
 <?php namespace Appentities\Report\Models;
 
 use October\Rain\Database\Model;
+use Appentities\Company\Models\Company;
+use Appentities\Statement\Models\Statement;
 
+/**
+ * Report Model
+ *
+ * @property int official_id
+ * @property int statement_id
+ * @property int ico
+ * @property int year
+ *
+ * @property Company company
+ * @property Statement statement
+ *
+ * @property int revenue
+ * @property int profits
+ * @property int assets_total
+ * @property int liabilities_total
+ * @property int capital
+ *
+ * @property int lt_intangible_assets_total
+ * @property int lt_tangible_assets_total
+ * @property int lt_financial_assets_total
+ * @property int st_receivables_total
+ * @property int financial_accounts_total
+ *
+ * @property int base_capital
+ * @property int result_last_year
+ * @property int profit_for_period_after_tax
+ * @property int reserves
+ * @property int st_liabilities
+ * @property int bank_loans
+ */
 class Report extends Model
 {
     use \October\Rain\Database\Traits\Validation;
@@ -44,7 +76,8 @@ class Report extends Model
      * @param $id
      * @return bool
      */
-    public static function exists($id) {
+    public static function exists($id): bool
+    {
         return self::where('official_id', $id)->exists();
     }
 

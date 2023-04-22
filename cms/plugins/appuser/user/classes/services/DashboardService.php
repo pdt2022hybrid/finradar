@@ -5,7 +5,7 @@ use Appuser\User\models\Dashboard;
 class DashboardService
 {
 
-    public static function createDashboard()
+    public static function createDashboard(): Dashboard
     {
         $dashboard = new Dashboard();
         $dashboard->user_id = auth()->user()->id;

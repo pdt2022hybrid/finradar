@@ -4,7 +4,6 @@ companies:
         list: $/appentities/company/models/company/columns.yaml
     readOnly: true
     manage:
-        scope: joinLatestReport
         form: $/appentities/company/models/company/fields.yaml
         list: $/appentities/company/models/company/columns.yaml
     emptyMessage: No companies

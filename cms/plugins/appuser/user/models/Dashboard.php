@@ -1,7 +1,25 @@
 <?php namespace Appuser\User\models;
 
 use October\Rain\Database\Model;
+use LibUser\UserApi\Models\User;
+use Appentities\Company\Models\Company;
+use October\Rain\Database\Relations\BelongsTo;
+use October\Rain\Database\Relations\BelongsToMany;
+use October\Rain\Support\Collection;
 
+/**
+ * Dashboard Model
+ *
+ * @property int $id
+ * @property int $user_id
+ *
+ * @property User $user
+ * @property Collection $companies
+ *
+ * @method BelongsTo user()
+ * @method BelongsToMany companies()
+ *
+ */
 class Dashboard extends Model
 {
     use \October\Rain\Database\Traits\Validation;
@@ -16,23 +34,16 @@ class Dashboard extends Model
 
     public $belongsTo = [
         'user' =>
-            'LibUser\UserApi\Models\User',
+            User::class,
             'key' => 'user_id',
             'otherKey' => 'id',
     ];
 
     public $belongsToMany = [
         'companies' => [
-            'Appentities\Company\Models\Company',
+            Company::class,
             'table' => 'appuser_dashboards_companies',
         ]
     ];
-
-    public function beforeCreate()
-    {
-        if (auth()->user()) {
-            $this->user_id = auth()->user()->id;
-        }
-    }
 
 }

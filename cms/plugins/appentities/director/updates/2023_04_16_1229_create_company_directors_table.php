@@ -9,8 +9,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('apidata_company_director_pivot', function(Blueprint $table) {
-            $table->integer('company_id')->unsigned();
-            $table->integer('director_id')->unsigned();
+            $table->integer('company_id')->unsigned()->index();
+            $table->integer('director_id')->unsigned()->index();
             $table->date('since');
             $table->primary(['company_id', 'director_id']);
         });

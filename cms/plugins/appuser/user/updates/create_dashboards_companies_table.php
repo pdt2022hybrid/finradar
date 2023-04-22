@@ -9,8 +9,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('appuser_dashboards_companies', function(Blueprint $table) {
-            $table->integer('dashboard_id')->unsigned();
-            $table->integer('company_id')->unsigned();
+            $table->integer('dashboard_id')->unsigned()->index();
+            $table->integer('company_id')->unsigned()->index();
             $table->primary(['dashboard_id', 'company_id']);
         });
     }

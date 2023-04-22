@@ -8,7 +8,7 @@ class DirectorController
 
     public function show($id): DirectorResource
     {
-        return DirectorResource::make(Director::where('id', $id)->with('companies')->firstOrFail());
+        return new DirectorResource(Director::find($id)->with('companies')->firstOrFail());
     }
 
 }

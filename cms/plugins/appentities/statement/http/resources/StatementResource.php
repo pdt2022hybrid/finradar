@@ -2,19 +2,31 @@
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use AppEntities\Report\Http\Resources\ReportResource;
+use Appentities\Report\Models\Report;
+use Appentities\Company\Models\Company;
+use October\Rain\Support\Collection;
 
+/**
+ * Class StatementResource
+ *
+ * @property int official_id
+ * @property int year
+ * @property Company company
+ * @property Collection reports
+ *
+ */
 class StatementResource extends JsonResource
 {
     public function toArray($request): array
     {
         return [
-            'id' => $this->resource->official_id,
+            'id' => $this->official_id,
             'company' => [
-                'id' => $this->resource->company->id,
-                'ico' => $this->resource->company->ico,
+                'id' => $this->company->id,
+                'ico' => $this->company->ico,
             ],
-            'year' => $this->resource->year,
-            'reports' => $this->when($this->resource->reports, ReportResource::collection($this->resource->reports)),
+            'year' => $this->year,
+            'reports' => $this->when((bool)$this->reports, ReportResource::collection($this->reports)),
         ];
     }
 }

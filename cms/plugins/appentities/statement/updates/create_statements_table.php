@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('apidata_statements', function(Blueprint $table) {
             $table->id();
-            $table->bigInteger('official_id')->unique();
-            $table->bigInteger('company_id');
+            $table->bigInteger('official_id')->unique()->index();
+            $table->bigInteger('company_id')->unsigned()->index();
             $table->unsignedBigInteger('ico')->index();
             $table->integer('year')->index();
             $table->timestamps();

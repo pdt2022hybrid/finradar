@@ -16,9 +16,9 @@ class CompanyController extends Controller
         $revenueMax = input('revenue_max');
         $profitsMin = input('profits_min');
         $profitsMax = input('profits_max');
-        $order  = input('order') ?? 'revenue';
-        $orderDirection = input('order_direction') ?? 'desc';
-        $perPage = input('per_page') ?? self::PER_PAGE;
+        $order  = input('order', 'revenue');
+        $orderDirection = input('order_direction', 'desc');
+        $perPage = input('per_page', self::PER_PAGE);
 
         return CompanyResource::collection(
             Company::query()
@@ -26,7 +26,6 @@ class CompanyController extends Controller
                     $query->where('name', 'LIKE', '%' . $searchQuery . '%')
                         ->orWhere('apidata_companies.ico', 'LIKE', '%' . $searchQuery . '%');
                 })
-                ->joinLatestReport()
                 ->orderBy($order, $orderDirection)
                 ->when($revenueMin, function ($query) use ($revenueMin) {
                     $query->where('revenue', '>=', $revenueMin);
@@ -44,8 +43,9 @@ class CompanyController extends Controller
         );
     }
 
-    public function show($ico) {
-        return CompanyResource::make(
+    public function show($ico): CompanyResource
+    {
+        return new CompanyResource(
             Company::where('apidata_companies.ico', $ico)
                 ->with('statements', function ($query) {
                     $query->orderBy('year', 'desc')
@@ -53,7 +53,6 @@ class CompanyController extends Controller
                 })
                 ->with('reports')
                 ->with('directors')
-                ->joinLatestReport()
                 ->firstOrFail()
         );
     }
