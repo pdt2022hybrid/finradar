@@ -4,7 +4,7 @@
 	<header class="homepageHeader mb-48">
 		<h1 class="header-text">Vyhľadávanie v Databáze Firiem</h1>
 		<form onsubmit="return false">
-      <input type="text" class="header-input placeholder-white placeholder:mx-auto placeholder:font-varela font-varela"
+      <input type="text" class="header-input placeholder-white placeholder:mx-auto placeholder:font-varela font-varela focus:outline-none focus:ring-2 focus:ring-blue_light focus:shadow-2xl"
              v-model="name" placeholder="Vyhľadať firmu" @keyup="Search">
       <button class="hidden" @click="Search"></button>
     </form>
@@ -12,7 +12,7 @@
       <ul class="absolute w-64 bg-light rounded-md mx-auto z-10 -mt-2.5">
         <li v-for="item in this.Data" class="border-background border-b-2">
           <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
-            <h4 class="cursor-pointer lg:w-fit mx-auto font-varela font-medium" @click="redirect"> {{ item.name }} </h4>
+            <h4 class="cursor-pointer lg:w-fit mx-auto font-varela font-medium hover:font-semibold" @click="redirect"> {{ item.name }} </h4>
           </router-link>
         </li>
       </ul>

@@ -22,7 +22,7 @@
     </div>
   </div>
     <div class=" items-center border-l-2 p-1">
-      <div class="flex flex-col justify-around">
+      <div class="lg:flex lg:flex-col lg:justify-around">
         <h1 class="">Tržby</h1>
         <line-chart download="true" suffix="€" thousands=" " :colors="['blue', 'red']" :library="{
              curveType: 'function',

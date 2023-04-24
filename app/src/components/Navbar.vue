@@ -6,16 +6,16 @@
 <!--      <router-link to="/" class="text-navtext">API</router-link>-->
     </div>
     <form class="lg:flex lg:mr-32" onsubmit="return false">
-      <input type="text" class="search ml-8" v-model="name" placeholder="search" @keyup="Search">
+      <input type="text" class="search ml-8 focus:outline-none focus:ring-2 focus:ring-blue_light focus:shadow-2xl" v-model="name" placeholder="Vyhľadať firmu" @keyup="Search">
       <button class="hidden" @click="Search"></button>
       <div class="text-navtext lg:flex lg:items-center" @click="ShowMenu">
 			 <i class="bi bi-person-circle lg:ml-10 lg:rounded-full lg:flex lg:cursor-pointer text-blue lg:text-5xl"></i>
       </div>
         <div class="absolute flex w-3/4 mt-9">
             <ul class="absolute w-64 bg-light rounded-md mx-auto z-10">
-                <li class="border-background border-b-2" v-for="item in this.Data">
+                <li class="border-background border-b-2 px-3" v-for="item in this.Data">
                     <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
-                        <h4 class="cursor-pointer lg:w-fit mx-auto font-varela font-medium" @click="redirect"> {{ item.name }} </h4>
+                        <h4 class="cursor-pointer lg:w-fit mx-auto font-varela font-medium text-center hover:font-semibold" @click="redirect"> {{ item.name }} </h4>
                     </router-link>
                 </li>
             </ul>
