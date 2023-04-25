@@ -21,24 +21,21 @@
 	</header>
 	<ul class="homepageMainContent">
 		<li class="mainContentText">
-			<h2 class="pb-6">LOREM</h2>
-			<p>Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit. Proin non ultrices magna.
-        Quisque euismod nunc vel enim auctor laoreet. Fusce
-        sollicitudin ultrices augue, vitae consequat nulla fermentum
-        ac. Morbi maximus.
-      </p>
+			<h2 class="pb-6">Vitajte na stránke FinRadar!</h2>
+			<p>Sme váš zdroj pre aktuálne finančné štatistiky a poznatky!
+			   FinRadar ako online platforma poskytuje komplexné a spoľahlivé informácie o rôznych finančných ukazovateľoch a analýze údajov.
+			   Bez ohľadu na to, či ste investor, obchodný profesionál alebo len záujemca o finančný svet, FinRadar je váš zdroj pre všetko súvisiace s finančnými štatistikami.
+      		</p>
 		</li>
 		<li>
 		  <img class="mainContentImage" src="@/assets/images/placeholder.png" alt="image">
 		</li>
 		<li class="mainContentText">
-			<h2>LOREM</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non
-        ultrices magna. Quisque euismod nunc vel enim auctor laoreet. Fusce
-        sollicitudin ultrices augue, vitae consequat nulla fermentum ac.
-        Morbi maximus.
-      </p>
+			<h2 class="pb-6">Užívateľsky prívetivé rozhranie</h2>
+			<p>FinRadar vám poskytuje všetko, čo potrebujete. Od interaktívnych grafov až po nekonečné databázy informácií.
+				Vo FinRadare sa snažíme posilniť našich používateľov vedomosťami a nástrojmi, ktoré potrebujú na úspech v komplexnom svete financií.
+				 Pripojte sa k nám na tejto finančnej ceste a odomknite moc dát s FinRadarom, najlepším zdrojom pre spoľahlivé finančné štatistiky a poznatky.
+      		</p>
 		</li>
 	</ul>
 </div>
