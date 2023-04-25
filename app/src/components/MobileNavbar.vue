@@ -12,16 +12,16 @@
       </div>
       <transition>
         <div v-if="collapsed" class="px-4 bg-dark flex flex-col items-start fixed w-full top-14 ">
-            <ul>
-                <li class="p-2"> <router-link to="/databazy " class="font-bold"> Databázy </router-link> </li>
+            <ul class="font-bold">
+                <li class="p-2"> <router-link to="/databazy "> Databazy </router-link> </li>
                 <!--todo: urobit selective loading podla usera -->
                 <li class="p-2">
-                    <i></i>
-                    <router-link to="/login">Prihlásiť sa</router-link>
+                    <i class="bi bi-person-add text-navtext"></i>
+                    <router-link to="/login">prihlasit sa</router-link>
                 </li>
                 <li class="p-2">
-                    <i></i>
-                    <router-link to="/register">Registrovať sa</router-link>
+                    <i class="bi bi-person text-navtext"></i>
+                    <router-link to="/register">registrovat sa</router-link>
                 </li>
             </ul>
         </div>

@@ -10,7 +10,7 @@
             click to show filters
         </div>
         <transition>
-          <form v-if="mobile === false" class="border bg-tables flex lg:flex-row flex-col p-6" onsubmit="return false">
+          <form id="search" v-if="mobile === false" class="border bg-tables flex lg:flex-row flex-col p-6" onsubmit="return false">
             <div class="lg:w-1/2 lg:grid flex flex-col w-full">
               <input type="text" class="label placeholder-dark placeholder:font-rubik" placeholder="Meno / IČO firmy" v-model="name">
               <span class="inline-grid lg:grid-cols-2 grid-cols-1">
@@ -61,9 +61,9 @@
             </tr>
           </tbody>
         </table>
-        <div>
-<!--          <button class="p-10 bg-tables" @click=""></button>-->
-        </div>
+        <form id="search" onsubmit="return false">
+          <button class="p-3 bg-tables" @click="SetLink(this.page++)"></button>
+        </form>
       </div>
     </div>
 	</div>
@@ -78,7 +78,7 @@ export default {
       mobile: false,
       Data: null,
       Loading: [ [], [], [], [], [], [], [], [], [], [], [], [], [], [], [] ],
-      per_page: null,
+      per_page: 1,
       revenue:{
         max: null,
         min: null,
@@ -88,6 +88,7 @@ export default {
         min: null,
       },
       name: null,
+      page: 2,
     }
   },
   methods: {
@@ -105,7 +106,9 @@ export default {
       item = item.split('').reverse().join('')
       return item
     },
-    async SetLink() {
+    async SetLink(page) {
+      console.log(page)
+      this.Data = null;
       try {
         await axios({
           url: '/companies',
@@ -117,6 +120,7 @@ export default {
             profits_min: this.profit.max,
             search_query: this.name,
             per_page: this.per_page,
+            page: page
           }
       }).then((response) => {
           console.log(response)
@@ -139,9 +143,9 @@ export default {
       await axios({
         url: '/companies',
         method: "get",
-        // params: {
-        //   per_page: 1
-        // }
+        params: {
+          per_page: 1
+        }
       }).then((response) => {
         console.log(response)
         this.Data = response.data.data
@@ -149,7 +153,6 @@ export default {
     } catch(errors) {
       console.log(errors);
     }
-
   }
 }
 </script>
