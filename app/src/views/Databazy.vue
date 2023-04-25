@@ -50,7 +50,7 @@
             </tr>
           </tbody>
           <tbody v-else>
-            <tr v-for="item in this.Data">
+            <tr v-for="item in this.Data.data">
               <td class="border-r w-4/6">
                 <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
                   <h4 class="cursor-pointer w-fit" @click="redirect"> {{ item.name }} </h4>
@@ -108,6 +108,10 @@ export default {
     },
     async SetLink(page) {
       console.log(page)
+      if (page > this.Data.meta.last_page) {
+        this.page = 1
+        page = this.page
+      }
       this.Data = null;
       try {
         await axios({
@@ -123,8 +127,8 @@ export default {
             page: page
           }
       }).then((response) => {
-          console.log(response)
-          this.Data = response.data.data
+          this.Data = response.data
+          console.log(this.Data)
         })
       } catch (errors) {
         console.log(errors)
@@ -147,8 +151,8 @@ export default {
           per_page: 1
         }
       }).then((response) => {
-        console.log(response)
-        this.Data = response.data.data
+        this.Data = response.data
+        console.log(this.Data)
       })
     } catch(errors) {
       console.log(errors);
