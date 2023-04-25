@@ -62,7 +62,10 @@
           </tbody>
         </table>
         <form id="search" onsubmit="return false">
-          <button class="p-3 bg-tables" @click="SetLink(this.page++)"></button>
+          <button class="p-3 bg-tables" @click="SetLink(page = 1)"> first page</button>
+          <button class="p-3 bg-tables" @click="SetLink(page--)"> previous page</button>
+          <button class="p-3 bg-tables" @click="SetLink(page++)"> next page</button>
+          <button class="p-3 bg-tables" @click="SetLink(page = Data.meta.last_page)"> last page</button>
         </form>
       </div>
     </div>
@@ -88,7 +91,7 @@ export default {
         min: null,
       },
       name: null,
-      page: 2,
+      page: 1,
     }
   },
   methods: {
@@ -106,12 +109,9 @@ export default {
       item = item.split('').reverse().join('')
       return item
     },
-    async SetLink(page) {
-      console.log(page)
-      if (page > this.Data.meta.last_page) {
-        this.page = 1
-        page = this.page
-      }
+    async SetLink() {
+      if (this.page > this.Data.meta.last_page) {this.page = 1}
+      else if (this.page < 1) {this.page = this.Data.meta.last_page}
       this.Data = null;
       try {
         await axios({
@@ -124,7 +124,7 @@ export default {
             profits_min: this.profit.max,
             search_query: this.name,
             per_page: this.per_page,
-            page: page
+            page: this.page
           }
       }).then((response) => {
           this.Data = response.data
