@@ -21,7 +21,7 @@
               </span>
             </div>
             <div class="lg:w-1/2 w-full flex flex-wrap content-end lg:justify-end justify-center">
-              <button class="w-3/5 bg-blue p-1.5 rounded border font-varela lg:h-1/3" @click="SetLink">
+              <button class="w-3/5 bg-blue p-1.5 rounded text-white font-varela lg:h-1/3" @click="SetLink">
                 Hľadaj
               </button>
             </div>
@@ -44,20 +44,20 @@
           <tbody v-if="this.Data === null">
 <!--          todo:urobit nech sa to hybe a nepulzuje-->
             <tr v-for="item in this.Loading" class="animate-pulse">
-                <td class="border-r w-4/6"><div class="p-3 m-2 bg-background rounded"></div></td>
-                <td class="border-r w-1/6"><div class="p-3 m-2 bg-background rounded"></div></td>
+                <td class="border-r tab w-4/6"><div class="p-3 m-2 bg-background rounded"></div></td>
+                <td class="border-r tab w-1/6"><div class="p-3 m-2 bg-background rounded"></div></td>
                 <td class="w-1/6"><div class="p-3 m-2 bg-background rounded"></div></td>
             </tr>
           </tbody>
           <tbody v-else>
             <tr v-for="item in this.Data.data">
-              <td class="border-r w-4/6">
+              <td class="border-r border-l tab w-4/6">
                 <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
                   <h4 class="cursor-pointer w-fit" @click="redirect"> {{ item.name }} </h4>
                 </router-link>
               </td>
-              <td class="border-r text-center w-1/6"> {{ addSpaces(item.latest_data.revenue) }} €</td>
-              <td class="text-center w-1/6"> {{ addSpaces(item.latest_data.profits) }} €</td>
+              <td class="border-r tab text-center w-1/6"> {{ addSpaces(item.latest_data.revenue) }} €</td>
+              <td class="text-center border-r tab w-1/6"> {{ addSpaces(item.latest_data.profits) }} €</td>
             </tr>
           </tbody>
         </table>
@@ -169,23 +169,26 @@ export default {
 @layer base {
 
   tr > th, tr > td  {
-    @apply border-y p-1.5
+    @apply border-y-background p-1.5
   }
   td, th {
     @apply p-1.5
+  }
+  .tab {
+    @apply border-r-background border-l-background
   }
   .label {
     @apply m-1.5 p-1 bg-background rounded placeholder-dark placeholder-opacity-70 placeholder:font-rubik
   }
   .v-enter-active {
-      @apply transition-all ease-in duration-200
+    @apply transition-all ease-in duration-200
   }
   .v-leave-active {
-      @apply transition-all ease-out duration-200
+    @apply transition-all ease-out duration-200
   }
   .v-enter-from,
   .v-leave-to {
-      @apply transform
+    @apply transform
   }
 
 }

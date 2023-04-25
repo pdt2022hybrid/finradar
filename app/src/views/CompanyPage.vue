@@ -1,6 +1,7 @@
 <template>
 <div class=" flex justify-center lg:pt-10 pt-20">
   <div class="border-2 bg-tables grid-cols-3 grid lg:w-5/6">
+    <div class="">
      <div class="flex flex-col items-start p-6">
     <div class="name">
       <h3 class="">Vznik</h3>
@@ -20,11 +21,12 @@
       <h3 class="">ICO</h3>
       <h2 class="mt-2">{{ this.Data?.ico }}</h2>
     </div>
+    </div>
   </div>
     <div class=" items-center border-l-2 p-1">
       <div class="lg:flex lg:flex-col lg:justify-around">
         <h1 class="">Tržby</h1>
-        <line-chart download="true" suffix="€" thousands=" " :colors="['blue', 'red']" :library="{
+        <line-chart download="true" suffix="€" thousands=" " :library="{
              curveType: 'function',
         backgroundColor: '#EFEFEF',
         hAxis: {
@@ -32,35 +34,37 @@
         },
         vAxis: {
           title: 'Hodnota (€)'
-        }
+        },
+        
         }" :min="null" :max="null" :data="this.Data?.graph_data?.revenue"></line-chart>
         <h1>Aktíva</h1>
         <pie-chart suffix="€" legend="bottom" thousands=" " :library="{
-          is3D: true, legend: 'none', backgroundColor: '#EFEFEF',
+          is3D: true, legend: 'none', backgroundColor: '#EFEFEF', colors: ['#3a0ca3', '#3f37c9', '#4361ee', '#4895ef', '#4cc9f0']
         }" :data="[
           ['Financial accounts', this.Data?.latest_report?.assets?.financial_accounts_total],
           ['Financial assets', this.Data?.latest_report?.assets?.lt_financial_assets_total],
           ['Intangible assets', this.Data?.latest_report?.assets?.lt_intangible_assets_total],
           ['Tangible assets', this.Data?.latest_report?.assets?.lt_tangible_assets_total],
           ['Recievables total', this.Data?.latest_report?.assets?.st_receivables_total]]"></pie-chart>
-          <div class="flex flex-col grid grid-cols-2 text-center">
-            <div class="flex">
+  <GoogleCharts :data="dataTable" :options="options" />
+          <div class="flex flex-col grid grid-cols-2 text-center legend">
+            <div class="flex leg">
               <h4 class="leg text-white bg-blue rounded"> </h4>
               <h4 class="leg">Financial accounts</h4>
             </div>
-            <div class="flex">
+            <div class="flex leg">
               <h4 class="leg text-white bg-red rounded"> </h4>
               <h4 class="leg">Financial assets</h4>
             </div>
-            <div class="flex">
+            <div class="flex leg">
               <h4 class="leg text-white bg-yell rounded"> </h4>
               <h4 class="leg">Intangible assets</h4>
             </div>
-            <div class="flex">
+            <div class="flex leg">
               <h4 class="leg text-white bg-green rounded"> </h4>
               <h4 class="leg">Tangible assets</h4>
             </div>
-            <div class="flex">
+            <div class="flex leg">
               <h4 class="leg text-white bg-purp rounded"> </h4>
               <h4 class="leg">Recievables total</h4>
             </div>
@@ -84,7 +88,7 @@
       <div class="items-center p-1">
       <div class="flex flex-col justify-around">
         <h1>Zisky</h1>
-        <line-chart download="true" suffix="€" thousands=" " :colors="['blue', 'red']" :library="{
+        <line-chart download="true" suffix="€" thousands=" " :library="{
         curveType: 'function',
         backgroundColor: '#EFEFEF',
         hAxis: {
@@ -92,7 +96,11 @@
         },
         vAxis: {
           title: 'Hodnota (€)'
-        }
+        },
+        series: {
+      0: { color: 'blue' },
+      1: { color: 'red' }
+    }
         }" :min="null" :max="null" :data="this.Data?.graph_data?.profits"></line-chart>
         <h1>Pasíva</h1>
         <pie-chart suffix="€" legend="bottom" thousands=" " :library="{
@@ -104,7 +112,7 @@
         ['Reserves', this.Data?.latest_report?.liabilities?.reserves],
         ['LY result', this.Data?.latest_report?.liabilities?.result_last_year],
         ['Liabilities', this.Data?.latest_report?.liabilities?.st_labilities],]"></pie-chart>
-            <div class="flex flex-col grid grid-cols-2 text-center mb-6">
+            <div class="flex flex-col grid grid-cols-2 text-center mb-6 ">
         <div class="flex">
           <h4 class="leg text-white bg-blue rounded"> </h4>
           <h4 class="leg">Bank loans</h4>
@@ -133,7 +141,10 @@ import axios from 'axios';
 export default {
  data()
   {
-    return {Data:[]}
+    return {
+      Data:[],
+
+    }
   },
   name: "CompanyPage",
   async mounted() {
