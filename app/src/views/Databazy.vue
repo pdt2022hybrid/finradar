@@ -121,7 +121,7 @@ export default {
             revenue_max: this.revenue.max,
             revenue_min: this.revenue.min,
             profits_max: this.profit.max,
-            profits_min: this.profit.max,
+            profits_min: this.profit.min,
             search_query: this.name,
             per_page: this.per_page,
             page: this.page
