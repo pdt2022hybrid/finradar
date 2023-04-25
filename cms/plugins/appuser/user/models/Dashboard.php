@@ -7,19 +7,6 @@ use October\Rain\Database\Relations\BelongsTo;
 use October\Rain\Database\Relations\BelongsToMany;
 use October\Rain\Support\Collection;
 
-/**
- * Dashboard Model
- *
- * @property int $id
- * @property int $user_id
- *
- * @property User $user
- * @property Collection $companies
- *
- * @method BelongsTo user()
- * @method BelongsToMany companies()
- *
- */
 class Dashboard extends Model
 {
     use \October\Rain\Database\Traits\Validation;

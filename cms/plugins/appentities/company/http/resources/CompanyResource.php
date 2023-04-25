@@ -2,8 +2,6 @@
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Appentities\Report\Models\Report;
-use Appentities\Director\Models\Director;
-use Appentities\Statement\Models\Statement;
 use AppEntities\Statement\Http\Resources\StatementResource;
 use AppEntities\Report\Http\Resources\ReportResource;
 use Appentities\Director\Http\Resources\DirectorResource;

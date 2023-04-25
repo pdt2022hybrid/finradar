@@ -26,6 +26,7 @@ class CompanyController extends Controller
                     $query->where('name', 'LIKE', '%' . $searchQuery . '%')
                         ->orWhere('apidata_companies.ico', 'LIKE', '%' . $searchQuery . '%');
                 })
+                ->joinLatestReport()
                 ->orderBy($order, $orderDirection)
                 ->when($revenueMin, function ($query) use ($revenueMin) {
                     $query->where('revenue', '>=', $revenueMin);

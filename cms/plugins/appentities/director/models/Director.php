@@ -4,10 +4,6 @@ use October\Rain\Database\Model;
 use Appentities\Company\Models\Company;
 use October\Rain\Database\Relations\BelongsToMany;
 
-/**
- * Director Model
- * @method BelongsToMany companies()
- */
 class Director extends Model
 {
     use \October\Rain\Database\Traits\Validation;
