@@ -31,7 +31,7 @@
 		  <img class="mainContentImage" src="@/assets/images/placeholder.png" alt="image">
 		</li>
 		<li class="mainContentText">
-			<h2 class="pb-6">Užívateľsky prívetivé rozhranie</h2>
+			<h2 class="pb-6 pt-6">Užívateľsky prívetivé rozhranie</h2>
 			<p>FinRadar vám poskytuje všetko, čo potrebujete. Od interaktívnych grafov až po nekonečné databázy informácií.
 				Vo FinRadare sa snažíme posilniť našich používateľov vedomosťami a nástrojmi, ktoré potrebujú na úspech v komplexnom svete financií.
 				 Pripojte sa k nám na tejto finančnej ceste a odomknite moc dát s FinRadarom, najlepším zdrojom pre spoľahlivé finančné štatistiky a poznatky.
@@ -111,7 +111,7 @@ export default {
 	}
 
 	.mainContentText{
-		@apply flex w-96 flex-col text-xl text-dark font-normal text-center lg:text-left my-10
+		@apply flex w-96 flex-col text-xl text-dark font-normal text-center lg:text-left mb-10
 	}
 
 	.mainContentText h2{
