@@ -3,13 +3,15 @@
 use Illuminate\Routing\Controller;
 use Appentities\Company\Models\Company;
 use AppEntities\Company\Http\Resources\CompanyResource;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class CompanyController extends Controller
 {
 
     const PER_PAGE = 10;
 
-    public function index() {
+    public function index(): AnonymousResourceCollection
+    {
 
         $searchQuery = input('search_query');
         $revenueMin = input('revenue_min');
@@ -49,8 +51,7 @@ class CompanyController extends Controller
         return new CompanyResource(
             Company::where('apidata_companies.ico', $ico)
                 ->with('statements', function ($query) {
-                    $query->orderBy('year', 'desc')
-                    ->with('reports');
+                    $query->orderBy('year', 'desc') >with('reports');
                 })
                 ->with('reports')
                 ->with('directors')
