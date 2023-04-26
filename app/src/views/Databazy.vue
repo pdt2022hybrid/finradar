@@ -44,9 +44,9 @@
           <tbody v-if="this.Data === null">
 <!--          todo:urobit nech sa to hybe a nepulzuje-->
             <tr v-for="item in this.Loading" class="animate-pulse">
-                <td class="border-r tab w-4/6"><div class="p-3 m-2 bg-background rounded"></div></td>
-                <td class="border-r tab w-1/6"><div class="p-3 m-2 bg-background rounded"></div></td>
+                <td class="border-x tab w-4/6"><div class="p-3 m-2 bg-background rounded"></div></td>
                 <td class="w-1/6"><div class="p-3 m-2 bg-background rounded"></div></td>
+                <td class="border-x tab w-1/6"><div class="p-3 m-2 bg-background rounded"></div></td>
             </tr>
           </tbody>
           <tbody v-else>
@@ -181,14 +181,14 @@ export default {
     @apply m-1.5 p-1 bg-background rounded placeholder-dark placeholder-opacity-70 placeholder:font-rubik
   }
   .v-enter-active {
-    @apply transition-all ease-in duration-200
+      @apply transition-all ease-in duration-200
   }
   .v-leave-active {
-    @apply transition-all ease-out duration-200
+      @apply transition-all ease-out duration-200
   }
   .v-enter-from,
   .v-leave-to {
-    @apply transform
+      @apply transform
   }
 
 }
