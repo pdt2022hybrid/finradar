@@ -41,16 +41,16 @@
             </th>
           </tr>
           </thead>
-          <tbody v-if="this.Data === null">
+          <tbody v-if="companies === null">
 <!--          todo:urobit nech sa to hybe a nepulzuje-->
-            <tr v-for="item in this.Loading" class="animate-pulse">
+            <tr v-for="item in Loading" class="animate-pulse">
                 <td class="border-x tab w-4/6"><div class="p-3 m-2 bg-background rounded"></div></td>
                 <td class="w-1/6"><div class="p-3 m-2 bg-background rounded"></div></td>
                 <td class="border-x tab w-1/6"><div class="p-3 m-2 bg-background rounded"></div></td>
             </tr>
           </tbody>
           <tbody v-else>
-            <tr v-for="item in this.Data.data">
+            <tr v-for="item in companies.data">
               <td class="border-r border-l tab w-4/6">
                 <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
                   <h4 class="cursor-pointer w-fit" @click="redirect"> {{ item.name }} </h4>
@@ -65,7 +65,7 @@
           <button class="p-3 bg-tables" @click="SetLink(page = 1)"> first page</button>
           <button class="p-3 bg-tables" @click="SetLink(page--)"> previous page</button>
           <button class="p-3 bg-tables" @click="SetLink(page++)"> next page</button>
-          <button class="p-3 bg-tables" @click="SetLink(page = Data.meta.last_page)"> last page</button>
+          <button class="p-3 bg-tables" @click="SetLink(page = companies.meta.last_page)"> last page</button>
         </form>
       </div>
     </div>
@@ -79,7 +79,7 @@ export default {
   data() {
     return {
       mobile: false,
-      Data: null,
+      companies: null,
       Loading: [ [], [], [], [], [], [], [], [], [], [], [], [], [], [], [] ],
       per_page: 1,
       revenue:{
@@ -110,9 +110,9 @@ export default {
       return item
     },
     async SetLink() {
-      if (this.page > this.Data.meta.last_page) {this.page = 1}
-      else if (this.page < 1) {this.page = this.Data.meta.last_page}
-      this.Data = null;
+      if (this.page > this.companies.meta.last_page) {this.page = 1}
+      else if (this.page < 1) {this.page = this.companies.meta.last_page}
+      this.companies = null;
       try {
         await axios({
           url: '/companies',
@@ -127,8 +127,8 @@ export default {
             page: this.page
           }
       }).then((response) => {
-          this.Data = response.data
-          console.log(this.Data)
+          this.companies = response.data
+          console.log(this.companies)
         })
       } catch (errors) {
         console.log(errors)
@@ -151,8 +151,8 @@ export default {
           per_page: 1
         }
       }).then((response) => {
-        this.Data = response.data
-        console.log(this.Data)
+        this.companies = response.data
+        console.log(this.companies)
       })
     } catch(errors) {
       console.log(errors);

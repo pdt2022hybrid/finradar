@@ -10,7 +10,7 @@
     </form>
     <div class="flex justify-center">
       <ul class="absolute w-64 bg-light rounded-md mx-auto z-10 -mt-2.5">
-        <li v-for="item in this.Data" class="border-background border-b-2">
+        <li v-for="item in this.companies" class="border-background border-b-2">
           <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
             <h4 class="cursor-pointer lg:w-fit mx-auto font-varela font-medium hover:font-semibold" @click="redirect"> {{ item.name }} </h4>
           </router-link>
@@ -50,7 +50,7 @@ export default {
   data() {
     return {
       name: null,
-      Data: [],
+      companies: [],
     }
   },
   methods: {
@@ -66,13 +66,13 @@ export default {
             }
           }).then((response) => {
             console.log(response)
-            this.Data = response.data.data
+            this.companies = response.data.data
           })
         } catch (errors) {
           console.log(errors)
         }
       } else {
-        this.Data = [];
+        this.companies = [];
       }
     }
   }
