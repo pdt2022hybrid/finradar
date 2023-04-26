@@ -1,6 +1,9 @@
 <?php namespace Appentities\Company\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use October\Rain\Database\Model;
 use Laravel\Scout\Searchable;
 use Appentities\Report\Models\Report;
@@ -12,8 +15,8 @@ use October\Rain\Database\Relations\HasMany;
 use October\Rain\Support\Collection;
 
 /**
-* Company Model
-*/
+ * Company Model
+ */
 class Company extends Model
 {
     use \October\Rain\Database\Traits\Validation;
@@ -28,7 +31,7 @@ class Company extends Model
             Report::class,
             'key' => 'ico',
             'otherKey' => 'ico',
-            'orderBy' => 'year'
+            'order' => 'year DESC'
         ],
     ];
 
@@ -88,11 +91,39 @@ class Company extends Model
         return $this->latest_report->capital;
     }
 
-    public function scopeJoinLatestReport($query)
+    public function scopeHasReports(Builder $query): Builder
     {
-        return $query->joinSub(Report::where('year', self::getYear())->isNotEmpty(), 'latest_reports', function ($join) {
-            $join->on('apidata_companies.ico', '=', 'latest_reports.ico');
-        })->select('latest_reports.*', 'apidata_companies.*', 'apidata_companies.official_id as company_official_id', 'latest_reports.official_id as report_official_id');
+        return $query->whereHas('reports');
+    }
+
+    public function scopeOrderByReportData(Builder $query, string $column = 'revenue', string $order = 'desc'): Builder
+    {
+
+        return $query->selectSub(function ($query) use ($column, $order) {
+            $query->from('apidata_reports AS reports')
+                ->whereRaw('apidata_companies.ico = reports.ico')
+                ->orderBy("reports.$column", $order)
+                ->orderByDesc('reports.year')
+                ->limit(1)
+                ->select("reports.$column");
+        }, 'latest_report_column')
+            ->orderBy("latest_report_column", $order)
+            ->addSelect('apidata_companies.*');
+
+    }
+
+    public function scopeFilterByReportData(Builder $query, string $column, string $operator, int $value): Builder
+    {
+        return $query->whereHas('reports', function ($query) use ($column, $operator, $value) {
+            $query->where('year', function ($query) {
+                $query->from('apidata_reports AS reports')
+                    ->whereRaw('apidata_companies.ico = reports.ico')
+                    ->orderByDesc('reports.year')
+                    ->limit(1)
+                    ->select('reports.year');
+            });
+            $query->where($column, $operator, $value);
+        })->addSelect('apidata_companies.*');
     }
 
 }
