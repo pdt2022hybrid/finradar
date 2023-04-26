@@ -61,12 +61,13 @@
             </tr>
           </tbody>
         </table>
-        <form id="search" onsubmit="return false">
+        <div>
           <button class="p-3 bg-tables" @click="SetLink(page = 1)"> first page</button>
           <button class="p-3 bg-tables" @click="SetLink(page--)"> previous page</button>
+          <input type="number" class="p-3 bg-tables" @keypress.enter="SetLink" v-model="page">
           <button class="p-3 bg-tables" @click="SetLink(page++)"> next page</button>
           <button class="p-3 bg-tables" @click="SetLink(page = companies.meta.last_page)"> last page</button>
-        </form>
+        </div>
       </div>
     </div>
 	</div>
