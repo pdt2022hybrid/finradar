@@ -28,19 +28,19 @@ class CompanyController extends Controller
                     $query->where('name', 'LIKE', '%' . $searchQuery . '%')
                         ->orWhere('apidata_companies.ico', 'LIKE', '%' . $searchQuery . '%');
                 })
-                ->joinLatestReport()
-                ->orderBy($order, $orderDirection)
+                ->hasReports()
+                ->orderByReportData($order, $orderDirection)
                 ->when($revenueMin, function ($query) use ($revenueMin) {
-                    $query->where('revenue', '>=', $revenueMin);
+                    $query->filterByReportData('revenue', '>=', $revenueMin);
                 })
                 ->when($revenueMax, function ($query) use ($revenueMax) {
-                    $query->where('revenue', '<=', $revenueMax);
+                    $query->filterByReportData('revenue', '<=', $revenueMax);
                 })
                 ->when($profitsMin, function ($query) use ($profitsMin) {
-                    $query->where('profits', '>=', $profitsMin);
+                    $query->filterByReportData('profits', '>=', $profitsMin);
                 })
                 ->when($profitsMax, function ($query) use ($profitsMax) {
-                    $query->where('profits', '<=', $profitsMax);
+                    $query->filterByReportData('profits', '<=', $profitsMax);
                 })
                 ->paginate(input('per_page') ?? $perPage)
         );
