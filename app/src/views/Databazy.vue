@@ -21,7 +21,7 @@
               </span>
             </div>
             <div class="lg:w-1/2 w-full flex flex-wrap content-end lg:justify-end justify-center">
-              <button class="w-3/5 bg-blue p-1.5 rounded border font-varela lg:h-1/3" @click="SetLink">
+              <button class="w-3/5 bg-blue p-1.5 rounded text-white font-varela lg:h-1/3" @click="SetLink">
                 Hľadaj
               </button>
             </div>
@@ -41,28 +41,31 @@
             </th>
           </tr>
           </thead>
-          <tbody v-if="this.Data === null">
+          <tbody v-if="companies === null">
 <!--          todo:urobit nech sa to hybe a nepulzuje-->
-            <tr v-for="item in this.Loading" class="animate-pulse">
-                <td class="border-r w-4/6"><div class="p-3 m-2 bg-background rounded"></div></td>
-                <td class="border-r w-1/6"><div class="p-3 m-2 bg-background rounded"></div></td>
+            <tr v-for="item in Loading" class="animate-pulse">
+                <td class="border-x tab w-4/6"><div class="p-3 m-2 bg-background rounded"></div></td>
                 <td class="w-1/6"><div class="p-3 m-2 bg-background rounded"></div></td>
+                <td class="border-x tab w-1/6"><div class="p-3 m-2 bg-background rounded"></div></td>
             </tr>
           </tbody>
           <tbody v-else>
-            <tr v-for="item in this.Data.data">
-              <td class="border-r w-4/6">
+            <tr v-for="item in companies.data">
+              <td class="border-r border-l tab w-4/6">
                 <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
                   <h4 class="cursor-pointer w-fit" @click="redirect"> {{ item.name }} </h4>
                 </router-link>
               </td>
-              <td class="border-r text-center w-1/6"> {{ addSpaces(item.latest_data.revenue) }} €</td>
-              <td class="text-center w-1/6"> {{ addSpaces(item.latest_data.profits) }} €</td>
+              <td class="border-r tab text-center w-1/6"> {{ addSpaces(item.latest_data.revenue) }} €</td>
+              <td class="text-center border-r tab w-1/6"> {{ addSpaces(item.latest_data.profits) }} €</td>
             </tr>
           </tbody>
         </table>
         <form id="search" onsubmit="return false">
-          <button class="p-3 bg-tables" @click="SetLink(this.page++)"></button>
+          <button class="p-3 bg-tables" @click="SetLink(page = 1)"> first page</button>
+          <button class="p-3 bg-tables" @click="SetLink(page--)"> previous page</button>
+          <button class="p-3 bg-tables" @click="SetLink(page++)"> next page</button>
+          <button class="p-3 bg-tables" @click="SetLink(page = companies.meta.last_page)"> last page</button>
         </form>
       </div>
     </div>
@@ -76,7 +79,7 @@ export default {
   data() {
     return {
       mobile: false,
-      Data: null,
+      companies: null,
       Loading: [ [], [], [], [], [], [], [], [], [], [], [], [], [], [], [] ],
       per_page: 1,
       revenue:{
@@ -88,7 +91,7 @@ export default {
         min: null,
       },
       name: null,
-      page: 2,
+      page: 1,
     }
   },
   methods: {
@@ -106,13 +109,10 @@ export default {
       item = item.split('').reverse().join('')
       return item
     },
-    async SetLink(page) {
-      console.log(page)
-      if (page > this.Data.meta.last_page) {
-        this.page = 1
-        page = this.page
-      }
-      this.Data = null;
+    async SetLink() {
+      if (this.page > this.companies.meta.last_page) {this.page = 1}
+      else if (this.page < 1) {this.page = this.companies.meta.last_page}
+      this.companies = null;
       try {
         await axios({
           url: '/companies',
@@ -121,14 +121,14 @@ export default {
             revenue_max: this.revenue.max,
             revenue_min: this.revenue.min,
             profits_max: this.profit.max,
-            profits_min: this.profit.max,
+            profits_min: this.profit.min,
             search_query: this.name,
             per_page: this.per_page,
-            page: page
+            page: this.page
           }
       }).then((response) => {
-          this.Data = response.data
-          console.log(this.Data)
+          this.companies = response.data
+          console.log(this.companies)
         })
       } catch (errors) {
         console.log(errors)
@@ -151,8 +151,8 @@ export default {
           per_page: 1
         }
       }).then((response) => {
-        this.Data = response.data
-        console.log(this.Data)
+        this.companies = response.data
+        console.log(this.companies)
       })
     } catch(errors) {
       console.log(errors);
@@ -169,10 +169,13 @@ export default {
 @layer base {
 
   tr > th, tr > td  {
-    @apply border-y p-1.5
+    @apply border-y-background p-1.5
   }
   td, th {
     @apply p-1.5
+  }
+  .tab {
+    @apply border-r-background border-l-background
   }
   .label {
     @apply m-1.5 p-1 bg-background rounded placeholder-dark placeholder-opacity-70 placeholder:font-rubik

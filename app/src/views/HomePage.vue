@@ -10,7 +10,7 @@
     </form>
     <div class="flex justify-center">
       <ul class="absolute w-64 bg-light rounded-md mx-auto z-10 -mt-2.5">
-        <li v-for="item in this.Data" class="border-background border-b-2">
+        <li v-for="item in this.companies" class="border-background border-b-2">
           <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
             <h4 class="cursor-pointer lg:w-fit mx-auto font-varela font-medium hover:font-semibold" @click="redirect"> {{ item.name }} </h4>
           </router-link>
@@ -21,24 +21,21 @@
 	</header>
 	<ul class="homepageMainContent">
 		<li class="mainContentText">
-			<h2 class="pb-6">LOREM</h2>
-			<p>Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit. Proin non ultrices magna.
-        Quisque euismod nunc vel enim auctor laoreet. Fusce
-        sollicitudin ultrices augue, vitae consequat nulla fermentum
-        ac. Morbi maximus.
-      </p>
+			<h2 class="pb-6">Vitajte na stránke FinRadar!</h2>
+			<p>Sme váš zdroj pre aktuálne finančné štatistiky a poznatky!
+			   FinRadar ako online platforma poskytuje komplexné a spoľahlivé informácie o rôznych finančných ukazovateľoch a analýze údajov.
+			   Bez ohľadu na to, či ste investor, obchodný profesionál alebo len záujemca o finančný svet, FinRadar je váš zdroj pre všetko súvisiace s finančnými štatistikami.
+      		</p>
 		</li>
 		<li>
 		  <img class="mainContentImage" src="@/assets/images/placeholder.png" alt="image">
 		</li>
 		<li class="mainContentText">
-			<h2>LOREM</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non
-        ultrices magna. Quisque euismod nunc vel enim auctor laoreet. Fusce
-        sollicitudin ultrices augue, vitae consequat nulla fermentum ac.
-        Morbi maximus.
-      </p>
+			<h2 class="pb-6 pt-6">Užívateľsky prívetivé rozhranie</h2>
+			<p>FinRadar vám poskytuje všetko, čo potrebujete. Od interaktívnych grafov až po nekonečné databázy informácií.
+				Vo FinRadare sa snažíme posilniť našich používateľov vedomosťami a nástrojmi, ktoré potrebujú na úspech v komplexnom svete financií.
+				 Pripojte sa k nám na tejto finančnej ceste a odomknite moc dát s FinRadarom, najlepším zdrojom pre spoľahlivé finančné štatistiky a poznatky.
+      		</p>
 		</li>
 	</ul>
 </div>
@@ -53,7 +50,7 @@ export default {
   data() {
     return {
       name: null,
-      Data: [],
+      companies: [],
     }
   },
   methods: {
@@ -69,13 +66,13 @@ export default {
             }
           }).then((response) => {
             console.log(response)
-            this.Data = response.data.data
+            this.companies = response.data.data
           })
         } catch (errors) {
           console.log(errors)
         }
       } else {
-        this.Data = [];
+        this.companies = [];
       }
     }
   }
@@ -114,7 +111,7 @@ export default {
 	}
 
 	.mainContentText{
-		@apply flex w-96 flex-col text-xl text-dark font-normal text-center lg:text-left my-10
+		@apply flex w-96 flex-col text-xl text-dark font-normal text-center lg:text-left mb-10
 	}
 
 	.mainContentText h2{
