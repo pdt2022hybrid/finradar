@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import Footer from "@/components/Footer.vue";
-import NavbarPC from "@/components/Navbar.vue";
-import MobileNavbar from "@/components/MobileNavbar.vue";
+import Footer from "@/components/layout/Footer.vue";
+import NavbarPC from "@/components/layout/Navbar.vue";
+import MobileNavbar from "@/components/layout/MobileNavbar.vue";
 
 export default {
   components: {
@@ -39,11 +39,3 @@ export default {
     },
 }
 </script>
-
-<style>
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {  }
-</style>

@@ -25,7 +25,3 @@ export default {
   name: "UserMiniSettings",
 }
 </script>
-
-<style scoped>
-
-</style>

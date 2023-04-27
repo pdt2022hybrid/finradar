@@ -6,9 +6,8 @@
 		<form onsubmit="return false">
       <input type="text" class="header-input placeholder-light placeholder:mx-auto placeholder:font-varela font-varela focus:outline-none focus:ring-2 focus:border-background focus:ring-tables focus:shadow-2xl focus:placeholder-blue"
              v-model="name" placeholder="Vyhľadať firmu" @keyup="Search">
-      <button class="hidden" @click="Search"></button>
     </form>
-    <div class="flex justify-center">
+    <div class="flex justify-center" v-if="name !== ''">
       <ul class="absolute w-64 bg-light rounded-md mx-auto z-10 -mt-2.5">
         <li v-for="item in this.companies" class="border-background border-b-2">
           <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
@@ -55,7 +54,7 @@ export default {
   },
   methods: {
     async Search() {
-      if(this.name !== '') {
+      if(this.name !== "") {
         try {
           await axios({
             url: '/companies',
