@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import Footer from "@/components/layout/Footer.vue";
-import NavbarPC from "@/components/layout/Navbar.vue";
-import MobileNavbar from "@/components/layout/MobileNavbar.vue";
+import Footer from "@/layout/Footer.vue";
+import NavbarPC from "@/layout/Navbar.vue";
+import MobileNavbar from "@/layout/MobileNavbar.vue";
 
 export default {
   components: {

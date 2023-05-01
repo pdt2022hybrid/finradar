@@ -8,7 +8,7 @@ import axios from "axios"
 import VueChartkick from 'vue-chartkick'
 import LoadScript, { loadScript } from "vue-plugin-load-script";
 
-import './assets/main.css'
+import '@/assets/css/main.css'
 
 const app = createApp(App)
 

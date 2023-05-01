@@ -5,11 +5,11 @@
      <div class="flex flex-col items-start p-6">
     <div class="name">
       <h3 class="">Vznik</h3>
-      <h2 class="mt-2">{{ this.Data?.date_of_establishment }}</h2>
+      <h2 class="mt-2">{{ Data?.date_of_establishment }}</h2>
     </div>
       <div class="name flex-col">
       <h3 class="">Sídlo</h3>
-      <h2 class="mt-2">{{ this.Data?.address?.city }} {{ this.Data?.address?.street }}</h2>
+      <h2 class="mt-2">{{ Data?.address?.city }} {{ Data?.address?.street }}</h2>
     </div>
       <div class="name">
       <h3 class="">CEO</h3>
@@ -19,7 +19,7 @@
     </div>
       <div class="name">
       <h3 class="">ICO</h3>
-      <h2 class="mt-2">{{ this.Data?.ico }}</h2>
+      <h2 class="mt-2">{{ Data?.ico }}</h2>
     </div>
     </div>
   </div>
@@ -36,16 +36,16 @@
           title: 'Hodnota (€)'
         },
         
-        }" :min="null" :max="null" :data="this.Data?.graph_data?.revenue"></line-chart>
+        }" :min="null" :max="null" :data="Data?.graph_data?.revenue"></line-chart>
         <h1>Aktíva</h1>
         <pie-chart suffix="€" legend="bottom" thousands=" " :library="{
           is3D: true, legend: 'none', backgroundColor: '#EFEFEF', colors: ['#3a0ca3', '#3f37c9', '#4361ee', '#4895ef', '#4cc9f0']
         }" :data="[
-          ['Financial accounts', this.Data?.latest_report?.assets?.financial_accounts_total],
-          ['Financial assets', this.Data?.latest_report?.assets?.lt_financial_assets_total],
-          ['Intangible assets', this.Data?.latest_report?.assets?.lt_intangible_assets_total],
-          ['Tangible assets', this.Data?.latest_report?.assets?.lt_tangible_assets_total],
-          ['Recievables total', this.Data?.latest_report?.assets?.st_receivables_total]]"></pie-chart>
+          ['Financial accounts', Data?.latest_report?.assets?.financial_accounts_total],
+          ['Financial assets', Data?.latest_report?.assets?.lt_financial_assets_total],
+          ['Intangible assets', Data?.latest_report?.assets?.lt_intangible_assets_total],
+          ['Tangible assets', Data?.latest_report?.assets?.lt_tangible_assets_total],
+          ['Recievables total', Data?.latest_report?.assets?.st_receivables_total]]"></pie-chart>
   <GoogleCharts :data="dataTable" :options="options" />
           <div class="flex flex-col grid grid-cols-2 text-center legend">
             <div class="flex leg">
@@ -101,17 +101,17 @@
       0: { color: 'blue' },
       1: { color: 'red' }
     }
-        }" :min="null" :max="null" :data="this.Data?.graph_data?.profits"></line-chart>
+        }" :min="null" :max="null" :data="Data?.graph_data?.profits"></line-chart>
         <h1>Pasíva</h1>
         <pie-chart suffix="€" legend="bottom" thousands=" " :library="{
           is3D: true, legend: 'none', backgroundColor: '#EFEFEF',
         }" :data="[
-        ['Bank loans', this.Data?.latest_report?.liabilities?.bank_loans],
-        ['Base capital', this.Data?.latest_report?.liabilities?.base_capital],
-        ['Profit after tax', this.Data?.latest_report?.liabilities?.profit_for_period_after_tax],
-        ['Reserves', this.Data?.latest_report?.liabilities?.reserves],
-        ['LY result', this.Data?.latest_report?.liabilities?.result_last_year],
-        ['Liabilities', this.Data?.latest_report?.liabilities?.st_labilities],]"></pie-chart>
+        ['Bank loans', Data?.latest_report?.liabilities?.bank_loans],
+        ['Base capital', Data?.latest_report?.liabilities?.base_capital],
+        ['Profit after tax', Data?.latest_report?.liabilities?.profit_for_period_after_tax],
+        ['Reserves', Data?.latest_report?.liabilities?.reserves],
+        ['LY result', Data?.latest_report?.liabilities?.result_last_year],
+        ['Liabilities', Data?.latest_report?.liabilities?.st_labilities],]"></pie-chart>
             <div class="flex flex-col grid grid-cols-2 text-center mb-6 ">
         <div class="flex">
           <h4 class="leg text-white bg-blue rounded"> </h4>

@@ -9,7 +9,7 @@
     </form>
     <div class="flex justify-center" v-if="name !== ''">
       <ul class="absolute w-64 bg-light rounded-md mx-auto z-10 -mt-2.5">
-        <li v-for="item in this.companies" class="border-background border-b-2">
+        <li v-for="item in companies" class="border-background border-b-2">
           <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
             <h4 class="cursor-pointer lg:w-fit mx-auto font-varela font-medium hover:font-semibold" @click="redirect"> {{ item.name }} </h4>
           </router-link>

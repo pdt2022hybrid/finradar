@@ -21,7 +21,7 @@
               </span>
             </div>
             <div class="lg:w-1/2 w-full flex flex-wrap content-end lg:justify-end justify-center">
-              <button class="w-3/5 bg-blue p-1.5 rounded text-white font-varela lg:h-1/3" @click="SetLink">
+              <button class="w-3/5 bg-blue p-1.5 rounded text-white font-varela lg:h-1/3" @click="Search">
                 Hľadaj
               </button>
             </div>
@@ -62,11 +62,11 @@
           </tbody>
         </table>
         <div>
-          <button class="p-3 bg-tables" @click="SetLink(page = 1)"> first page</button>
-          <button class="p-3 bg-tables" @click="SetLink(page--)"> previous page</button>
+          <button class="p-3 bg-tables" @click="Search(page = 1)"> first page</button>
+          <button class="p-3 bg-tables" @click="Search(page--)"> previous page</button>
           <input type="number" class="p-3 bg-tables" @keypress.enter="SetLink" v-model="page">
-          <button class="p-3 bg-tables" @click="SetLink(page++)"> next page</button>
-          <button class="p-3 bg-tables" @click="SetLink(page = companies.meta.last_page)"> last page</button>
+          <button class="p-3 bg-tables" @click="Search(page++)"> next page</button>
+          <button class="p-3 bg-tables" @click="Search(page = companies.meta.last_page)"> last page</button>
         </div>
       </div>
     </div>
@@ -110,7 +110,7 @@ export default {
       item = item.split('').reverse().join('')
       return item
     },
-    async SetLink() {
+    async Search() {
       if (this.page > this.companies.meta.last_page) {this.page = 1}
       else if (this.page < 1) {this.page = this.companies.meta.last_page}
       this.companies = null;
