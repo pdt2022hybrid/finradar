@@ -19,7 +19,7 @@
                 <ul class="absolute w-64 bg-light rounded-md mx-auto z-10">
                     <li class="border-background border-b-2 p-1.5" v-for="item in this.companies">
                         <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
-                            <h4 class="cursor-pointer lg:w-fit mx-auto font-varela font-medium text-center hover:font-semibold"
+                            <h4 class="cursor-pointer lg:w-fit mx-auto font-varela font-medium text-center hover:font-semibold active:text-blue"
                                 @click="redirect"> {{ item.name }} </h4>
                         </router-link>
                     </li>

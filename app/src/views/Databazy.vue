@@ -150,7 +150,7 @@ export default {
     },
     async mounted() {
         window.addEventListener("resize", () => {
-            if (window.innerWidth > 999) {
+            if (window.innerWidth > 1024) {
                 this.mobile = false
             } else {
                 this.mobile = true
@@ -195,19 +195,6 @@ export default {
 
     .label {
         @apply m-1.5 p-1 bg-background rounded placeholder-dark placeholder-opacity-70 placeholder:font-rubik
-    }
-
-    .v-enter-active {
-        @apply transition-all ease-in duration-200
-    }
-
-    .v-leave-active {
-        @apply transition-all ease-out duration-200
-    }
-
-    .v-enter-from,
-    .v-leave-to {
-        @apply transform
     }
 
     .focused {

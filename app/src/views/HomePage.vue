@@ -12,7 +12,7 @@
                 <ul class="absolute w-64 bg-light rounded-md mx-auto z-10 -mt-2.5">
                     <li v-for="item in companies" class="border-background border-b-2 p-1.5">
                         <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
-                            <h4 class="cursor-pointer lg:w-fit mx-auto font-varela font-medium hover:font-semibold"
+                            <h4 class="cursor-pointer lg:w-fit mx-auto font-varela font-medium hover:font-semibold active:text-blue"
                                 @click="redirect"> {{ item.name }} </h4>
                         </router-link>
                     </li>
@@ -34,7 +34,7 @@
                 <img class="mainContentImage" src="@/assets/images/placeholder.png" alt="image">
             </li>
             <li class="mainContentText">
-                <h2 class="pb-6 pt-6">Užívateľsky prívetivé rozhranie</h2>
+                <h2 class="p-6">Užívateľsky prívetivé rozhranie</h2>
                 <p>FinRadar vám poskytuje všetko, čo potrebujete. Od interaktívnych grafov až po nekonečné databázy
                     informácií.
                     Vo FinRadare sa snažíme posilniť našich používateľov vedomosťami a nástrojmi, ktoré potrebujú na
@@ -91,6 +91,10 @@ export default {
 @tailwind utilities;
 
 @layer base {
+
+    p {
+        @apply px-6 text-justify
+    }
 
     .wrapper {
         @apply
