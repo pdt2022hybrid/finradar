@@ -2,7 +2,7 @@
   <nav class="navbar lg:h-20 lg:min-w-fit">
     <div class="lg:ml-40 lg:text-lg flex flex-row items-center">
       <router-link class=" text-navtext font-bold w-1/2" to="/">
-            <img src="../assets/brand/logo_text.svg" class="" alt="Logo">
+            <img src="../assets/brand/logo_text.svg" class="" alt="">
       </router-link>
       <router-link to="/databazy" class="text-navtext font-bold lg:mr-24 active:text-blue_light">Databázy</router-link>
 <!--      <router-link to="/" class="text-navtext">API</router-link>-->
