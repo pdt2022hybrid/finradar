@@ -150,7 +150,7 @@ export default {
     },
     async mounted() {
         window.addEventListener("resize", () => {
-            if (window.innerWidth > 999) {
+            if (window.innerWidth > 1024) {
                 this.mobile = false
             } else {
                 this.mobile = true
