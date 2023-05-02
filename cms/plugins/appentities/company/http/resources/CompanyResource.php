@@ -38,16 +38,16 @@ class CompanyResource extends JsonResource
             ],
             'date_of_establishment' => $this->date_of_establishment,
             'latest_data' => $this->when((bool)$this->latest_report, [
-                'revenue' => $this->latest_report->revenue,
-                'profits' => $this->latest_report->profits,
-                'assets_total' => $this->latest_report->assets_total,
-                'liabilities_total' => $this->latest_report->liabilities_total,
-                'capital' => $this->latest_report->capital,
+                'revenue' => number_format($this->latest_report->revenue, 0, '.', ' '),
+                'profits' => number_format($this->latest_report->profits, 0, '.', ' '),
+                'assets_total' => number_format($this->latest_report->assets_total, 0, '.', ' '),
+                'liabilities_total' => number_format($this->latest_report->liabilities_total, 0, '.', ' '),
+                'capital' => number_format($this->latest_report->capital, 0, '.', ' '),
                 'year' => $this->latest_report->year,
             ]),
             'latest_report' => $this->when((bool)$this->latest_report, new ReportResource($this->latest_report)),
             'graph_data' => [
-                'revenue' => $this->when($this->relationLoaded('reports'), $this->reports->pluck('revenue', 'year')),
+                'revenue' => $this->when($this->relationLoaded('reports'), $this->reports->pluck('revenue', 'year')), //TODO: number format?
                 'profits' => $this->when($this->relationLoaded('reports'), $this->reports->pluck('profits', 'year')),
             ],
             'statements' => $this->when($this->relationLoaded('statements'), StatementResource::collection($this->statements)),
