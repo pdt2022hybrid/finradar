@@ -34,7 +34,7 @@
                 <img class="mainContentImage" src="@/assets/images/placeholder.png" alt="image">
             </li>
             <li class="mainContentText">
-                <h2 class="pb-6 pt-6">Užívateľsky prívetivé rozhranie</h2>
+                <h2 class="p-6">Užívateľsky prívetivé rozhranie</h2>
                 <p>FinRadar vám poskytuje všetko, čo potrebujete. Od interaktívnych grafov až po nekonečné databázy
                     informácií.
                     Vo FinRadare sa snažíme posilniť našich používateľov vedomosťami a nástrojmi, ktoré potrebujú na
@@ -91,6 +91,10 @@ export default {
 @tailwind utilities;
 
 @layer base {
+
+    p {
+        @apply px-6 text-justify
+    }
 
     .wrapper {
         @apply
