@@ -1,8 +1,10 @@
 <template>
     <div class="sm:mx-5 flex flex-col items-center lg:py-10 py-20">
-        <h1 class="text-3xl mt-2 mb-7 self-start ml-28">{{ Data?.name }}</h1>
+        <h1 class="text-3xl mt-2 mb-7 self-start ml-28">
+            {{ companyData?.name }}
+        </h1>
         <div
-            class="border-2 rounded-lg bg-tables lg:grid-cols-3 grid-cols-1 grid lg:w-5/6"
+            class="lg:border-2 border-t-2 lg:rounded-lg bg-tables lg:grid-cols-3 grid-cols-1 grid lg:w-5/6"
         >
             <div class="box lg:border-r-2 lg:row-span-3">
                 <div class="value-wrapper-div">
@@ -10,14 +12,16 @@
                         <p class="value-description">ICO</p>
                     </div>
                     <div class="value-div">
-                        <p class="value">{{ Data?.ico }}</p>
+                        <p class="value">{{ companyData?.ico }}</p>
                     </div>
                 </div>
                 <div class="value-wrapper-div">
                     <div class="value-description-div">
                         <p class="value-description">Vznik</p>
                     </div>
-                    <p class="value">{{ Data?.date_of_establishment }}</p>
+                    <p class="value">
+                        {{ companyData?.date_of_establishment }}
+                    </p>
                 </div>
                 <div class="value-wrapper-div columns-2">
                     <div class="value-description-div">
@@ -25,15 +29,15 @@
                     </div>
                     <div class="value-div">
                         <p class="value">
-                            {{ Data?.address?.city }}
-                            {{ Data?.address?.street }}
+                            {{ companyData?.address?.city }}
+                            {{ companyData?.address?.street }}
                         </p>
                     </div>
                 </div>
                 <div class="value-wrapper-div">
                     <div class="value-description-div">
                         <p
-                            v-if="Data?.directors?.length === 1"
+                            v-if="companyData?.directors?.length === 1"
                             class="value-description"
                         >
                             Konateľ
@@ -41,13 +45,16 @@
                         <p v-else class="value-description">Konatelia</p>
                     </div>
                     <div class="value-div">
-                        <p class="value" v-if="!Data?.directors?.lenght > 0">
+                        <p
+                            class="value"
+                            v-if="!companyData?.directors?.length > 0"
+                        >
                             Nie je dostupné
                         </p>
                         <ul>
                             <li
                                 class="value"
-                                v-for="director in Data?.directors"
+                                v-for="director in companyData?.directors"
                             >
                                 {{ director?.name }}
                             </li>
@@ -64,53 +71,19 @@
                 </div>
             </div>
             <div class="box z-0 lg:col-span-2 lg:border-background lg:border-b">
-                <h2>Tržby</h2>
-                <line-chart
-                    download="true"
-                    suffix="€"
-                    thousands=" "
-                    :library="{
-                        curveType: 'function',
-                        backgroundColor: '#EFEFEF',
-                        hAxis: { title: 'Rok' },
-                        vAxis: { title: 'Hodnota (€)' },
-                    }"
-                    :min="null"
-                    :max="null"
-                    :data="Data?.graph_data?.revenue"
-                >
-                </line-chart>
+                <RevenueLineChart
+                    v-if="loaded"
+                    :data="companyData?.graph_data?.revenue"
+                />
             </div>
-            <div class="box z-0 lg:col-span-2 lg:border-b">
-                <h2>Zisky</h2>
-                <line-chart
-                    download="true"
-                    suffix="€"
-                    thousands=" "
-                    :library="{
-                        curveType: 'function',
-                        backgroundColor: '#EFEFEF',
-                        hAxis: { title: 'Rok' },
-                        vAxis: {
-                            title: 'Hodnota (€)',
-                        },
-                        series: {
-                            0: {
-                                color: 'blue',
-                            },
-                            1: {
-                                color: 'red',
-                            },
-                        },
-                    }"
-                    :min="null"
-                    :data="Data?.graph_data?.profits"
-                >
-                </line-chart>
+            <div class="box z-0 lg:col-span-2 lg:border-background lg:border-b">
+                <ProfitsLineChart
+                    v-if="loaded"
+                    :data="companyData?.graph_data?.profits"
+                />
             </div>
             <!--            <div class="box border-r-2">stuff here</div>-->
             <div class="box">
-                <h2>Aktíva</h2>
                 <pie-chart
                     suffix="€"
                     legend="bottom"
@@ -130,27 +103,28 @@
                     :data="[
                         [
                             'Financial accounts',
-                            Data?.latest_report?.assets
+                            companyData?.latest_report?.assets
                                 ?.financial_accounts_total,
                         ],
                         [
                             'Financial assets',
-                            Data?.latest_report?.assets
+                            companyData?.latest_report?.assets
                                 ?.lt_financial_assets_total,
                         ],
                         [
                             'Intangible assets',
-                            Data?.latest_report?.assets
+                            companyData?.latest_report?.assets
                                 ?.lt_intangible_assets_total,
                         ],
                         [
                             'Tangible assets',
-                            Data?.latest_report?.assets
+                            companyData?.latest_report?.assets
                                 ?.lt_tangible_assets_total,
                         ],
                         [
                             'Recievables total',
-                            Data?.latest_report?.assets?.st_receivables_total,
+                            companyData?.latest_report?.assets
+                                ?.st_receivables_total,
                         ],
                     ]"
                 ></pie-chart>
@@ -179,7 +153,6 @@
                 </div>
             </div>
             <div class="box">
-                <h2>Pasíva</h2>
                 <pie-chart
                     suffix="€"
                     legend="bottom"
@@ -192,28 +165,31 @@
                     :data="[
                         [
                             'Bank loans',
-                            Data?.latest_report?.liabilities?.bank_loans,
+                            companyData?.latest_report?.liabilities?.bank_loans,
                         ],
                         [
                             'Base capital',
-                            Data?.latest_report?.liabilities?.base_capital,
+                            companyData?.latest_report?.liabilities
+                                ?.base_capital,
                         ],
                         [
                             'Profit after tax',
-                            Data?.latest_report?.liabilities
+                            companyData?.latest_report?.liabilities
                                 ?.profit_for_period_after_tax,
                         ],
                         [
                             'Reserves',
-                            Data?.latest_report?.liabilities?.reserves,
+                            companyData?.latest_report?.liabilities?.reserves,
                         ],
                         [
                             'LY result',
-                            Data?.latest_report?.liabilities?.result_last_year,
+                            companyData?.latest_report?.liabilities
+                                ?.result_last_year,
                         ],
                         [
                             'Liabilities',
-                            Data?.latest_report?.liabilities?.st_labilities,
+                            companyData?.latest_report?.liabilities
+                                ?.st_labilities,
                         ],
                     ]"
                 ></pie-chart>
@@ -242,22 +218,27 @@
 
 <script>
 import axios from "axios";
+import RevenueLineChart from "@/components/charts/RevenueLineChart.vue";
+import ProfitsLineChart from "@/components/charts/ProfitsLineChart.vue";
 
 export default {
+    name: "CompanyPage",
+    components: {
+        RevenueLineChart,
+        ProfitsLineChart,
+    },
     data() {
         return {
-            Data: [],
+            loaded: false,
+            companyData: [],
         };
     },
-    name: "CompanyPage",
     async mounted() {
         try {
             let ico = this.$route.params.ico;
-            console.log(ico);
             await axios.get("/companies/" + ico).then((response) => {
-                console.log(response);
-                this.Data = response.data.data;
-                console.log(this.Data); // toto odstranit potom
+                this.companyData = response.data.data;
+                this.loaded = true;
             });
         } catch (errors) {
             console.log(errors);
