@@ -1,8 +1,10 @@
 <template>
     <div class="mb-40">
-        <div class="flex-col lg:ml-52 lg:mt-16 flex items-start font-rubik">
-            <h1 class="text-4xl mb-10 font-extrabold"> Databázy </h1>
-            <h3 class="text-xl font-bold mb-4 indent-8"> Filtrovanie v databáze</h3>
+        <div class="flex-col lg:mt-16 flex items-center font-rubik w-full">
+            <div class="w-4/5">
+                <h1 class="text-4xl mb-10 font-extrabold"> Databázy </h1>
+                <h3 class="text-xl font-bold mb-4 indent-8"> Filtrovanie v databáze</h3>
+            </div>
         </div>
         <div class="flex flex-col items-center">
             <div class="flex-col flex w-3/4">
