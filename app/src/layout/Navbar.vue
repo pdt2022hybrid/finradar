@@ -5,7 +5,7 @@
       <router-link to="/databazy" class="text-navtext font-bold lg:mr-24 active:text-blue_light">Databázy</router-link>
 <!--      <router-link to="/" class="text-navtext">API</router-link>-->
     </div>
-    <form class="lg:flex lg:mr-32" onsubmit="return false">
+    <div class="lg:flex lg:mr-32">
       <input type="text" class="search ml-8 focus:outline-none focus:ring-2 focus:ring-blue_light focus:shadow-2xl"
              v-model="name" placeholder="Vyhľadať firmu" @keyup="Search">
       <div class="text-navtext lg:flex lg:items-center" @click="ShowMenu">
@@ -20,7 +20,7 @@
                 </li>
             </ul>
         </div>
-    </form>
+    </div>
   </nav>
   <MiniLogin v-if="MiniLogIn"/>
   <UserMiniSettings v-if="UserSettingsWindow"/>

@@ -56,8 +56,8 @@
                   <h4 class="cursor-pointer w-fit" @click="redirect"> {{ item.name }} </h4>
                 </router-link>
               </td>
-              <td class="border-r tab text-center w-1/6"> {{ addSpaces(item.latest_data.revenue) }} €</td>
-              <td class="text-center border-r tab w-1/6"> {{ addSpaces(item.latest_data.profits) }} €</td>
+              <td class="border-r tab text-center w-1/6"> {{ item.latest_data.revenue }} €</td>
+              <td class="text-center border-r tab w-1/6"> {{ item.latest_data.profits }} €</td>
             </tr>
           </tbody>
         </table>
@@ -96,20 +96,6 @@ export default {
     }
   },
   methods: {
-    addSpaces(item) {
-      // convert na string
-      item = item.toString()
-      // reverse string
-      item = item.split('').reverse().join('')
-      const parts = null
-      // separovat string kazde 3 charactery
-      this.parts = item.match(/.{1,3}/g)
-      // dat string dokopy a pridat space kazde 3 charactery
-      item = this.parts.join(" ")
-      // reverse string
-      item = item.split('').reverse().join('')
-      return item
-    },
     async Search() {
       if (this.page > this.companies.meta.last_page) {this.page = 1}
       else if (this.page < 1) {this.page = this.companies.meta.last_page}

@@ -14,13 +14,13 @@
         <div v-if="collapsed" class="px-4 bg-dark flex flex-col items-start fixed w-full top-14 ">
             <ul class="font-bold">
                 <li class="p-2"> <router-link to="/databazy "> Databazy </router-link> </li>
-                <!--todo: urobit selective loading podla usera -->
+                <!-- todo: urobit selective loading podla usera -->
                 <li class="p-2">
-                    <i class="bi bi-person-add text-navtext"></i>
+                    <i class="bi bi-person-add text-navtext mr-1"></i>
                     <router-link to="/login">prihlasit sa</router-link>
                 </li>
                 <li class="p-2">
-                    <i class="bi bi-person text-navtext"></i>
+                    <i class="bi bi-person text-navtext mr-1"></i>
                     <router-link to="/register">registrovat sa</router-link>
                 </li>
             </ul>

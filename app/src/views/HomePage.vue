@@ -1,12 +1,12 @@
 <template>
 
-<div class="wrapper mb-24">
-	<header class="homepageHeader mb-48">
+<div class="wrapper">
+	<div class="homepageHeader mb-48">
 		<h1 class="header-text">Vyhľadávanie v Databáze Firiem</h1>
-		<form onsubmit="return false">
+		<div>
       <input type="text" class="header-input placeholder-light placeholder:mx-auto placeholder:font-varela font-varela focus:outline-none focus:ring-2 focus:border-background focus:ring-tables focus:shadow-2xl focus:placeholder-blue"
              v-model="name" placeholder="Vyhľadať firmu" @keyup="Search">
-    </form>
+    </div>
     <div class="flex justify-center" v-if="name !== ''">
       <ul class="absolute w-64 bg-light rounded-md mx-auto z-10 -mt-2.5">
         <li v-for="item in companies" class="border-background border-b-2">
@@ -17,7 +17,7 @@
       </ul>
     </div>
 
-	</header>
+	</div>
 	<ul class="homepageMainContent">
 		<li class="mainContentText">
 			<h2 class="pb-6">Vitajte na stránke FinRadar!</h2>
