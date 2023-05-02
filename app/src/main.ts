@@ -1,12 +1,12 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import {createApp} from 'vue'
+import {createPinia} from 'pinia'
 
 import App from './App.vue'
 import router from './router'
 import axios from "axios"
 // @ts-ignore
 import VueChartkick from 'vue-chartkick'
-import LoadScript, { loadScript } from "vue-plugin-load-script";
+import LoadScript, {loadScript} from "vue-plugin-load-script";
 
 import '@/assets/css/main.css'
 

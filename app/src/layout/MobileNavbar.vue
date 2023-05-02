@@ -1,32 +1,34 @@
 <template>
-  <nav class="bg-dark text-background w-full">
-      <div class="w-full fixed z-10">
-        <div class="flex justify-between p-4 bg-dark">
-            <router-link to="/home">
-                <img src="" alt="logo">
-            </router-link>
-            <button @click="collapsed = !collapsed">
-                <i class="bi bi-list"></i>
-            </button>
+    <nav class="bg-dark text-background w-full">
+        <div class="w-full fixed z-10">
+            <div class="flex justify-between p-4 bg-dark">
+                <router-link to="/home">
+                    <img src="" alt="logo">
+                </router-link>
+                <button @click="collapsed = !collapsed">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
         </div>
-      </div>
-      <transition>
-        <div v-if="collapsed" class="px-4 bg-dark flex flex-col items-start fixed w-full top-14 ">
-            <ul class="font-bold">
-                <li class="p-2"> <router-link to="/databazy "> Databazy </router-link> </li>
-                <!-- TODO: urobit selective loading podla usera -->
-                <li class="p-2">
-                    <i class="bi bi-person-add text-navtext mr-1"></i>
-                    <router-link to="/login">prihlasit sa</router-link>
-                </li>
-                <li class="p-2">
-                    <i class="bi bi-person text-navtext mr-1"></i>
-                    <router-link to="/register">registrovat sa</router-link>
-                </li>
-            </ul>
-        </div>
-      </transition>
-  </nav>
+        <transition>
+            <div v-if="collapsed" class="px-4 bg-dark flex flex-col items-start fixed w-full top-14 ">
+                <ul class="font-bold">
+                    <li class="p-2">
+                        <router-link to="/databazy "> Databazy</router-link>
+                    </li>
+                    <!-- TODO: urobit selective loading podla usera -->
+                    <li class="p-2">
+                        <i class="bi bi-person-add text-navtext mr-1"></i>
+                        <router-link to="/login">prihlasit sa</router-link>
+                    </li>
+                    <li class="p-2">
+                        <i class="bi bi-person text-navtext mr-1"></i>
+                        <router-link to="/register">registrovat sa</router-link>
+                    </li>
+                </ul>
+            </div>
+        </transition>
+    </nav>
 </template>
 
 <script>
@@ -50,9 +52,11 @@ export default {
     .v-enter-active {
         @apply transition-all ease-in duration-200
     }
+
     .v-leave-active {
         @apply transition-all ease-out duration-200
     }
+
     .v-enter-from,
     .v-leave-to {
         @apply transform -translate-y-full

@@ -1,10 +1,10 @@
 <template>
-  <NavbarPC v-if="screenWidth > 999"/>
-  <MobileNavbar v-else/>
-  <div class="min-h-screen">
-    <router-view/>
-  </div>
-  <Footer/>
+    <NavbarPC v-if="screenWidth > 999"/>
+    <MobileNavbar v-else/>
+    <div class="min-h-screen">
+        <router-view/>
+    </div>
+    <Footer/>
 </template>
 
 <script>
@@ -13,15 +13,15 @@ import NavbarPC from "@/layout/Navbar.vue";
 import MobileNavbar from "@/layout/MobileNavbar.vue";
 
 export default {
-  components: {
-    NavbarPC,
-    Footer,
-    MobileNavbar
-  },
+    components: {
+        NavbarPC,
+        Footer,
+        MobileNavbar
+    },
     data() {
-      return {
-          screenWidth: 0,
-      }
+        return {
+            screenWidth: 0,
+        }
     },
     mounted() {
         this.updateScreenWidth();
