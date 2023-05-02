@@ -5,7 +5,7 @@
             <h1 class="header-text">Vyhľadávanie v Databáze Firiem</h1>
             <div>
                 <input type="text"
-                       class="header-input placeholder-light placeholder:mx-auto placeholder:font-varela font-varela focus:outline-none focus:ring-2 focus:border-background focus:ring-tables focus:shadow-2xl focus:placeholder-blue"
+                       class="header-input placeholder-light placeholder:mx-auto placeholder:font-varela font-varela focus:outline-none focus:ring-2 focus:border-background focus:ring-sky focus:shadow-2xl focus:placeholder-blue"
                        v-model="name" placeholder="Vyhľadať firmu" @keyup="Search">
             </div>
             <div class="flex justify-center" v-if="name !== ''">
