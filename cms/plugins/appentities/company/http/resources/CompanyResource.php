@@ -47,8 +47,14 @@ class CompanyResource extends JsonResource
             ]),
             'latest_report' => $this->when((bool)$this->latest_report, new ReportResource($this->latest_report)),
             'graph_data' => [
-                'revenue' => $this->when($this->relationLoaded('reports'), $this->reports->pluck('revenue', 'year')), //TODO: number format?
-                'profits' => $this->when($this->relationLoaded('reports'), $this->reports->pluck('profits', 'year')),
+                'revenue' => $this->when($this->relationLoaded('reports'), [
+                    'labels' => $this->reports->pluck('year'),
+                    'data' => $this->reports->pluck('revenue'),
+                ]),
+                'profits' => $this->when($this->relationLoaded('reports'), [
+                    'labels' => $this->reports->pluck('year'),
+                    'data' => $this->reports->pluck('profits'),
+                ]),
             ],
             'statements' => $this->when($this->relationLoaded('statements'), StatementResource::collection($this->statements)),
         ];
