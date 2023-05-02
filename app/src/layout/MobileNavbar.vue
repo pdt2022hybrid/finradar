@@ -15,7 +15,7 @@
                 <ul class="font-bold">
                     <li class="p-2.5 my-2">
                         <i class="bi bi-card-list mr-1 text-lg"></i>
-                        <router-link to="/databazy "> Databázy</router-link>
+                        <router-link to="/database"> Databázy</router-link>
                     </li>
                     <!-- TODO: urobit selective loading podla usera -->
                     <li class="p-2.5 mb-2">

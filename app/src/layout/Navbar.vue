@@ -4,7 +4,7 @@
             <router-link class=" text-navtext font-bold" to="/">
                 <img src="../assets/brand/logo_text.svg" class="h-10 w-50 mr-24" alt="">
             </router-link>
-            <router-link to="/databazy" class="text-navtext font-bold active:text-blue_light">Databázy
+            <router-link to="/database" class="text-navtext font-bold active:text-blue_light">Databázy
             </router-link>
             <!--      <router-link to="/" class="text-navtext">API</router-link>-->
         </div>

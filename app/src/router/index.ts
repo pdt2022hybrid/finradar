@@ -13,8 +13,8 @@ const router = createRouter({
             component: () => import('@/views/HomePage.vue')
         },
         {
-            path: '/databazy',
-            name: 'databazy',
+            path: '/database',
+            name: 'database',
             component: () => import('@/views/Databazy.vue')
         },
         {
@@ -42,7 +42,6 @@ const router = createRouter({
             name: 'login',
             component: () => import('@/views/LoginPage.vue')
         }
-        // dalsie dame potom co urobime fazu 1
     ]
 })
 
