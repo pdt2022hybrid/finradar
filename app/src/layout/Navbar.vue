@@ -1,10 +1,10 @@
 <template>
     <nav class="navbar lg:h-20 lg:min-w-fit">
-        <div class="lg:ml-40 lg:text-lg flex flex-row items-center">
+        <div class="lg:text-lg flex flex-row items-center w-3/5 ml-40 pr-20">
             <router-link class=" text-navtext font-bold w-1/2" to="/">
-                <img src="../assets/brand/logo_text.svg" class="" alt="">
+                <img src="../assets/brand/logo_text.svg" class="w-3/5" alt="">
             </router-link>
-            <router-link to="/databazy" class="text-navtext font-bold lg:mr-24 active:text-blue_light">Databázy
+            <router-link to="/databazy" class="text-navtext font-bold active:text-blue_light">Databázy
             </router-link>
             <!--      <router-link to="/" class="text-navtext">API</router-link>-->
         </div>
