@@ -1,5 +1,6 @@
 <?php namespace AppEntities\Company\Http\Resources;
 
+use Appentities\Company\Models\Company;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Appentities\Report\Models\Report;
 use AppEntities\Statement\Http\Resources\StatementResource;
@@ -10,28 +11,9 @@ use October\Rain\Support\Collection;
 /**
  * Class CompanyResource
  *
- * @property string name
- * @property string|int company_official_id
- * @property int official_id
- * @property int ico
- * @property int dic
- * @property int legal_form
- * @property int ownership_type
- * @property string street
- * @property string city
- * @property string postal_zip
- * @property string date_of_establishment
+ * @mixin Company
  *
  * @property Report latest_report
- * @property int revenue
- * @property int profits
- * @property int assets_total
- * @property int liabilities_total
- * @property int capital
- * @property int year
- * @property int report_official_id
- * @property int statement_official_id
- *
  * @property Collection reports
  * @property Collection statements
  * @property Collection directors

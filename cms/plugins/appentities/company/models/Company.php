@@ -61,11 +61,6 @@ class Company extends Model
         return self::where('official_id', $query)->orWhere('ico', $query)->get()->exists();
     }
 
-    public static function getYear(): int
-    {
-        return Carbon::now()->month < 6 ? Carbon::now()->year - 2 : Carbon::now()->year - 1;
-    }
-
     public function getRevenueAttribute(): int
     {
         return $this->latest_report->revenue;
