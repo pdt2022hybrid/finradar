@@ -197,19 +197,6 @@ export default {
         @apply m-1.5 p-1 bg-background rounded placeholder-dark placeholder-opacity-70 placeholder:font-rubik
     }
 
-    .v-enter-active {
-        @apply transition-all ease-in duration-200
-    }
-
-    .v-leave-active {
-        @apply transition-all ease-out duration-200
-    }
-
-    .v-enter-from,
-    .v-leave-to {
-        @apply transform
-    }
-
     .focused {
         @apply focus:bg-blue hover:bg-blue_light
     }
