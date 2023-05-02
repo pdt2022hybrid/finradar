@@ -1,10 +1,10 @@
 <template>
     <nav class="navbar lg:h-20 lg:min-w-fit">
         <div class="lg:text-lg flex flex-row items-center w-3/5 ml-40 pr-20">
-            <router-link class=" text-navtext font-bold w-1/2" to="/">
-                <img src="../assets/brand/logo_text.svg" class="w-3/5" alt="">
+            <router-link class=" text-navtext font-bold" to="/">
+                <img src="../assets/brand/logo_text.svg" class="h-10 w-50 mr-24" alt="">
             </router-link>
-            <router-link to="/databazy" class="text-navtext font-bold active:text-blue_light">Databázy
+            <router-link to="/database" class="text-navtext font-bold active:text-blue_light">Databázy
             </router-link>
             <!--      <router-link to="/" class="text-navtext">API</router-link>-->
         </div>
@@ -17,7 +17,7 @@
             </div>
             <div class="absolute flex w-3/4 mt-9" v-if="name !== ''">
                 <ul class="absolute w-64 bg-light rounded-md mx-auto z-10">
-                    <li class="border-background border-b-2 px-3" v-for="item in this.companies">
+                    <li class="border-background border-b-2 p-1.5" v-for="item in this.companies">
                         <router-link :to="{ name: 'company', params: { ico: item.ico } }" v-slot="{ redirect }">
                             <h4 class="cursor-pointer lg:w-fit mx-auto font-varela font-medium text-center hover:font-semibold"
                                 @click="redirect"> {{ item.name }} </h4>

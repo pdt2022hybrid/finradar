@@ -24,11 +24,12 @@
         @apply font-rubik font-bold
     }
 
-    p {
+    p, router-link {
         @apply font-varela
     }
 
-    h2 {
+    h2, h3, h4, h5 {
         @apply font-rubik font-semibold
     }
+
 }
