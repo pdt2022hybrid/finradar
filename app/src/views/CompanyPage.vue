@@ -63,7 +63,7 @@
                     </div>
                 </div>
             </div>
-            <div class="box z-0 lg:col-span-2 lg:border-b">
+            <div class="box z-0 lg:col-span-2 lg:border-background lg:border-b">
                 <h2>Tržby</h2>
                 <line-chart
                     download="true"
