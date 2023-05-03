@@ -15,6 +15,7 @@
     "chart.js": "^4.3.0",
     "pinia": "^2.0.32",
     "prettier": "^2.8.8",
+    "typewriter-vue": "^0.5.19",
     "vue": "^3.2.47",
     "vue-chartjs": "^5.2.0",
     "vue-chartkick": "^1.1.0",

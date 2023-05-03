@@ -84,7 +84,7 @@
             </div>
             <!--            <div class="box border-r-2">stuff here</div>-->
             <div class="box">
-                <AssetsPieChart v-if="loaded" data=""
+                <!--                <AssetsPieChart v-if="loaded" data=""-->
                 <pie-chart
                     suffix="€"
                     legend="bottom"
