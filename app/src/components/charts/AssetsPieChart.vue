@@ -1,5 +1,5 @@
 <template>
-    <Line
+    <Pie
         v-if="loaded"
         id="revenue-line-chart"
         :options="chartOptions"
@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { Line } from "vue-chartjs";
+import { Pie } from "vue-chartjs";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -31,8 +31,8 @@ ChartJS.register(
 );
 
 export default {
-    name: "ProfitsLineChart",
-    components: { Line },
+    name: "AssetsPieChart",
+    components: { Pie },
     data() {
         return {
             chartOptions: {
@@ -70,32 +70,32 @@ export default {
                         },
                     },
                 },
-                scales: {
-                    x: {
-                        display: true,
-                        title: {
-                            display: true,
-                            text: "Rok",
-                        },
-                    },
-                    y: {
-                        display: true,
-                        title: {
-                            display: false,
-                            text: "Eur",
-                        },
-                        ticks: {
-                            beginAtZero: true,
-                            callback: function (value, index, values) {
-                                return new Intl.NumberFormat("sk-SK", {
-                                    style: "currency",
-                                    currency: "EUR",
-                                    maximumFractionDigits: 0,
-                                }).format(value);
-                            },
-                        },
-                    },
-                },
+                // scales: {
+                //     x: {
+                //         display: true,
+                //         title: {
+                //             display: true,
+                //             text: "Rok",
+                //         },
+                //     },
+                //     y: {
+                //         display: true,
+                //         title: {
+                //             display: false,
+                //             text: "Eur",
+                //         },
+                //         ticks: {
+                //             beginAtZero: true,
+                //             callback: function (value, index, values) {
+                //                 return new Intl.NumberFormat("sk-SK", {
+                //                     style: "currency",
+                //                     currency: "EUR",
+                //                     maximumFractionDigits: 0,
+                //                 }).format(value);
+                //             },
+                //         },
+                //     },
+                // },
             },
             chartData: {
                 labels: [],

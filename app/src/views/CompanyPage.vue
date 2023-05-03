@@ -84,6 +84,7 @@
             </div>
             <!--            <div class="box border-r-2">stuff here</div>-->
             <div class="box">
+                <AssetsPieChart v-if="loaded" data=""
                 <pie-chart
                     suffix="€"
                     legend="bottom"
@@ -220,12 +221,14 @@
 import axios from "axios";
 import RevenueLineChart from "@/components/charts/RevenueLineChart.vue";
 import ProfitsLineChart from "@/components/charts/ProfitsLineChart.vue";
+import AssetsPieChart from "@/components/charts/AssetsPieChart.vue";
 
 export default {
     name: "CompanyPage",
     components: {
         RevenueLineChart,
         ProfitsLineChart,
+        AssetsPieChart,
     },
     data() {
         return {
