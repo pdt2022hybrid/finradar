@@ -1,9 +1,9 @@
 <template>
     <nav class="bg-dark text-background w-full">
         <div class="w-full fixed z-10">
-            <div class="flex justify-between p-4 bg-dark items-center ">
+            <div class="flex justify-between p-4 bg-dark items-center">
                 <router-link to="/home" class="w-5/12">
-                    <img src="../assets/brand/logo_text.svg" alt="">
+                    <img src="../assets/brand/logo_text.svg" alt="" />
                 </router-link>
                 <button @click="collapsed = !collapsed">
                     <i class="bi bi-list text-2xl"></i>
@@ -11,7 +11,10 @@
             </div>
         </div>
         <transition>
-            <div v-if="collapsed" class="px-4 bg-dark flex flex-col items-start fixed w-full top-14 ">
+            <div
+                v-if="collapsed"
+                class="px-4 bg-dark flex flex-col items-start fixed w-full top-14"
+            >
                 <ul class="font-bold">
                     <li class="p-2.5 my-2">
                         <i class="bi bi-card-list mr-1 text-lg"></i>
@@ -19,7 +22,9 @@
                     </li>
                     <!-- TODO: urobit selective loading podla usera -->
                     <li class="p-2.5 mb-2">
-                        <i class="bi bi-person-add text-navtext mr-1 text-lg"></i>
+                        <i
+                            class="bi bi-person-add text-navtext mr-1 text-lg"
+                        ></i>
                         <router-link to="/login">Prihlásiť sa</router-link>
                     </li>
                     <li class="p-2.5 mb-2">
@@ -38,9 +43,9 @@ export default {
     data() {
         return {
             collapsed: false,
-        }
-    }
-}
+        };
+    },
+};
 </script>
 
 <style scoped>
@@ -49,18 +54,17 @@ export default {
 @tailwind utilities;
 
 @layer base {
-
     .v-enter-active {
-        @apply transition-all ease-in duration-200
+        @apply transition-all ease-in duration-200;
     }
 
     .v-leave-active {
-        @apply transition-all ease-out duration-200
+        @apply transition-all ease-out duration-200;
     }
 
     .v-enter-from,
     .v-leave-to {
-        @apply transform -translate-y-full
+        @apply transform -translate-y-full;
     }
 }
 </style>

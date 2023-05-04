@@ -31,11 +31,11 @@
                 class="pt-4 text-xs font-varela w-full text-underline underline underline-offset-1 flex justify-around"
             >
                 <router-link to="/register" class="w-18 hover:font-semibold"
-                    >Registrovať sa</router-link
-                >
+                    >Registrovať sa
+                </router-link>
                 <router-link to="/" class="w-30 hover:font-semibold">
-                    Zabudli ste heslo?</router-link
-                >
+                    Zabudli ste heslo?
+                </router-link>
             </div>
         </form>
     </div>

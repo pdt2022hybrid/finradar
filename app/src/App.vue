@@ -1,10 +1,10 @@
 <template>
-    <NavbarPC v-if="screenWidth > 1024"/>
-    <MobileNavbar v-else/>
+    <NavbarPC v-if="screenWidth > 1024" />
+    <MobileNavbar v-else />
     <div class="min-h-screen">
-        <router-view/>
+        <router-view />
     </div>
-    <Footer/>
+    <Footer />
 </template>
 
 <script>
@@ -16,12 +16,12 @@ export default {
     components: {
         NavbarPC,
         Footer,
-        MobileNavbar
+        MobileNavbar,
     },
     data() {
         return {
             screenWidth: 0,
-        }
+        };
     },
     mounted() {
         this.updateScreenWidth();
@@ -37,5 +37,5 @@ export default {
             this.screenWidth = window.innerWidth;
         },
     },
-}
+};
 </script>

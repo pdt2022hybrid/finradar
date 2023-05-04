@@ -228,12 +228,12 @@ export default {
     components: {
         RevenueLineChart,
         ProfitsLineChart,
-        AssetsPieChart,
+        AssetsPieChart
     },
     data() {
         return {
             loaded: false,
-            companyData: [],
+            companyData: []
         };
     },
     async mounted() {
@@ -246,7 +246,7 @@ export default {
         } catch (errors) {
             console.log(errors);
         }
-    },
+    }
 };
 </script>
 
