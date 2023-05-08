@@ -2,14 +2,32 @@
     <div class="wrapper">
         <div class="homepageHeader mb-48">
             <h1 class="header-text">Vyhľadávanie v Databáze Firiem</h1>
-            <div>
-                <input
-                    type="text"
-                    class="header-input placeholder-light placeholder:mx-auto placeholder:font-varela font-varela focus:outline-none focus:ring-2 focus:border-background focus:ring-sky focus:shadow-2xl focus:placeholder-blue"
-                    v-model="name"
-                    placeholder="Vyhľadať firmu"
-                    @keyup="Search"
-                />
+            <!--            <div>-->
+            <!--                <input-->
+            <!--                    type="text"-->
+            <!--                    class="header-input placeholder-light placeholder:mx-auto placeholder:font-varela font-varela focus:outline-none focus:ring-2 focus:border-background focus:ring-sky focus:shadow-2xl focus:placeholder-blue"-->
+            <!--                    v-model="name"-->
+            <!--                    placeholder="Vyhľadať firmu"-->
+            <!--                    @keyup="Search"-->
+            <!--                />-->
+            <!--            </div>-->
+            <div class="max-w-md mx-auto mt-8">
+                <div
+                    class="relative flex items-center w-full h-12 rounded-lg shadow-xl focus-within:shadow-xl bg-white overflow-hidden"
+                >
+                    <div
+                        class="grid place-items-center h-full w-12 text-gray-300"
+                    >
+                        <i class="bi bi-search scale-150"></i>
+                    </div>
+                    <input
+                        class="peer h-full w-full outline-none text-sm text-gray-700 pr-2 placeholder:font-varela font-varela"
+                        type="text"
+                        placeholder="Vyhľadať firmu..."
+                        @keyup="Search"
+                        v-model="name"
+                    />
+                </div>
             </div>
             <div class="flex justify-center" v-if="name !== ''">
                 <ul
@@ -45,13 +63,6 @@
                     profesionál alebo len záujemca o finančný svet, FinRadar je
                     váš zdroj pre všetko súvisiace s finančnými štatistikami.
                 </p>
-            </li>
-            <li>
-                <img
-                    class="mainContentImage"
-                    src="@/assets/images/placeholder.png"
-                    alt="image"
-                />
             </li>
             <li class="mainContentText">
                 <h2 class="p-6">Užívateľsky prívetivé rozhranie</h2>
@@ -137,7 +148,7 @@ export default {
     }
 
     .mainContentText {
-        @apply flex w-96 flex-col text-xl text-dark font-normal text-center lg:text-left mb-10;
+        @apply flex w-1/3 flex-col text-xl text-dark font-normal text-center lg:text-left mb-10;
     }
 
     .mainContentText h2 {
