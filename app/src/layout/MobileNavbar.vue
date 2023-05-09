@@ -1,6 +1,6 @@
 <template>
     <nav class="bg-dark text-background mim-w-fit">
-        <div class="w-full fixed z-10">
+        <div class="w-full fixed z-20">
             <div class="flex justify-between p-4 bg-dark items-center">
                 <router-link to="/home" class="md:w-3/5 w-5/12">
                     <img src="../assets/brand/logo_text.svg" alt="logo" class="md:w-5/12" />
@@ -13,7 +13,7 @@
         <transition>
             <div
                 v-if="collapsed"
-                class="px-4 bg-dark flex flex-col items-start fixed w-full top-14"
+                class="px-4 bg-dark flex flex-col items-start fixed w-full top-14 z-10"
             >
                 <ul class="font-bold">
                     <li class="p-2.5 my-2">
