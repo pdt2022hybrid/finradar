@@ -1,12 +1,12 @@
 <template>
-    <nav class="bg-dark text-background w-full">
+    <nav class="bg-dark text-background mim-w-fit">
         <div class="w-full fixed z-10">
             <div class="flex justify-between p-4 bg-dark items-center">
-                <router-link to="/home" class="w-5/12">
-                    <img src="../assets/brand/logo_text.svg" alt="" />
+                <router-link to="/home" class="md:w-3/5 w-5/12">
+                    <img src="../assets/brand/logo_text.svg" alt="logo" class="md:w-5/12" />
                 </router-link>
                 <button @click="collapsed = !collapsed">
-                    <i class="bi bi-list text-2xl"></i>
+                    <i class="bi bi-list text-2xl md:text-4xl"></i>
                 </button>
             </div>
         </div>
