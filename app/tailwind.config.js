@@ -10,7 +10,7 @@ module.exports = {
             purp: "#A020F0",
             red: "#FF0000",
             yell: "#FFA500",
-            tables: "#EFEFEF",
+            gray: "#EFEFEF",
             white: "#FFFFFF",
             background: "#FFFFFF",
             dark: "#1C1B20",

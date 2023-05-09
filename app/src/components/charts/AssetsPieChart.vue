@@ -14,16 +14,19 @@
             <li
                 v-for="(item, index) in data"
                 :key="index"
-                @click="toggleData(index)"
+                @click="toggleData(item, index)"
                 class="legend-item"
+                :class="{ 'legend-item-disabled': !item.enabled }"
             >
                 <div class="legend-label-container">
+                    <i
+                        class="bi bi-square-fill legend-color"
+                        :style="{ color: getLegendItemColor(item) }"
+                    ></i>
                     <span
-                        class="legend-color"
-                        :style="{ backgroundColor: item.color }"
+                        class="legend-label cursor-pointer"
+                        :class="{ 'legend-label-disabled': !item.enabled }"
                     >
-                    </span>
-                    <span class="legend-label">
                         {{ item.label }}
                     </span>
                 </div>
@@ -54,13 +57,7 @@ export default {
                 },
                 plugins: {
                     legend: {
-                        position: "bottom",
-                        labels: {
-                            font: {
-                                size: 14,
-                            },
-                        },
-                        align: "start",
+                        display: false,
                     },
                     title: {
                         display: true,
@@ -94,17 +91,15 @@ export default {
             },
             loaded: false,
             availableColors: [
-                "#001f3f",
-                "#006400",
-                "#DC143C",
-                "#A9A9A9",
-                "#4169E1",
-                "#228B22",
-                "#800000",
-                "#708090",
-                "#A0522D",
-                "#00BFFF",
+                "#00876c",
+                "#63b179",
+                "#aed987",
+                "#ffff9d",
+                "#fcc267",
+                "#ef8250",
+                "#d43d51",
             ],
+            disabledColor: "#D3D3D3",
         };
     },
     props: {
@@ -114,46 +109,24 @@ export default {
         },
     },
     methods: {
-        toggleData() {},
-        enableData() {},
-        disableData() {},
-        removeDataset(index) {
-            let chart = this.$refs.pie.chart;
-            chart.data.labels.splice(-1, 1); // remove the label first
+        toggleData(item, index) {
+            item.enabled = !item.enabled;
+            this.updateChart();
+        },
+        updateChart() {
+            const chart = this.$refs.pie.chart;
 
-            // ide
-            //chart.data.datasets[0].data = [100, 200, 300];
+            chart.data.datasets[0].data = this.data
+                .filter((item) => item.enabled)
+                .map((item) => item.value);
 
-            //nejde
-            // chart.data.datasets[0].data.splice(index, 1);
+            chart.data.labels = this.data
+                .filter((item) => item.enabled)
+                .map((item) => item.label);
 
-            //ide
-            // const dataRef = toRef(chart.data.datasets[0], "data");
-            // dataRef.value = dataRef.value.filter((_, i) => i !== index);
-
-            //ide
-            // chart.data.datasets[0].data = chart.data.datasets[0].data.filter(
-            //     (_, i) => i !== index
-            // );
-
-            chart.data.datasets[0].data = chart.data.datasets[0].data.filter(
-                function (value, i) {
-                    return i !== index;
-                }
-            );
-
-            //simpler version - ide
-            // Get the first dataset in the chart's data object
-            // const dataset = chart.data.datasets[0];
-
-            // Get the data array for that dataset
-            // let data = dataset.data;
-
-            // Filter the data array to exclude the element at the specified index
-            // data = data.filter((_, i) => i !== index);
-
-            // Assign the filtered data array back to the dataset's data property
-            // dataset.data = data;
+            chart.data.datasets[0].backgroundColor = this.data
+                .filter((item) => item.enabled)
+                .map((item) => item.color);
 
             chart.update();
         },
@@ -163,6 +136,13 @@ export default {
                 currency: "EUR",
                 maximumFractionDigits: 0,
             }).format(number);
+        },
+        getLegendItemColor(item) {
+            if (item.enabled) {
+                return item.color;
+            } else {
+                return this.disabledColor;
+            }
         },
     },
     created() {
@@ -196,15 +176,27 @@ export default {
     }
 
     .legend-container {
-        @apply w-full;
+        @apply w-full my-5;
+    }
+
+    .legend-item:not(:last-child) {
+        @apply border-b border-b-light;
     }
 
     .legend-label-container {
         @apply inline;
     }
 
+    .legend-label-disabled {
+        @apply line-through;
+    }
+
+    .legend-color {
+        @apply mx-1;
+    }
+
     .legend-value {
-        @apply inline text-right float-right;
+        @apply inline text-right float-right text-dark;
     }
 }
 </style>

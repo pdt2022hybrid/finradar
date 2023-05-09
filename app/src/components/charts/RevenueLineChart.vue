@@ -19,6 +19,7 @@ import {
     Tooltip,
     Legend,
 } from "chart.js";
+import annotationPlugin from "chartjs-plugin-annotation";
 
 ChartJS.register(
     CategoryScale,
@@ -27,7 +28,8 @@ ChartJS.register(
     LineElement,
     Title,
     Tooltip,
-    Legend
+    Legend,
+    annotationPlugin
 );
 
 export default {
@@ -66,6 +68,22 @@ export default {
                                 }
 
                                 return label;
+                            },
+                        },
+                    },
+                    annotation: {
+                        annotations: {
+                            average: {
+                                type: "line",
+                                yMin: 60,
+                                yMax: 60,
+                                z: -10,
+                                borderColor: "#ababab",
+                                borderWidth: 2,
+                                label: {
+                                    display: false,
+                                    content: "Priemerná hodnota",
+                                },
                             },
                         },
                     },
@@ -127,6 +145,13 @@ export default {
                 },
             ],
         };
+
+        let average =
+            this.chartData.datasets[0].data.reduce((a, b) => a + b, 0) /
+            this.chartData.datasets[0].data.length;
+
+        this.chartOptions.plugins.annotation.annotations.average.yMin = average;
+        this.chartOptions.plugins.annotation.annotations.average.yMax = average;
 
         this.loaded = true;
     },

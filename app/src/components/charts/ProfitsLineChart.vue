@@ -69,6 +69,28 @@ export default {
                             },
                         },
                     },
+                    annotation: {
+                        annotations: {
+                            average: {
+                                type: "line",
+                                yMin: undefined,
+                                yMax: undefined,
+                                borderColor: "#ababab",
+                                borderWidth: 2,
+                                label: {
+                                    display: false,
+                                    content: "Priemerná hodnota",
+                                },
+                            },
+                            loss: {
+                                type: "line",
+                                yMin: 0,
+                                yMax: 0,
+                                borderColor: "red",
+                                borderWidth: 2,
+                            },
+                        },
+                    },
                 },
                 scales: {
                     x: {
@@ -133,6 +155,13 @@ export default {
                 },
             ],
         };
+
+        let average =
+            this.chartData.datasets[0].data.reduce((a, b) => a + b, 0) /
+            this.chartData.datasets[0].data.length;
+
+        this.chartOptions.plugins.annotation.annotations.average.yMin = average;
+        this.chartOptions.plugins.annotation.annotations.average.yMax = average;
 
         this.loaded = true;
     },

@@ -11,7 +11,7 @@
             </h2>
         </div>
         <div class="flex justify-center lg:w-1/2">
-            <form class="bg-tables p-6 px-16 lg:w-3/4">
+            <form class="bg-gray p-6 px-16 lg:w-3/4">
                 <label class="block">
                     <span
                         class="after:ml-0.5 after:text-red-500 block text-sm text-left font-medium text-slate-700 mb-2"

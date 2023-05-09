@@ -5,9 +5,9 @@
             {{ companyData?.name }}
         </h1>
         <div
-            class="lg:border-2 border-t-2 lg:rounded-lg bg-tables lg:grid-cols-3 grid-cols-1 grid lg:w-5/6 w-full"
+            class="bg-gray lg:rounded-lg lg:grid-cols-3 grid-cols-1 grid lg:w-5/6 w-full"
         >
-            <div class="box lg:border-r-2 lg:row-span-3">
+            <div class="box lg:border-r-light border-r-2 lg:row-span-3">
                 <div class="value-wrapper-div">
                     <div class="value-description-div">
                         <p class="value-description">ICO</p>
@@ -71,13 +71,13 @@
                     </div>
                 </div>
             </div>
-            <div class="box z-0 lg:col-span-2 lg:border-background lg:border-b">
+            <div class="box z-0 lg:col-span-2 lg:border-light lg:border-b">
                 <RevenueLineChart
                     v-if="loaded"
                     :data="companyData?.graph_data?.revenue"
                 />
             </div>
-            <div class="box z-0 lg:col-span-2 lg:border-background lg:border-b">
+            <div class="box z-0 lg:col-span-2 lg:border-light lg:border-b">
                 <ProfitsLineChart
                     v-if="loaded"
                     :data="companyData?.graph_data?.profits"
@@ -152,7 +152,7 @@ export default {
     }
 
     .value-wrapper-div {
-        @apply border-b flex place-content-between py-2 border-b-navtext w-full;
+        @apply border-b flex place-content-between py-2 border-b-light w-full;
     }
 
     .value-description-div {
