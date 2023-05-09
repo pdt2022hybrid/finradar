@@ -25,13 +25,13 @@
             />
             <div class="text-navtext lg:flex lg:items-center" @click="ShowMenu">
                 <i
-                    class="bi bi-person-circle lg:ml-10 lg:rounded-full lg:flex lg:cursor-pointer text-blue lg:text-5xl"
+                    class="bi bi-person-circle lg:ml-10 lg:rounded-full lg:flex lg:cursor-pointer text-green lg:text-5xl"
                 ></i>
             </div>
             <div class="absolute flex w-3/4 mt-9" v-if="name !== ''">
-                <ul class="absolute w-64 bg-light rounded-md mx-auto z-10">
+                <ul class="absolute w-64 bg-results rounded-md mx-auto z-10">
                     <li
-                        class="border-dark border-b-2 p-1.5"
+                        class="border-light border-b-2 p-1.5"
                         v-for="item in this.companies"
                     >
                         <router-link

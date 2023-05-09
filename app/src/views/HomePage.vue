@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <div class="homepageHeader pb-48 bg-gradient-to-r from-background to-light">
+        <div class="homepageHeader bg-gradient-to-r from-background to-light">
             <h1 class="header-text">Vyhľadávanie v Databáze Firiem</h1>
             <!--            <div>-->
             <!--                <input-->
@@ -11,7 +11,7 @@
             <!--                    @keyup="Search"-->
             <!--                />-->
             <!--            </div>-->
-            <div class="max-w-md mx-auto mt-8">
+            <div class="max-w-md mx-auto mt-12 mb-24">
                 <div
                     class="relative flex items-center w-full h-12 rounded-lg shadow-xl focus-within:shadow-xl bg-white overflow-hidden focus-within:border-green focus-within:border-2 "
                 >
@@ -29,13 +29,16 @@
                     />
                 </div>
             </div>
+
+			<img src="../assets/images/HomepageImage.svg" alt="" class="w-full">
+
             <div class="flex justify-center" v-if="name !== ''">
                 <ul
-                    class="absolute w-64 bg-light rounded-md mx-auto z-10 -mt-2.5"
+                    class="absolute w-64 bg-results rounded-md mx-auto z-10 -mt-2.5 border-light border-2"
                 >
                     <li
                         v-for="item in companies"
-                        class="border-background border-b-2 p-1.5"
+                        class="border-light border-b-2 p-1.5"
                     >
                         <router-link
                             :to="{ name: 'company', params: { ico: item.ico } }"
