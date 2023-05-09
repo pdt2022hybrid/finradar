@@ -1,10 +1,10 @@
 <template>
-    <div class="sm:mx-5 flex flex-col items-center lg:py-10 py-20">
-        <h1 class="text-3xl mt-2 mb-7 self-start ml-28">
+    <div class="sm:py-5 flex flex-col items-center lg:py-10 py-20">
+        <h1 class="text-3xl mt-12 sm:mt-28 md:mt-2 lg:mt-2 mb-7">
             {{ companyData?.name }}
         </h1>
         <div
-            class="lg:border-2 border-t-2 lg:rounded-lg bg-tables lg:grid-cols-3 grid-cols-1 grid lg:w-5/6"
+            class="lg:border-2 border-t-2 lg:rounded-lg bg-tables lg:grid-cols-3 grid-cols-1 grid lg:w-5/6 w-full"
         >
             <div class="box lg:border-r-2 lg:row-span-3">
                 <div class="value-wrapper-div">
@@ -83,135 +83,11 @@
                 />
             </div>
             <!--            <div class="box border-r-2">stuff here</div>-->
-            <div class="box">
-                <AssetsPieChart v-if="loaded" data=""
-                <pie-chart
-                    suffix="€"
-                    legend="bottom"
-                    thousands=" "
-                    :library="{
-                        is3D: true,
-                        legend: 'none',
-                        backgroundColor: '#EFEFEF',
-                        colors: [
-                            '#3a0ca3',
-                            '#3f37c9',
-                            '#4361ee',
-                            '#4895ef',
-                            '#4cc9f0',
-                        ],
-                    }"
-                    :data="[
-                        [
-                            'Financial accounts',
-                            companyData?.latest_report?.assets
-                                ?.financial_accounts_total,
-                        ],
-                        [
-                            'Financial assets',
-                            companyData?.latest_report?.assets
-                                ?.lt_financial_assets_total,
-                        ],
-                        [
-                            'Intangible assets',
-                            companyData?.latest_report?.assets
-                                ?.lt_intangible_assets_total,
-                        ],
-                        [
-                            'Tangible assets',
-                            companyData?.latest_report?.assets
-                                ?.lt_tangible_assets_total,
-                        ],
-                        [
-                            'Recievables total',
-                            companyData?.latest_report?.assets
-                                ?.st_receivables_total,
-                        ],
-                    ]"
-                ></pie-chart>
-                <GoogleCharts :data="dataTable" :options="options" />
-                <div class="flex flex-col grid grid-cols-2 text-center legend">
-                    <div class="flex leg">
-                        <h4 class="leg text-white bg-blue rounded"></h4>
-                        <h4 class="leg">Financial accounts</h4>
-                    </div>
-                    <div class="flex leg">
-                        <h4 class="leg text-white bg-red rounded"></h4>
-                        <h4 class="leg">Financial assets</h4>
-                    </div>
-                    <div class="flex leg">
-                        <h4 class="leg text-white bg-yell rounded"></h4>
-                        <h4 class="leg">Intangible assets</h4>
-                    </div>
-                    <div class="flex leg">
-                        <h4 class="leg text-white bg-green rounded"></h4>
-                        <h4 class="leg">Tangible assets</h4>
-                    </div>
-                    <div class="flex leg">
-                        <h4 class="leg text-white bg-purp rounded"></h4>
-                        <h4 class="leg">Receivables total</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="box">
-                <pie-chart
-                    suffix="€"
-                    legend="bottom"
-                    thousands=" "
-                    :library="{
-                        is3D: true,
-                        legend: 'none',
-                        backgroundColor: '#EFEFEF',
-                    }"
-                    :data="[
-                        [
-                            'Bank loans',
-                            companyData?.latest_report?.liabilities?.bank_loans,
-                        ],
-                        [
-                            'Base capital',
-                            companyData?.latest_report?.liabilities
-                                ?.base_capital,
-                        ],
-                        [
-                            'Profit after tax',
-                            companyData?.latest_report?.liabilities
-                                ?.profit_for_period_after_tax,
-                        ],
-                        [
-                            'Reserves',
-                            companyData?.latest_report?.liabilities?.reserves,
-                        ],
-                        [
-                            'LY result',
-                            companyData?.latest_report?.liabilities
-                                ?.result_last_year,
-                        ],
-                        [
-                            'Liabilities',
-                            companyData?.latest_report?.liabilities
-                                ?.st_labilities,
-                        ],
-                    ]"
-                ></pie-chart>
-                <div class="flex flex-col grid grid-cols-2 text-center mb-6">
-                    <div class="flex">
-                        <h4 class="leg text-white bg-blue rounded"></h4>
-                        <h4 class="leg">Bank loans</h4>
-                    </div>
-                    <div class="flex">
-                        <h4 class="leg text-white bg-red rounded"></h4>
-                        <h4 class="leg">Base capital</h4>
-                    </div>
-                    <div class="flex">
-                        <h4 class="leg text-white bg-yell rounded"></h4>
-                        <h4 class="leg">Profit after tax</h4>
-                    </div>
-                    <div class="flex">
-                        <h4 class="leg text-white bg-purp rounded"></h4>
-                        <h4 class="leg">LY result</h4>
-                    </div>
-                </div>
+            <div class="box z-0">
+                <AssetsPieChart
+                    v-if="loaded"
+                    :data="companyData?.graph_data?.assets"
+                />
             </div>
         </div>
     </div>
@@ -228,12 +104,12 @@ export default {
     components: {
         RevenueLineChart,
         ProfitsLineChart,
-        AssetsPieChart
+        AssetsPieChart,
     },
     data() {
         return {
             loaded: false,
-            companyData: []
+            companyData: [],
         };
     },
     async mounted() {
@@ -246,7 +122,7 @@ export default {
         } catch (errors) {
             console.log(errors);
         }
-    }
+    },
 };
 </script>
 
