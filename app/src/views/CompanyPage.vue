@@ -1,5 +1,6 @@
 <template>
-    <div class="sm:py-5 flex flex-col items-center lg:py-10 py-20">
+    <Company-loader v-if="!loaded" />
+    <div v-else class="sm:py-5 flex flex-col items-center lg:py-10 py-20">
         <h1 class="text-3xl mt-12 sm:mt-28 md:mt-2 lg:mt-2 mb-7">
             {{ companyData?.name }}
         </h1>
@@ -98,10 +99,12 @@ import axios from "axios";
 import RevenueLineChart from "@/components/charts/RevenueLineChart.vue";
 import ProfitsLineChart from "@/components/charts/ProfitsLineChart.vue";
 import AssetsPieChart from "@/components/charts/AssetsPieChart.vue";
+import CompanyLoader from "@/components/CompanyLoader.vue";
 
 export default {
     name: "CompanyPage",
     components: {
+        CompanyLoader,
         RevenueLineChart,
         ProfitsLineChart,
         AssetsPieChart,
