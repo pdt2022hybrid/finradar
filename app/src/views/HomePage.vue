@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <div class="homepageHeader mb-48">
+        <div class="homepageHeader pb-48 bg-gradient-to-r from-background to-light">
             <h1 class="header-text">Vyhľadávanie v Databáze Firiem</h1>
             <!--            <div>-->
             <!--                <input-->
@@ -13,15 +13,15 @@
             <!--            </div>-->
             <div class="max-w-md mx-auto mt-8">
                 <div
-                    class="relative flex items-center w-full h-12 rounded-lg shadow-xl focus-within:shadow-xl bg-white overflow-hidden"
+                    class="relative flex items-center w-full h-12 rounded-lg shadow-xl focus-within:shadow-xl bg-white overflow-hidden focus-within:border-green focus-within:border-2 "
                 >
                     <div
-                        class="grid place-items-center h-full w-12 text-gray-300"
-                    >
-                        <i class="bi bi-search scale-150"></i>
+                        class="grid place-items-center h-full w-12 text-gray-300">
+
+                        <i class="bi bi-search scale-150 text-green"></i>
                     </div>
                     <input
-                        class="peer h-full w-full outline-none text-sm text-gray-700 pr-2 placeholder:font-varela font-varela"
+                        class="peer h-full w-full outline-none text-sm text-gray-700 pr-2 placeholder:font-varela font-varela focus:placeholder:opacity-0"
                         type="text"
                         placeholder="Vyhľadať firmu..."
                         @keyup="Search"
@@ -144,7 +144,7 @@ export default {
     }
 
     .homepageMainContent {
-        @apply flex items-center flex-col lg:flex-row lg:place-content-evenly h-fit py-16 bg-light;
+        @apply flex items-center flex-col lg:flex-row lg:place-content-evenly h-fit py-16;
     }
 
     .mainContentText {
