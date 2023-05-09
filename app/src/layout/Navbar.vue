@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar lg:h-20 min-w-fit">
+    <nav class="navbar lg:h-20 lg:min-w-fit bg-navbar">
         <div class="lg:text-lg flex flex-row items-center w-3/5 ml-40 pr-20">
             <router-link class="text-navtext font-bold mr-5" to="/">
                 <img
@@ -10,7 +10,7 @@
             </router-link>
             <router-link
                 to="/database"
-                class="text-navtext font-bold active:text-blue_light"
+                class="text-navtext font-bold active:text-green"
                 >Databázy
             </router-link>
             <!--      <router-link to="/" class="text-navtext">API</router-link>-->
@@ -18,7 +18,7 @@
         <div class="lg:flex lg:mr-32">
             <input v-if="!isHome"
                 type="text"
-                class="search ml-8 focus:outline-none focus:ring-2 focus:ring-blue_light focus:shadow-2xl"
+                class="search ml-8 focus:outline-none focus:ring-2 focus:ring-green focus:shadow-2xl focus:placeholder:opacity-0 bg-background"
                 v-model="name"
                 placeholder="Vyhľadať firmu"
                 @keyup="Search"
@@ -31,7 +31,7 @@
             <div class="absolute flex w-3/4 mt-9" v-if="name !== ''">
                 <ul class="absolute w-64 bg-light rounded-md mx-auto z-10">
                     <li
-                        class="border-background border-b-2 p-1.5"
+                        class="border-dark border-b-2 p-1.5"
                         v-for="item in this.companies"
                     >
                         <router-link
@@ -71,7 +71,7 @@ export default {
             // potom zmenime
             isHome : true,
             LoggedIn: true,
-            MiniLogIn: false,
+            MiniLogIn: true,
             UserSettingsWindow: false,
             name: null,
             companies: [],

@@ -1,18 +1,18 @@
 <template>
-    <div class="z-50">
+    <div class="z-50 text-background">
         <form
             id="Login"
-            class="bg-light flex w-1/5 items-center absolute right-32 border-2 rounded-xl p-5 mt-2 flex-col"
+            class="bg-dark flex w-1/5 items-center absolute right-32 border-2 rounded-xl p-5 mt-2 flex-col"
         >
             <h1 class="text-4xl">Log In</h1>
             <input
                 type="text"
-                class="w-52 inputs mt-4 mb-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 focus:shadow-2xl"
+                class="w-52 inputs mt-4 mb-2 rounded focus:outline-none focus:ring-2 focus:ring-green focus:shadow-2xl text-dark"
                 placeholder="e-mail"
             />
             <input
                 type="text"
-                class="w-52 inputs rounded focus:outline-none focus:ring-2 focus:ring-sky-500 focus:shadow-2xl"
+                class="w-52 inputs rounded focus:outline-none focus:ring-2 focus:ring-green focus:shadow-2xl text-dark"
                 placeholder="heslo"
             />
             <div class="w-full pl-7 flex items-center justify-start">
@@ -23,7 +23,7 @@
                 type="submit"
                 form="Login"
                 value="Submit"
-                class="bg-blue border p-1 w-52 py-1 rounded-xl border-dark border-opacity-75 border-2 font-medium font-varela hover:font-semibold focus:outline-none focus:ring-2 focus:ring-blue_light focus:shadow-2xl"
+                class="bg-green p-1 w-52 py-1 text-dark rounded-xl border-dark border-opacity-75 font-medium font-varela hover:text-white active:ring-2 active:ring-background focus:shadow-2xl"
             >
                 Prihlásiť sa
             </button>
