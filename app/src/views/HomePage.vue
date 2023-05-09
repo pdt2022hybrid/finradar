@@ -2,15 +2,6 @@
     <div class="wrapper">
         <div class="homepageHeader bg-gradient-to-r from-background to-light">
             <h1 class="header-text">Vyhľadávanie v Databáze Firiem</h1>
-            <!--            <div>-->
-            <!--                <input-->
-            <!--                    type="text"-->
-            <!--                    class="header-input placeholder-light placeholder:mx-auto placeholder:font-varela font-varela focus:outline-none focus:ring-2 focus:border-background focus:ring-sky focus:shadow-2xl focus:placeholder-blue"-->
-            <!--                    v-model="name"-->
-            <!--                    placeholder="Vyhľadať firmu"-->
-            <!--                    @keyup="Search"-->
-            <!--                />-->
-            <!--            </div>-->
             <div class="max-w-md mx-auto mt-12 mb-24">
                 <div
                     class="relative flex items-center w-full h-12 rounded-lg shadow-xl focus-within:shadow-xl bg-white overflow-hidden focus-within:border-green focus-within:border-2 "
@@ -153,7 +144,7 @@ export default {
     }
 
     .mainContentText {
-        @apply flex lg:w-1/4 flex-col text-xl text-dark font-normal text-center lg:text-left mb-10;
+        @apply flex w-1/3 flex-col text-xl text-dark font-normal text-center lg:text-left mb-10;
     }
 
     .mainContentText h2 {
