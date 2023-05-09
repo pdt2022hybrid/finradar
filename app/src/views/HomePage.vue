@@ -127,7 +127,7 @@ export default {
 
 @layer base {
     p {
-        @apply px-6 text-justify;
+        @apply sm:px-14 md:px-6 text-justify;
     }
 
     .wrapper {
@@ -151,7 +151,7 @@ export default {
     }
 
     .mainContentText {
-        @apply flex w-1/3 flex-col text-xl text-dark font-normal text-center lg:text-left mb-10;
+        @apply flex lg:w-1/4 flex-col text-xl text-dark font-normal text-center lg:text-left mb-10;
     }
 
     .mainContentText h2 {
