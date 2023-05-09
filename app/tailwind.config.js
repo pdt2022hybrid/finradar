@@ -26,6 +26,10 @@ module.exports = {
             rubik: ['"Rubik"', ...defaultTheme.fontFamily.sans],
             varela: ['"Varela"', ...defaultTheme.fontFamily.sans],
         },
+		minWidth: {
+			'lg':'1520px',
+			'md':'769px',
+		}
     },
     plugins: [],
 };

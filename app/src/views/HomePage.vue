@@ -30,7 +30,9 @@
                 </div>
             </div>
 
-			<img src="../assets/images/HomepageImage.svg" alt="" class="w-full">
+			<div class="overflow-hidden flex place-content-center">
+				<img src="../assets/images/HomepageImage.svg" alt="" class="w-full min-w-md">
+			</div>
 
             <div class="flex justify-center" v-if="name !== ''">
                 <ul
