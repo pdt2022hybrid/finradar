@@ -71,7 +71,7 @@ export default {
             // potom zmenime
             isHome : true,
             LoggedIn: true,
-            MiniLogIn: true,
+            MiniLogIn: false,
             UserSettingsWindow: false,
             name: null,
             companies: [],
