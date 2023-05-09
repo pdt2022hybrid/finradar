@@ -35,7 +35,7 @@
                             v-slot="{ redirect }"
                         >
                             <h4
-                                class="cursor-pointer lg:w-fit mx-auto font-varela font-medium hover:font-semibold hover:decoration-1 hover:underline decoration-underline active:text-blue"
+                                class="cursor-pointer lg:w-fit mx-auto font-varela font-medium hover:font-semibold hover:decoration-1 hover:underline decoration-underline active:text-green"
                                 @click="redirect"
                             >
                                 {{ item.name }}

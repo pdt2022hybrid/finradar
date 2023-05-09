@@ -37,8 +37,8 @@
                     class="bi bi-person-circle lg:ml-10 lg:rounded-full lg:flex lg:cursor-pointer text-green lg:text-5xl"
                 ></i>
             </div>
-            <div class="absolute flex w-3/4 mt-9" v-if="name !== ''">
-                <ul class="absolute w-64 bg-white rounded-sm border-searchborder border-2 mx-auto top-3 z-10">
+            <div class="absolute w-3/4 mt-9" v-if="name !== ''">
+                <ul class="fixed w-64 bg-white rounded-sm border-searchborder border-2 mx-auto top-16 right-64 mr-1 z-10">
                     <li
                         class="border-light border-b-2 p-1.5"
                         v-for="item in this.companies"
@@ -48,7 +48,7 @@
                             v-slot="{ redirect }"
                         >
                             <h4
-                                class="cursor-pointer lg:w-fit mx-auto font-varela font-medium text-center hover:font-semibold hover:decoration-1 hover:underline decoration-underline active:text-blue"
+                                class="cursor-pointer lg:w-fit mx-auto font-varela font-medium text-center hover:font-semibold hover:decoration-1 hover:underline decoration-underline active:text-green"
                                 @click="redirect"
                             >
                                 {{ item.name }}
