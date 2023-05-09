@@ -1,7 +1,7 @@
 <template>
-    <nav class="navbar lg:h-20 lg:min-w-fit">
+    <nav class="navbar lg:h-20 min-w-fit">
         <div class="lg:text-lg flex flex-row items-center w-3/5 ml-40 pr-20">
-            <router-link class="text-navtext font-bold" to="/">
+            <router-link class="text-navtext font-bold mr-5" to="/">
                 <img
                     src="../assets/brand/logo_text.svg"
                     class="h-10 w-50 mr-24"
@@ -16,7 +16,7 @@
             <!--      <router-link to="/" class="text-navtext">API</router-link>-->
         </div>
         <div class="lg:flex lg:mr-32">
-            <input
+            <input v-if="!isHome"
                 type="text"
                 class="search ml-8 focus:outline-none focus:ring-2 focus:ring-blue_light focus:shadow-2xl"
                 v-model="name"
@@ -69,6 +69,7 @@ export default {
     data() {
         return {
             // potom zmenime
+            isHome : true,
             LoggedIn: true,
             MiniLogIn: false,
             UserSettingsWindow: false,
@@ -115,6 +116,11 @@ export default {
             this.MiniLogIn = false;
             this.companies = [];
             this.name = "";
+            if (this.$route.name === 'Home') {
+                this.isHome = true
+            }  else {
+                this.isHome = false
+            }
         },
     },
 };
