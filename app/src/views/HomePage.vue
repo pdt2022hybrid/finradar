@@ -21,13 +21,10 @@
                 </div>
             </div>
 
-			<div class="overflow-hidden flex place-content-center">
-				<img src="../assets/images/HomepageImage.svg" alt="" class="w-full min-w-md">
-			</div>
 
             <div class="flex justify-center" v-if="name !== ''">
                 <ul
-                    class="absolute w-64 bg-results rounded-md mx-auto z-10 -mt-2.5 border-light border-2"
+                    class="absolute w-64 bg-white rounded-sm mx-auto z-10 border-searchborder border-2 absolute top-96 mt-2"
                 >
                     <li
                         v-for="item in companies"
@@ -38,7 +35,7 @@
                             v-slot="{ redirect }"
                         >
                             <h4
-                                class="cursor-pointer lg:w-fit mx-auto font-varela font-medium hover:font-semibold active:text-blue"
+                                class="cursor-pointer lg:w-fit mx-auto font-varela font-medium hover:font-semibold hover:decoration-1 hover:underline decoration-underline active:text-blue"
                                 @click="redirect"
                             >
                                 {{ item.name }}
@@ -47,6 +44,11 @@
                     </li>
                 </ul>
             </div>
+
+			<div class="overflow-hidden flex place-content-center">
+				<img src="../assets/images/HomepageImage.svg" alt="" class="w-full min-w-md">
+			</div>
+
         </div>
         <ul class="homepageMainContent">
             <li class="mainContentText">

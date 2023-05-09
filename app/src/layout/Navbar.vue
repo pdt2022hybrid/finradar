@@ -16,20 +16,29 @@
             <!--      <router-link to="/" class="text-navtext">API</router-link>-->
         </div>
         <div class="lg:flex lg:mr-32">
-            <input v-if="!isHome"
-                type="text"
-                class="search ml-8 focus:outline-none focus:ring-2 focus:ring-green focus:shadow-2xl focus:placeholder:opacity-0 bg-background"
-                v-model="name"
-                placeholder="Vyhľadať firmu"
-                @keyup="Search"
-            />
+            <div
+                    class="relative flex items-center items-center w-full h-10 rounded-lg shadow-xl focus-within:shadow-xl bg-white overflow-hidden focus-within:border-green focus-within:border-2 mt-1 mr-14"
+                >
+                    <div
+                        class="grid place-items-center h-full w-12 text-gray-300">
+
+                        <i class="bi bi-search scale-150 text-green"></i>
+                    </div>
+                    <input
+                        class="peer h-full w-full outline-none text-sm text-gray-700 pr-2 placeholder:font-varela font-varela focus:placeholder:opacity-0"
+                        type="text"
+                        placeholder="Vyhľadať firmu..."
+                        @keyup="Search"
+                        v-model="name"
+                    />
+                </div>
             <div class="text-navtext lg:flex lg:items-center" @click="ShowMenu">
                 <i
                     class="bi bi-person-circle lg:ml-10 lg:rounded-full lg:flex lg:cursor-pointer text-green lg:text-5xl"
                 ></i>
             </div>
             <div class="absolute flex w-3/4 mt-9" v-if="name !== ''">
-                <ul class="absolute w-64 bg-results rounded-md mx-auto z-10">
+                <ul class="absolute w-64 bg-white rounded-sm border-searchborder border-2 mx-auto top-3 z-10">
                     <li
                         class="border-light border-b-2 p-1.5"
                         v-for="item in this.companies"
@@ -39,7 +48,7 @@
                             v-slot="{ redirect }"
                         >
                             <h4
-                                class="cursor-pointer lg:w-fit mx-auto font-varela font-medium text-center hover:font-semibold active:text-blue"
+                                class="cursor-pointer lg:w-fit mx-auto font-varela font-medium text-center hover:font-semibold hover:decoration-1 hover:underline decoration-underline active:text-blue"
                                 @click="redirect"
                             >
                                 {{ item.name }}

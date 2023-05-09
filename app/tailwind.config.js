@@ -20,7 +20,7 @@ module.exports = {
             search: "#DEDEDE",
             navtext: "#FFFFFF",
             underline: "#3399E9",
-			results:"#F2F2F2",
+			searchborder:"#5F5F5F",
         },
         fontFamily: {
             rubik: ['"Rubik"', ...defaultTheme.fontFamily.sans],
