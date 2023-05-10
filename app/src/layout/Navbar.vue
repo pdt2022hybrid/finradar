@@ -1,61 +1,62 @@
 <template>
-    <nav class="navbar lg:h-20 lg:min-w-fit bg-navbar">
-        <div class="lg:text-lg flex flex-row items-center w-3/5 ml-40 pr-20">
-            <router-link class="text-navtext font-bold mr-5" to="/">
-                <img
-                    src="../assets/brand/logo_text.svg"
-                    class="h-10 w-50 mr-24"
-                    alt=""
-                />
-            </router-link>
-            <router-link
-                to="/database"
-                class="text-navtext font-bold active:text-green"
-                >Databázy
-            </router-link>
-            <!--      <router-link to="/" class="text-navtext">API</router-link>-->
-        </div>
-        <div class="lg:flex lg:mr-32">
-            <div
-                    class="relative flex items-center items-center w-full h-10 rounded-lg shadow-xl focus-within:shadow-xl bg-white overflow-hidden focus-within:border-green focus-within:border-2 mt-1 mr-14"
-                >
-                    <div
-                        class="grid place-items-center h-full w-12 text-gray-300">
-
-                        <i class="bi bi-search scale-150 text-green"></i>
-                    </div>
-                    <input
-                        class="peer h-full w-full outline-none text-sm text-gray-700 pr-2 placeholder:font-varela font-varela focus:placeholder:opacity-0"
-                        type="text"
-                        placeholder="Vyhľadať firmu..."
-                        @keyup="Search"
-                        v-model="name"
+    <nav class="lg:h-20 lg:w-full bg-navbar navbar justify-center">
+        <div class="navbar w-4/5 p-0">
+            <div class="lg:text-lg flex flex-row items-center w-3/5 pr-20">
+                <router-link class="text-navtext font-bold mr-5" to="/">
+                    <img
+                        src="../assets/brand/logo_text.svg"
+                        class="h-10 w-50 mr-24"
+                        alt=""
                     />
-                </div>
-            <div class="text-navtext lg:flex lg:items-center" @click="ShowMenu">
-                <i
-                    class="bi bi-person-circle lg:ml-10 lg:rounded-full lg:flex lg:cursor-pointer text-green lg:text-5xl"
-                ></i>
+                </router-link>
+                <router-link
+                    to="/database"
+                    class="text-navtext font-bold active:text-green"
+                    >Databázy
+                </router-link>
+                <!--      <router-link to="/" class="text-navtext">API</router-link>-->
             </div>
-            <div class="absolute w-3/4 mt-9" v-if="name !== ''">
-                <ul class="fixed w-64 bg-white rounded-sm border-searchborder border-2 mx-auto top-16 right-64 mr-1 z-10">
-                    <li
-                        class="border-light border-b-2 p-1.5"
-                        v-for="item in this.companies"
+            <div class="lg:flex items-center">
+                <div    v-if="!isHome"
+                        class="relative flex items-center w-full h-10 rounded-lg shadow-xl focus-within:shadow-xl bg-white overflow-hidden focus-within:border-green focus-within:border-2 mt-1 mr-14"
                     >
-                        <router-link
-                            :to="{ name: 'company', params: { ico: item.ico } }"
-                            v-slot="{ redirect }"
+                        <div
+                            class="grid place-items-center h-full w-12 text-gray-300">
+                            <i class="bi bi-search scale-150 text-green"></i>
+                        </div>
+                        <input
+                            class="peer h-full w-full outline-none text-sm text-gray-700 pr-2 placeholder:font-varela font-varela focus:placeholder:opacity-0"
+                            type="text"
+                            placeholder="Vyhľadať firmu..."
+                            @keyup="Search"
+                            v-model="name"
+                        />
+                    </div>
+                <div class="text-navtext lg:flex lg:items-center" @click="ShowMenu">
+                    <i
+                        class="bi bi-person-circle lg:ml-10 lg:rounded-full lg:flex lg:cursor-pointer text-green lg:text-5xl"
+                    ></i>
+                </div>
+                <div class="absolute w-3/4 mt-9" v-if="name !== ''">
+                    <ul class="fixed w-64 bg-white rounded-sm border-searchborder border-2 mx-auto top-16 right-64 mr-1 z-10">
+                        <li
+                            class="border-light border-b-2 p-1.5"
+                            v-for="item in this.companies"
                         >
-                            <h4
-                                class="cursor-pointer lg:w-fit mx-auto font-varela font-medium text-center hover:font-semibold hover:decoration-1 hover:underline decoration-underline active:text-green"
-                                @click="redirect"
+                            <router-link
+                                :to="{ name: 'company', params: { ico: item.ico } }"
+                                v-slot="{ redirect }"
                             >
-                                {{ item.name }}
-                            </h4>
-                        </router-link>
-                    </li>
-                </ul>
+                                <h4
+                                    class="cursor-pointer lg:w-fit mx-auto font-varela font-medium text-center hover:font-semibold hover:decoration-1 hover:underline decoration-underline active:text-green"
+                                    @click="redirect"
+                                >
+                                    {{ item.name }}
+                                </h4>
+                            </router-link>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>

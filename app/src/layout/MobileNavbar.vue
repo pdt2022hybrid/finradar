@@ -2,7 +2,7 @@
     <nav class="bg-dark text-background mim-w-fit">
         <div class="w-full fixed z-20">
             <div class="flex justify-between p-4 bg-dark items-center">
-                <router-link to="/home" class="md:w-3/5 w-5/12">
+                <router-link to="/home" class="md:w-80 w-40">
                     <img src="../assets/brand/logo_text.svg" alt="logo" class="md:w-5/12" />
                 </router-link>
                 <button @click="collapsed = !collapsed">

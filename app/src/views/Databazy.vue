@@ -152,13 +152,13 @@
                     >
                         <div>
                             <button
-                                class="focused p-3 bg-gray rounded-tl-lg rounded-bl-lg border"
+                                class="focused p-3 bg-gray rounded-tl-lg rounded-bl-lg"
                                 @click="search((page = 1))"
                             >
                                 <i class="bi bi-chevron-double-left"></i>
                             </button>
                             <button
-                                class="focused p-3 bg-gray border-y"
+                                class="focused p-3 bg-gray"
                                 @click="search(page--)"
                             >
                                 <i class="bi bi-chevron-left"></i>
@@ -167,18 +167,18 @@
                                 type="number"
                                 :max="companies.meta.last_page"
                                 min="1"
-                                class="p-3 bg-gray text-center border"
+                                class="p-3 bg-gray text-center"
                                 @keypress.enter="search"
                                 v-model="page"
                             />
                             <button
-                                class="focused p-3 bg-gray border-y"
+                                class="focused p-3 bg-gray"
                                 @click="search(page++)"
                             >
                                 <i class="bi bi-chevron-right"></i>
                             </button>
                             <button
-                                class="focused p-3 bg-gray rounded-tr-lg rounded-br-lg border"
+                                class="focused p-3 bg-gray rounded-tr-lg rounded-br-lg"
                                 @click="
                                     search((page = companies.meta.last_page))
                                 "
