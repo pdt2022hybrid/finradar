@@ -61,7 +61,7 @@ export default {
                     },
                     title: {
                         display: true,
-                        text: "Zisky",
+                        text: "Aktíva",
                         font: {
                             size: 22,
                         },

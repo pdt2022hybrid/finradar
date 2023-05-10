@@ -1,94 +1,100 @@
 <template>
     <Loader v-if="!loaded" />
     <div v-else class="sm:py-5 flex flex-col items-center lg:py-10 py-20">
-        <h1 class="text-3xl mt-12 sm:mt-28 md:mt-2 lg:mt-2 mb-7">
-            {{ companyData?.name }}
-        </h1>
-        <div
-            class="bg-gray lg:rounded-lg lg:grid-cols-3 grid-cols-1 grid lg:w-5/6 w-full"
-        >
-            <div class="box lg:border-r-light border-r-2 lg:row-span-3">
-                <div class="value-wrapper-div">
-                    <div class="value-description-div">
-                        <p class="value-description">ICO</p>
+        <div class="w-4/5">
+            <h1
+                class="text-3xl mt-12 sm:mt-28 md:mt-2 lg:mt-2 mb-7 lg:text-start text-center"
+            >
+                {{ companyData?.name }}
+            </h1>
+        </div>
+        <div class="lg:w-4/5 w-full">
+            <div
+                class="bg-gray lg:rounded-lg lg:grid-cols-3 grid-cols-1 grid w-full"
+            >
+                <div class="box lg:border-r-light border-r-2 lg:row-span-3">
+                    <div class="value-wrapper-div">
+                        <div class="value-description-div">
+                            <p class="value-description">ICO</p>
+                        </div>
+                        <div class="value-div">
+                            <p class="value">{{ companyData?.ico }}</p>
+                        </div>
                     </div>
-                    <div class="value-div">
-                        <p class="value">{{ companyData?.ico }}</p>
-                    </div>
-                </div>
-                <div class="value-wrapper-div">
-                    <div class="value-description-div">
-                        <p class="value-description">Vznik</p>
-                    </div>
-                    <p class="value">
-                        {{ companyData?.date_of_establishment }}
-                    </p>
-                </div>
-                <div class="value-wrapper-div columns-2">
-                    <div class="value-description-div">
-                        <p class="value-description">Sídlo</p>
-                    </div>
-                    <div class="value-div">
+                    <div class="value-wrapper-div">
+                        <div class="value-description-div">
+                            <p class="value-description">Vznik</p>
+                        </div>
                         <p class="value">
-                            {{ companyData?.address?.city }}
-                            {{ companyData?.address?.street }}
+                            {{ companyData?.date_of_establishment }}
                         </p>
                     </div>
-                </div>
-                <div class="value-wrapper-div">
-                    <div class="value-description-div">
-                        <p
-                            v-if="companyData?.directors?.length === 1"
-                            class="value-description"
-                        >
-                            Konateľ
-                        </p>
-                        <p v-else class="value-description">Konatelia</p>
+                    <div class="value-wrapper-div columns-2">
+                        <div class="value-description-div">
+                            <p class="value-description">Sídlo</p>
+                        </div>
+                        <div class="value-div">
+                            <p class="value">
+                                {{ companyData?.address?.city }}
+                                {{ companyData?.address?.street }}
+                            </p>
+                        </div>
                     </div>
-                    <div class="value-div">
-                        <p
-                            class="value"
-                            v-if="!companyData?.directors?.length > 0"
-                        >
-                            Nie je dostupné
-                        </p>
-                        <ul>
-                            <li
-                                class="value"
-                                v-for="director in companyData?.directors"
+                    <div class="value-wrapper-div">
+                        <div class="value-description-div">
+                            <p
+                                v-if="companyData?.directors?.length === 1"
+                                class="value-description"
                             >
-                                {{ director?.name }}
-                            </li>
-                        </ul>
+                                Konateľ
+                            </p>
+                            <p v-else class="value-description">Konatelia</p>
+                        </div>
+                        <div class="value-div">
+                            <p
+                                class="value"
+                                v-if="!companyData?.directors?.length > 0"
+                            >
+                                Nie je dostupné
+                            </p>
+                            <ul>
+                                <li
+                                    class="value"
+                                    v-for="director in companyData?.directors"
+                                >
+                                    {{ director?.name }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="value-wrapper-div">
+                        <div class="value-description-div">
+                            <p class="value-description">Počet Zamestnancov</p>
+                        </div>
+                        <div class="value-div">
+                            <p class="value">Nie je dostupné</p>
+                        </div>
                     </div>
                 </div>
-                <div class="value-wrapper-div">
-                    <div class="value-description-div">
-                        <p class="value-description">Počet Zamestnancov</p>
-                    </div>
-                    <div class="value-div">
-                        <p class="value">Nie je dostupné</p>
-                    </div>
+                <div class="box z-0 lg:col-span-2 lg:border-light lg:border-b">
+                    <RevenueLineChart
+                        v-if="loaded"
+                        :data="companyData?.graph_data?.revenue"
+                    />
                 </div>
-            </div>
-            <div class="box z-0 lg:col-span-2 lg:border-light lg:border-b">
-                <RevenueLineChart
-                    v-if="loaded"
-                    :data="companyData?.graph_data?.revenue"
-                />
-            </div>
-            <div class="box z-0 lg:col-span-2 lg:border-light lg:border-b">
-                <ProfitsLineChart
-                    v-if="loaded"
-                    :data="companyData?.graph_data?.profits"
-                />
-            </div>
-            <!--            <div class="box border-r-2">stuff here</div>-->
-            <div class="box z-0">
-                <AssetsPieChart
-                    v-if="loaded"
-                    :data="companyData?.graph_data?.assets"
-                />
+                <div class="box z-0 lg:col-span-2 lg:border-light lg:border-b">
+                    <ProfitsLineChart
+                        v-if="loaded"
+                        :data="companyData?.graph_data?.profits"
+                    />
+                </div>
+                <!--            <div class="box border-r-2">stuff here</div>-->
+                <div class="box z-0">
+                    <AssetsPieChart
+                        v-if="loaded"
+                        :data="companyData?.graph_data?.assets"
+                    />
+                </div>
             </div>
         </div>
     </div>

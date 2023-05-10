@@ -37,7 +37,25 @@ export default {
     components: { Line },
     data() {
         return {
-            chartOptions: {
+            chartData: {
+                labels: [],
+                datasets: {},
+            },
+            loaded: false,
+            greenColor: "#63b179",
+            redColor: "#d43d51",
+            averageColor: "#727272FF",
+        };
+    },
+    props: {
+        data: {
+            type: Object,
+            required: true,
+        },
+    },
+    computed: {
+        chartOptions() {
+            return {
                 locale: "sk-SK",
                 responsive: true,
                 interaction: {
@@ -78,8 +96,9 @@ export default {
                                 yMin: 60,
                                 yMax: 60,
                                 z: -10,
-                                borderColor: "#ababab",
+                                borderColor: this.averageColor,
                                 borderWidth: 2,
+                                borderDash: [10, 10],
                                 label: {
                                     display: false,
                                     content: "Priemerná hodnota",
@@ -114,18 +133,7 @@ export default {
                         },
                     },
                 },
-            },
-            chartData: {
-                labels: [],
-                datasets: {},
-            },
-            loaded: false,
-        };
-    },
-    props: {
-        data: {
-            type: Object,
-            required: true,
+            };
         },
     },
     mounted() {
@@ -134,14 +142,14 @@ export default {
             datasets: [
                 {
                     label: "Tržby",
-                    backgroundColor: "green",
+                    backgroundColor: this.greenColor,
                     data: Object.values(this.data.data),
-                    tension: 0.3,
+                    tension: 0.1,
                     pointStyle: "circle",
-                    pointRadius: 4,
+                    pointRadius: 6,
                     pointHoverRadius: 8,
                     fill: true,
-                    borderColor: "green",
+                    borderColor: this.greenColor,
                 },
             ],
         };

@@ -35,7 +35,25 @@ export default {
     components: { Line },
     data() {
         return {
-            chartOptions: {
+            chartData: {
+                labels: [],
+                datasets: {},
+            },
+            loaded: false,
+            greenColor: "#63b179",
+            redColor: "#d43d51",
+            averageColor: "#727272",
+        };
+    },
+    props: {
+        data: {
+            type: Object,
+            required: true,
+        },
+    },
+    computed: {
+        chartOptions() {
+            return {
                 locale: "sk-SK",
                 responsive: true,
                 interaction: {
@@ -75,8 +93,9 @@ export default {
                                 type: "line",
                                 yMin: undefined,
                                 yMax: undefined,
-                                borderColor: "#ababab",
+                                borderColor: this.averageColor,
                                 borderWidth: 2,
+                                borderDash: [10, 10],
                                 label: {
                                     display: false,
                                     content: "Priemerná hodnota",
@@ -88,6 +107,7 @@ export default {
                                 yMax: 0,
                                 borderColor: "red",
                                 borderWidth: 2,
+                                borderDash: [5, 5],
                             },
                         },
                     },
@@ -118,18 +138,7 @@ export default {
                         },
                     },
                 },
-            },
-            chartData: {
-                labels: [],
-                datasets: {},
-            },
-            loaded: false,
-        };
-    },
-    props: {
-        data: {
-            type: Object,
-            required: true,
+            };
         },
     },
     mounted() {
@@ -139,17 +148,18 @@ export default {
                 {
                     label: "Zisky",
                     backgroundColor: (ctx) => {
-                        return ctx.raw > 0 ? "green" : "red";
+                        return ctx.raw > 0 ? this.greenColor : this.redColor;
                     },
                     data: Object.values(this.data.data),
-                    tension: 0.3,
+                    tension: 0.1,
                     pointStyle: "circle",
-                    pointRadius: 4,
+                    pointRadius: 6,
                     pointHoverRadius: 8,
-                    fill: true,
                     segment: {
                         borderColor: (ctx) => {
-                            return ctx.p1.raw > 0 ? "green" : "red";
+                            return ctx.p1.raw > 0
+                                ? this.greenColor
+                                : this.redColor;
                         },
                     },
                 },
