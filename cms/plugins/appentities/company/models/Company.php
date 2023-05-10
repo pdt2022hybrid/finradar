@@ -58,7 +58,7 @@ class Company extends Model
 
     public static function exists($query)
     {
-        return self::where('official_id', $query)->orWhere('ico', $query)->get()->exists();
+        return self::where('official_id', $query)->orWhere('ico', $query)->exists();
     }
 
     public function getRevenueAttribute(): int
