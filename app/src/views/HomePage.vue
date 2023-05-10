@@ -137,24 +137,17 @@ export default {
         @apply lg:block font-rubik font-bold text-dark text-5xl;
     }
 
-    .header-input {
-        @apply text-center items-center mt-20 w-64 lg:w-3/12 h-10 rounded-lg bg-blue lg:h-12;
-    }
-
     .homepageMainContent {
         @apply flex items-center flex-col lg:flex-row lg:place-content-evenly h-fit py-16;
     }
 
     .mainContentText {
-        @apply flex w-1/3 flex-col text-xl text-dark font-normal text-center lg:text-left mb-10;
+        @apply flex md:w-2/3 lg:w-1/3 px-8 flex-col text-xl text-dark font-normal text-center lg:text-left mb-10;
     }
 
     .mainContentText h2 {
         @apply lg:mb-10 text-center text-3xl font-rubik text-dark font-semibold;
     }
 
-    .mainContentImage {
-        @apply lg:w-32 h-32 flex;
-    }
 }
 </style>
