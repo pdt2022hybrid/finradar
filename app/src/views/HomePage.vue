@@ -22,7 +22,7 @@
             </div>
 
 
-            <div class="flex justify-center" v-if="name !== ''">
+            <div class="flex justify-center" v-if="name !== '' && companies.length > 0">
                 <ul
                     class="absolute w-64 bg-white rounded-sm mx-auto z-10 border-searchborder border-2 absolute top-96 mt-2"
                 >

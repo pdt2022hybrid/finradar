@@ -17,7 +17,7 @@
                 <!--      <router-link to="/" class="text-navtext">API</router-link>-->
             </div>
             <div class="lg:flex items-center">
-                <div    v-if="!isHome"
+                <div    v-if="isHome!=true"
                         class="relative flex items-center w-full h-10 rounded-lg shadow-xl focus-within:shadow-xl bg-white overflow-hidden focus-within:border-green focus-within:border-2 mt-1 mr-14"
                     >
                         <div
@@ -37,7 +37,7 @@
                         class="bi bi-person-circle lg:ml-10 lg:rounded-full lg:flex lg:cursor-pointer text-green lg:text-5xl"
                     ></i>
                 </div>
-                <div class="absolute w-3/4 mt-9" v-if="name !== ''">
+                <div class="absolute w-3/4 mt-9" v-if="name !== '' && companies.length > 0">
                     <ul class="fixed w-64 bg-white rounded-sm border-searchborder border-2 mx-auto top-16 right-64 mr-1 z-10">
                         <li
                             class="border-light border-b-2 p-1.5"
