@@ -43,8 +43,9 @@ export default {
             },
             loaded: false,
             greenColor: "#63b179",
-            redColor: "#d43d51",
-            averageColor: "#727272FF",
+            redColor: "rgba(212,61,81,0.49)",
+            averageColor: "rgba(114,114,114,0.36)",
+            mobile: false,
         };
     },
     props: {
@@ -58,6 +59,7 @@ export default {
             return {
                 locale: "sk-SK",
                 responsive: true,
+                aspectRatio: this.mobile ? 1.1 : 2,
                 interaction: {
                     mode: "index",
                 },
@@ -136,7 +138,20 @@ export default {
             };
         },
     },
+    methods: {
+        resizeEventListener() {
+            window.addEventListener("resize", () => {
+                this.mobile = window.innerWidth <= 1024;
+            });
+        },
+        determineIfMobile() {
+            this.mobile = window.innerWidth <= 1024;
+        },
+    },
     mounted() {
+        this.resizeEventListener();
+        this.determineIfMobile();
+
         this.chartData = {
             labels: Object.values(this.data.labels),
             datasets: [
