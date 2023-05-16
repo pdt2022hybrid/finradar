@@ -95,6 +95,12 @@
                         :data="companyData?.graph_data?.assets"
                     />
                 </div>
+                <div class="box z-0">
+                    <LiabilitiesPieChart
+                        v-if="loaded"
+                        :data="companyData?.graph_data?.liabilities"
+                    />
+                </div>
             </div>
         </div>
     </div>
@@ -105,6 +111,7 @@ import axios from "axios";
 import RevenueLineChart from "@/components/charts/RevenueLineChart.vue";
 import ProfitsLineChart from "@/components/charts/ProfitsLineChart.vue";
 import AssetsPieChart from "@/components/charts/AssetsPieChart.vue";
+import LiablitiesPieChart from "@/components/charts/LiabilitiesPieChart.vue";
 import Loader from "@/components/Loader.vue";
 
 export default {
@@ -127,6 +134,7 @@ export default {
             await axios.get("/companies/" + ico).then((response) => {
                 this.companyData = response.data.data;
                 this.loaded = true;
+                console.log(this.companyData)
             });
         } catch (errors) {
             console.log(errors);
