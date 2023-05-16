@@ -1,6 +1,6 @@
 <template>
     <table
-            class="bg-gray w-full font-varela mt-5 mb-4 lg:mt-16 rounded-lg"
+            class="bg-gray w-full font-varela my-5 lg:my-16 rounded-lg"
     >
         <thead class="bg-dark rounded-t-lg border-green">
         <tr class="">
