@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-40">
+    <div class="mb-20">
         <div class="flex-col lg:mt-16 flex items-center font-rubik w-full">
             <div class="w-4/5">
                 <h1 class="text-4xl mb-10 font-extrabold">Databázy</h1>
@@ -77,117 +77,18 @@
                             </div>
                         </div>
                     </transition>
-                    <table
-                        class="bg-gray w-full font-varela mt-5 mb-4 lg:mt-16 rounded-lg"
-                    >
-                        <thead class="bg-dark rounded-t-lg border-green">
-                            <tr class="">
-                                <th class="rounded-tl-xl">
-                                    <h4 class="text-background text-left pl-1">
-                                        Názov
-                                    </h4>
-                                </th>
-                                <th class="">
-                                    <h4 class="text-background">Tržby</h4>
-                                </th>
-                                <th class="rounded-tr-lg">
-                                    <h4 class="text-background">Zisk</h4>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody v-if="companies === null">
-                            <!--          todo:urobit nech sa to hybe a nepulzuje-->
-                            <tr v-for="item in loading" class="animate-pulse">
-                                <td class="border-l border-b border-light tab tab w-4/6">
-                                    <div
-                                        class="p-2.5 m-1 bg-background rounded"
-                                    ></div>
-                                </td>
-                                <td class="border-l border-b border-light tab w-1/6">
-                                    <div
-                                        class="p-2.5 m-1 bg-background rounded"
-                                    ></div>
-                                </td>
-                                <td class="tab border-l border-b border-light tab w-1/6">
-                                    <div
-                                        class="p-2.5 m-1 bg-background rounded"
-                                    ></div>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tbody v-else>
-                            <tr v-for="item in companies.data">
-                                <td class="tab lg:w-4/6 w-3/6 lg:text-md border-b border-light">
-                                    <router-link
-                                        :to="{
-                                            name: 'company',
-                                            params: { ico: item.ico },
-                                        }"
-                                        v-slot="{ redirect }"
-                                    >
-                                        <h4
-                                            class="cursor-pointer w-fit pl-1"
-                                            @click="redirect"
-                                        >
-                                            {{ item.name }}
-                                        </h4>
-                                    </router-link>
-                                </td>
-                                <td
-                                    class="text-center border-l border-b lg:text-md border-light tab lg:w-2/12 w-3/12"
-                                >
-                                    {{ item.latest_data.revenue }} €
-                                </td>
-                                <td
-                                    class="text-center border-l border-b lg:text-md border-light tab lg:w-2/12 w-3/12"
-                                >
-                                    {{ item.latest_data.profits }} €
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div
-                        v-if="companies !== null"
-                        class="flex flex-row justify-center"
-                    >
-                        <div>
-                            <button
-                                class="focused p-3 bg-gray rounded-tl-lg rounded-bl-lg"
-                                @click="search((page = 1))"
-                            >
-                                <i class="bi bi-chevron-double-left"></i>
-                            </button>
-                            <button
-                                class="focused p-3 bg-gray"
-                                @click="search(page--)"
-                            >
-                                <i class="bi bi-chevron-left"></i>
-                            </button>
-                            <input
-                                type="number"
-                                :max="companies.meta.last_page"
-                                min="1"
-                                class="p-3 bg-gray text-center"
-                                @keypress.enter="search"
-                                v-model="page"
-                            />
-                            <button
-                                class="focused p-3 bg-gray"
-                                @click="search(page++)"
-                            >
-                                <i class="bi bi-chevron-right"></i>
-                            </button>
-                            <button
-                                class="focused p-3 bg-gray rounded-tr-lg rounded-br-lg"
-                                @click="
-                                    search((page = companies.meta.last_page))
-                                "
-                            >
-                                <i class="bi bi-chevron-double-right"></i>
-                            </button>
-                        </div>
-                    </div>
                 </div>
+                <Table
+                    :per_page="per_page"
+                    :page="page"
+                    :companies="companies"
+                    @search="search"
+                    @setPage="page"
+                    @firstPage="search((page = 1))"
+                    @nextPage="search(page++)"
+                    @prevPage="search(page--)"
+                    @lastPage="search((page = companies.meta.last_page))"
+                />
             </div>
         </div>
     </div>
@@ -195,14 +96,16 @@
 
 <script>
 import axios from "axios";
+import Table from "@/components/Table.vue";
 
 export default {
     name: "Databazy",
+    components: {Table},
     data() {
         return {
             mobile: false,
             companies: null,
-            per_page: 10,
+            per_page: 20,
             revenue: {
                 max: null,
                 min: null,
@@ -215,11 +118,6 @@ export default {
             page: 1,
             show_filters: true,
         };
-    },
-    computed: {
-        loading() {
-            return Array.from({ length: this.per_page }, () => []);
-        },
     },
     methods: {
         async search() {
@@ -273,22 +171,8 @@ export default {
 @tailwind utilities;
 
 @layer base {
-    tr > th,
-    tr > td {
-        @apply p-1.5;
-    }
-
-    td,
-    th {
-        @apply p-1.5;
-    }
-
     .label {
         @apply m-1.5 p-1 bg-background rounded placeholder-dark placeholder-opacity-70 placeholder:font-rubik;
-    }
-
-    .focused {
-        @apply focus:bg-blue hover:bg-blue_light;
     }
 }
 </style>
