@@ -11,10 +11,20 @@ use October\Rain\Exception\ValidationException;
 class DashboardController extends Controller
 {
 
+    /**
+     * @throws NotFoundException
+     */
     public function index(): DashboardResource
     {
+        $user = auth()->user();
 
-        if (!auth()->user()->dashboard) {
+        if (!$user) {
+            throw new NotFoundException('User not found');
+        }
+
+        $dashboard = $user->dashboard;
+
+        if (!$dashboard) {
             $dashboard = DashboardService::createDashboard();
         }
         else {
