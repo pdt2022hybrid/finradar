@@ -117,7 +117,7 @@
                         </tbody>
                         <tbody v-else>
                             <tr v-for="item in companies.data">
-                                <td class="tab w-4/6 border-b border-light">
+                                <td class="tab lg:w-4/6 w-3/6 lg:text-md border-b border-light">
                                     <router-link
                                         :to="{
                                             name: 'company',
@@ -134,12 +134,12 @@
                                     </router-link>
                                 </td>
                                 <td
-                                    class="text-center border-l border-b border-light tab w-1/6"
+                                    class="text-center border-l border-b lg:text-md border-light tab lg:w-2/12 w-3/12"
                                 >
                                     {{ item.latest_data.revenue }} €
                                 </td>
                                 <td
-                                    class="text-center border-l border-b border-light tab w-1/6"
+                                    class="text-center border-l border-b lg:text-md border-light tab lg:w-2/12 w-3/12"
                                 >
                                     {{ item.latest_data.profits }} €
                                 </td>
