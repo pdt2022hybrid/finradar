@@ -17,7 +17,7 @@
                 <!--      <router-link to="/" class="text-navtext">API</router-link>-->
             </div>
             <div class="lg:flex items-center">
-                <div    v-if="isHome!=true"
+                <div    v-if="isHome!==true"
                         class="relative flex items-center w-full h-10 rounded-lg shadow-xl focus-within:shadow-xl bg-white overflow-hidden focus-within:border-green focus-within:border-2 mt-1 mr-14"
                     >
                         <div
