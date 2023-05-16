@@ -94,7 +94,7 @@ export default {
             if (this.name !== "") {
                 try {
                     await axios({
-                        url: "/companies",
+                        url: "/companies/search",
                         method: "get",
                         params: {
                             search_query: this.name,

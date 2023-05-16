@@ -12,7 +12,7 @@
             </h2>
         </div>
         <div class="flex justify-center lg:w-1/2">
-            <form class="bg-search p-6 px-16 lg:w-3/4 rounded-md">
+            <form class="bg-light p-6 px-16 lg:w-3/4 rounded-md">
                 <label class="block">
                     <span
                         class="after:ml-0.5 after:text-red-500 block text-sm text-left font-medium text-slate-700 mb-2"
@@ -61,7 +61,7 @@
                     <input
                         type="confirm pass"
                         name="confpass"
-                        class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 block w-full rounded-md sm:text-sm inputFocus "
+                        class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 block w-full rounded-md sm:text-sm inputFocus focus"
                         placeholder=""
                     />
                 </label>
