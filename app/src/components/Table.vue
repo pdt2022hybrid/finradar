@@ -39,7 +39,7 @@
         </tbody>
         <tbody v-else>
         <tr v-for="item in companies.data">
-            <td class="tab lg:w-4/6 w-3/6 lg:text-md border-b border-light">
+            <td class="tab lg:w-4/6 w-3/6 lg:text-md border-b border-light hover:font-semibold active:text-green">
                 <router-link
                         :to="{
                                             name: 'company',

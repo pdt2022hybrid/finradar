@@ -22,7 +22,7 @@
                     <input
                         type="name"
                         name="full name"
-                        class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:ring-green block w-full rounded-md sm:text-sm focus:ring-1 focus:placeholder:text-background"
+                        class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 block w-full rounded-md sm:text-sm inputFocus focus:placeholder:text-background"
                         placeholder="Vaše meno a priezvisko"
                     />
                 </label>
@@ -35,7 +35,7 @@
                     <input
                         type="email"
                         name="email"
-                        class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:ring-green block w-full rounded-md sm:text-sm focus:ring-1 focus:placeholder:text-background"
+                        class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 block w-full rounded-md sm:text-sm inputFocus focus:placeholder:text-background"
                         placeholder="meno@priklad.com"
                     />
                 </label>
@@ -48,7 +48,7 @@
                     <input
                         type="password"
                         name="passw"
-                        class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:ring-green block w-full rounded-md sm:text-sm focus:ring-1 focus:placeholder:text-background"
+                        class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 block w-full rounded-md sm:text-sm inputFocus focus:placeholder:text-background"
                         placeholder="Vaše heslo"
                     />
                 </label>
@@ -61,7 +61,7 @@
                     <input
                         type="confirm pass"
                         name="confpass"
-                        class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:ring-green block w-full rounded-md sm:text-sm focus:ring-1"
+                        class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 block w-full rounded-md sm:text-sm inputFocus "
                         placeholder=""
                     />
                 </label>

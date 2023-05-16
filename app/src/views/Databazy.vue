@@ -32,7 +32,7 @@
                             <div class="lg:w-1/2 lg:grid flex flex-col w-full">
                                 <input
                                     type="text"
-                                    class="label placeholder-dark placeholder:font-rubik"
+                                    class="label placeholder-dark placeholder:font-rubik inputFocus"
                                     placeholder="Meno / IČO firmy"
                                     v-model="name"
                                 />
@@ -40,25 +40,25 @@
                                     class="inline-grid lg:grid-cols-2 grid-cols-1"
                                 >
                                     <input
-                                        class="label"
+                                        class="label inputFocus"
                                         type="number"
                                         placeholder="Zisk od"
                                         v-model="profit.min"
                                     />
                                     <input
-                                        class="label"
+                                        class="label inputFocus"
                                         type="number"
                                         placeholder="Zisk do"
                                         v-model="profit.max"
                                     />
                                     <input
-                                        class="label"
+                                        class="label inputFocus"
                                         type="number"
                                         placeholder="Tržby od"
                                         v-model="revenue.min"
                                     />
                                     <input
-                                        class="label"
+                                        class="label inputFocus"
                                         type="number"
                                         placeholder="Tržby do"
                                         v-model="revenue.max"
