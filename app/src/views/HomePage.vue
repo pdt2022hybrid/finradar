@@ -4,7 +4,7 @@
             <h1 class="header-text">Vyhľadávanie v Databáze Firiem</h1>
             <div class="max-w-md mx-auto mt-12 mb-24">
                 <div
-                    class="relative flex items-center w-full h-12 rounded-lg shadow-dark shadow-sm focus-within:shadow-xl bg-white overflow-hidden focus-within:border-green focus-within:border-2 "
+                    class="relative flex items-center w-full h-12 rounded-lg shadow-dark shadow-sm bg-white overflow-hidden inputFocusWithin"
                 >
                     <div
                         class="grid place-items-center h-full w-12 text-gray-300">

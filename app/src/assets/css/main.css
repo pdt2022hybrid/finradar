@@ -32,4 +32,11 @@
         @apply font-rubik font-semibold
     }
 
+	.inputFocusWithin{
+		@apply focus-within:shadow-xl focus-within:border-green focus-within:border-2
+	}
+	.inputFocus{
+		@apply focus:shadow-xl focus:ring-green focus:ring-2 focus:outline-none
+	}
+
 }
