@@ -132,7 +132,7 @@ export default {
         newPage: function() {
             if (this.newPage > this.companies?.meta?.last_page) {
                 this.newPage = 1;
-            } else if (this.newPage < 1) {
+            } else if (this.newPage < this.companies?.meta?.first_page) {
                 this.newPage = this.companies?.meta?.last_page;
             }
         }
