@@ -78,7 +78,7 @@
                         </div>
                     </transition>
                     <table
-                        class="bg-gray w-full font-varela my-5 lg:mt-16 rounded-lg"
+                        class="bg-gray w-full font-varela mt-5 mb-4 lg:mt-16 rounded-lg"
                     >
                         <thead class="bg-dark rounded-t-lg border-green">
                             <tr class="">
@@ -98,19 +98,19 @@
                         <tbody v-if="companies === null">
                             <!--          todo:urobit nech sa to hybe a nepulzuje-->
                             <tr v-for="item in loading" class="animate-pulse">
-                                <td class="border-x tab w-4/6">
+                                <td class="border-l border-b border-light tab tab w-4/6">
                                     <div
-                                        class="p-3 m-2 bg-background rounded"
+                                        class="p-2.5 m-1 bg-background rounded"
                                     ></div>
                                 </td>
-                                <td class="w-1/6">
+                                <td class="border-l border-b border-light tab w-1/6">
                                     <div
-                                        class="p-3 m-2 bg-background rounded"
+                                        class="p-2.5 m-1 bg-background rounded"
                                     ></div>
                                 </td>
-                                <td class="border-x tab w-1/6">
+                                <td class="tab border-l border-b border-light tab w-1/6">
                                     <div
-                                        class="p-3 m-2 bg-background rounded"
+                                        class="p-2.5 m-1 bg-background rounded"
                                     ></div>
                                 </td>
                             </tr>
