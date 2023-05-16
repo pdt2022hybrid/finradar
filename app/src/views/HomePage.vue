@@ -4,7 +4,7 @@
             <h1 class="header-text">Vyhľadávanie v Databáze Firiem</h1>
             <div class="max-w-md mx-auto mt-12 mb-24">
                 <div
-                    class="relative flex items-center w-full h-12 rounded-lg shadow-xl focus-within:shadow-xl bg-white overflow-hidden focus-within:border-green focus-within:border-2 "
+                    class="relative flex items-center w-full h-12 rounded-lg shadow-dark shadow-sm focus-within:shadow-xl bg-white overflow-hidden focus-within:border-green focus-within:border-2 "
                 >
                     <div
                         class="grid place-items-center h-full w-12 text-gray-300">
@@ -142,7 +142,7 @@ export default {
     }
 
     .mainContentText {
-        @apply flex md:w-2/3 lg:w-1/3 px-8 flex-col text-xl text-dark font-normal text-center lg:text-left mb-10;
+        @apply flex md:w-2/3 lg:w-1/3 leading-8 flex-col text-xl text-dark font-normal text-center lg:text-left mb-10;
     }
 
     .mainContentText h2 {
