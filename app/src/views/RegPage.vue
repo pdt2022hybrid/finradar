@@ -12,7 +12,7 @@
             </h2>
         </div>
         <div class="flex justify-center lg:w-1/2">
-            <form class="bg-gray p-6 px-16 lg:w-3/4">
+            <form class="bg-search p-6 px-16 lg:w-3/4 rounded-md">
                 <label class="block">
                     <span
                         class="after:ml-0.5 after:text-red-500 block text-sm text-left font-medium text-slate-700 mb-2"
@@ -36,7 +36,7 @@
                         type="email"
                         name="email"
                         class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
-                        placeholder="name@example.com"
+                        placeholder="meno@priklad.com"
                     />
                 </label>
                 <label class="block">
@@ -66,7 +66,7 @@
                     />
                 </label>
                 <button
-                    class="bg-blue rounded mt-6 mb-2 w-full text-dark font-bold h-9"
+                    class="bg-green rounded mt-6 mb-2 w-full text-dark font-bold h-9"
                 >
                     Potvrdiť
                 </button>

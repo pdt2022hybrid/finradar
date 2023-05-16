@@ -1,6 +1,6 @@
 <template>
     <div
-        class="bg-dark flex w-1/6 absolute right-32 rounded-xl py-5 px-2 mt-2 flex-col indent-2 text-background z-50"
+        class="bg-dark flex w-1/6 absolute right-32 rounded-xl pt-4 pb-2 px-2 mt-2 flex-col indent-2 text-background z-50"
     >
         <header class="font-rubik font-medium text-lg">
             Smigus Dyngus
