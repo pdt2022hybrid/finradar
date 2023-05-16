@@ -2,7 +2,7 @@
     <div class="z-50 text-background">
         <form
             id="Login"
-            class="bg-dark flex w-1/5 items-center absolute right-32 border-2 rounded-xl p-5 mt-2 flex-col"
+            class="bg-dark flex w-1/5 items-center absolute right-32 rounded-xl p-5 mt-2 flex-col"
         >
             <h1 class="text-4xl">Log In</h1>
             <input
