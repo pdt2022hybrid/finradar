@@ -15,7 +15,7 @@
                 <div class="box lg:border-r-light border-r-2 lg:row-span-3">
                     <div class="value-wrapper-div">
                         <div class="value-description-div">
-                            <p class="value-description">ICO</p>
+                            <p class="value-description">IČO</p>
                         </div>
                         <div class="value-div">
                             <p class="value">{{ companyData?.ico }}</p>
@@ -25,9 +25,11 @@
                         <div class="value-description-div">
                             <p class="value-description">Vznik</p>
                         </div>
-                        <p class="value">
-                            {{ companyData?.date_of_establishment }}
-                        </p>
+                        <div class="value-div">
+                            <p class="value">
+                                {{ companyData?.date_of_establishment }}
+                            </p>
+                        </div>
                     </div>
                     <div class="value-wrapper-div columns-2">
                         <div class="value-description-div">
@@ -95,6 +97,12 @@
                         :data="companyData?.graph_data?.assets"
                     />
                 </div>
+                <div class="box z-0">
+                    <LiabilitiesPieChart
+                        v-if="loaded"
+                        :data="companyData?.graph_data?.liabilities"
+                    />
+                </div>
             </div>
         </div>
     </div>
@@ -105,11 +113,13 @@ import axios from "axios";
 import RevenueLineChart from "@/components/charts/RevenueLineChart.vue";
 import ProfitsLineChart from "@/components/charts/ProfitsLineChart.vue";
 import AssetsPieChart from "@/components/charts/AssetsPieChart.vue";
+import LiabilitiesPieChart from "@/components/charts/LiabilitiesPieChart.vue";
 import Loader from "@/components/Loader.vue";
 
 export default {
     name: "CompanyPage",
     components: {
+        LiabilitiesPieChart,
         Loader,
         RevenueLineChart,
         ProfitsLineChart,

@@ -1,7 +1,7 @@
 <template>
     <div class="chart-container">
         <Pie
-            id="assets-pie-chart"
+            id="liabilities-pie-chart"
             class="w-full h-full"
             ref="pie"
             v-if="loaded"
@@ -65,7 +65,7 @@ export default {
                     },
                     title: {
                         display: true,
-                        text: "Aktíva",
+                        text: "Pasíva",
                         font: {
                             size: 22,
                         },
@@ -158,7 +158,7 @@ export default {
             labels: this.data.map((item) => item.label),
             datasets: [
                 {
-                    label: "Aktíva",
+                    label: "Pasíva",
                     data: this.data.map((item) => item.value),
                     backgroundColor: this.data.map((item) => item.color),
                 },
