@@ -75,27 +75,23 @@ export default {
         MiniLogin,
         UserMiniSettings,
     },
-    // premenne vo vue
     data() {
         return {
-            // potom zmenime
-            isHome : true,
-            LoggedIn: true,
+            loggedIn: false,
+            isHome: true,
             MiniLogIn: false,
             UserSettingsWindow: false,
             name: null,
             companies: [],
-            Visible: true,
+            store: null
         };
     },
     methods: {
-        // when clicking on user pfp
-        // if not logged in show miniLogin else show userSettings
         ShowMenu() {
-            if (this.LoggedIn) {
-                this.UserSettingsWindow = !this.UserSettingsWindow;
+            if (this.loggedIn) {
+                this.UserSettingsWindow = !this.UserSettingsWindow
             } else {
-                this.MiniLogIn = !this.MiniLogIn;
+                this.MiniLogIn = !MiniLogin
             }
         },
         async Search() {
@@ -105,8 +101,8 @@ export default {
                         url: "/companies/search",
                         method: "get",
                         params: {
-                            search_query: this.name,
-                            per_page: 5,
+                            query: this.name,
+                            per_page: 10,
                         },
                     }).then((response) => {
                         console.log(response);
