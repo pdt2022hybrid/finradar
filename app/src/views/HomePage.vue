@@ -24,7 +24,7 @@
 
             <div class="flex justify-center" v-if="name !== '' && companies.length > 0">
                 <ul
-                    class="absolute w-64 bg-white rounded-sm mx-auto z-10 border-searchborder border-2 absolute top-96 mt-2"
+                    class="w-64 bg-white rounded-sm mx-auto z-10 border-searchborder border-2 absolute top-96 mt-2"
                 >
                     <li
                         v-for="item in companies"
@@ -97,8 +97,8 @@ export default {
                         url: "/companies/search",
                         method: "get",
                         params: {
-                            search_query: this.name,
-                            per_page: 8,
+                            query: this.name,
+                            per_page: 10,
                         },
                     }).then((response) => {
                         console.log(response);
