@@ -76,7 +76,7 @@ class CompanyResource extends JsonResource
                             'label' => 'Finančné účty',
                             'value' => $this->latest_report->assets_total,
                         ]
-                    ])->where('value', '>', 0)->toArray()
+                    ])->where('value', '>', 0)->sortByDesc('value')->toArray()
                 ),
                 'liabilities' => $this->when($this->relationLoaded('reports'), collect([
                         [
@@ -103,7 +103,7 @@ class CompanyResource extends JsonResource
                             'label' => 'Bankové úvery',
                             'value' => $this->latest_report->bank_loans,
                         ],
-                    ])->where('value', '>', 0)->toArray()
+                    ])->where('value', '>', 0)->sortByDesc('value')->toArray()
                 ),
             ],
             'statements' => $this->when($this->relationLoaded('statements'), StatementResource::collection($this->statements)),
