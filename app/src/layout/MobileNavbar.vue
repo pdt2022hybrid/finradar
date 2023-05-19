@@ -6,7 +6,7 @@
                     <img
                         src="../assets/brand/logo_text.png"
                         alt="logo"
-                        class="md:w-2/3 h-full"
+                        class="md:w-2/3"
                     />
                 </router-link>
                 <button @click="collapsed = !collapsed">

@@ -7,8 +7,8 @@
                     class="relative flex items-center w-full h-12 rounded-lg shadow-dark shadow-sm bg-white overflow-hidden inputFocusWithin"
                 >
                     <div
-                        class="grid place-items-center h-full w-12 text-gray-300">
-
+                        class="grid place-items-center h-full w-12 text-gray-300"
+                    >
                         <i class="bi bi-search scale-150 text-green"></i>
                     </div>
                     <input
@@ -21,8 +21,10 @@
                 </div>
             </div>
 
-
-            <div class="flex justify-center" v-if="name !== '' && companies.length > 0">
+            <div
+                class="flex justify-center"
+                v-if="name !== '' && companies.length > 0"
+            >
                 <ul
                     class="w-64 bg-white rounded-sm mx-auto z-10 border-searchborder border-2 absolute top-96 mt-2"
                 >
@@ -45,15 +47,18 @@
                 </ul>
             </div>
 
-			<div class="overflow-hidden flex place-content-center">
-				<img src="../assets/images/HomepageImage.svg" alt="" class="w-full min-w-md">
-			</div>
-
+            <div class="overflow-hidden flex place-content-center">
+                <img
+                    src="../assets/images/HomepageImage.svg"
+                    alt=""
+                    class="w-full min-w-md"
+                />
+            </div>
         </div>
         <ul class="homepageMainContent">
             <li class="mainContentText">
                 <h2 class="pb-6">Vitajte na stránke FinRadar!</h2>
-                <p>
+                <p class="px-8 lg:px-0">
                     Sme váš zdroj pre aktuálne finančné štatistiky a poznatky!
                     FinRadar ako online platforma poskytuje komplexné a
                     spoľahlivé informácie o rôznych finančných ukazovateľoch a
@@ -64,7 +69,7 @@
             </li>
             <li class="mainContentText">
                 <h2 class="p-6">Užívateľsky prívetivé rozhranie</h2>
-                <p>
+                <p class="px-8 lg:px-0">
                     FinRadar vám poskytuje všetko, čo potrebujete. Od
                     interaktívnych grafov až po nekonečné databázy informácií.
                     Vo FinRadare sa snažíme posilniť našich používateľov
@@ -134,7 +139,7 @@ export default {
     }
 
     .header-text {
-        @apply lg:block font-rubik font-bold text-dark text-5xl;
+        @apply lg:block font-rubik font-bold text-dark text-5xl mx-5;
     }
 
     .homepageMainContent {
@@ -148,6 +153,5 @@ export default {
     .mainContentText h2 {
         @apply lg:mb-10 text-center text-3xl font-rubik text-dark font-semibold;
     }
-
 }
 </style>
