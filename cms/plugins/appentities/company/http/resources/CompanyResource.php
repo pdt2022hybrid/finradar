@@ -55,54 +55,56 @@ class CompanyResource extends JsonResource
                     'labels' => $this->reports->pluck('year'),
                     'data' => $this->reports->pluck('profits'),
                 ]),
-                'assets' => $this->when($this->relationLoaded('reports'), [
-                    [
-                        'label' => 'Dlhodobý nehmotný majetok',
-                        'value' => $this->latest_report->lt_intangible_assets_total,
-                    ],
-                    [
-                        'label' => 'Dlhodobý hmotný majetok',
-                        'value' => $this->latest_report->lt_tangible_assets_total,
-                    ],
-                    [
-                        'label' => 'Dlhodobý finančný majetok',
-                        'value' => $this->latest_report->lt_financial_assets_total,
-                    ],
-                    [
-                        'label' => 'Krátkodobé pohľadávky',
-                        'value' => $this->latest_report->st_receivables_total,
-                    ],
-                    [
-                        'label' => 'Finančné účty',
-                        'value' => $this->latest_report->assets_total,
-                    ]
-                ]),
-                'liabilities' => $this->when($this->relationLoaded('reports'), [
-                    [
-                        'label' => 'Základné imanie',
-                        'value' => $this->latest_report->base_capital,
-                    ],
-                    [
-                        'label' => 'Výsledok hospodárenia minulého roku',
-                        'value' => $this->latest_report->result_last_year,
-                    ],
-                    [
-                        'label' => 'Výsledok hospodárenia predchádzajúceho účtovného obdobia',
-                        'value' => $this->latest_report->profit_for_period_after_tax,
-                    ],
-                    [
-                        'label' => 'Rezervy',
-                        'value' => $this->latest_report->reserves,
-                    ],
-                    [
-                        'label' => 'Krátkodobé záväzky',
-                        'value' => $this->latest_report->st_liabilities,
-                    ],
-                    [
-                        'label' => 'Bankové úvery',
-                        'value' => $this->latest_report->bank_loans,
-                    ],
-                ]),
+                'assets' => $this->when($this->relationLoaded('reports'), collect([
+                        [
+                            'label' => 'Dlhodobý nehmotný majetok',
+                            'value' => $this->latest_report->lt_intangible_assets_total,
+                        ],
+                        [
+                            'label' => 'Dlhodobý hmotný majetok',
+                            'value' => $this->latest_report->lt_tangible_assets_total,
+                        ],
+                        [
+                            'label' => 'Dlhodobý finančný majetok',
+                            'value' => $this->latest_report->lt_financial_assets_total,
+                        ],
+                        [
+                            'label' => 'Krátkodobé pohľadávky',
+                            'value' => $this->latest_report->st_receivables_total,
+                        ],
+                        [
+                            'label' => 'Finančné účty',
+                            'value' => $this->latest_report->assets_total,
+                        ]
+                    ])->where('value', '>', 0)->sortByDesc('value')->toArray()
+                ),
+                'liabilities' => $this->when($this->relationLoaded('reports'), collect([
+                        [
+                            'label' => 'Základné imanie',
+                            'value' => $this->latest_report->base_capital,
+                        ],
+                        [
+                            'label' => 'Výsledok hospodárenia minulého roku',
+                            'value' => $this->latest_report->result_last_year,
+                        ],
+                        [
+                            'label' => 'Výsledok hospodárenia predchádzajúceho účtovného obdobia',
+                            'value' => $this->latest_report->profit_for_period_after_tax,
+                        ],
+                        [
+                            'label' => 'Rezervy',
+                            'value' => $this->latest_report->reserves,
+                        ],
+                        [
+                            'label' => 'Krátkodobé záväzky',
+                            'value' => $this->latest_report->st_liabilities,
+                        ],
+                        [
+                            'label' => 'Bankové úvery',
+                            'value' => $this->latest_report->bank_loans,
+                        ],
+                    ])->where('value', '>', 0)->sortByDesc('value')->toArray()
+                ),
             ],
             'statements' => $this->when($this->relationLoaded('statements'), StatementResource::collection($this->statements)),
         ];

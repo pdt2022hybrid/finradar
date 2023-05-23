@@ -1,7 +1,7 @@
 <template>
     <div class="chart-container">
         <Pie
-            id="revenue-line-chart"
+            id="liabilities-pie-chart"
             class="w-full h-full"
             ref="pie"
             v-if="loaded"
@@ -15,22 +15,26 @@
                 v-for="(item, index) in data"
                 :key="index"
                 @click="toggleData(item, index)"
-                class="legend-item"
+                class="legend-item grid grid-cols-4 grid-rows-1"
                 :class="{ 'legend-item-disabled': !item.enabled }"
             >
-                <div class="legend-label-container">
+                <div
+                    class="legend-label-container col-span-3 flex flex-row pr-3"
+                >
                     <i
-                        class="bi bi-square-fill legend-color"
+                        class="bi bi-square-fill legend-color self-center"
                         :style="{ color: getLegendItemColor(item) }"
                     ></i>
-                    <span
+                    <p
                         class="legend-label cursor-pointer"
                         :class="{ 'legend-label-disabled': !item.enabled }"
                     >
                         {{ item.label }}
-                    </span>
+                    </p>
                 </div>
-                <div class="legend-value">
+                <div
+                    class="legend-value col-span-1 flex flex-col justify-center"
+                >
                     {{ processNumberForLabel(item.value) }}
                 </div>
             </li>
@@ -183,10 +187,6 @@ export default {
         @apply border-b border-b-light;
     }
 
-    .legend-label-container {
-        @apply inline;
-    }
-
     .legend-label-disabled {
         @apply line-through;
     }
@@ -195,8 +195,12 @@ export default {
         @apply mx-1;
     }
 
+    .legend-label {
+        @apply whitespace-nowrap overflow-scroll;
+    }
+
     .legend-value {
-        @apply inline text-right float-right text-dark;
+        @apply text-right text-dark;
     }
 }
 </style>

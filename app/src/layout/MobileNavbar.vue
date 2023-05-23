@@ -3,7 +3,11 @@
         <div class="w-full fixed z-20">
             <div class="flex justify-between p-4 bg-dark items-center">
                 <router-link to="/home" class="md:w-80 w-40">
-                    <img src="../assets/brand/logo_text.svg" alt="logo" class="md:w-5/12" />
+                    <img
+                        src="../assets/brand/logo_text.png"
+                        alt="logo"
+                        class="md:w-2/3"
+                    />
                 </router-link>
                 <button @click="collapsed = !collapsed">
                     <i class="bi bi-list text-2xl md:text-4xl"></i>

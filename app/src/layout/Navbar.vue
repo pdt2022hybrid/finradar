@@ -4,7 +4,7 @@
             <div class="lg:text-lg flex flex-row items-center w-3/5 pr-20">
                 <router-link class="text-navtext font-bold mr-5" to="/">
                     <img
-                        src="../assets/brand/logo_text.svg"
+                        src="../assets/brand/logo_text.png"
                         class="h-10 w-50 mr-24"
                         alt=""
                     />
@@ -17,34 +17,47 @@
                 <!--      <router-link to="/" class="text-navtext">API</router-link>-->
             </div>
             <div class="lg:flex items-center">
-                <div    v-if="isHome!==true"
-                        class="relative flex items-center w-full h-10 rounded-lg shadow-xl bg-white overflow-hidden mt-1 mr-14 inputFocusWithin"
+                <div
+                    v-if="isHome !== true"
+                    class="relative flex items-center w-full h-10 rounded-lg shadow-xl bg-white overflow-hidden mt-1 mr-14 inputFocusWithin"
+                >
+                    <div
+                        class="grid place-items-center h-full w-12 text-gray-300"
                     >
-                        <div
-                            class="grid place-items-center h-full w-12 text-gray-300">
-                            <i class="bi bi-search scale-150 text-green"></i>
-                        </div>
-                        <input
-                            class="peer h-full w-full outline-none text-sm text-gray-700 pr-2 placeholder:font-varela font-varela focus:placeholder:opacity-0"
-                            type="text"
-                            placeholder="Vyhľadať firmu..."
-                            @keyup="Search"
-                            v-model="name"
-                        />
+                        <i class="bi bi-search scale-150 text-green"></i>
                     </div>
-                <div class="text-navtext lg:flex lg:items-center" @click="ShowMenu">
+                    <input
+                        class="peer h-full w-full outline-none text-sm text-gray-700 pr-2 placeholder:font-varela font-varela focus:placeholder:opacity-0"
+                        type="text"
+                        placeholder="Vyhľadať firmu..."
+                        @keyup="Search"
+                        v-model="name"
+                    />
+                </div>
+                <div
+                    class="text-navtext lg:flex lg:items-center"
+                    @click="ShowMenu"
+                >
                     <i
                         class="bi bi-person-circle lg:ml-10 lg:rounded-full lg:flex lg:cursor-pointer text-green lg:text-5xl"
                     ></i>
                 </div>
-                <div class="absolute w-3/4 mt-9" v-if="name !== '' && companies.length > 0">
-                    <ul class="fixed w-64 bg-white rounded-sm border-searchborder border-2 mx-auto top-16 right-64 mr-1 z-10">
+                <div
+                    class="absolute w-3/4 mt-9"
+                    v-if="name !== '' && companies.length > 0"
+                >
+                    <ul
+                        class="fixed w-64 bg-white rounded-sm border-searchborder border-2 mx-auto top-16 right-64 mr-1 z-10"
+                    >
                         <li
                             class="border-light border-b-2 p-1.5"
                             v-for="item in this.companies"
                         >
                             <router-link
-                                :to="{ name: 'company', params: { ico: item.ico } }"
+                                :to="{
+                                    name: 'company',
+                                    params: { ico: item.ico },
+                                }"
                                 v-slot="{ redirect }"
                             >
                                 <h4
@@ -75,38 +88,34 @@ export default {
         MiniLogin,
         UserMiniSettings,
     },
-    // premenne vo vue
     data() {
         return {
-            // potom zmenime
-            isHome : true,
-            LoggedIn: true,
+            loggedIn: false,
+            isHome: true,
             MiniLogIn: false,
             UserSettingsWindow: false,
             name: null,
             companies: [],
-            Visible: true,
+            store: null,
         };
     },
     methods: {
-        // when clicking on user pfp
-        // if not logged in show miniLogin else show userSettings
         ShowMenu() {
-            if (this.LoggedIn) {
+            if (this.loggedIn) {
                 this.UserSettingsWindow = !this.UserSettingsWindow;
             } else {
-                this.MiniLogIn = !this.MiniLogIn;
+                this.MiniLogIn = !MiniLogin;
             }
         },
         async Search() {
             if (this.name !== "") {
                 try {
                     await axios({
-                        url: "/companies",
+                        url: "/companies/search",
                         method: "get",
                         params: {
-                            search_query: this.name,
-                            per_page: 5,
+                            query: this.name,
+                            per_page: 10,
                         },
                     }).then((response) => {
                         console.log(response);
@@ -126,10 +135,10 @@ export default {
             this.MiniLogIn = false;
             this.companies = [];
             this.name = "";
-            if (this.$route.name === 'Home') {
-                this.isHome = true
-            }  else {
-                this.isHome = false
+            if (this.$route.name === "Home") {
+                this.isHome = true;
+            } else {
+                this.isHome = false;
             }
         },
     },
