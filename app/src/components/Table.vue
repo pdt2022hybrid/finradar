@@ -69,7 +69,7 @@
             </button>
             <input
                 type="number"
-                :max="companies.meta.last_page"
+                :max="last_page"
                 min="1"
                 class="p-3 bg-gray text-center"
                 @keydown="$.emit('setPage', newPage)"
@@ -101,6 +101,7 @@ export default {
         per_page: null,
         page: null,
         companies: null,
+        last_page: null
     },
     computed: {
         loading() {

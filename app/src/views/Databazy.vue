@@ -81,6 +81,7 @@
                 <Table
                     :per_page="per_page"
                     :page="page"
+                    :last_page="last_page"
                     :companies="companies"
                     @search="search"
                     @setPage="page"
@@ -106,6 +107,7 @@ export default {
             mobile: false,
             companies: null,
             per_page: 20,
+            last_page: 1,
             revenue: {
                 max: null,
                 min: null,
@@ -147,6 +149,7 @@ export default {
                     },
                 }).then((response) => {
                     this.companies = response.data;
+                    this.last_page = response.data.meta.last_page
                     console.log(this.companies);
                 });
             } catch (errors) {
