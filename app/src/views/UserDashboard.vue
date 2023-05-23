@@ -1,7 +1,6 @@
 <template>
     <Loader v-if="!loaded"/>
     <div v-else>
-
     </div>
 </template>
 

@@ -1,29 +1,31 @@
 <template>
     <div class="text-background">
         <form
-            id="Login"
+            onsubmit="return false"
             class="z-50 bg-dark flex w-1/5 items-center absolute right-32 rounded-xl p-5 mt-2 flex-col"
         >
             <h1 class="text-4xl">Log In</h1>
             <input
-                type="text"
+                type="email"
+                name="email"
                 class="w-52 inputs mt-4 mb-2 rounded focus:outline-none focus:ring-2 focus:ring-green focus:shadow-2xl text-dark"
-                placeholder="e-mail"
+                placeholder="name@example.com"
+                v-model="email"
             />
             <input
-                type="text"
+                type="password"
+                name="passw"
                 class="w-52 inputs rounded focus:outline-none focus:ring-2 focus:ring-green focus:shadow-2xl text-dark"
-                placeholder="heslo"
+                placeholder="Vaše heslo"
+                v-model="password"
             />
-            <div class="w-full pl-7 flex items-center justify-start">
-                <input type="checkbox" class="inputs ml-9" />
-                <p class="ml-2 font-varela">Zapamätať si ma</p>
-            </div>
+<!--            <div class="w-full pl-7 flex items-center justify-start">-->
+<!--                <input type="checkbox" class="inputs ml-9" />-->
+<!--                <p class="ml-2 font-varela">Zapamätať si ma</p>-->
+<!--            </div>-->
             <button
-                type="submit"
-                form="Login"
-                value="Submit"
                 class="bg-green p-1 w-52 py-1 text-dark rounded-xl border-dark border-opacity-75 font-medium font-varela hover:text-white active:ring-2 active:ring-background focus:shadow-2xl"
+                @click="checkForm"
             >
                 Prihlásiť sa
             </button>
@@ -42,8 +44,24 @@
 </template>
 
 <script>
+import {useUserInfo} from "@/stores/userData";
+import router from "@/router";
 export default {
     name: "MiniLogin",
+    data() {
+        return {
+            email: "",
+            password: ""
+        }
+    },
+    methods: {
+        checkForm() {
+            const store = useUserInfo()
+            store.login(this.password, this.email)
+            this.$emit('hide')
+            router.push({path: 'dashboard'})
+        }
+    }
 };
 </script>
 

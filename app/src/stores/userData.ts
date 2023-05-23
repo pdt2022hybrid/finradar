@@ -29,6 +29,7 @@ export const useUserInfo = defineStore('UserInfo', {
                     localStorage.setItem("E-mail", this.UserData.email)
                     localStorage.setItem("UserToken" , this.UserToken)
                     this.LoggedIn = true
+                    localStorage.setItem("Logged", JSON.stringify(this.LoggedIn))
                     console.log(this.UserToken)
                 })
             } catch (errors) {
@@ -56,6 +57,7 @@ export const useUserInfo = defineStore('UserInfo', {
                     localStorage.setItem("E-mail", this.UserData.email)
                     localStorage.setItem("UserToken" , this.UserToken)
                     this.LoggedIn = true
+                    localStorage.setItem("Logged", JSON.stringify(this.LoggedIn))
                     console.log(this.UserToken)
                 })
             } catch (errors) {

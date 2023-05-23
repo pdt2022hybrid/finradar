@@ -73,7 +73,9 @@
             </div>
         </div>
     </nav>
-    <MiniLogin v-if="MiniLogIn" />
+    <MiniLogin v-if="MiniLogIn"
+        @hide="MiniLogIn = false"
+    />
     <UserMiniSettings v-if="UserSettingsWindow"
         @hide="UserSettingsWindow = false"
     />
@@ -102,10 +104,9 @@ export default {
     },
     methods: {
         ShowMenu() {
-            const store = useUserInfo()
-            if (store.LoggedIn === true) {
+            if (localStorage.getItem("Logged") === "true") {
                 this.UserSettingsWindow = !this.UserSettingsWindow
-            } else if (store.LoggedIn === false) {
+            } else if (localStorage.getItem("Logged") === null) {
                 this.MiniLogIn = !this.MiniLogIn
             }
         },

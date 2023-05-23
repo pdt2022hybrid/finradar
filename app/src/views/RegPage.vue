@@ -36,7 +36,7 @@
                         type="email"
                         name="email"
                         class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 block w-full rounded-md sm:text-sm inputFocus focus:placeholder:text-background"
-                        placeholder="meno@priklad.com"
+                        placeholder="meno@example.com"
                         v-model="email"
                     />
                 </label>

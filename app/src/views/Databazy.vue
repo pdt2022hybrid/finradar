@@ -127,6 +127,11 @@ export default {
                 this.page = this.companies?.meta?.last_page;
             }
             this.companies = null;
+            if (this.profit.min !== this.profit.min || this.revenue.max !== this.revenue.max
+                || this.profit.max !== this.profit.max || this.revenue.min !== this.revenue.min
+                || this.name !== this.name) {
+                this.page = 1
+            }
             try {
                 await axios({
                     url: "/companies",

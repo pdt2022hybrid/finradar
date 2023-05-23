@@ -14,7 +14,6 @@
             </tr>
         </thead>
         <tbody v-if="companies === null">
-            <!--          todo:urobit nech sa to hybe a nepulzuje-->
             <tr v-for="item in loading" class="animate-pulse">
                 <td class="border-l border-b border-light tab tab w-4/6">
                     <div class="p-2.5 m-1 bg-background rounded"></div>
