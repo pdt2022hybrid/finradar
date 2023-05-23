@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Event;
 use October\Rain\Exception\ValidationException;
+use October\Rain\Auth\AuthException;
 
 trait ApiResponse
 {
@@ -27,7 +28,7 @@ trait ApiResponse
                 array_last(explode('\\', $exception->getModel()))
             );
             $exceptionStatusCode = 404;
-        } elseif ($exception instanceof ValidationException) {
+        } elseif ($exception instanceof ValidationException || $exception instanceof AuthException) {
             $message = collect($exception->getErrors())->pluck(0)->toArray();
             $exceptionStatusCode = 422;
         } else {
