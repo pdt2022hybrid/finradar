@@ -1,9 +1,13 @@
 <template>
     <Loader v-if="!loaded"/>
-    <div v-else
-        class="w-full flex justify-center"
-    >
-        <div class="w-4/5">
+    <div class="mb-20">
+        <div class="flex-col lg:mt-16 flex items-center font-rubik w-full">
+            <div class="w-4/5">
+                <h1 class="text-4xl mb-10 font-extrabold">Dashboard</h1>
+                <h3 class="text-xl font-bold">Pripnuté firmy</h3>
+            </div>
+
+        <div class="w-4/5 flex">
             <Table
                 :per_page="per_page"
                 :page="page"
@@ -16,6 +20,7 @@
 <!--                @prevPage="prevPage"-->
 <!--                @lastPage="lastPage"-->
         </div>
+		</div>
     </div>
 </template>
 
@@ -33,7 +38,7 @@ export default {
     },
     data() {
         return {
-            loaded: false,
+            loaded: true,
             companies: null,
             per_page: 20,
             page: 1,
