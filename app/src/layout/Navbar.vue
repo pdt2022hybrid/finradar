@@ -74,13 +74,16 @@
         </div>
     </nav>
     <MiniLogin v-if="MiniLogIn" />
-    <UserMiniSettings v-if="UserSettingsWindow" />
+    <UserMiniSettings v-if="UserSettingsWindow"
+        @hide="UserSettingsWindow = false"
+    />
 </template>
 
 <script>
 import UserMiniSettings from "@/components/UserMiniSettings.vue";
 import MiniLogin from "@/components/MiniLogin.vue";
 import axios from "axios";
+import { useUserInfo } from "@/stores/userData";
 
 export default {
     name: "NavbarPC",
@@ -90,21 +93,20 @@ export default {
     },
     data() {
         return {
-            loggedIn: false,
             isHome: true,
             MiniLogIn: false,
             UserSettingsWindow: false,
             name: null,
             companies: [],
-            store: null,
         };
     },
     methods: {
         ShowMenu() {
-            if (this.loggedIn) {
-                this.UserSettingsWindow = !this.UserSettingsWindow;
-            } else {
-                this.MiniLogIn = !MiniLogin;
+            const store = useUserInfo()
+            if (store.LoggedIn === true) {
+                this.UserSettingsWindow = !this.UserSettingsWindow
+            } else if (store.LoggedIn === false) {
+                this.MiniLogIn = !this.MiniLogIn
             }
         },
         async Search() {

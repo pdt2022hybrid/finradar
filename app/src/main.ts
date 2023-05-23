@@ -1,4 +1,4 @@
-import { createApp } from "vue";
+import { createApp, watch } from "vue";
 import { createPinia } from "pinia";
 
 import App from "./App.vue";
@@ -8,9 +8,10 @@ import axios from "axios";
 
 import "@/assets/css/main.css";
 
+const pinia = createPinia();
 const app = createApp(App);
 
-app.use(createPinia());
+app.use(pinia);
 app.use(router);
 axios.defaults.baseURL = import.meta.env.VITE_APP_AXIOS_URL;
 app.config.globalProperties.$axios = axios;
