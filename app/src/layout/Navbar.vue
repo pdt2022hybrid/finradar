@@ -110,7 +110,7 @@ export default {
             }
         },
         async Search() {
-            if (this.name !== "") {
+            if (this.name !== "" && this.name.length > 2) {
                 try {
                     await axios({
                         url: "/companies/search",

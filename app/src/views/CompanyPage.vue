@@ -137,6 +137,7 @@ export default {
             await axios.get("/companies/" + ico).then((response) => {
                 this.companyData = response.data.data;
                 this.loaded = true;
+                console.log(this.companyData)
             });
         } catch (errors) {
             console.log(errors);

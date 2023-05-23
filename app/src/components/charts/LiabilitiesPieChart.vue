@@ -49,7 +49,7 @@ import { Chart as ChartJS, ArcElement, Title, Tooltip, Legend } from "chart.js";
 ChartJS.register(Title, ArcElement, Tooltip, Legend);
 
 export default {
-    name: "AssetsPieChart",
+    name: "LiabilitiesPieChart",
     components: { Pie },
     data() {
         return {
@@ -95,13 +95,13 @@ export default {
             },
             loaded: false,
             availableColors: [
-                "#00876c",
-                "#63b179",
-                "#aed987",
-                "#ffff9d",
-                "#fcc267",
-                "#ef8250",
                 "#d43d51",
+                "#ef8250",
+                "#fcc267",
+                "#ffff9d",
+                "#aed987",
+                "#63b179",
+                "#00876c",
             ],
             disabledColor: "#D3D3D3",
         };
