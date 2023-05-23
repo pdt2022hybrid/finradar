@@ -82,6 +82,7 @@
 <script>
 import axios from "axios";
 import { useUserInfo } from "@/stores/userData";
+import router from "@/router";
 
 const store = useUserInfo()
 export default {
@@ -129,7 +130,8 @@ export default {
                 return false
             }
             this.splitName()
-            this.sendData()
+            store.register(this.name, this.surname, this.email, this.password, this.password_confirm)
+            router.push({path: 'dashboard'})
             return false
         },
         splitName() {
@@ -139,27 +141,6 @@ export default {
             this.surname = names[names.length - 1]
             if (this.name === this.surname) {
                 this.surname = "NevieSvojePriezvisko"
-            }
-        },
-        async sendData() {
-            try {
-                axios({
-                    method: "post",
-                    url: "/auth/signup",
-                    data: {
-                        name: this.name,
-                        surname: this.surname,
-                        email: this.email,
-                        password: this.password,
-                        password_confirm: this.password_confirm
-                    }
-                }).then((response) => {
-                    console.log(response)
-                    store.UserToken = response.data.data.token
-                    store.UserData = response.data.data.user
-                })
-            } catch (errors) {
-                console.log(errors)
             }
         },
         errorCheck() {

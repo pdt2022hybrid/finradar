@@ -75,7 +75,7 @@
                     Vo FinRadare sa snažíme posilniť našich používateľov
                     vedomosťami a nástrojmi, ktoré potrebujú na úspech v
                     komplexnom svete financií. Pripojte sa k nám na tejto
-                    finančnej ceste a odomknite moc dát s FinRadarom, najlepším
+                    finančnej ceste s FinRadarom, najlepším
                     zdrojom pre spoľahlivé finančné štatistiky a poznatky.
                 </p>
             </li>
@@ -96,7 +96,7 @@ export default {
     },
     methods: {
         async Search() {
-            if (this.name !== "") {
+            if (this.name !== "" && this.name.length > 2) {
                 try {
                     await axios({
                         url: "/companies/search",
