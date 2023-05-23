@@ -1,11 +1,13 @@
 <template>
     <Loader v-if="!loaded"/>
     <div v-else>
+
     </div>
 </template>
 
 <script>
 import Loader from "@/components/Loader.vue";
+import Table from "@/components/Table.vue";
 
 export default {
     name: "UserDashboard",
@@ -14,7 +16,7 @@ export default {
     },
     data() {
         return {
-            loaded: false,
+            loaded: true,
         }
     }
 };

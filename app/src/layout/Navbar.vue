@@ -123,7 +123,7 @@ export default {
                     }).then((response) => {
                         console.log(response);
                         this.companies = response.data.data;
-                    
+
                     });
                 } catch (errors) {
                     console.log(errors);
