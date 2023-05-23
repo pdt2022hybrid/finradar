@@ -59,10 +59,10 @@
                                     params: { ico: item.ico },
                                 }"
                                 v-slot="{ redirect }"
+                                :key="$route.path"
                             >
                                 <h4
                                     class="cursor-pointer lg:w-fit mx-auto font-varela font-medium text-center hover:font-semibold hover:decoration-1 hover:underline decoration-underline active:text-green"
-                                    @click="redirect"
                                 >
                                     {{ item.name }}
                                 </h4>
@@ -120,6 +120,7 @@ export default {
                     }).then((response) => {
                         console.log(response);
                         this.companies = response.data.data;
+                    
                     });
                 } catch (errors) {
                     console.log(errors);
