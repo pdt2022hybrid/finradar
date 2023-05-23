@@ -103,7 +103,7 @@ export default {
                 "#ef8250",
                 "#d43d51",
             ],
-            disabledColor: "#D3D3D3",
+           disabledColor: "#D3D3D3",
         };
     },
     props: {

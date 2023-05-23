@@ -69,7 +69,7 @@
                                 class="lg:w-1/2 w-full flex flex-wrap content-end lg:justify-end justify-center"
                             >
                                 <button
-                                    class="w-3/5 bg-green p-1.5 rounded text-dark hover:border-2 hover:font-semibold active: font-varela lg:h-1/3"
+                                    class="w-3/5 bg-green p-1.5 rounded text-white hover:border-2 hover:font-semibold active: font-varela lg:h-1/3"
                                     @click="search"
                                 >
                                     Hľadaj
