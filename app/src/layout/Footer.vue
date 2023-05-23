@@ -1,14 +1,15 @@
 <template>
-    <!-- footer treba potom tiez -->
-    <div class="bg-dark w-full py-5 justify-center flex font-varela">
+
+    <div class="bg-dark w-full py-7 justify-center flex font-varela">
         <div class="flex flex-row w-full items-center justify-evenly">
             <router-link to="/Pages">
                 <p class="active:text-green">Mapa Stránok</p>
             </router-link>
 
-			<p>Developeri</p>
+			<!-- Sano potom frontend -->
+			<p class="hover:cursor-pointer active:text-green">Developeri</p>
 
-			<p>Kontakt</p>
+			<p class="hover:cursor-pointer active:text-green">Kontakt</p>
 
 		</div>
     </div>
