@@ -21,6 +21,7 @@ module.exports = {
             navtext: "#FFFFFF",
             underline: "#3399E9",
 			searchborder:"#5F5F5F",
+            green_light: "#90EE90"
         },
         fontFamily: {
             rubik: ['"Rubik"', ...defaultTheme.fontFamily.sans],
