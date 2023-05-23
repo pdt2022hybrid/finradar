@@ -59,10 +59,10 @@
                                     params: { ico: item.ico },
                                 }"
                                 v-slot="{ redirect }"
+                                :key="$route.path"
                             >
                                 <h4
                                     class="cursor-pointer lg:w-fit mx-auto font-varela font-medium text-center hover:font-semibold hover:decoration-1 hover:underline decoration-underline active:text-green"
-                                    @click="redirect"
                                 >
                                     {{ item.name }}
                                 </h4>
@@ -74,13 +74,16 @@
         </div>
     </nav>
     <MiniLogin v-if="MiniLogIn" />
-    <UserMiniSettings v-if="UserSettingsWindow" />
+    <UserMiniSettings v-if="UserSettingsWindow"
+        @hide="UserSettingsWindow = false"
+    />
 </template>
 
 <script>
 import UserMiniSettings from "@/components/UserMiniSettings.vue";
 import MiniLogin from "@/components/MiniLogin.vue";
 import axios from "axios";
+import { useUserInfo } from "@/stores/userData";
 
 export default {
     name: "NavbarPC",
@@ -90,21 +93,20 @@ export default {
     },
     data() {
         return {
-            loggedIn: false,
             isHome: true,
             MiniLogIn: false,
             UserSettingsWindow: false,
             name: null,
             companies: [],
-            store: null,
         };
     },
     methods: {
         ShowMenu() {
-            if (this.loggedIn) {
-                this.UserSettingsWindow = !this.UserSettingsWindow;
-            } else {
-                this.MiniLogIn = !MiniLogin;
+            const store = useUserInfo()
+            if (store.LoggedIn === true) {
+                this.UserSettingsWindow = !this.UserSettingsWindow
+            } else if (store.LoggedIn === false) {
+                this.MiniLogIn = !this.MiniLogIn
             }
         },
         async Search() {
@@ -120,6 +122,7 @@ export default {
                     }).then((response) => {
                         console.log(response);
                         this.companies = response.data.data;
+                    
                     });
                 } catch (errors) {
                     console.log(errors);

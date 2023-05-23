@@ -53,7 +53,7 @@
 
 <script>
 import { useUserInfo } from "@/stores/userData";
-import axios from "axios";
+import router from "@/router";
 
 const store = useUserInfo()
 export default {
@@ -66,26 +66,9 @@ export default {
     },
     methods: {
         checkForm() {
-          this.auth()
+            store.login(this.password, this.email)
+            router.push({path: 'dashboard'})
         },
-        async auth() {
-            try {
-                axios({
-                    url: "/auth/login",
-                    method: "post",
-                    data: {
-                        login: this.email,
-                        password: this.password,
-                    }
-                }).then((response) => {
-                    console.log(response)
-                    store.UserData = response.data.data.user
-                    store.UserToken = response.data.data.token
-                })
-            } catch (errors) {
-                console.log(errors)
-            }
-        }
     }
 };
 </script>

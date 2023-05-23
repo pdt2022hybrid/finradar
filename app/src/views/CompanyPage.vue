@@ -131,18 +131,32 @@ export default {
             companyData: [],
         };
     },
-    async mounted() {
-        try {
-            let ico = this.$route.params.ico;
-            await axios.get("/companies/" + ico).then((response) => {
-                this.companyData = response.data.data;
-                this.loaded = true;
-                console.log(this.companyData)
-            });
-        } catch (errors) {
-            console.log(errors);
+
+    watch: {
+        $route(to, from){
+            this.changeRouter()
         }
     },
+
+    methods: {
+        async changeRouter(){
+            this.loaded = false
+            try {
+                let ico = this.$route.params.ico;
+                await axios.get("/companies/" + ico).then((response) => {
+                    this.companyData = response.data.data;
+                    console.log(this.companyData)
+                });
+            } catch (errors) {
+                console.log(errors);
+            }
+            this.loaded = true;
+        }
+    },
+
+    mounted(){
+        this.changeRouter()
+    }
 };
 </script>
 

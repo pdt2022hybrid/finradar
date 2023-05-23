@@ -1,9 +1,9 @@
 <template>
     <div
-        class="bg-dark flex w-1/6 absolute right-32 rounded-xl pt-4 pb-2 px-2 mt-2 flex-col indent-2 text-background z-50"
+        class="bg-dark flex w-1/6 absolute right-32 border-2 rounded-xl p-5 mt-2 flex-col indent-2 text-background z-50"
     >
         <header class="font-rubik font-medium text-lg">
-            Smigus Dyngus
+            {{ name + " " + surname }}
         </header>
         <router-link
             to="/dashboard"
@@ -16,15 +16,33 @@
             <i class="bi bi-gear-fill text-green"></i>
             <p class="indent-3">Nastavenia</p>
         </router-link>
-        <router-link to="/" class="pt-2 pb-2 flex">
+        <div class="pt-2 pb-2 flex cursor-pointer" @click="logout">
             <i class="bi bi-box-arrow-right text-green"></i>
             <p class="indent-3">Odhlásiť sa</p>
-        </router-link>
+        </div>
     </div>
 </template>
 
 <script>
+import { useUserInfo } from "@/stores/userData";
+import router from "@/router";
 export default {
     name: "UserMiniSettings",
+    data() {
+        return {
+            name: localStorage.getItem("Username"),
+            surname: localStorage.getItem("UserSurname")
+        }
+    },
+    methods: {
+        logout() {
+            const store = useUserInfo()
+            store.$reset()
+            console.log(store.UserData)
+            localStorage.clear()
+            this.$emit('hide')
+            router.push({path: 'home'})
+        }
+    }
 };
 </script>

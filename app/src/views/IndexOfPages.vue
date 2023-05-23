@@ -2,9 +2,10 @@
     <div class="flex justify-center">
         <div class="py-20 flex flex-col w-3/6 items-start">
             <router-link to="/home"><h1>Home</h1></router-link>
-            <router-link to="/databazy"><h1>Databazy</h1></router-link>
+            <router-link to="/database"><h1>Databazy</h1></router-link>
             <router-link to="/company"><h1>Company</h1></router-link>
-            <router-link to="/register"><h1>Register / Login</h1></router-link>
+            <router-link to="/register"><h1>Register</h1></router-link>
+            <router-link to="/login"><h1>Login</h1></router-link>
             <router-link to="/dashboard"><h1>Dashboard</h1></router-link>
         </div>
     </div>
