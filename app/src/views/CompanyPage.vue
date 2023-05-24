@@ -2,11 +2,14 @@
     <Loader v-if="!loaded" />
     <div v-else class="sm:py-5 flex flex-col items-center lg:py-10 py-20">
         <div class="w-4/5">
+          <span class="flex">
             <h1
                 class="text-3xl mt-12 sm:mt-28 md:mt-2 lg:mt-2 mb-7 lg:text-start text-center"
             >
                 {{ companyData?.name }}
             </h1>
+             <i class="bi bi-pin-angle-fill text-3xl ml-4 mt-1 pl-2 hover:cursor-pointer"></i> <!-- Sano pridaj sem logiku, a ked je company pinned == text green pls -->
+            </span>
         </div>
         <div class="lg:w-4/5 w-full">
             <div
