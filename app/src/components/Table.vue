@@ -140,7 +140,7 @@ export default {
     }
 
     .focused {
-        @apply focus:bg-blue hover:bg-green_light;
+        @apply focus:bg-green hover:bg-green_light;
     }
 }
 </style>

@@ -8,7 +8,11 @@
             >
                 {{ companyData?.name }}
             </h1>
-             <i class="bi bi-pin-angle-fill text-3xl ml-4 mt-1 pl-2 hover:cursor-pointer"></i> <!-- Sano pridaj sem logiku, a ked je company pinned == text green pls -->
+             <i v-if="logged !== null"
+                @click="store.pinCompany(companyData.ico)"
+                class="hover:text-green bi bi-pin-angle-fill text-3xl ml-4 mt-1 pl-2 hover:cursor-pointer">
+             </i>
+             <!-- Sano pridaj sem logiku, a ked je company pinned == text green pls -->
             </span>
         </div>
         <div class="lg:w-4/5 w-full">
@@ -118,6 +122,7 @@ import ProfitsLineChart from "@/components/charts/ProfitsLineChart.vue";
 import AssetsPieChart from "@/components/charts/AssetsPieChart.vue";
 import LiabilitiesPieChart from "@/components/charts/LiabilitiesPieChart.vue";
 import Loader from "@/components/Loader.vue";
+import {useUserInfo} from "@/stores/userData";
 
 export default {
     name: "CompanyPage",
@@ -130,8 +135,10 @@ export default {
     },
     data() {
         return {
+            store: useUserInfo(),
             loaded: false,
             companyData: [],
+            logged: localStorage.getItem('Logged')
         };
     },
 
@@ -142,7 +149,7 @@ export default {
     },
 
     methods: {
-        async changeRouter(){
+        async changeRouter() {
             this.loaded = false
             try {
                 let ico = this.$route.params.ico;
@@ -156,7 +163,6 @@ export default {
             this.loaded = true;
         }
     },
-
     mounted(){
         this.changeRouter()
     }

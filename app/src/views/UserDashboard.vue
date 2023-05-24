@@ -10,18 +10,14 @@
                 <h3 class="text-2xl font-bold">Pripnuté firmy</h3>
             </div>
 
-        <div class="w-4/5 flex">
+        <div class="w-4/5 flex flex-col">
             <Table
                 :per_page="per_page"
                 :page="page"
-                :companies="companies"
+                :companies="store.companies"
                 :last_page="last_page"
                 @setPage="page"
             />
-<!--                @firstPage="firstPage"-->
-<!--                @nextPage="nextPage"-->
-<!--                @prevPage="prevPage"-->
-<!--                @lastPage="lastPage"-->
         </div>
 		</div>
     </div>
@@ -31,7 +27,6 @@
 import Loader from "@/components/Loader.vue";
 import Table from "@/components/Table.vue";
 import { useUserInfo } from "@/stores/userData";
-import axios from "axios";
 
 export default {
     name: "UserDashboard",
@@ -41,52 +36,17 @@ export default {
     },
     data() {
         return {
-            loaded: true,
-            companies: null,
+            loaded: false,
             per_page: 20,
             page: 1,
-            token: "",
-            last_page: 1
+            token: localStorage.getItem("UserToken"),
+            last_page: 1,
+            store: useUserInfo()
         }
     },
-    async mounted() {
-        this.token = localStorage.getItem("UserToken")
-        try {
-            axios({
-                method: "get",
-                url: "/dashboards",
-                headers: {
-                    Authorization: 'Bearer' + this.token
-                }
-            }).then((response) => {
-                this.loaded = true
-                if (response.data.data.companies.length > 1) {
-                    this.companies = response.data.data.companies
-                }
-                console.log(this.companies)
-                console.log(response)
-            })
-        } catch (errors) {
-            console.log(errors)
+    mounted() {
+        this.store.getPinnedCompanies(this.token)
+        this.loaded = true
         }
-        },
-    // methods: {
-    //     nextPage() {
-    //         this.page++;
-    //         this.search();
-    //     },
-    //     prevPage() {
-    //         this.page--;
-    //         this.search();
-    //     },
-    //     firstPage() {
-    //         this.page = 1;
-    //         this.search();
-    //     },
-    //     lastPage() {
-    //         this.page = this.companies?.meta?.last_page;
-    //         this.search();
-    //     },
-    // }
 };
 </script>

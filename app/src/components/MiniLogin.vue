@@ -55,11 +55,11 @@ export default {
         }
     },
     methods: {
-        checkForm() {
+        async checkForm() {
             const store = useUserInfo()
-            store.login(this.password, this.email)
+            await store.login(this.password, this.email)
             this.$emit('hide')
-            router.push({path: 'dashboard'})
+            await router.push({path: '/dashboard'})
         }
     }
 };

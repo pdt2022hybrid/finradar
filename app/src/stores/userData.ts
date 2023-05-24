@@ -8,6 +8,7 @@ export const useUserInfo = defineStore('UserInfo', {
             UserToken: "",
             UserData: [],
             LoggedIn: false,
+            companies: {data: []},
         }
     },
     actions: {
@@ -59,6 +60,43 @@ export const useUserInfo = defineStore('UserInfo', {
                     this.LoggedIn = true
                     localStorage.setItem("Logged", JSON.stringify(this.LoggedIn))
                     console.log(this.UserToken)
+                })
+            } catch (errors) {
+                console.log(errors)
+            }
+        },
+        async getPinnedCompanies(token: string) {
+            try {
+                axios({
+                    method: "get",
+                    url: "/dashboards",
+                    headers: {
+                        Authorization: 'Bearer' + token
+                    }
+                }).then((response) => {
+                    if (response.data.data.companies.length >= 1) {
+                        this.companies.data = response.data.data.companies
+                    }
+                    console.log(this.companies)
+                    console.log(response)
+                })
+            } catch (errors) {
+                console.log(errors)
+            }
+        },
+        async pinCompany(ico: number) {
+            try {
+                axios({
+                    url: "/dashboards/addCompany",
+                    method: "patch",
+                    headers: {
+                        Authorization: 'Bearer' + localStorage.getItem("UserToken")
+                    },
+                    params: {
+                        company_ico: ico
+                    }
+                }).then((response) => {
+                    console.log(response)
                 })
             } catch (errors) {
                 console.log(errors)
