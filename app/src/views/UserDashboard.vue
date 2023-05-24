@@ -3,8 +3,11 @@
     <div class="mb-20">
         <div class="flex-col lg:mt-16 flex items-center font-rubik w-full">
             <div class="w-4/5">
-                <h1 class="text-4xl mb-10 font-extrabold">Dashboard</h1>
-                <h3 class="text-xl font-bold">Pripnuté firmy</h3>
+                <span class="flex">
+                  <h1 class="text-4xl mb-10 font-extrabold">Dashboard</h1>
+                  <i class="bi bi-pin-angle text-3xl ml-4 text-green"></i>
+                </span>
+                <h3 class="text-2xl font-bold">Pripnuté firmy</h3>
             </div>
 
         <div class="w-4/5 flex">
