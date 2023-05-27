@@ -58,7 +58,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 py-12">
             <div class="mainContentText">
                 <h2 class="pb-6">Vitajte na stránke FinRadar!</h2>
-                <p class="px-8 lg:px-0">
+                <p class="px-8 lg:px-0 text-center">
                     Sme váš zdroj pre aktuálne finančné štatistiky a poznatky!
                     FinRadar ako online platforma poskytuje komplexné a
                     spoľahlivé informácie o rôznych finančných ukazovateľoch a
@@ -69,7 +69,7 @@
             </div>
             <div class="mainContentText">
                 <h2 class="pb-6">Užívateľsky prívetivé rozhranie</h2>
-                <p class="px-8 lg:px-0">
+                <p class="px-8 lg:px-0 text-center">
                     FinRadar vám poskytuje všetko, čo potrebujete. Od
                     interaktívnych grafov až po nekonečné databázy informácií.
                     Vo FinRadare sa snažíme posilniť našich používateľov
@@ -79,6 +79,19 @@
                     spoľahlivé finančné štatistiky a poznatky.
                 </p>
             </div>
+        </div>
+    </div>
+    <div class="mainContentText flex flex-col justify-center items-center">
+        <h2>Čo sa dá na našej stránke robiť?</h2>
+        <div class="w-1/2 mt-6">
+            <ul style="list-style: outside">
+                <li>Vyhľadávať v databáze firiem</li>
+                <li>Zobrazovať detailné štatistiky a údaje firiem</li>
+                <li>
+                    Registrovaný používatelia majú taktiež možnosť "pinnúť" si
+                    firmu do vlastného listu na vlastnom dashboarde
+                </li>
+            </ul>
         </div>
     </div>
 </template>
@@ -143,11 +156,11 @@ export default {
     }
 
     .mainContentText {
-        @apply leading-8 text-xl text-dark font-normal text-center lg:text-left mb-10 px-24;
+        @apply leading-8 text-xl text-dark font-normal lg:text-left mb-10 px-24;
     }
 
     .mainContentText h2 {
-        @apply lg:mb-10 text-center text-3xl font-rubik text-dark font-semibold;
+        @apply text-center text-3xl font-rubik text-dark font-semibold;
     }
 }
 </style>
