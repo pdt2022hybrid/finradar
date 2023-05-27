@@ -55,8 +55,8 @@
                 />
             </div>
         </div>
-        <ul class="homepageMainContent">
-            <li class="mainContentText">
+        <div class="grid grid-cols-1 lg:grid-cols-2 py-12">
+            <div class="mainContentText">
                 <h2 class="pb-6">Vitajte na stránke FinRadar!</h2>
                 <p class="px-8 lg:px-0">
                     Sme váš zdroj pre aktuálne finančné štatistiky a poznatky!
@@ -66,20 +66,20 @@
                     profesionál alebo len záujemca o finančný svet, FinRadar je
                     váš zdroj pre všetko súvisiace s finančnými štatistikami.
                 </p>
-            </li>
-            <li class="mainContentText">
-                <h2 class="p-6">Užívateľsky prívetivé rozhranie</h2>
+            </div>
+            <div class="mainContentText">
+                <h2 class="pb-6">Užívateľsky prívetivé rozhranie</h2>
                 <p class="px-8 lg:px-0">
                     FinRadar vám poskytuje všetko, čo potrebujete. Od
                     interaktívnych grafov až po nekonečné databázy informácií.
                     Vo FinRadare sa snažíme posilniť našich používateľov
                     vedomosťami a nástrojmi, ktoré potrebujú na úspech v
                     komplexnom svete financií. Pripojte sa k nám na tejto
-                    finančnej ceste s FinRadarom, najlepším
-                    zdrojom pre spoľahlivé finančné štatistiky a poznatky.
+                    finančnej ceste s FinRadarom, najlepším zdrojom pre
+                    spoľahlivé finančné štatistiky a poznatky.
                 </p>
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -142,12 +142,8 @@ export default {
         @apply lg:block font-rubik font-bold text-dark text-5xl mx-5;
     }
 
-    .homepageMainContent {
-        @apply flex items-center flex-col lg:flex-row lg:place-content-evenly h-fit py-16;
-    }
-
     .mainContentText {
-        @apply flex md:w-2/3 lg:w-1/3 leading-8 flex-col text-xl text-dark font-normal text-center lg:text-left mb-10;
+        @apply leading-8 text-xl text-dark font-normal text-center lg:text-left mb-10 px-24;
     }
 
     .mainContentText h2 {
