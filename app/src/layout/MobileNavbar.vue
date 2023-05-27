@@ -1,6 +1,6 @@
 <template>
     <nav class="bg-dark text-background mim-w-fit">
-        <div class="w-full fixed z-20">
+        <div class="w-full z-20">
             <div class="flex justify-between p-4 bg-dark items-center">
                 <router-link to="/home" class="md:w-80 w-40">
                     <img
@@ -9,29 +9,57 @@
                         class="md:w-2/3"
                     />
                 </router-link>
-                <button @click="collapsed = !collapsed">
+                <button @click="toggle">
                     <i class="bi bi-list text-2xl md:text-4xl"></i>
                 </button>
             </div>
         </div>
         <transition>
             <div
-                v-if="collapsed"
-                class="px-4 bg-dark flex flex-col items-start fixed w-full top-14 z-10"
+                v-if="!collapsed"
+                class="px-4 bg-dark flex flex-col items-start fixed-top w-full top-14 z-10"
             >
                 <ul class="font-bold">
-                    <li class="p-2.5 my-2">
+                    <li @click="toggle" class="p-2.5 my-2">
                         <i class="bi bi-card-list mr-1 text-lg"></i>
                         <router-link to="/database"> Databázy</router-link>
                     </li>
                     <!-- TODO: urobit selective loading podla usera -->
-                    <li class="p-2.5 mb-2">
+                    <li
+                        @click="toggle"
+                        v-if="store.LoggedIn"
+                        class="p-2.5 mb-2"
+                    >
+                        <i
+                            class="bi bi-bar-chart-line-fill text-navtext mr-1 text-lg"
+                        ></i>
+                        <router-link to="/dashboard">Dashboard</router-link>
+                    </li>
+                    <li
+                        @click="toggle"
+                        v-if="store.LoggedIn"
+                        class="p-2.5 mb-2"
+                    >
+                        <i
+                            class="bi bi-box-arrow-right text-navtext mr-1 text-lg"
+                        ></i>
+                        <router-link to="/dashboard">Odhlásiť sa</router-link>
+                    </li>
+                    <li
+                        @click="toggle"
+                        v-if="!store.LoggedIn"
+                        class="p-2.5 mb-2"
+                    >
                         <i
                             class="bi bi-person-add text-navtext mr-1 text-lg"
                         ></i>
                         <router-link to="/login">Prihlásiť sa</router-link>
                     </li>
-                    <li class="p-2.5 mb-2">
+                    <li
+                        @click="toggle"
+                        v-if="!store.LoggedIn"
+                        class="p-2.5 mb-2"
+                    >
                         <i class="bi bi-person text-navtext mr-1 text-lg"></i>
                         <router-link to="/register">Registrovať sa</router-link>
                     </li>
@@ -41,13 +69,35 @@
     </nav>
 </template>
 
+<script setup>
+import { useUserInfo } from "@/stores/userData";
+const store = useUserInfo();
+</script>
 <script>
+import { useUserInfo } from "@/stores/userData";
+import router from "@/router";
+
 export default {
     name: "MobileNavbar",
     data() {
         return {
-            collapsed: false,
+            collapsed: true,
         };
+    },
+    methods: {
+        toggle() {
+            this.collapsed = !this.collapsed;
+
+            if (!this.collapsed) {
+                window.scrollTo(0, 0);
+            }
+        },
+        logout() {
+            const store = useUserInfo();
+            store.$reset();
+            localStorage.clear();
+            router.push({ path: "home" });
+        },
     },
 };
 </script>

@@ -2,18 +2,26 @@
     <Loader v-if="!loaded" />
     <div v-else class="sm:py-5 flex flex-col items-center lg:py-10 py-20">
         <div class="w-4/5">
-          <span class="flex">
-            <h1
-                class="text-3xl mt-12 sm:mt-28 md:mt-2 lg:mt-2 mb-7 lg:text-start text-center"
-            >
-                {{ companyData?.name }}
-            </h1>
-             <i v-if="logged !== null"
-                @click="store.pinCompany(companyData.ico)"
-                class="hover:text-green bi bi-pin-angle-fill text-3xl ml-4 mt-1 pl-2 hover:cursor-pointer">
-             </i>
-             <!-- Sano pridaj sem logiku, a ked je company pinned == text green pls -->
-            </span>
+            <div class="flex">
+                <h1
+                    class="text-3xl mt-12 sm:mt-28 md:mt-2 lg:mt-2 mb-7 lg:text-start text-center"
+                >
+                    {{ companyData?.name }}
+                </h1>
+                <i
+                    v-if="logged === true"
+                    @click="togglePinCompany"
+                    @mouseover="hoverPin = true"
+                    @mouseleave="hoverPin = true"
+                    class="bi bi-pin-angle-fill text-3xl ml-4 mt-1 pl-2 hover:cursor-pointer"
+                    :class="{
+                        'text-green': companyData?.pinned,
+                        'hover:text-green': hoverPin,
+                    }"
+                >
+                </i>
+            </div>
+            <!-- Sano pridaj sem logiku, a ked je company pinned == text green pls -->
         </div>
         <div class="lg:w-4/5 w-full">
             <div
@@ -122,7 +130,7 @@ import ProfitsLineChart from "@/components/charts/ProfitsLineChart.vue";
 import AssetsPieChart from "@/components/charts/AssetsPieChart.vue";
 import LiabilitiesPieChart from "@/components/charts/LiabilitiesPieChart.vue";
 import Loader from "@/components/Loader.vue";
-import {useUserInfo} from "@/stores/userData";
+import { useUserInfo } from "@/stores/userData";
 
 export default {
     name: "CompanyPage",
@@ -134,38 +142,52 @@ export default {
         AssetsPieChart,
     },
     data() {
+        const store = useUserInfo();
         return {
             store: useUserInfo(),
             loaded: false,
             companyData: [],
-            logged: localStorage.getItem('Logged')
+            logged: store.LoggedIn,
+            hoverPin: false,
         };
     },
 
     watch: {
-        $route(to, from){
-            this.changeRouter()
-        }
+        $route(to, from) {
+            this.changeRouter();
+        },
     },
 
     methods: {
         async changeRouter() {
-            this.loaded = false
+            this.loaded = false;
             try {
                 let ico = this.$route.params.ico;
                 await axios.get("/companies/" + ico).then((response) => {
                     this.companyData = response.data.data;
-                    console.log(this.companyData)
+                    console.log(this.companyData);
                 });
             } catch (errors) {
                 console.log(errors);
             }
             this.loaded = true;
-        }
+        },
+        togglePinCompany() {
+            this.companyData.pinned = !this.companyData.pinned;
+
+            if (this.companyData.pinned) {
+                this.store.pinCompany(this.companyData.ico);
+            }
+
+            if (!this.companyData.pinned) {
+                this.hoverPin = false;
+                // this.store.unpinCompany(this.companyData.ico);
+            }
+        },
     },
-    mounted(){
-        this.changeRouter()
-    }
+    mounted() {
+        this.changeRouter();
+    },
 };
 </script>
 

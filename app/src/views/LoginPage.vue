@@ -1,7 +1,7 @@
 <template>
-    <div class="items-center flex flex-col lg:mb-20">
+    <div class="items-center flex flex-col mb-10 mt-14">
         <div class="lg:w-1/2 flex-col flex items-center w-full">
-            <h1 class="lg:mt-16 text-4xl font-bold lg:w-3/4 mt-32 text-center">
+            <h1 class="lg:mt-16 text-4xl font-bold lg:w-3/4 text-center">
                 Prihlásenie
             </h1>
             <h2
@@ -22,7 +22,7 @@
                         type="email"
                         name="email"
                         class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
-                        placeholder="name@example.com"
+                        placeholder="Váš e-mail"
                         v-model="email"
                     />
                 </label>
@@ -41,7 +41,7 @@
                     />
                 </label>
                 <button
-                    class="bg-blue rounded mt-6 mb-2 w-full text-dark font-bold h-9"
+                    class="bg-green rounded mt-6 mb-2 w-full text-dark font-bold h-9"
                     @click="checkForm"
                 >
                     Potvrdiť
@@ -55,20 +55,20 @@
 import { useUserInfo } from "@/stores/userData";
 import router from "@/router";
 
-const store = useUserInfo()
+const store = useUserInfo();
 export default {
     name: "LoginPage",
     data() {
         return {
             email: null,
-            password: null
-        }
+            password: null,
+        };
     },
     methods: {
         checkForm() {
-            store.login(this.password, this.email)
-            router.push({path: 'dashboard'})
+            store.login(this.password, this.email);
+            router.push({ path: "dashboard" });
         },
-    }
+    },
 };
 </script>

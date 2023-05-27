@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-20">
+    <div class="mb-20 mt-14">
         <div class="flex-col lg:mt-16 flex items-center font-rubik w-full">
             <div class="w-4/5">
                 <h1 class="text-4xl mb-10 font-extrabold">Databázy</h1>
@@ -13,7 +13,7 @@
                         @click="show_filters = !show_filters"
                     >
                         <i class="bi bi-chevron-down m-2"></i>
-                        Show filters
+                        Zobraziť filtre
                     </div>
                     <div
                         v-else
@@ -21,7 +21,7 @@
                         @click="show_filters = !show_filters"
                     >
                         <i class="bi bi-chevron-up mx-2"></i>
-                        Hide filters
+                        Skovať filtre
                     </div>
                     <transition>
                         <div
@@ -72,7 +72,7 @@
                                     class="w-3/5 bg-green p-1.5 rounded text-white hover:border-2 hover:font-semibold active: font-varela lg:h-1/3"
                                     @click="search"
                                 >
-                                    Hľadaj
+                                    Hľadať
                                 </button>
                             </div>
                         </div>
@@ -129,10 +129,14 @@ export default {
                 this.page = this.companies?.meta?.last_page;
             }
             this.companies = null;
-            if (this.profit.min !== this.profit.min || this.revenue.max !== this.revenue.max
-                || this.profit.max !== this.profit.max || this.revenue.min !== this.revenue.min
-                || this.name !== this.name) {
-                this.page = 1
+            if (
+                this.profit.min !== this.profit.min ||
+                this.revenue.max !== this.revenue.max ||
+                this.profit.max !== this.profit.max ||
+                this.revenue.min !== this.revenue.min ||
+                this.name !== this.name
+            ) {
+                this.page = 1;
             }
             try {
                 await axios({
@@ -149,7 +153,7 @@ export default {
                     },
                 }).then((response) => {
                     this.companies = response.data;
-                    this.last_page = response.data.meta.last_page
+                    this.last_page = response.data.meta.last_page;
                     console.log(this.companies);
                 });
             } catch (errors) {

@@ -107,6 +107,7 @@ class CompanyResource extends JsonResource
                 ),
             ],
             'statements' => $this->when($this->relationLoaded('statements'), StatementResource::collection($this->statements)),
+            'pinned' => optional(auth()->user()->dashboard)->companies->contains($this->id),
         ];
     }
 }

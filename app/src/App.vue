@@ -1,7 +1,7 @@
 <template>
     <NavbarPC v-if="screenWidth > 1024" />
     <MobileNavbar v-else />
-    <div class="min-h-screen">
+    <div>
         <router-view />
     </div>
     <Footer />

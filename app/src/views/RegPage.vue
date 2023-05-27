@@ -1,7 +1,7 @@
 <template>
-    <div class="items-center flex flex-col lg:mb-20">
+    <div class="items-center flex flex-col lg:mb-20 mb-16">
         <div class="lg:w-1/2 flex-col flex items-center w-full">
-            <h1 class="lg:mt-16 text-4xl font-bold lg:w-3/4 mt-32 text-center">
+            <h1 class="lg:mt-16 text-4xl font-bold lg:w-3/4 text-center">
                 Registrácia
             </h1>
             <h2
@@ -11,7 +11,10 @@
             </h2>
         </div>
         <div class="flex justify-center lg:w-1/2">
-            <form class="bg-light p-6 px-16 lg:w-3/4 rounded-md" onsubmit="return false">
+            <form
+                class="bg-light p-6 px-16 lg:w-3/4 rounded-md"
+                onsubmit="return false"
+            >
                 <label class="block">
                     <span
                         class="after:ml-0.5 after:text-red-500 block text-sm text-left font-medium text-slate-700 mb-2"
@@ -36,7 +39,7 @@
                         type="email"
                         name="email"
                         class="mt-1 px-3 py-2 bg-background shadow-sm border-slate-300 placeholder-slate-400 block w-full rounded-md sm:text-sm inputFocus focus:placeholder:text-background"
-                        placeholder="meno@example.com"
+                        placeholder="Váš e-mail"
                         v-model="email"
                     />
                 </label>
@@ -84,7 +87,7 @@ import axios from "axios";
 import { useUserInfo } from "@/stores/userData";
 import router from "@/router";
 
-const store = useUserInfo()
+const store = useUserInfo();
 export default {
     name: "RegPage",
     data() {
@@ -99,58 +102,65 @@ export default {
             valid_pass: {
                 under20: true,
                 over8: true,
-            }
-        }
+            },
+        };
     },
     methods: {
         checkForm() {
             if (this.email === null || this.email === "") {
-                this.numOfMissingData++
+                this.numOfMissingData++;
             }
             if (this.fullName === null || this.fullName === "") {
-                this.numOfMissingData++
+                this.numOfMissingData++;
             }
             if (this.password === null || this.password === "") {
-                this.numOfMissingData++
+                this.numOfMissingData++;
             }
-            if (this.password_confirm === null || this.password_confirm === "") {
-                this.numOfMissingData++
+            if (
+                this.password_confirm === null ||
+                this.password_confirm === ""
+            ) {
+                this.numOfMissingData++;
             }
             if (this.numOfMissingData > 0) {
-                return false
+                return false;
             }
-            this.numOfMissingData = 0
+            this.numOfMissingData = 0;
             if (this.password.length < 8) {
-                this.valid_pass.over8 = false
-                this.errorCheck()
-                return false
+                this.valid_pass.over8 = false;
+                this.errorCheck();
+                return false;
             } else if (this.password.length > 20) {
-                this.valid_pass.under20 = false
-                this.errorCheck()
-                return false
+                this.valid_pass.under20 = false;
+                this.errorCheck();
+                return false;
             }
-            this.splitName()
-            store.register(this.name, this.surname, this.email, this.password, this.password_confirm)
-            router.push({path: 'dashboard'})
-            return false
+            this.splitName();
+            store.register(
+                this.name,
+                this.surname,
+                this.email,
+                this.password,
+                this.password_confirm
+            );
+            router.push({ path: "dashboard" });
+            return false;
         },
         splitName() {
-            console.log(this.fullName)
-            const names = this.fullName.split(" ")
-            this.name = names[0]
-            this.surname = names[names.length - 1]
+            console.log(this.fullName);
+            const names = this.fullName.split(" ");
+            this.name = names[0];
+            this.surname = names[names.length - 1];
             if (this.name === this.surname) {
-                this.surname = "NevieSvojePriezvisko"
+                this.surname = "NevieSvojePriezvisko";
             }
         },
-        errorCheck() {
-
-        }
+        errorCheck() {},
     },
     computed: {
         missing() {
             return Array.from({ length: this.numOfMissingData });
         },
     },
-}
+};
 </script>
