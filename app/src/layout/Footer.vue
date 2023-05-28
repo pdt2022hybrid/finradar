@@ -6,9 +6,9 @@
             </router-link>
 
             <!-- Sano potom frontend -->
-            <p class="hover:cursor-pointer active:text-green">Developeri</p>
+            <p class="hover:cursor-pointer active:text-green disabled opacity-60">Developeri</p>
 
-            <p class="hover:cursor-pointer active:text-green">Kontakt</p>
+            <p class="hover:cursor-pointer active:text-green disabled opacity-60">Kontakt</p>
         </div>
     </div>
 </template>

@@ -152,7 +152,7 @@ export default {
             this.name = names[0];
             this.surname = names[names.length - 1];
             if (this.name === this.surname) {
-                this.surname = "NevieSvojePriezvisko";
+                this.surname = "";
             }
         },
         errorCheck() {},

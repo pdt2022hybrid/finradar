@@ -13,8 +13,8 @@
             <p class="indent-3">Dashboard</p>
         </router-link>
         <router-link to="/" class="pt-2 pb-2 flex">
-            <i class="bi bi-gear-fill text-green"></i>
-            <p class="indent-3">Nastavenia</p>
+            <i class="bi bi-gear-fill text-green disabled opacity-60"></i>
+            <p class="indent-3 opacity-60 disabled">Nastavenia</p>
         </router-link>
         <div class="pt-2 pb-2 flex cursor-pointer" @click="logout">
             <i class="bi bi-box-arrow-right text-green"></i>

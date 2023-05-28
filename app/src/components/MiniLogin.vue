@@ -9,14 +9,14 @@
                 type="email"
                 name="email"
                 class="w-52 inputs mt-4 mb-2 rounded focus:outline-none focus:ring-2 focus:ring-green focus:shadow-2xl text-dark"
-                placeholder="name@example.com"
+                placeholder="meno@vášmail.com"
                 v-model="email"
             />
             <input
                 type="password"
                 name="passw"
                 class="w-52 inputs rounded focus:outline-none focus:ring-2 focus:ring-green focus:shadow-2xl text-dark"
-                placeholder="Vaše heslo"
+                placeholder="vaše heslo"
                 v-model="password"
             />
 <!--            <div class="w-full pl-7 flex items-center justify-start">-->
@@ -35,7 +35,7 @@
                 <router-link to="/register" class="w-18 hover:font-semibold"
                     >Registrovať sa
                 </router-link>
-                <router-link to="/" class="w-30 hover:font-semibold">
+                <router-link to="/" class="w-30 hover:font-semibold disabled opacity-60">
                     Zabudli ste heslo?
                 </router-link>
             </div>
