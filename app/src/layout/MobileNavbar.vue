@@ -1,6 +1,6 @@
 <template>
-    <nav class="bg-dark text-background mim-w-fit">
-        <div class="w-full z-20">
+    <nav class="bg-dark text-background mim-w-fit ">
+        <div class="w-full z-20 fixed">
             <div class="flex justify-between p-4 bg-dark items-center">
                 <router-link to="/home" class="md:w-80 w-40">
                     <img
@@ -14,7 +14,7 @@
                 </button>
             </div>
         </div>
-        <transition>
+        <transition class="mt-16">
             <div
                 v-if="!collapsed"
                 class="px-4 bg-dark flex flex-col items-start fixed-top w-full top-14 z-10"
@@ -69,10 +69,6 @@
     </nav>
 </template>
 
-<script setup>
-import { useUserInfo } from "@/stores/userData";
-const store = useUserInfo();
-</script>
 <script>
 import { useUserInfo } from "@/stores/userData";
 import router from "@/router";
@@ -82,6 +78,7 @@ export default {
     data() {
         return {
             collapsed: true,
+            store: useUserInfo()
         };
     },
     methods: {

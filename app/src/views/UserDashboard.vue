@@ -45,8 +45,8 @@ export default {
         };
     },
     mounted() {
-        if (useUserInfo().getUserToken !== "") {
-            this.$router.go(-1);
+        if (this.store.UserToken !== "") {
+            $router.go(-1);
         }
         this.store.getPinnedCompanies(this.token);
         this.loaded = true;

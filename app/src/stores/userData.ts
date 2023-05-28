@@ -26,7 +26,7 @@ export const useUserInfo = defineStore("UserInfo", {
     actions: {
         async login(pass: string, mail: string) {
             try {
-                axios({
+                await axios({
                     url: "/auth/login",
                     method: "post",
                     data: {
@@ -52,7 +52,7 @@ export const useUserInfo = defineStore("UserInfo", {
                 console.log(errors);
             }
         },
-        register(
+        async register(
             name: string,
             surname: string,
             email: string,
@@ -60,7 +60,7 @@ export const useUserInfo = defineStore("UserInfo", {
             password_confirm: string
         ) {
             try {
-                axios({
+                await axios({
                     method: "post",
                     url: "/auth/signup",
                     data: {
@@ -91,7 +91,7 @@ export const useUserInfo = defineStore("UserInfo", {
         },
         async getPinnedCompanies(token: string) {
             try {
-                axios({
+                await axios({
                     method: "get",
                     url: "/dashboards",
                     headers: {
@@ -110,7 +110,7 @@ export const useUserInfo = defineStore("UserInfo", {
         },
         async pinCompany(ico: number) {
             try {
-                axios({
+                await axios({
                     url: "/dashboards/addCompany",
                     method: "patch",
                     headers: {
@@ -127,5 +127,24 @@ export const useUserInfo = defineStore("UserInfo", {
                 console.log(errors);
             }
         },
+        async unpinCompany(ico: number) {
+            try {
+                await axios({
+                    url: "/dashboards/removeCompany",
+                    method: "patch",
+                    headers: {
+                        Authorization:
+                            "Bearer" + localStorage.getItem("UserToken"),
+                    },
+                    params: {
+                        company_ico: ico,
+                    },
+                }).then((response) => {
+                    console.log(response);
+                });
+            } catch (errors) {
+                console.log(errors);
+            }
+        }
     },
 });

@@ -1,6 +1,6 @@
 <template>
     <div
-        class="bg-dark flex w-1/6 absolute right-32 border-2 rounded-xl p-5 mt-2 flex-col indent-2 text-background z-50"
+        class="bg-dark flex w-1/6 absolute right-32 border-2 rounded-xl p-5 mt-2 flex-col indent-2 text-background z-50 top-16"
     >
         <header class="font-rubik font-medium text-lg">
             {{ name + " " + surname }}

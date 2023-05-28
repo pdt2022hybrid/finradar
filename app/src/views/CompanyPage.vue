@@ -9,19 +9,16 @@
                     {{ companyData?.name }}
                 </h1>
                 <i
-                    v-if="loggedIn === true"
+                    v-if="!logged === true"
                     @click="togglePinCompany"
-                    @mouseover="hoverPin = true"
-                    @mouseleave="hoverPin = true"
-                    class="bi bi-pin-angle-fill text-3xl ml-4 mt-1 pl-2 hover:cursor-pointer"
+                    class="bi bi-pin-angle-fill text-3xl ml-4 mt-1 pl-2 hover:cursor-pointer hover:text-green"
                     :class="{
-                        'text-green': companyData?.pinned,
-                        'hover:text-green': hoverPin,
+                        'text-green': companyData.pinned,
+                        // 'hover:text-green': hoverPin,
                     }"
                 >
                 </i>
             </div>
-            <!-- Sano pridaj sem logiku, a ked je company pinned == text green pls -->
         </div>
         <div class="lg:w-4/5 w-full">
             <div
@@ -131,7 +128,6 @@ import AssetsPieChart from "@/components/charts/AssetsPieChart.vue";
 import LiabilitiesPieChart from "@/components/charts/LiabilitiesPieChart.vue";
 import Loader from "@/components/Loader.vue";
 import { useUserInfo } from "@/stores/userData";
-import { computed } from "vue";
 
 export default {
     name: "CompanyPage",
@@ -143,17 +139,15 @@ export default {
         AssetsPieChart,
     },
     data() {
+        const store = useUserInfo();
         return {
+            store: useUserInfo(),
             loaded: false,
             companyData: [],
-            hoverPin: false,
+            logged: store.LoggedIn,
         };
     },
-    computed: {
-        loggedIn() {
-            return useUserInfo().getLoggedIn;
-        },
-    },
+
     watch: {
         $route(to, from) {
             this.changeRouter();
@@ -165,33 +159,28 @@ export default {
             this.loaded = false;
             try {
                 let ico = this.$route.params.ico;
-                await axios
-                    .get("/companies/" + ico, {
-                        headers: {
-                            Authorization:
-                                "Bearer" + useUserInfo().getUserToken,
-                        },
-                    })
-                    .then((response) => {
-                        this.companyData = response.data.data;
-                        console.log(this.companyData);
-                    });
+                await axios.get("/companies/" + ico).then((response) => {
+                    this.companyData = response.data.data;
+                    console.log(this.companyData);
+                });
             } catch (errors) {
                 console.log(errors);
             }
             this.loaded = true;
         },
         togglePinCompany() {
-            this.companyData.pinned = !this.companyData.pinned;
 
             if (this.companyData.pinned) {
-                useUserInfo().pinCompany(this.companyData.ico);
+                this.store.pinCompany(this.companyData.ico);
+                this.companyData.pinned = true
             }
 
             if (!this.companyData.pinned) {
-                this.hoverPin = false;
-                // useUserInfo().unpinCompany(this.companyData.ico);
+                this.store.unpinCompany(this.companyData.ico);
+                this.companyData.pinned = false
             }
+
+
         },
     },
     mounted() {
