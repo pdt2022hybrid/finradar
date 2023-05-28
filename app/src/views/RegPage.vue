@@ -1,7 +1,7 @@
 <template>
     <div class="items-center flex flex-col lg:mb-20 mb-16">
         <div class="lg:w-1/2 flex-col flex items-center w-full">
-            <h1 class="lg:mt-16 text-4xl font-bold lg:w-3/4 text-center">
+            <h1 class="mt-16 text-4xl font-bold lg:w-3/4 text-center">
                 Registrácia
             </h1>
             <h2

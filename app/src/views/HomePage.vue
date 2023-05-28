@@ -2,9 +2,9 @@
     <div class="wrapper">
         <div class="homepageHeader bg-gradient-to-r from-background to-light">
             <h1 class="header-text">Vyhľadávanie v Databáze Firiem</h1>
-            <div class="max-w-md mx-auto mt-12 mb-24">
+            <div class="max-w-md lg:mx-auto mt-12 mb-24">
                 <div
-                    class="relative flex items-center w-full h-12 rounded-lg shadow-dark shadow-sm bg-white overflow-hidden inputFocusWithin"
+                    class="relative flex items-center lg:w-full h-12 rounded-lg shadow-dark shadow-sm bg-white overflow-hidden inputFocusWithin lg:mx-0 mx-5"
                 >
                     <div
                         class="grid place-items-center h-full w-12 text-gray-300"
@@ -86,9 +86,9 @@
         <div class="w-1/2 mt-6 font-rubik">
             <ul style="list-style:outside">
               <div class="flex flex-col lg:w-10/12">
-                <li class="lg:ml-64 w-64">Vyhľadávať v databáze firiem</li>
-                <li class="lg:ml-64 w-64">Zobrazovať detailné štatistiky a údaje firiem</li>
-                <li class="lg:ml-64 w-64">
+                <li class="lg:ml-64 lg:ml-10 lg:w-80 w-64">Vyhľadávať v databáze firiem</li>
+                <li class="lg:ml-64 lg:ml-10 lg:w-80 w-64">Zobrazovať detailné štatistiky a údaje firiem</li>
+                <li class="lg:ml-64 lg:ml-10 lg:w-80 w-64">
                     Registrovaný používatelia majú taktiež možnosť "pinnúť" si
                     firmu do vlastného listu na vlastnom dashboarde
                 </li>
