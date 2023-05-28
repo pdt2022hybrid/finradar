@@ -83,14 +83,16 @@
     </div>
     <div class="mainContentText flex flex-col justify-center items-center">
         <h2>Čo sa dá na našej stránke robiť?</h2>
-        <div class="w-1/2 mt-6">
-            <ul style="list-style: outside">
-                <li>Vyhľadávať v databáze firiem</li>
-                <li>Zobrazovať detailné štatistiky a údaje firiem</li>
-                <li>
+        <div class="w-1/2 mt-6 font-rubik">
+            <ul style="list-style:outside">
+              <div class="flex flex-col lg:w-10/12">
+                <li class="lg:ml-64 w-64">Vyhľadávať v databáze firiem</li>
+                <li class="lg:ml-64 w-64">Zobrazovať detailné štatistiky a údaje firiem</li>
+                <li class="lg:ml-64 w-64">
                     Registrovaný používatelia majú taktiež možnosť "pinnúť" si
                     firmu do vlastného listu na vlastnom dashboarde
                 </li>
+              </div>
             </ul>
         </div>
     </div>
@@ -156,7 +158,7 @@ export default {
     }
 
     .mainContentText {
-        @apply leading-8 text-xl text-dark font-normal lg:text-left mb-10 px-24;
+        @apply leading-8 text-xl text-dark font-normal lg:text-left mb-10 lg:px-24;
     }
 
     .mainContentText h2 {
