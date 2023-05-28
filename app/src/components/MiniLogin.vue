@@ -9,14 +9,14 @@
                 type="email"
                 name="email"
                 class="w-52 inputs mt-4 mb-2 rounded focus:outline-none focus:ring-2 focus:ring-green focus:shadow-2xl text-dark"
-                placeholder="meno@vášmail.com"
+                placeholder="Váš e-mail"
                 v-model="email"
             />
             <input
                 type="password"
                 name="passw"
                 class="w-52 inputs rounded focus:outline-none focus:ring-2 focus:ring-green focus:shadow-2xl text-dark"
-                placeholder="vaše heslo"
+                placeholder="Vaše heslo"
                 v-model="password"
             />
 <!--            <div class="w-full pl-7 flex items-center justify-start">-->
