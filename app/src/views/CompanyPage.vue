@@ -9,7 +9,7 @@
                     {{ companyData?.name }}
                 </h1>
                 <i
-                    v-if="logged === true"
+                    v-if="loggedIn === true"
                     @click="togglePinCompany"
                     @mouseover="hoverPin = true"
                     @mouseleave="hoverPin = true"
@@ -131,6 +131,7 @@ import AssetsPieChart from "@/components/charts/AssetsPieChart.vue";
 import LiabilitiesPieChart from "@/components/charts/LiabilitiesPieChart.vue";
 import Loader from "@/components/Loader.vue";
 import { useUserInfo } from "@/stores/userData";
+import { computed } from "vue";
 
 export default {
     name: "CompanyPage",
@@ -142,16 +143,17 @@ export default {
         AssetsPieChart,
     },
     data() {
-        const store = useUserInfo();
         return {
-            store: useUserInfo(),
             loaded: false,
             companyData: [],
-            logged: store.LoggedIn,
             hoverPin: false,
         };
     },
-
+    computed: {
+        loggedIn() {
+            return useUserInfo().getLoggedIn;
+        },
+    },
     watch: {
         $route(to, from) {
             this.changeRouter();
@@ -163,10 +165,17 @@ export default {
             this.loaded = false;
             try {
                 let ico = this.$route.params.ico;
-                await axios.get("/companies/" + ico).then((response) => {
-                    this.companyData = response.data.data;
-                    console.log(this.companyData);
-                });
+                await axios
+                    .get("/companies/" + ico, {
+                        headers: {
+                            Authorization:
+                                "Bearer" + useUserInfo().getUserToken,
+                        },
+                    })
+                    .then((response) => {
+                        this.companyData = response.data.data;
+                        console.log(this.companyData);
+                    });
             } catch (errors) {
                 console.log(errors);
             }
@@ -176,12 +185,12 @@ export default {
             this.companyData.pinned = !this.companyData.pinned;
 
             if (this.companyData.pinned) {
-                this.store.pinCompany(this.companyData.ico);
+                useUserInfo().pinCompany(this.companyData.ico);
             }
 
             if (!this.companyData.pinned) {
                 this.hoverPin = false;
-                // this.store.unpinCompany(this.companyData.ico);
+                // useUserInfo().unpinCompany(this.companyData.ico);
             }
         },
     },

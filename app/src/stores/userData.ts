@@ -15,6 +15,14 @@ export const useUserInfo = defineStore("UserInfo", {
             companies: { data: [] },
         };
     },
+    getters: {
+        getLoggedIn(): boolean {
+            return this.LoggedIn || localStorage.getItem("Logged") !== null;
+        },
+        getUserToken(): any {
+            return this.UserToken || localStorage.getItem("UserToken");
+        },
+    },
     actions: {
         async login(pass: string, mail: string) {
             try {
