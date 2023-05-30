@@ -49,8 +49,9 @@ export default {
         if (this.store.UserToken === "" && localStorage.getItem("UserToken") === null) {
             await router.push({path: '/home'})
         }
-        await this.store.getPinnedCompanies(this.token);
+        await this.store.getPinnedCompanies(this.token)
         this.loaded = true;
+        await this.store.refreshToken(this.token)
     },
 };
 </script>

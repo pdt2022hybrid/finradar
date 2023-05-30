@@ -12,7 +12,7 @@ export const useUserInfo = defineStore("UserInfo", {
                 email: "",
             },
             LoggedIn: false,
-            companies: { data: [] },
+            companies: { data: null },
         };
     },
     getters: {

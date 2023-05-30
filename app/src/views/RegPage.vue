@@ -97,10 +97,6 @@ export default {
             surname: null,
             password: null,
             password_confirm: null,
-            valid_pass: {
-                under20: true,
-                over8: true,
-            },
         };
     },
     methods: {
@@ -125,12 +121,10 @@ export default {
                 return false
             }
             if (this.password.length < 8) {
-                this.valid_pass.over8 = false;
-                this.errorCheck();
+                alert("Password too short")
                 return false;
             } else if (this.password.length > 20) {
-                this.valid_pass.under20 = false;
-                this.errorCheck();
+                alert("Max length exceeded")
                 return false;
             }
             this.splitName();
@@ -141,7 +135,7 @@ export default {
                 this.password,
                 this.password_confirm
             );
-            router.push({ path: "dashboard" })
+            router.push({ path: "/dashboard" })
             return false;
         },
         splitName() {
@@ -152,13 +146,7 @@ export default {
             if (this.name === this.surname) {
                 this.surname = "";
             }
-        },
-        errorCheck() {},
-    },
-    computed: {
-        missing() {
-            return Array.from({ length: this.numOfMissingData });
-        },
-    },
+        }
+    }
 };
 </script>

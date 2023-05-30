@@ -13,7 +13,7 @@
                 </th>
             </tr>
         </thead>
-        <tbody v-if="companies === null">
+        <tbody v-if="companies === null || companies.data === null">
             <tr v-for="item in loading" class="animate-pulse">
                 <td class="border-l border-b border-light tab tab w-4/6">
                     <div class="p-2.5 m-1 bg-background rounded"></div>
@@ -34,7 +34,7 @@
                     <router-link
                         :to="{
                             name: 'company',
-                            params: { ico: item.ico },
+                            params: { ico: item.ico }
                         }"
                         v-slot="{ redirect }"
                     >

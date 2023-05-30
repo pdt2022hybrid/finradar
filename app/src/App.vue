@@ -1,7 +1,7 @@
 <template>
     <NavbarPC v-if="screenWidth > 1024"
-        @stopLoad="loading = false"
         @startLoad="loading = true"
+        @stopLoad="loading = false"
     />
     <MobileNavbar v-else />
     <div>
@@ -15,7 +15,6 @@
 import Footer from "@/layout/Footer.vue";
 import NavbarPC from "@/layout/Navbar.vue";
 import MobileNavbar from "@/layout/MobileNavbar.vue";
-import { useUserInfo } from "@/stores/userData";
 import Loader from "@/components/Loader.vue";
 
 export default {
@@ -29,17 +28,11 @@ export default {
         return {
             loading: false,
             screenWidth: 0,
-            store: useUserInfo(),
-            token: localStorage.getItem("UserToken")
         };
     },
     mounted() {
         this.updateScreenWidth();
         this.onScreenResize();
-        if(this.store.LoggedIn === true || localStorage.getItem("Logged") === "true") {
-        this.store.refreshToken(this.token)
-        }
-
     },
     methods: {
         onScreenResize() {
