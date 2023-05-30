@@ -4,7 +4,7 @@
         @stopLoad="loading = false"
     />
     <MobileNavbar v-else />
-    <div>
+    <div class="bg-background">
         <Loader v-if="loading" />
         <router-view />
     </div>
