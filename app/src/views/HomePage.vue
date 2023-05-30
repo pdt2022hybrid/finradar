@@ -81,6 +81,7 @@
             </div>
         </div>
     </div>
+    <!--
     <div class="mainContentText flex flex-col justify-center items-center mb-20">
         <h2>Čo sa dá na našej stránke robiť?</h2>
         <div class="w-1/2 mt-6 font-rubik">
@@ -94,6 +95,36 @@
             </ul>
         </div>
     </div>
+    -->
+    <div class="mainContentText">
+        <h2 class="mb-10">Čo sa dá na našej stránke robiť?</h2>
+
+        <div class="grid lg:grid-cols-3 flex">
+
+            <div class="card">
+                <img src="../assets/images/Card1.svg" alt="" class="w-20 mb-2">
+                <h3 class="font-bold text-2xl mb-3">Vyhľadávanie</h3>
+                <p class="text-lg text-center">Vyhľadávajte v našej databáze firiem</p>
+            </div>
+
+            <div class="card">
+                <img src="../assets/images/Card2.svg" alt="" class="w-20 mb-2">
+                <h3 class="font-bold text-2xl mb-3">Štatistiky</h3>
+                <p class="text-lg text-center">Prehľadávajte detailné štatistiky a údaje firiem</p>
+            </div>
+
+            <div class="card">
+                <img src="../assets/images/Card3.svg" alt="" class="w-20 mb-2">
+                <h3 class="font-bold text-2xl mb-3">Dashboard</h3>
+                <p class="text-lg text-center">Registrujte sa a pripnite si
+                    firmu do vlastného listu na vlastnom dashboarde</p>
+            </div>
+        
+        </div>
+
+    </div>
+
+
 </template>
 
 <script>
@@ -161,6 +192,10 @@ export default {
 
     .mainContentText h2 {
         @apply text-center text-3xl font-rubik text-dark font-semibold;
+    }
+
+    .card{
+        @apply bg-gray flex flex-col items-center rounded-lg mx-10 lg:mb-0 mb-10 p-4
     }
 }
 </style>
