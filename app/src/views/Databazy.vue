@@ -6,7 +6,7 @@
                 <h3 class="text-xl font-bold mb-4">Filtrovanie v databáze</h3>
             </div>
             <div class="flex flex-col items-center w-4/5">
-                <div class="flex-col flex w-full">
+                <form onsubmit="return false" class="flex-col flex w-full">
                     <div
                         v-if="!show_filters"
                         class="lg:hidden bg-gray p-0.5 rounded-lg"
@@ -77,7 +77,7 @@
                             </div>
                         </div>
                     </transition>
-                </div>
+                </form>
                 <Table
                     :per_page="per_page"
                     :page="page"
