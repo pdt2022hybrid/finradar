@@ -102,29 +102,29 @@ export default {
     methods: {
         checkForm() {
             if (this.email === null || this.email === "") {
-                alert("E-mail missing")
+                alert("Prosím, zadajte e=mail")
                 return false
             }
             if (this.fullName === null || this.fullName === "") {
-                alert("Full name missing")
+                alert("Prosím, zadajte meno a priezvisko")
                 return false
             }
             if (this.password === null || this.password === "") {
-                alert("Password missing")
+                alert("Prosím, zadajte heslo")
                 return false
             }
             if (
                 this.password_confirm === null ||
                 this.password_confirm === ""
             ) {
-                alert("Please confirm your password")
+                alert("Prosím potvrďte svoje heslo")
                 return false
             }
             if (this.password.length < 8) {
-                alert("Password too short")
+                alert("Vaše heslo je krátke")
                 return false;
             } else if (this.password.length > 20) {
-                alert("Max length exceeded")
+                alert("Vaše heslo je dlhé")
                 return false;
             }
             this.splitName();
