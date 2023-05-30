@@ -196,7 +196,7 @@ export default {
     }
 
     .legend-label {
-        @apply whitespace-nowrap overflow-scroll;
+        @apply whitespace-nowrap overflow-hidden overflow-ellipsis;
     }
 
     .legend-value {
