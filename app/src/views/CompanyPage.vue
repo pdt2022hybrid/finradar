@@ -4,14 +4,14 @@
         <div class="w-4/5">
             <div class="flex">
                 <h1
-                    class="text-3xl mt-12 sm:mt-28 md:mt-2 lg:mt-2 mb-7 lg:text-start text-center"
+                    class="text-3xl mt-12 sm:mt-28 md:mt-26 lg:mt-2 mb-7 lg:text-start text-center"
                 >
                     {{ companyData?.name }}
                 </h1>
                 <i
                     v-if="logged === true"
                     @click="togglePinCompany"
-                    class="bi bi-pin-angle-fill text-3xl ml-4 lg:mt-1 mt-11 pl-2 hover:cursor-pointer hover:text-green"
+                    class="bi bi-pin-angle-fill text-3xl ml-4 lg:mt-1 mt-11 md:mt-28 pl-2 hover:cursor-pointer hover:text-green"
                     :class="{
                         textGreen: companyData.pinned
                     }"
