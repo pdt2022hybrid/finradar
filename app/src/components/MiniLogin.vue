@@ -24,7 +24,7 @@
 <!--                <p class="ml-2 font-varela">Zapamätať si ma</p>-->
 <!--            </div>-->
             <button
-                class="bg-green p-1 w-52 py-1 text-dark rounded-xl border-dark border-opacity-75 font-medium font-varela hover:text-white active:ring-2 active:ring-background focus:shadow-2xl"
+                class="bg-green p-1 w-52 py-1 text-white rounded border-dark border-opacity-75 font-medium font-varela hover:text-white active:ring-2 active:ring-background focus:shadow-2xl"
                 @click="checkForm"
             >
                 Prihlásiť sa
