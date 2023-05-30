@@ -24,7 +24,7 @@
 <!--                <p class="ml-2 font-varela">Zapamätať si ma</p>-->
 <!--            </div>-->
             <button
-                class="bg-green p-1 w-52 py-1 text-dark rounded-xl border-dark border-opacity-75 font-medium font-varela hover:text-white active:ring-2 active:ring-background focus:shadow-2xl"
+                class="bg-green p-1 w-52 py-1 text-white rounded border-dark border-opacity-75 font-medium font-varela hover:text-white active:ring-2 active:ring-background focus:shadow-2xl"
                 @click="checkForm"
             >
                 Prihlásiť sa
@@ -35,9 +35,9 @@
                 <router-link to="/register" class="w-18 hover:font-semibold"
                     >Registrovať sa
                 </router-link>
-                <router-link to="/" class="w-30 hover:font-semibold disabled opacity-60">
+                <p to="/" class="w-30 hover:font-semibold disabled opacity-60">
                     Zabudli ste heslo?
-                </router-link>
+                </p>
             </div>
         </form>
     </div>
