@@ -159,28 +159,31 @@ export default {
             this.loaded = false;
             try {
                 let ico = this.$route.params.ico;
-                await axios.get("/companies/" + ico).then((response) => {
-                    this.companyData = response.data.data;
-                    console.log(this.companyData);
-                });
+                await axios
+                    .get("/companies/" + ico, {
+                        headers: {
+                            Authorization: "Bearer" + this.store.getUserToken,
+                        },
+                    })
+                    .then((response) => {
+                        this.companyData = response.data.data;
+                        console.log(this.companyData);
+                    });
             } catch (errors) {
                 console.log(errors);
             }
             this.loaded = true;
         },
         togglePinCompany() {
-
             if (this.companyData.pinned) {
                 this.store.pinCompany(this.companyData.ico);
-                this.companyData.pinned = true
+                this.companyData.pinned = true;
             }
 
             if (!this.companyData.pinned) {
                 this.store.unpinCompany(this.companyData.ico);
-                this.companyData.pinned = false
+                this.companyData.pinned = false;
             }
-
-
         },
     },
     mounted() {
