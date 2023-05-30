@@ -35,7 +35,7 @@
                 <router-link to="/register" class="w-18 hover:font-semibold"
                     >Registrovať sa
                 </router-link>
-                <p to="/" class="w-30 hover:font-semibold disabled opacity-60">
+                <p class="w-30 hover:font-semibold disabled opacity-60">
                     Zabudli ste heslo?
                 </p>
             </div>
