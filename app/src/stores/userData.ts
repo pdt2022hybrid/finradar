@@ -154,7 +154,7 @@ export const useUserInfo = defineStore("UserInfo", {
             try {
                 await axios({
                     method: "post",
-                    url: "/refresh",
+                    url: "/auth/refresh",
                     headers: {
                         Authorization: "Bearer" + token,
                     },
