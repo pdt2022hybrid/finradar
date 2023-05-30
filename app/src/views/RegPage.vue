@@ -136,7 +136,6 @@ export default {
                 this.password_confirm
             );
             router.push({ path: "/dashboard" })
-            return false;
         },
         splitName() {
             console.log(this.fullName);
