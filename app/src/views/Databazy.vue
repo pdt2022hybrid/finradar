@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-20 mt-14">
+    <div class="mb-20 lg:mt-14 mt-24">
         <div class="flex-col lg:mt-16 flex items-center font-rubik w-full">
             <div class="w-4/5">
                 <h1 class="text-4xl mb-10 font-extrabold">Databázy</h1>

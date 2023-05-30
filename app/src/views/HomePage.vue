@@ -195,7 +195,7 @@ export default {
     }
 
     .card{
-        @apply bg-gray flex flex-col items-center rounded-lg mx-10 lg:mb-0 mb-10 p-4
+        @apply  flex flex-col items-center rounded-lg mx-10 lg:mb-0 mb-10 p-4
     }
 }
 </style>
