@@ -143,7 +143,7 @@ export default {
             store: useUserInfo(),
             loaded: false,
             companyData: [],
-            logged: store.LoggedIn,
+            logged: store.getLoggedIn,
         };
     },
 
@@ -174,12 +174,10 @@ export default {
             this.loaded = true;
         },
         togglePinCompany() {
-            if (this.companyData.pinned) {
+            if (this.companyData.pinned === false) {
                 this.store.pinCompany(this.companyData.ico)
                 this.companyData.pinned = true
-            }
-
-            if (!this.companyData.pinned) {
+            } else {
                 this.store.unpinCompany(this.companyData.ico)
                 this.companyData.pinned = false
             }
