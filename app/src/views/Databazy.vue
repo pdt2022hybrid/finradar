@@ -21,7 +21,7 @@
                         @click="show_filters = !show_filters"
                     >
                         <i class="bi bi-chevron-up mx-2"></i>
-                        Skovať filtre
+                        Schovať filtre
                     </div>
                     <transition>
                         <div

@@ -11,7 +11,7 @@
                 <i
                     v-if="logged === true"
                     @click="togglePinCompany"
-                    class="bi bi-pin-angle-fill text-3xl ml-4 mt-1 pl-2 hover:cursor-pointer hover:text-green"
+                    class="bi bi-pin-angle-fill text-3xl ml-4 lg:mt-1 mt-11 pl-2 hover:cursor-pointer hover:text-green"
                     :class="{
                         textGreen: companyData.pinned
                     }"
