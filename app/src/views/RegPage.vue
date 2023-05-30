@@ -12,7 +12,7 @@
         </div>
         <div class="flex justify-center lg:w-1/2">
             <form
-                class="bg-light p-6 px-16 lg:w-3/4 rounded-md"
+                class="bg-gray p-6 px-16 lg:w-3/4 rounded-md"
                 onsubmit="return false"
             >
                 <label class="block">
