@@ -27,6 +27,7 @@
 import Loader from "@/components/Loader.vue";
 import Table from "@/components/Table.vue";
 import { useUserInfo } from "@/stores/userData";
+import router from "@/router";
 
 export default {
     name: "UserDashboard",
@@ -44,11 +45,11 @@ export default {
             store: useUserInfo(),
         };
     },
-    mounted() {
-        if (this.store.UserToken !== "") {
-            $router.go(-1);
+    async mounted() {
+        if (this.store.UserToken === "" && localStorage.getItem("UserToken") === null) {
+            await router.push({path: '/home'})
         }
-        this.store.getPinnedCompanies(this.token);
+        await this.store.getPinnedCompanies(this.token);
         this.loaded = true;
     },
 };

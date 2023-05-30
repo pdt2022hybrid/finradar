@@ -75,6 +75,8 @@
     </nav>
     <MiniLogin v-if="MiniLogIn"
         @hide="MiniLogIn = false"
+        @startLoad="$emit('startLoad')"
+        @stopLoad="$emit('stopLoad')"
     />
     <UserMiniSettings v-if="UserSettingsWindow"
         @hide="UserSettingsWindow = false"

@@ -13,8 +13,7 @@
                     @click="togglePinCompany"
                     class="bi bi-pin-angle-fill text-3xl ml-4 mt-1 pl-2 hover:cursor-pointer hover:text-green"
                     :class="{
-                        'text-green': companyData.pinned,
-                        // 'hover:text-green': hoverPin,
+                        textGreen: companyData.pinned
                     }"
                 >
                 </i>
@@ -236,6 +235,9 @@ export default {
 
     .box {
         @apply flex flex-col items-start px-6 py-2;
+    }
+    .textGreen {
+        @apply text-green
     }
 }
 </style>

@@ -24,7 +24,6 @@
                         <i class="bi bi-card-list mr-1 text-lg"></i>
                         <router-link to="/database"> Databázy</router-link>
                     </li>
-                    <!-- TODO: urobit selective loading podla usera -->
                     <li
                         @click="toggle"
                         v-if="store.LoggedIn"

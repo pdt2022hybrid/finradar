@@ -56,17 +56,20 @@ export default {
     },
     methods: {
         async checkForm() {
+            this.$emit('startLoad')
             if(this.email === null || this.email === "") {
+                this.$emit('stopLoad')
                 alert("E-mail missing")
                 return false
             }
             if(this.password === null || this.password === "") {
+                this.$emit('stopLoad')
                 alert("Password missing")
                 return false
             }
-
             const store = useUserInfo()
             await store.login(this.password, this.email)
+            this.$emit('stopLoad')
             this.$emit('hide')
             await router.push({path: '/dashboard'})
         }

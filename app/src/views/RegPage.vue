@@ -98,7 +98,6 @@ export default {
             surname: null,
             password: null,
             password_confirm: null,
-            numOfMissingData: 0,
             valid_pass: {
                 under20: true,
                 over8: true,
@@ -108,24 +107,24 @@ export default {
     methods: {
         checkForm() {
             if (this.email === null || this.email === "") {
-                this.numOfMissingData++;
+                alert("E-mail missing")
+                return false
             }
             if (this.fullName === null || this.fullName === "") {
-                this.numOfMissingData++;
+                alert("Full name missing")
+                return false
             }
             if (this.password === null || this.password === "") {
-                this.numOfMissingData++;
+                alert("Password missing")
+                return false
             }
             if (
                 this.password_confirm === null ||
                 this.password_confirm === ""
             ) {
-                this.numOfMissingData++;
+                alert("Please confirm your password")
+                return false
             }
-            if (this.numOfMissingData > 0) {
-                return false;
-            }
-            this.numOfMissingData = 0;
             if (this.password.length < 8) {
                 this.valid_pass.over8 = false;
                 this.errorCheck();

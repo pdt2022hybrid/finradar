@@ -20,7 +20,7 @@ export const useUserInfo = defineStore("UserInfo", {
             return this.LoggedIn || localStorage.getItem("Logged") !== null;
         },
         getUserToken(): any {
-            return this.UserToken || localStorage.getItem("UserToken");
+            return this.UserToken !== "" || localStorage.getItem("UserToken");
         },
     },
     actions: {
