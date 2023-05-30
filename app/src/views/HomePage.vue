@@ -84,11 +84,11 @@
     <div class="mainContentText flex flex-col justify-center items-center mb-20">
         <h2>Čo sa dá na našej stránke robiť?</h2>
         <div class="w-1/2 mt-6 font-rubik">
-            <ul style="list-style: outside">
-                <li class="lg:w-2/3 w-64">Vyhľadávať v databáze firiem</li>
-                <li class="lg:w-2/3 w-64">Zobrazovať detailné štatistiky a údaje firiem</li>
-                <li class="lg:w-2/3 w-64">
-                    Registrovaný používatelia majú taktiež možnosť "pinnúť" si
+            <ul style="text-align: center;">
+                <li class="lg:w-full w-64">Vyhľadávať v databáze firiem,</li>
+                <li class="lg:w-full w-64">Zobrazovať detailné štatistiky a údaje firiem,</li>
+                <li class="lg:w-full w-64">
+                    Registrovaný používatelia majú taktiež možnosť pripnúť si
                     firmu do vlastného listu na vlastnom dashboarde
                 </li>
             </ul>
