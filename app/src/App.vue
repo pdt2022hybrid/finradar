@@ -36,7 +36,7 @@ export default {
     mounted() {
         this.updateScreenWidth();
         this.onScreenResize();
-        if(this.store.LoggedIn === true) {
+        if(this.store.LoggedIn === true || localStorage.getItem("Logged") === "true") {
         this.store.refreshToken(this.token)
         }
 

@@ -83,7 +83,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import { useUserInfo } from "@/stores/userData";
 import router from "@/router";
 
@@ -142,7 +141,7 @@ export default {
                 this.password,
                 this.password_confirm
             );
-            router.push({ path: "dashboard" });
+            router.push({ path: "dashboard" })
             return false;
         },
         splitName() {

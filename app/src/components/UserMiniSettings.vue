@@ -40,8 +40,8 @@ export default {
             store.$reset()
             console.log(store.UserData)
             localStorage.clear()
-            this.$emit('hide')
             router.push({path: '/home'})
+            this.$emit('hide')
         }
     }
 };

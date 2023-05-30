@@ -1,5 +1,5 @@
 <template>
-    <div class="text-background">
+    <div class="text-background z-50">
         <form
             onsubmit="return false"
             class="z-50 bg-dark flex w-1/5 items-center absolute right-32 rounded-xl p-5 mt-2 flex-col"

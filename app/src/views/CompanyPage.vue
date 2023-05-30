@@ -9,7 +9,7 @@
                     {{ companyData?.name }}
                 </h1>
                 <i
-                    v-if="!logged === true"
+                    v-if="logged === true"
                     @click="togglePinCompany"
                     class="bi bi-pin-angle-fill text-3xl ml-4 mt-1 pl-2 hover:cursor-pointer hover:text-green"
                     :class="{
@@ -155,7 +155,7 @@ export default {
 
     methods: {
         async changeRouter() {
-            this.loaded = false;
+            this.loaded = false
             try {
                 let ico = this.$route.params.ico;
                 await axios
@@ -166,8 +166,8 @@ export default {
                     })
                     .then((response) => {
                         this.companyData = response.data.data;
-                        console.log(this.companyData);
-                    });
+                        console.log(this.companyData)
+                    })
             } catch (errors) {
                 console.log(errors);
             }
@@ -175,13 +175,13 @@ export default {
         },
         togglePinCompany() {
             if (this.companyData.pinned) {
-                this.store.pinCompany(this.companyData.ico);
-                this.companyData.pinned = true;
+                this.store.pinCompany(this.companyData.ico)
+                this.companyData.pinned = true
             }
 
             if (!this.companyData.pinned) {
-                this.store.unpinCompany(this.companyData.ico);
-                this.companyData.pinned = false;
+                this.store.unpinCompany(this.companyData.ico)
+                this.companyData.pinned = false
             }
         },
     },
