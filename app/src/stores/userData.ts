@@ -49,6 +49,7 @@ export const useUserInfo = defineStore("UserInfo", {
                     console.log(this.UserToken);
                 });
             } catch (errors) {
+                alert(errors)
                 console.log(errors);
             }
         },
@@ -86,6 +87,7 @@ export const useUserInfo = defineStore("UserInfo", {
                     console.log(this.UserToken);
                 });
             } catch (errors) {
+                alert(errors)
                 console.log(errors);
             }
         },
@@ -124,6 +126,7 @@ export const useUserInfo = defineStore("UserInfo", {
                     console.log(response);
                 });
             } catch (errors) {
+                alert(errors)
                 console.log(errors);
             }
         },
@@ -143,8 +146,38 @@ export const useUserInfo = defineStore("UserInfo", {
                     console.log(response);
                 });
             } catch (errors) {
+                alert(errors)
                 console.log(errors);
             }
-        }
+        },
+        async refreshToken(token: string) {
+            try {
+                await axios({
+                    method: "post",
+                    url: "/refresh",
+                    headers: {
+                        Authorization: "Bearer" + token,
+                    },
+                }).then((response) => {
+                    this.UserToken = response.data.data.token;
+                    this.UserData = response.data.data.user;
+                    localStorage.setItem("Username", this.UserData.name);
+                    localStorage.setItem("UserSurname", this.UserData.surname);
+                    localStorage.setItem("E-mail", this.UserData.email);
+                    localStorage.setItem("UserToken", this.UserToken);
+                    this.LoggedIn = true;
+                    localStorage.setItem(
+                        "Logged",
+                        JSON.stringify(this.LoggedIn)
+                    );
+                    console.log(this.UserToken);
+
+                    console.log(response);
+                });
+            } catch (errors) {
+                alert(errors)
+                console.log(errors);
+            }
+        },
     },
 });

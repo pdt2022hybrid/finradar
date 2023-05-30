@@ -56,6 +56,15 @@ export default {
     },
     methods: {
         async checkForm() {
+            if(this.email === null || this.email === "") {
+                alert("E-mail missing")
+                return false
+            }
+            if(this.password === null || this.password === "") {
+                alert("Password missing")
+                return false
+            }
+
             const store = useUserInfo()
             await store.login(this.password, this.email)
             this.$emit('hide')

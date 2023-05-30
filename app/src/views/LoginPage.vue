@@ -66,6 +66,14 @@ export default {
     },
     methods: {
         checkForm() {
+            if(this.email === null || this.email === "") {
+                alert("E-mail missing")
+                return false
+            }
+            if(this.password === null || this.password === "") {
+                alert("Password missing")
+                return false
+            }
             store.login(this.password, this.email);
             router.push({ path: "dashboard" });
         },
