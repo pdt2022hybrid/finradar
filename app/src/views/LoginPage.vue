@@ -67,11 +67,11 @@ export default {
     methods: {
         checkForm() {
             if(this.email === null || this.email === "") {
-                alert("E-mail missing")
+                alert("Zadajte prosím E-mail")
                 return false
             }
             if(this.password === null || this.password === "") {
-                alert("Password missing")
+                alert("Zadajte prosím heslo")
                 return false
             }
             store.login(this.password, this.email);
