@@ -192,7 +192,7 @@ export default {
     },
 };
 </script>
-//TODO: ak je scoped, tak nemozeme odstranit @tailwind
+
 <style scoped>
 @tailwind base;
 @tailwind components;
