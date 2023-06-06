@@ -5,7 +5,10 @@
                 <p class="active:text-green">Mapa Stránok</p>
             </router-link>
             <div class="flex flex-row">
-                <div v-if="popup" class="bg-white border border-b-searchborder absolute p-4 rounded-md">
+                <p class="hover:cursor-pointer active:text-green disabled opacity-60" @click="popup = !popup">Kontakt</p>
+            </div>
+        </div>
+                <div v-if="popup" class="bg-white border border-b-searchborder absolute p-4 rounded-md right-64 mr-4">
                     <p class="text-dark mb-3 font-semibold">
                         Polak@openlab.sk
                     </p>
@@ -13,9 +16,6 @@
                         Vilagi@openlab.sk
                     </p>
                 </div>
-                <p class="hover:cursor-pointer active:text-green disabled opacity-60" @click="popup = !popup">Kontakt</p>
-            </div>
-        </div>
     </div>
 </template>
 
